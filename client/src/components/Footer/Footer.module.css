@@ -1,0 +1,63 @@
+.mainFooterConteiner {
+  position: absolute;
+  top: 1295px !important;
+  left: 0;
+  width: 1440px;
+  height: 381px;
+  border: 1px solid #000000;
+  font-family: inter-ui;
+}
+
+.content {
+  padding: 72px 52px;
+  width: 1336px;
+  height: 162px;
+  display: flex;
+}
+
+li {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  gap: 30px;
+}
+
+.columnName {
+  width: 668px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.columnShop {
+  width: 222px !important;
+}
+.columnInfo {
+  width: 223px !important;
+}
+.columnCompany {
+  width: 222px !important;
+}
+
+.textlink {
+  cursor: pointer;
+  font-size: 14px;
+}
+.titletext {
+  font-size: 16px;
+  font: bold;
+}
+
+.copyright {
+  padding: 0px 0px 0px 52px;
+  width: 1336px;
+  height: 48px;
+  display: flex;
+  align-items: flex-end;
+}
