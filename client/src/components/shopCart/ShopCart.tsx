@@ -141,6 +141,276 @@ export default function ShopCart() {
             </div>
           </div>
         </div>
+        <div className={styles.InfoGoods}>
+          <div className={styles.Product}>
+            <h5>Product</h5>
+            <div className={styles.ProductChildElement}>
+              <div>
+                <img
+                  src={shoesImage}
+                  alt="product"
+                  className={styles.Img_Product}
+                />
+              </div>
+              <div className={styles.ProductInfo}>
+                <span>AirBrags@ Sneackers</span>
+                <span>Size: 2XL, Color: Green</span>
+                <div className={styles.TrashContainer}>
+                  <img
+                    src={trashIcon}
+                    alt="trashImg"
+                    className={styles.Icon_Trash}
+                  />
+                  <button onClick={test} className={styles.Btn_Remove}>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.Quantity}>
+            <h5>Quantity</h5>
+            <div className={styles.Counter}>
+              <div className={styles.CounterBorder}>
+                <button onClick={Dicrement} className={styles.Dicrement}>
+                  -
+                </button>
+                <span className={styles.Count}>{counter.counter}</span>
+                <button onClick={Increment} className={styles.Increment}>
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.Price}>
+            <h5>Price</h5>
+            <div className={styles.PriceCounter}>
+              <span>{price.price}$</span>
+            </div>
+          </div>
+          <div className={styles.Subtotal}>
+            <h5>Subtotal</h5>
+            <div className={styles.PriceCounter}>
+              <b>{price.price}$</b>
+            </div>
+          </div>
+        </div>{' '}
+        <div className={styles.InfoGoods}>
+          <div className={styles.Product}>
+            <h5>Product</h5>
+            <div className={styles.ProductChildElement}>
+              <div>
+                <img
+                  src={shoesImage}
+                  alt="product"
+                  className={styles.Img_Product}
+                />
+              </div>
+              <div className={styles.ProductInfo}>
+                <span>AirBrags@ Sneackers</span>
+                <span>Size: 2XL, Color: Green</span>
+                <div className={styles.TrashContainer}>
+                  <img
+                    src={trashIcon}
+                    alt="trashImg"
+                    className={styles.Icon_Trash}
+                  />
+                  <button onClick={test} className={styles.Btn_Remove}>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.Quantity}>
+            <h5>Quantity</h5>
+            <div className={styles.Counter}>
+              <div className={styles.CounterBorder}>
+                <button onClick={Dicrement} className={styles.Dicrement}>
+                  -
+                </button>
+                <span className={styles.Count}>{counter.counter}</span>
+                <button onClick={Increment} className={styles.Increment}>
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.Price}>
+            <h5>Price</h5>
+            <div className={styles.PriceCounter}>
+              <span>{price.price}$</span>
+            </div>
+          </div>
+          <div className={styles.Subtotal}>
+            <h5>Subtotal</h5>
+            <div className={styles.PriceCounter}>
+              <b>{price.price}$</b>
+            </div>
+          </div>
+        </div>{' '}
+        <div className={styles.InfoGoods}>
+          <div className={styles.Product}>
+            <h5>Product</h5>
+            <div className={styles.ProductChildElement}>
+              <div>
+                <img
+                  src={shoesImage}
+                  alt="product"
+                  className={styles.Img_Product}
+                />
+              </div>
+              <div className={styles.ProductInfo}>
+                <span>AirBrags@ Sneackers</span>
+                <span>Size: 2XL, Color: Green</span>
+                <div className={styles.TrashContainer}>
+                  <img
+                    src={trashIcon}
+                    alt="trashImg"
+                    className={styles.Icon_Trash}
+                  />
+                  <button onClick={test} className={styles.Btn_Remove}>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.Quantity}>
+            <h5>Quantity</h5>
+            <div className={styles.Counter}>
+              <div className={styles.CounterBorder}>
+                <button onClick={Dicrement} className={styles.Dicrement}>
+                  -
+                </button>
+                <span className={styles.Count}>{counter.counter}</span>
+                <button onClick={Increment} className={styles.Increment}>
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.Price}>
+            <h5>Price</h5>
+            <div className={styles.PriceCounter}>
+              <span>{price.price}$</span>
+            </div>
+          </div>
+          <div className={styles.Subtotal}>
+            <h5>Subtotal</h5>
+            <div className={styles.PriceCounter}>
+              <b>{price.price}$</b>
+            </div>
+          </div>
+        </div>{' '}
+        <div className={styles.InfoGoods}>
+          <div className={styles.Product}>
+            <h5>Product</h5>
+            <div className={styles.ProductChildElement}>
+              <div>
+                <img
+                  src={shoesImage}
+                  alt="product"
+                  className={styles.Img_Product}
+                />
+              </div>
+              <div className={styles.ProductInfo}>
+                <span>AirBrags@ Sneackers</span>
+                <span>Size: 2XL, Color: Green</span>
+                <div className={styles.TrashContainer}>
+                  <img
+                    src={trashIcon}
+                    alt="trashImg"
+                    className={styles.Icon_Trash}
+                  />
+                  <button onClick={test} className={styles.Btn_Remove}>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.Quantity}>
+            <h5>Quantity</h5>
+            <div className={styles.Counter}>
+              <div className={styles.CounterBorder}>
+                <button onClick={Dicrement} className={styles.Dicrement}>
+                  -
+                </button>
+                <span className={styles.Count}>{counter.counter}</span>
+                <button onClick={Increment} className={styles.Increment}>
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.Price}>
+            <h5>Price</h5>
+            <div className={styles.PriceCounter}>
+              <span>{price.price}$</span>
+            </div>
+          </div>
+          <div className={styles.Subtotal}>
+            <h5>Subtotal</h5>
+            <div className={styles.PriceCounter}>
+              <b>{price.price}$</b>
+            </div>
+          </div>
+        </div>
+        <div className={styles.InfoGoods}>
+          <div className={styles.Product}>
+            <h5>Product</h5>
+            <div className={styles.ProductChildElement}>
+              <div>
+                <img
+                  src={shoesImage}
+                  alt="product"
+                  className={styles.Img_Product}
+                />
+              </div>
+              <div className={styles.ProductInfo}>
+                <span>AirBrags@ Sneackers</span>
+                <span>Size: 2XL, Color: Green</span>
+                <div className={styles.TrashContainer}>
+                  <img
+                    src={trashIcon}
+                    alt="trashImg"
+                    className={styles.Icon_Trash}
+                  />
+                  <button onClick={test} className={styles.Btn_Remove}>
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.Quantity}>
+            <h5>Quantity</h5>
+            <div className={styles.Counter}>
+              <div className={styles.CounterBorder}>
+                <button onClick={Dicrement} className={styles.Dicrement}>
+                  -
+                </button>
+                <span className={styles.Count}>{counter.counter}</span>
+                <button onClick={Increment} className={styles.Increment}>
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.Price}>
+            <h5>Price</h5>
+            <div className={styles.PriceCounter}>
+              <span>{price.price}$</span>
+            </div>
+          </div>
+          <div className={styles.Subtotal}>
+            <h5>Subtotal</h5>
+            <div className={styles.PriceCounter}>
+              <b>{price.price}$</b>
+            </div>
+          </div>
+        </div>
         {/* тут map заканчивается */}
       </div>
       <div className={styles.InfoOrder}>

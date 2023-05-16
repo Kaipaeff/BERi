@@ -2,7 +2,7 @@
   width: 1107px;
   margin-left: auto;
   margin-right: auto;
-  height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,6 +30,7 @@
   margin-top: 100px;
   width: 100%;
   border: 1px solid black;
+  padding: 30px;
 }
 
 .InfoGoods {
@@ -97,6 +98,7 @@
   border: solid 1px black;
   width: 100%;
   margin-top: 50px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: space-around;
 }
