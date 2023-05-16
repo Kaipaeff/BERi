@@ -11,35 +11,35 @@ export function Navbar() {
     <div className={style.navbar}>
       <div className={style.container}>
         
-      <Link to='/'>
-        <div className={style.navLogo}>
-          <span>BERi</span>
+        <Link to='/'>
+          <div className={style.navLogo}>
+            <span>BERi</span>
+          </div>
+        </Link>
+
+        <div className={style.navMenu}>
+
+          <Link to='/clothes'>
+            <span>одежда</span>
+          </Link>
+
+          <Link to='/shoes'>
+            <span>обувь</span>
+          </Link>
+
+          <Link to='/accessories'>
+            <span>аксессуары</span>
+          </Link>
+
+          <Link to='/brands'>
+            <span>премиум бренды</span>
+          </Link>
+
+          <Link to='/sale'>
+            <span>sale %</span>
+          </Link>
+
         </div>
-      </Link>
-
-      <div className={style.navMenu}>
-
-        <Link to='/clothes'>
-          <span>одежда</span>
-        </Link>
-
-        <Link to='/shoes'>
-          <span>обувь</span>
-        </Link>
-
-        <Link to='/accessories'>
-          <span>аксессуары</span>
-        </Link>
-
-        <Link to='/brands'>
-          <span>премиум бренды</span>
-        </Link>
-
-        <Link to='/sale'>
-          <span>sale %</span>
-        </Link>
-
-      </div>
 
       <div className={style.navIcons}>
 
