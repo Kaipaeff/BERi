@@ -8,6 +8,12 @@ import { Brands } from './components/Brands/Brands';
 import { Sale } from './components/Sale/Sale';
 import { Favorites } from './components/Favorites/Favorites';
 import { Home } from './components/Home/Home';
+import ShopCart from './components/shopCart/ShopCart';
+import Footer from './components/Footer/Footer'; 
+import AboutUs from './components/AboutUs/AboutUs';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
+import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
+import ContactUs from './components/ContactUs/ContactUs';       
 
 import sliderImage from './img/images/slider/sliderImage.jpg'
 import leftButton from './img/icons/ButtonLeft.svg'
@@ -18,6 +24,8 @@ function App() {
     <div className={style.wrapper}>
 
       <Navbar />
+       <ShopCart />
+      <Footer />
       {/* <hr /> */}
 
       <div className={style.slider}>
@@ -35,10 +43,15 @@ function App() {
           <Route path='/brands' element={<Brands/>}/>
           <Route path='/sale' element={<Sale/>}/>
           <Route path='/favorites' element={<Favorites/>}/>
+               <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/termsandconditions" element={<TermsAndConditions />} />
+        <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </div>
 
     </div>
+
   );
 }
 
