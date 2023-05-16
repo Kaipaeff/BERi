@@ -1,11 +1,8 @@
 .mainFooterConteiner {
-  position: absolute;
-  top: 1295px;
-  left: 0;
+  margin-left: auto;
+  margin-right: auto;
   width: 1440px;
   height: 381px;
-  border: 1px solid #b6b3b3;
-  font-family: inter-ui;
   background: #fafafb;
 }
 
@@ -37,13 +34,13 @@ ul {
 }
 
 .columnShop {
-  width: 222px;
+  width: 200px;
 }
 .columnInfo {
-  width: 223px;
+  width: 250px;
 }
 .columnCompany {
-  width: 222px;
+  width: 250px;
 }
 
 .textlink {
