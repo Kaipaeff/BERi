@@ -1,17 +1,18 @@
-const express = require('express'); 
-const app = express(); 
+const express = require('express');
+const app = express();
 require('@babel/register');
-const morgan = require('morgan'); 
+const morgan = require('morgan');
 const path = require('path');
-require('dotenv').config(); 
+require('dotenv').config();
 
 //импорт вспомогательных ф-й
 const dbCheck = require('./db/dbCheck');
 
 // импорт роутов
 const indexRoutes = require('./routes/indexRoutes');
+const productRouter = require('./routes/ProductRouter');
 
- // вызов функции проверки соединения с базоый данных
+// вызов функции проверки соединения с базоый данных
 dbCheck();
 
 app.use(express.static(path.resolve('public')));
@@ -21,9 +22,10 @@ app.use(express.json());
 
 //роутеры
 app.use('/', indexRoutes);
+app.use('/cart', productRouter);
 
 const PORT = process.env.PORT || 3100;
 app.listen(PORT, (err) => {
-  if (err) return console.log('Ошибка запуска сервера.', err.message)
+  if (err) return console.log('Ошибка запуска сервера.', err.message);
   console.log(`Сервер запущен на http://localhost:${PORT} `);
 });

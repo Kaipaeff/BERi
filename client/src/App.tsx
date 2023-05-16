@@ -14,6 +14,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
 import ContactUs from './components/ContactUs/ContactUs';
+import Goods from './components/Goods/Goods';
 
 import sliderImage from './img/images/slider/sliderImage.jpg';
 import leftButton from './img/icons/ButtonLeft.svg';
@@ -53,6 +54,7 @@ function App() {
           <Route path="/cart" element={<ShopCart />} />
         </Routes>
       </div>
+      <Goods />
       <Footer />
     </div>
   );
