@@ -1,4 +1,4 @@
-import style from './app.module.css';;
+import style from './app.module.css';
 import { Navbar } from './components/Navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { Clothes } from './components/Clothes/Clothes';
@@ -14,11 +14,10 @@ import AboutUs from './components/AboutUs/AboutUs';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
 import ContactUs from './components/ContactUs/ContactUs';
-import ContactUs from './components/ContactUs/ContactUs';
 
-import sliderImage from './img/images/slider/sliderImage.jpg';;
-import leftButton from './img/icons/ButtonLeft.svg';;
-import rightButton from './img/icons/ButtonRight.svg';;
+import sliderImage from './img/images/slider/sliderImage.jpg';
+import leftButton from './img/icons/ButtonLeft.svg';
+import rightButton from './img/icons/ButtonRight.svg';
 
 function App() {
   return (
