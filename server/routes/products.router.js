@@ -13,7 +13,7 @@ route.get('/', async (req, res) => {
       ],
     });
     const result = products.map((el) => el.get({ plain: true }));
-    console.log(result);
+    // console.log(result);
     res.json(products);
   } catch (error) {
     res.json({ error });
