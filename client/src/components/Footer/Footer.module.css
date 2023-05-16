@@ -33,16 +33,19 @@
   flex-direction: column;
   justify-content: flex-start;
   width: max-content;
+  gap: 10px;
 }
 .columnInfo {
   display: flex;
   flex-direction: column;
   width: max-content;
+  gap: 10px;
 }
 .columnCompany {
   display: flex;
   flex-direction: column;
   width: max-content;
+  gap: 10px;
 }
 
 .textlink {
