@@ -2,8 +2,8 @@ import React from 'react';
 import styleFooter from './Footer.module.css';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 
-export default function Footer() {
-    const navigate: NavigateFunction = useNavigate();
+export default function Footer():JSX.Element{
+  const navigate: NavigateFunction = useNavigate();
   return (
     <div className={styleFooter.mainFooterConteiner}>
       <div className={styleFooter.content}>
@@ -46,24 +46,84 @@ export default function Footer() {
         </div>
         <div className={styleFooter.columnShop}>
           <h3 className={styleFooter.titletext}>Покупателям</h3>
-          <p className={styleFooter.textlink} onClick={() => navigate('/login')}>Вход</p>
-          <p className={styleFooter.textlink} onClick={() => navigate('/myAccount')}>Моя страница</p>
-          <p className={styleFooter.textlink} onClick={() => navigate('/myWishlist')}>Избранное</p>
-          <p className={styleFooter.textlink} onClick={() => navigate('/myCart')}>Корзина</p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/login')}
+          >
+            Вход
+          </p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/myAccount')}
+          >
+            Моя страница
+          </p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/myWishlist')}
+          >
+            Избранное
+          </p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/myCart')}
+          >
+            Корзина
+          </p>
         </div>
         <div className={styleFooter.columnInfo}>
           <h3 className={styleFooter.titletext}>Информация</h3>
-          <p className={styleFooter.textlink} onClick={() => navigate('/shippingPolicy')}>Политика доставки</p>
-          <p className={styleFooter.textlink} onClick={() => navigate('/returnsAndRefunds')}>Возврат и возмещение</p>
-          <p className={styleFooter.textlink} onClick={() => navigate('/cookiesPolicy')}>Политика использования cookie</p>
-          <p className={styleFooter.textlink} onClick={() => navigate('/frequentlyAsked')}>Часто спрашивают</p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/shippingPolicy')}
+          >
+            Политика доставки
+          </p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/returnsAndRefunds')}
+          >
+            Возврат и возмещение
+          </p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/cookiesPolicy')}
+          >
+            Политика использования cookie
+          </p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/frequentlyAsked')}
+          >
+            Часто спрашивают
+          </p>
         </div>
         <div className={styleFooter.columnCompany}>
           <h3 className={styleFooter.titletext}>Магазин</h3>
-          <p className={styleFooter.textlink} onClick={() => navigate('/aboutUs')}>О нас</p>
-          <p className={styleFooter.textlink} onClick={() => navigate('/privacyPolicy')}>Политика конфиденциальности</p>
-          <p className={styleFooter.textlink} onClick={() => navigate('/termsAndConditions')}>Условия и положения</p>
-          <p className={styleFooter.textlink} onClick={() => navigate('/contactUs')}>Cвязаться с нами</p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/aboutus')}
+          >
+            О нас
+          </p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/privacypolicy')}
+          >
+            Политика конфиденциальности
+          </p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/termsandconditions')}
+          >
+            Условия и положения
+          </p>
+          <p
+            className={styleFooter.textlink}
+            onClick={() => navigate('/contactus')}
+          >
+            Cвязаться с нами
+          </p>
         </div>
       </div>
       <div className={styleFooter.copyright}>©️ 2023 BERi</div>
