@@ -1,0 +1,143 @@
+.Main {
+  width: 1107px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Head {
+  display: flex;
+  height: 100px;
+  flex-direction: column;
+  align-items: center;
+}
+.DileveryLine {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.DileveryLiner {
+  height: 8px;
+  width: 300px;
+  border-radius: 45px;
+  background: #20c997;
+}
+.Content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  width: 100%;
+  border: 1px solid black;
+  padding: 30px;
+}
+
+.InfoGoods {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.Img_Product {
+  width: 77px;
+  height: 102px;
+  margin-right: 16px;
+  border: 1px solid black;
+}
+.Icon_Trash {
+  width: 18px;
+  height: 18px;
+}
+.TrashContainer {
+  display: flex;
+  align-items: center;
+}
+.Btn_Remove {
+  width: 50%;
+  border: none;
+}
+.ProductChildElement {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.ProductInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+.Subtotal,
+.Product,
+.Price,
+.Quantity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-items: center;
+}
+.Count {
+  padding: 0 10px 0 10px;
+}
+.CounterBorder {
+  border: 1px solid #cbcbcb;
+  border-radius: 4px;
+}
+.Counter,
+.PriceCounter {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.Dicrement,
+.Increment {
+  border: none;
+  padding: 6px 8px;
+}
+.InfoOrder {
+  border: solid 1px black;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+.LeftSide_Promocod {
+  width: 538px;
+}
+/* .RightSide_DeliveryChoice {
+} */
+.DeliveryPrice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 490px;
+  height: 52px;
+  padding-right: 16px;
+  border-radius: 4px;
+}
+.ShippingContainer {
+  display: flex;
+  align-items: flex-start;
+}
+.SpanPrice {
+  padding-left: 12px;
+}
+.RadioPrice {
+  margin-left: 16px;
+}
+.Btn_Order {
+  width: 100%;
+  color: white;
+  background: black;
+}
+.Test1 {
+  border: 1px solid black;
+}
+.Test2 {
+  border: 1px solid red;
+}
+.styles.Test2 {
+  border: none;
+}
