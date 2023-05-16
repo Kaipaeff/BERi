@@ -4,16 +4,18 @@ require('@babel/register');
 const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config();
+const cors = require('cors');
 
 //импорт вспомогательных ф-й
 const dbCheck = require('./db/dbCheck');
 
 // импорт роутов
-const indexRoutes = require('./routes/indexRoutes');
-const productRouter = require('./routes/ProductRouter');
+const productRoutes = require('./routes/products.router');
 
 // вызов функции проверки соединения с базоый данных
 dbCheck();
+
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 app.use(express.static(path.resolve('public')));
 app.use(morgan('dev'));
@@ -23,6 +25,7 @@ app.use(express.json());
 //роутеры
 app.use('/', indexRoutes);
 app.use('/cart', productRouter);
+app.use('/products', productRoutes);
 
 const PORT = process.env.PORT || 3100;
 app.listen(PORT, (err) => {
