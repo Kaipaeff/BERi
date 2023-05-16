@@ -18,15 +18,17 @@ import ContactUs from './components/ContactUs/ContactUs';
 import sliderImage from './img/images/slider/sliderImage.jpg';
 import leftButton from './img/icons/ButtonLeft.svg';
 import rightButton from './img/icons/ButtonRight.svg';
+import ShippingPolicy from './components/ShippingPolicy/ShippingPolicy';
+import ReturnsAndRefunds from './components/ReturnsAndRefunds/ReturnsAndRefunds';
+import CookiesPolicy from './components/CookiesPolicy/CookiesPolicy';
+import FrequentlyAsked from './components/FrequentlyAsked/FrequentlyAsked';
+import LogIn from './components/LogIn/LogIn';
+import MyAccount from './components/MyAccount/MyAccount';
 
 function App() {
   return (
     <div className={style.wrapper}>
       <Navbar />
-      {/* <ShopCart /> */}
-
-      {/* <hr /> */}
-
       <div className={style.slider}>
         <img src={sliderImage} alt="sliderImage" />
         <img className={style.leftButton} src={leftButton} alt="leftButton" />
@@ -50,6 +52,12 @@ function App() {
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
           <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/shippingpolicy" element={<ShippingPolicy />} />
+          <Route path="/returnsandrefunds" element={<ReturnsAndRefunds />} />
+          <Route path="/cookiespolicy" element={<CookiesPolicy />} />
+          <Route path="/frequentlyasked" element={<FrequentlyAsked />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/cart" element={<ShopCart />} />
         </Routes>
       </div>
