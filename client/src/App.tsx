@@ -24,7 +24,7 @@ function App() {
     <div className={style.wrapper}>
 
       <Navbar />
-       <ShopCart />
+      {/* <ShopCart /> */}
       <Footer />
       {/* <hr /> */}
 
@@ -43,11 +43,15 @@ function App() {
           <Route path='/brands' element={<Brands/>}/>
           <Route path='/sale' element={<Sale/>}/>
           <Route path='/favorites' element={<Favorites/>}/>
-               <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-        <Route path="/termsandconditions" element={<TermsAndConditions />} />
-        <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/termsandconditions" element={<TermsAndConditions />} />
+          <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/cart" element={<ShopCart />} />
+
         </Routes>
+
+      
       </div>
 
     </div>
