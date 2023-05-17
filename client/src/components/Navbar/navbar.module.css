@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -18,28 +19,140 @@ a {
   color: #121212;
 }
 
+a .saleLink {
+  color: red;
+  font-weight: 700;
+}
+
+
+.clothesLink:after {
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #121212;
+	content: "";
+	transition: width 0.3s ease-out;
+}
+
+.clothesLink:hover:after,
+.clothesLink:focus:after {
+	width: 12%; 
+}
+
+
+
+
+.shoesLink:after {
+	display: block;
+	position: absolute;
+	left: 10; 
+	width: 0;
+	height: 2px;
+	background-color: #121212;
+	content: "";
+	transition: width 0.3s ease-out;
+}
+
+.shoesLink:hover:after,
+.shoesLink:focus:after {
+	width: 9%;
+}
+
+
+
+.accessoriesLink:after {
+	display: block;
+	position: absolute;
+	left: 10;
+	width: 0;
+	height: 2px;
+	background-color: #121212;
+	content: "";
+	transition: width 0.3s ease-out;
+}
+
+.accessoriesLink:hover:after,
+.accessoriesLink:focus:after {
+	width: 18%;
+}
+
+
+
+.PremiumBrandsLink:after {
+	display: block;
+	position: absolute;
+	left: 10;
+	width: 0;
+	height: 2px;
+	background-color: #121212;
+	content: "";
+	transition: width 0.3s ease-out;
+}
+
+.PremiumBrandsLink:hover:after,
+.PremiumBrandsLink:focus:after {
+	width: 27%;
+}
+
+
+.saleLink:after {
+	display: block;
+	position: absolute;
+	left: 10;
+	width: 0;
+	height: 2px;
+	background-color: #121212;
+	content: "";
+	transition: width 0.3s ease-out;
+}
+
+.saleLink:hover:after,
+.saleLink:focus:after {
+	width: 10%; 
+}
+
+
+
+
+
 .navMenu {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   gap: 30px;
   font-size: 16px;
+  margin-top: 22px;
 }
 
 .navIcons {
   display: flex;
   gap: 30px;
-  align-items: center;
+  align-items: baseline;
+  justify-content: flex-end;
+  width: 220px;
+  height: 25px;
+  /* border: 1px solid #121212; */
+}
+
+.searchIcon {
+  height: 20px;
 }
 
 .favoritesIcon {
   height: 19px;
 }
 
-.cartIcon {
-  height: 21px;
+.cabinetIcon {
+  height: 22px;
 }
 
 .loginIcon {
-  height: 21px;
+  height: 20px;
 }
 
-
+.cartIcon {
+  height: 22px;
+}

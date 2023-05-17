@@ -31,7 +31,8 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 50px;
-  border: 1px solid #756345;
+  margin-bottom: 50px;
+  /* border: 1px solid #756345; */
   width: 1440px;
   min-height: 700px;
   margin-top: 50px;
