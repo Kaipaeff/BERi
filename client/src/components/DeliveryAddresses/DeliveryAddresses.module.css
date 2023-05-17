@@ -1,0 +1,11 @@
+.conteiner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 32px;
+
+  width: 880px;
+  height: 480px;
+}
