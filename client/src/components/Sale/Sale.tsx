@@ -1,5 +1,5 @@
 import React from 'react';
-// import style from './sale.module.css'
+import style from './sale.module.css'
 
 export function Sale() {
 
