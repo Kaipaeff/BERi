@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import style from './app.module.css';;
+import style from './app.module.css';
 
 import { Navbar } from './components/Navbar/Navbar';
 import { Clothes } from './components/Clothes/Clothes';
@@ -17,10 +17,6 @@ import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
 import ContactUs from './components/ContactUs/ContactUs';
 
-import sliderImage from './img/images/slider/sliderImage.jpg';
-import leftButton from './img/icons/ButtonLeft.svg';
-import rightButton from './img/icons/ButtonRight.svg';
-
 import ShippingPolicy from './components/ShippingPolicy/ShippingPolicy';
 import ReturnsAndRefunds from './components/ReturnsAndRefunds/ReturnsAndRefunds';
 import CookiesPolicy from './components/CookiesPolicy/CookiesPolicy';
@@ -29,7 +25,7 @@ import LogIn from './components/LogIn/LogIn';
 
 import MyAccount from './components/MyAccount/MyAccount';
 
-import MainSlider  from './components/MainSlider/MainSlider';
+import MainSlider  from './components/MainSlider/MainSlider';;
 
 function App() {
   return (
