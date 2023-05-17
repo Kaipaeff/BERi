@@ -20,11 +20,13 @@ import ContactUs from './components/ContactUs/ContactUs';
 import sliderImage from './img/images/slider/sliderImage.jpg';
 import leftButton from './img/icons/ButtonLeft.svg';
 import rightButton from './img/icons/ButtonRight.svg';
+
 import ShippingPolicy from './components/ShippingPolicy/ShippingPolicy';
 import ReturnsAndRefunds from './components/ReturnsAndRefunds/ReturnsAndRefunds';
 import CookiesPolicy from './components/CookiesPolicy/CookiesPolicy';
 import FrequentlyAsked from './components/FrequentlyAsked/FrequentlyAsked';
 import LogIn from './components/LogIn/LogIn';
+
 import MyAccount from './components/MyAccount/MyAccount';
 
 import MainSlider  from './components/MainSlider/MainSlider';
