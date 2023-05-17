@@ -7,6 +7,6 @@ export type stateType = {
 };
 
 export type stateTypeAddress = {
-  addresses: IDeliveryAddress[] | void;
+  addresses: IDeliveryAddress[];
   loading: boolean;
 };

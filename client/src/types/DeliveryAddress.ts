@@ -3,3 +3,8 @@ export default interface IDeliveryAddress {
   userId: number;
   address: string;
 }
+
+export interface INewDeliveryAddress {
+  address: string;
+  userId: number;
+}

@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { getDeliveryAddress } from '../Thunk/DeliveryAddress/getDeliveryAddress';
 import { stateTypeAddress } from '../store.types';
 

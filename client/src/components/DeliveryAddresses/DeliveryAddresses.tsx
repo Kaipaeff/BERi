@@ -5,6 +5,7 @@ import { getDeliveryAddress } from '../../redux/Thunk/DeliveryAddress/getDeliver
 import { RootState } from '../../types/types';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { fetchGetAddresses } from '../../redux/Thunk/DeliveryAddress/deliveryAddress.api';
+import AddDeliveryAddress from './AddDeliveryAddress/AddDeliveryAddress';
 
 export default function DeliveryAddresses() {
   const dispatch = useAppDispatch();
@@ -15,22 +16,21 @@ export default function DeliveryAddresses() {
     '🚀🚀 ~ file: DeliveryAddresses.tsx:14 ~ DeliveryAddresses ~ addresses~',
     addresses
   );
-  const userId = 2;
+  const userId = 4;
 
   useEffect(() => {
     dispatch(getDeliveryAddress(userId));
   }, [dispatch]);
 
-  //   useEffect(() => {
-  //     dispatch(fetchGetAddresses(userId));
-  //   }, []);
-
   return (
     <div className={styleDeliveryAddress.conteiner}>
-      <OneAddressCard />
-      <OneAddressCard />
-      <OneAddressCard />
-      <OneAddressCard />
+      {!addresses.length && (
+        <>
+          <p>Адрес доставки не указан...</p>
+          <AddDeliveryAddress userId={userId} />
+        </>
+      )}
+      {addresses.length ? <OneAddressCard /> : null}
     </div>
   );
 }
