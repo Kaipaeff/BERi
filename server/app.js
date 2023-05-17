@@ -12,6 +12,8 @@ const dbCheck = require('./db/dbCheck');
 
 // импорт роутов
 const indexRoutes = require('./routes/indexRoutes');
+const router = require('./routes/index');
+const errorMiddledware = require('./middlewares/error-middleware');
 
 // вызов функции проверки соединения с базоый данных
 dbCheck();
@@ -22,6 +24,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
+app.use('/api', router);
+app.use(errorMiddledware);
 
 //роутеры
 app.use('/', indexRoutes);
