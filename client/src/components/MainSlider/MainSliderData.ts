@@ -15,7 +15,7 @@ const images: IImages[] = [
     id: 1,
     image: sliderImage1 ,
     title: 'Все необходимое для Вашего ребенка',
-    description: 'Здесь необходимо придумать некоторое описание',
+    description: 'внутри нашего каталога',
   },
 
   // {

@@ -21,38 +21,41 @@ export default function MainSlider() {
   let settings = {
     dots: false,
     infinite: true,
-    speed: 2000,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000
+    autoplaySpeed: 5000
   };
 
 
   return (
     <div className={style.sliderDiv}>
       <div className={style.slider}>
-      <Slider {...settings}>
+        <Slider {...settings}>
 
-        <div>
-          <img src={sliderImage1} alt="sliderImage1" />
-        </div>
+          <div>
+            <img src={sliderImage1} alt="sliderImage1" />
+          </div>
 
-        <div>
-          <img src={sliderImage2} alt="sliderImage2" />
-        </div>
+          <div>
+            <img src={sliderImage2} alt="sliderImage2" />
+          </div>
 
-        <div>
-          <img src={sliderImage3} alt="sliderImage3" />
-        </div>
+          <div>
+            <img src={sliderImage3} alt="sliderImage3" />
+          </div>
 
-      </Slider>
+        </Slider>
+      </div>
 
       {images.map((el) => {
         return (
           <div className={style.sliderDescriptionDiv} key={el.id}>
+
             <h3 className={style.sliderTitle}>{el.title}</h3>
             <p className={style.sliderDescription}>{el.description}</p>
+
             <button className={style.sliderDescriptionBtn}>
               Смотреть
               <img src={arrowRight} alt="arrowRight" />
@@ -60,8 +63,7 @@ export default function MainSlider() {
           </div>
         )
       })}
-
-    </div>
+      
     </div>
   );
 }
