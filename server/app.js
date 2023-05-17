@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 require('@babel/register');
 const morgan = require('morgan');
+const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config();
 
@@ -11,12 +12,15 @@ require('dotenv').config();
 const dbCheck = require('./db/dbCheck');
 
 // импорт роутов
-const indexRoutes = require('./routes/indexRoutes');
+const productRoutes = require('./routes/products.router');
+const accountRoutes = require('./routes/account.router');
 const router = require('./routes/index');
 const errorMiddledware = require('./middlewares/error-middleware');
 
 // вызов функции проверки соединения с базоый данных
 dbCheck();
+
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 
 app.use(express.static(path.resolve('public')));
 app.use(morgan('dev'));
@@ -31,7 +35,8 @@ app.use('/api', router);
 app.use(errorMiddledware);
 
 //роутеры
-app.use('/', indexRoutes);
+app.use('/products', productRoutes);
+app.use('/account', accountRoutes);
 
 const PORT = process.env.PORT || 3100;
 

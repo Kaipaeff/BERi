@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js --ignore session --ext js,jsx",
-    "test": "jest"
+    "test": "jest",
+    "dbr": "npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all",
+    "db-down": "npx sequelize db:migrate:undo:all; npx sequelize db:drop;"
   },
   "keywords": [],
   "author": "",

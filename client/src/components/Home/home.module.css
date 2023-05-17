@@ -1,0 +1,7 @@
+.loadedCards {
+  display: flex;
+  align-items: flex-start;
+  padding: 0px 0px 80px;
+  gap: 56px;
+}
+
