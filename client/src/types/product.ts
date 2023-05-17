@@ -4,6 +4,10 @@ export type productType = {
   description: string;
   sex: number;
   img: string;
+  rating: number;
+  reviews: number;
   vendorId: number;
   categoryId: number;
+  minPrice: string;
 };
+

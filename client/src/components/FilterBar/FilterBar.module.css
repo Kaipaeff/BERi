@@ -1,0 +1,23 @@
+.filterBar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 200px;
+}
+
+.filterBar p {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: #807e7e;
+}
+
+.filterBar p:hover {
+    cursor: pointer;
+}
+
+.sizes button {
+  width: 43px;
+  height: 38px;
+  border: 1px solid #121212;
+}

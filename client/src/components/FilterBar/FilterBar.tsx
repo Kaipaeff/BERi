@@ -5,7 +5,7 @@ export default function FilterBar() {
   return (
     <div className={style.filterBar}>
       <div className={style.filterHeader}>
-        <h3>Фильтры</h3>
+        <h2>Фильтры</h2>
         <button className={style.closeBtn}></button>
       </div>
       <div className={style.categories}>
@@ -17,16 +17,18 @@ export default function FilterBar() {
         <p>Рубашки</p>
       </div>
       <div className={style.colors}>
-        <img></img>
-        <img></img>
-        <img></img>
-        <img></img>
+        <h3>Цвета</h3>
+        <p>Белый</p>
+        <p>Черный</p>
+        <p>Синий</p>
+        <p>Красный</p>
       </div>
       <div className={style.sizes}>
-        <button>41</button>
-        <button>42</button>
-        <button>43</button>
-        <button>44</button>
+        <h3>Размеры</h3>
+        <button>XS</button>
+        <button>S</button>
+        <button>M</button>
+        <button>L</button>
       </div>
       <div className={style.priceBar}>
         <div></div>

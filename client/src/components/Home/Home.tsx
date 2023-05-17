@@ -5,6 +5,7 @@ import { productType } from '../../types/product';
 import { getProducts } from '../../redux/Thunk/getProducts';
 import style from './home.module.css';
 import Card from '../Card/Card';
+import FilterBar from '../FilterBar/FilterBar';
 
 export function Home(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -17,9 +18,13 @@ export function Home(): JSX.Element {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
 
   return (
+    <div className={style.catalog}>
+      <div className={style.filterBar}>
+        <FilterBar />
+      </div>
       <div className={style.productsContainer}>
         {loading ? (
           <div className="loading">
@@ -35,5 +40,6 @@ export function Home(): JSX.Element {
           </div>
         )}
       </div>
+    </div>
   );
 }

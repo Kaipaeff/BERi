@@ -36,6 +36,12 @@ module.exports = {
         },
         type: Sequelize.INTEGER,
       },
+      vendorPrice: {
+        type: Sequelize.DECIMAL,
+      },
+      salePrice: {
+        type: Sequelize.DECIMAL,
+      },
       createdAt: {
         defaultValue: new Date(),
         allowNull: false,
