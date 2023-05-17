@@ -29,11 +29,11 @@ export default function AddDeliveryAddress({
       userId,
     };
     dispatch(fetchAddDeliveryAddress(newTask));
+    dispatch(getDeliveryAddress(userId));
     setInputNewAddress('');
     if (isCancel) {
       dispatch(addNewAdressBtnToggle());
     }
-    dispatch(getDeliveryAddress(userId));
   };
 
   return (

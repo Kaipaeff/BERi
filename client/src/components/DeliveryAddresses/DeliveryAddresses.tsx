@@ -21,7 +21,8 @@ export default function DeliveryAddresses() {
 
   useEffect(() => {
     dispatch(getDeliveryAddress(userId));
-  }, [addresses.length]);
+    console.log('USEEFFECT');
+  }, [addresses.length,dispatch]);
 
   return (
     <div className={styleDeliveryAddress.conteiner}>
@@ -31,11 +32,11 @@ export default function DeliveryAddresses() {
             <h4>Информация о адресах доставки отсутствует!</h4>
             <p>Пожалуйста, заполните необходимую информацию...</p>
           </div>
+          <br />
           <AddDeliveryAddress userId={userId} isCancel={false} />
         </div>
       )}
-
-      {addresses.length && (
+      {addresses.length ? (
         <div>
           <button
             onClick={() => dispatch(addNewAdressBtnToggle())}
@@ -45,27 +46,21 @@ export default function DeliveryAddresses() {
             Добавить адрес
             <img src={arrowRight} alt="arrowRight" />
           </button>
-
           <br />
-
           {addNewAdressBtn ? (
-            <>
-              <AddDeliveryAddress userId={userId} isCancel={true} />
-              <br />
-            </>
+            <AddDeliveryAddress userId={userId} isCancel={true} />
           ) : null}
         </div>
-      )}
-
-      {addresses.length && (
+      ) : null}
+      {addresses.length ? (
         <div className={styleDeliveryAddress.cardsConteiner}>
-          {addresses.map((address: IDeliveryAddress, ind: number) => (
+          {addresses.map((address: IDeliveryAddress) => (
             <React.Fragment key={address.id}>
               <OneAddressCard address={address} />
             </React.Fragment>
           ))}
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
