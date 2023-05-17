@@ -9,15 +9,87 @@
   font-weight: 600;
   font-size: 15px;
   line-height: 22px;
-  color: #807e7e;
 }
 
 .filterBar p:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.sizes button {
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mainSizes {
+  display: flex;
+  gap: 12px;
+}
+
+.addictSizes {
+  display: flex;
+  gap: 12px;
+}
+
+.mainSizes button {
   width: 43px;
   height: 38px;
-  border: 1px solid #121212;
+  border: 1px solid #CBCBCB;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.mainSizes button:hover {
+  cursor: pointer;
+}
+
+.addictSizes button {
+  width: 88px;
+  height: 38px;
+  border: 1px solid #CBCBCB;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.addictSizes button:hover {
+  cursor: pointer;
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.iconSpan {
+  display: flex;
+  gap: 12px;
+}
+
+.colorIcon {
+  font-size: 35px;
+}
+
+.colorIcon:hover {
+  cursor: pointer;
+}
+
+#white {
+  color: white;
+  border: 1px solid black;
+  border-radius: 100%;
+}
+
+#blue {
+  color: rgb(74, 119, 254);
+}
+
+#red {
+  color: rgb(253, 32, 32);
 }
