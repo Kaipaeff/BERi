@@ -5,6 +5,8 @@ import DeliveryAddresses from '../DeliveryAddresses/DeliveryAddresses';
 export default function MyAccount() {
   const [navigatorSelector, setNavigatorSelector] = useState(0);
 
+  const userId = 1;
+
   return (
     <div className={styleMyAccount.conteiner}>
       <div className={styleMyAccount.title}>
@@ -62,7 +64,11 @@ export default function MyAccount() {
                 На персональной странице пользователя Вы можете просматривать
                 свои последние заказы, управлять адресами доставки и выставления
                 счетов, а также редактировать свой пароль и данные учетной
-                записи.
+                записи. 
+              </p>
+              <p>
+                Для получения интересующей Вас информации используйте
+                навигационную панель в левой части страницы.
               </p>
             </>
           )}
@@ -77,7 +83,7 @@ export default function MyAccount() {
               </p>
             </>
           )}
-          {navigatorSelector === 2 && <DeliveryAddresses />}
+          {navigatorSelector === 2 && <DeliveryAddresses userId={userId} />}
           {navigatorSelector === 3 && (
             <>
               <h4 className={styleMyAccount.dashboardtitleinfo}>

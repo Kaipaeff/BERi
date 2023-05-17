@@ -2,6 +2,7 @@ import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../../../types/types';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import { INewDeliveryAddress } from '../../../types/DeliveryAddress';
+import { addDeliveryAddressFront } from '../../slices/DeliveryAddress/deliveryAddress.slice';
 
 // TODO: Функция для добавления адреса
 export const fetchAddDeliveryAddress =
@@ -20,7 +21,7 @@ export const fetchAddDeliveryAddress =
       });
       if (response.ok) {
         const data = await response.json();
-        console.log('🚀🚀 ~ file: addDeliveryAddres.api.ts:24 ~ data~', data);
+        dispatch(addDeliveryAddressFront(data));
       }
     } catch (error) {
       console.error(error);

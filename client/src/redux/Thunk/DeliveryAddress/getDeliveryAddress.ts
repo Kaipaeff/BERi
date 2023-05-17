@@ -5,7 +5,7 @@ export const getDeliveryAddress = createAsyncThunk(
   'addresses/fetchGetAddresses',
   async (userId: number) => {
     try {
-      const response = fetchGetAddresses(userId);
+      const response = await fetchGetAddresses(userId);
       return response;
     } catch (error) {
       return Promise.reject(new Error('400'));

@@ -9,7 +9,7 @@ import AddDeliveryAddress from './AddDeliveryAddress/AddDeliveryAddress';
 import IDeliveryAddress from '../../types/DeliveryAddress';
 import { addNewAdressBtnToggle } from '../../redux/slices/DeliveryAddress/addAddressButton.slice';
 
-export default function DeliveryAddresses() {
+export default function DeliveryAddresses({ userId }: { userId: number }) {
   const dispatch = useAppDispatch();
   const addresses = useAppSelector(
     (state: RootState) => state.DeliveryAddressReducer.addresses
@@ -17,12 +17,9 @@ export default function DeliveryAddresses() {
   const addNewAdressBtn = useAppSelector(
     (state: RootState) => state.AddNewAddressBtn.addNewAdressBtn
   );
-  const userId = 1;
-
   useEffect(() => {
     dispatch(getDeliveryAddress(userId));
-    console.log('USEEFFECT');
-  }, [addresses.length,dispatch]);
+  }, []);
 
   return (
     <div className={styleDeliveryAddress.conteiner}>
@@ -48,7 +45,10 @@ export default function DeliveryAddresses() {
           </button>
           <br />
           {addNewAdressBtn ? (
-            <AddDeliveryAddress userId={userId} isCancel={true} />
+            <>
+              <AddDeliveryAddress userId={userId} isCancel={true} />
+              <br />
+            </>
           ) : null}
         </div>
       ) : null}

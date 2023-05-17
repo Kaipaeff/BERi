@@ -31,3 +31,37 @@
   width: auto;
   cursor: pointer;
 }
+
+.editAddressForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.labelAndTextarea {
+  margin: 0px;
+  padding: 0px;
+}
+
+.labelTextarea {
+  font-size: 11px;
+}
+.checkMarkRing {
+  margin-top: 13px;
+  margin-right: 11px;
+  cursor: pointer;
+  height: 25px;
+}
+.checkMarkRing:active {
+  background-color: rgb(10, 92, 7);
+  border-radius: 50%;
+}
+
+.editIconBtn:active {
+  background-color: #f5c658;
+  border-radius: 50%;
+}
+.deleteIconBtn:active {
+  background-color: rgb(107, 32, 32);
+  border-radius: 50%;
+}

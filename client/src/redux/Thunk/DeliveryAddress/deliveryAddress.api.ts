@@ -11,7 +11,6 @@ export const fetchGetAddresses = async (userId: number) => {
 
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       return data;
     }
   } catch (error) {

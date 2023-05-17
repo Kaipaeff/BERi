@@ -2,6 +2,7 @@ import { AnyAction } from '@reduxjs/toolkit';
 import { RootState } from '../../../types/types';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
 import IDeliveryAddress from '../../../types/DeliveryAddress';
+import { deleteDeliveryAddressFront } from '../../slices/DeliveryAddress/deliveryAddress.slice';
 
 // TODO: Функция для удаления адреса
 export const fetchDeleteTodoTasks =
@@ -19,7 +20,7 @@ export const fetchDeleteTodoTasks =
       });
 
       if (response.ok) {
-        console.log('Адрес доставки удален!');
+        dispatch(deleteDeliveryAddressFront(oneDeliveryAdress))
       }
     } catch (error) {
       console.error('Ошибка удаления записи из базы данных!', error);
