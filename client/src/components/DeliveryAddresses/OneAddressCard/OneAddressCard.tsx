@@ -1,7 +1,12 @@
 import React from 'react';
 import styleOneAddressCard from './OneAddressCard.module.css';
+import IDeliveryAddress from '../../../types/DeliveryAddress';
 
-export default function OneAddressCard() {
+export default function OneAddressCard({
+  address,
+}: {
+  address: IDeliveryAddress;
+}) {
   return (
     <div className={styleOneAddressCard.conteiner}>
       <div className={styleOneAddressCard.title}>
@@ -81,7 +86,7 @@ export default function OneAddressCard() {
         </div>
         <p></p>
       </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+      <p>{address.address}</p>
     </div>
   );
 }

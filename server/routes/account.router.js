@@ -1,8 +1,8 @@
 const express = require('express');
-const route = express.Router();
+const router = express.Router();
 const { DeliveryAddress } = require('../db/models');
 
-route.get('/address/:id', async (req, res) => {
+router.get('/address/:id', async (req, res) => {
   console.log('ADDRESS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
   try {
     const userId = req.params.id;
@@ -18,4 +18,19 @@ route.get('/address/:id', async (req, res) => {
   }
 });
 
-module.exports = route;
+// добавление адреса доставки
+router.post('/address', async (req, res) => {
+  const { address, userId } = req.body;
+  try {
+    const response = await DeliveryAddress.create({
+      address,
+      userId,
+    });
+
+    return res.json(response);
+  } catch (error) {
+    console.error('Ошибка добавления записи в БД!', error);
+  }
+});
+
+module.exports = router;

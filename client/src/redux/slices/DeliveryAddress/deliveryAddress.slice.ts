@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getDeliveryAddress } from '../Thunk/DeliveryAddress/getDeliveryAddress';
-import { stateTypeAddress } from '../store.types';
+import { getDeliveryAddress } from '../../Thunk/DeliveryAddress/getDeliveryAddress';
+import { stateTypeAddress } from '../../store.types';
 
 const initialStateAddress: stateTypeAddress = {
   addresses: [],
