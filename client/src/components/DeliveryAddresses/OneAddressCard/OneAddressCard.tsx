@@ -1,12 +1,16 @@
 import React from 'react';
 import styleOneAddressCard from './OneAddressCard.module.css';
 import IDeliveryAddress from '../../../types/DeliveryAddress';
+import { useAppDispatch } from '../../../redux/hooks/hooks';
+import { fetchDeleteTodoTasks } from '../../../redux/Thunk/DeliveryAddress/deleteDeliveryAddres';
+import { getDeliveryAddress } from '../../../redux/Thunk/DeliveryAddress/getDeliveryAddress';
 
 export default function OneAddressCard({
   address,
 }: {
   address: IDeliveryAddress;
 }) {
+  const dispatch = useAppDispatch();
   return (
     <div className={styleOneAddressCard.conteiner}>
       <div className={styleOneAddressCard.title}>
@@ -35,7 +39,10 @@ export default function OneAddressCard({
             </svg>
           </span>
           <span
-            onClick={() => console.log('Нажата кнопка удалить адрес')}
+            onClick={() => {
+              dispatch(fetchDeleteTodoTasks(address));
+              dispatch(getDeliveryAddress(address.userId));
+            }}
             title="Удалить адрес"
             aria-label="delete"
           >

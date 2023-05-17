@@ -33,4 +33,16 @@ router.post('/address', async (req, res) => {
   }
 });
 
+// удаление адреса
+router.delete('/address/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  try {
+    await DeliveryAddress.destroy({ where: { id } });
+    res.sendStatus(200);
+    res.end();
+  } catch (error) {
+    console.error('Ошибка удаления адреса из БД!', error);
+  }
+});
+
 module.exports = router;

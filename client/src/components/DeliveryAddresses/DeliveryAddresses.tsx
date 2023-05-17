@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import OneAddressCard from './OneAddressCard/OneAddressCard';
 import styleDeliveryAddress from './DeliveryAddresses.module.css';
 import { getDeliveryAddress } from '../../redux/Thunk/DeliveryAddress/getDeliveryAddress';
@@ -17,32 +17,25 @@ export default function DeliveryAddresses() {
   const addNewAdressBtn = useAppSelector(
     (state: RootState) => state.AddNewAddressBtn.addNewAdressBtn
   );
-  console.log(
-    '🚀🚀 ~ file: DeliveryAddresses.tsx:20 ~ DeliveryAddresses ~ addNewAdressBtn~',
-    addNewAdressBtn
-  );
-
   const userId = 1;
 
   useEffect(() => {
     dispatch(getDeliveryAddress(userId));
-  }, [dispatch]);
+  }, [addresses.length]);
 
   return (
-    <>
-      <div className={styleDeliveryAddress.conteiner}>
-        {!addresses.length && (
-          <div className={styleDeliveryAddress.addAddressConteiner}>
-            <div>
-              <h4>Информация о адресах доставки отсутствует!</h4>
-              <p>Пожалуйста, заполните необходимую информацию...</p>
-            </div>
-            <div>
-              <AddDeliveryAddress userId={userId} isCancel={false} />
-            </div>
+    <div className={styleDeliveryAddress.conteiner}>
+      {!addresses.length && (
+        <div className={styleDeliveryAddress.addAddressConteiner}>
+          <div>
+            <h4>Информация о адресах доставки отсутствует!</h4>
+            <p>Пожалуйста, заполните необходимую информацию...</p>
           </div>
-        )}
+          <AddDeliveryAddress userId={userId} isCancel={false} />
+        </div>
+      )}
 
+      {addresses.length && (
         <div>
           <button
             onClick={() => dispatch(addNewAdressBtnToggle())}
@@ -52,7 +45,9 @@ export default function DeliveryAddresses() {
             Добавить адрес
             <img src={arrowRight} alt="arrowRight" />
           </button>
+
           <br />
+
           {addNewAdressBtn ? (
             <>
               <AddDeliveryAddress userId={userId} isCancel={true} />
@@ -60,16 +55,17 @@ export default function DeliveryAddresses() {
             </>
           ) : null}
         </div>
+      )}
+
+      {addresses.length && (
         <div className={styleDeliveryAddress.cardsConteiner}>
-          {addresses.length
-            ? addresses.map((address: IDeliveryAddress, ind: number) => (
-                <React.Fragment key={address.id}>
-                  <OneAddressCard address={address} />
-                </React.Fragment>
-              ))
-            : null}
+          {addresses.map((address: IDeliveryAddress, ind: number) => (
+            <React.Fragment key={address.id}>
+              <OneAddressCard address={address} />
+            </React.Fragment>
+          ))}
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 }
