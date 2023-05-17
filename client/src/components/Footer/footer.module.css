@@ -1,50 +1,51 @@
 .mainFooterConteiner {
-  margin-left: auto;
-  margin-right: auto;
-  width: 1440px;
-  height: 381px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  padding: 50px 50px 30px 50px;
+  width: 100vw;
+  height: 320px;
   background: #fafafb;
 }
 
 .content {
-  margin: 30px 52px 10px 52px;
-  border-bottom: 1px solid #b6b3b3;
-  max-width: 1336;
-  width: auto;
-  height: 162px;
   display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid #b6b3b3;
+  width: 1440px;
+  height: 210px;
+  margin-bottom: 20px;
+  /* padding: 30px 0 0 0; */
 }
 
 .columnName {
-  width: 50%;
   display: flex;
-  align-items: center;
 }
 
 .contentInfo {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  width: 50%;
+  align-items: flex-start;
+  gap: 70px;
 }
 
 .columnShop {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: max-content;
   gap: 10px;
 }
+
 .columnInfo {
   display: flex;
   flex-direction: column;
-  width: max-content;
   gap: 10px;
 }
+
 .columnCompany {
   display: flex;
   flex-direction: column;
-  width: max-content;
   gap: 10px;
 }
 
@@ -52,9 +53,6 @@
   cursor: pointer;
   font-size: 14px;
 }
-/* .textlink:hover {
-  font-weight: bold;
-} */
 
 .titletext {
   font-size: 16px;
@@ -62,21 +60,27 @@
 }
 
 .bottomRow {
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  align-items: baseline;
-  padding: 10px 0px 0px;
-  margin-left: 52px;
-  margin-right: 0px;
-  height: 48px;
-}
-.copyright {
-  width: 91%;
+  align-items: center;
+  justify-content: space-between;
+  width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .socialnet {
-  cursor: pointer;
   display: flex;
   gap: 30px;
+}
+
+
+.telegramIcon {
+  cursor: pointer;
+  height: 20px;
+}
+
+.emailIcon {
+  cursor: pointer;
+  height: 17px;
 }
