@@ -1,70 +1,82 @@
 .mainFooterConteiner {
-  position: absolute;
-  top: 1295px;
-  left: 0;
+  margin-left: auto;
+  margin-right: auto;
   width: 1440px;
   height: 381px;
-  border: 1px solid #b6b3b3;
-  font-family: inter-ui;
   background: #fafafb;
 }
 
 .content {
-  padding: 72px 52px;
-  width: 1336px;
+  margin: 30px 52px 10px 52px;
+  border-bottom: 1px solid #b6b3b3;
+  max-width: 1336;
+  width: auto;
   height: 162px;
   display: flex;
 }
 
-li {
-  list-style-type: none;
-  cursor: pointer;
-}
-
-ul {
-  display: flex;
-  margin: 0px;
-  padding: 0px;
-  gap: 30px;
-}
-
 .columnName {
-  width: 668px;
+  width: 50%;
   display: flex;
-  flex-direction: column;
-  align-items: baseline;
+  align-items: center;
+}
+
+.contentInfo {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 50%;
 }
 
 .columnShop {
-  width: 222px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: max-content;
+  gap: 10px;
 }
 .columnInfo {
-  width: 223px;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  gap: 10px;
 }
 .columnCompany {
-  width: 222px;
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  gap: 10px;
 }
 
 .textlink {
   cursor: pointer;
   font-size: 14px;
 }
-.textlink:hover {
-  color: blue;
+/* .textlink:hover {
   font-weight: bold;
-}
+} */
+
 .titletext {
   font-size: 16px;
   font-weight: bold;
 }
 
-.copyright {
-  padding: 0px 0px 0px 0px;
-  margin-left: 52px;
-  width: 1336px;
-  height: 48px;
+.bottomRow {
+  box-sizing: border-box;
   display: flex;
-  align-items: flex-end;
-  border-top: 1px solid #b6b3b3;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 10px 0px 0px;
+  margin-left: 52px;
+  margin-right: 0px;
+  height: 48px;
+}
+.copyright {
+  width: 91%;
+}
+
+.socialnet {
+  cursor: pointer;
+  display: flex;
+  gap: 30px;
 }
