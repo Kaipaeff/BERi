@@ -22,7 +22,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 
-  // <Provider store={store}>
+  <Provider store={store}>
     <BrowserRouter>
     <Context.Provider value={{
         storeContext
