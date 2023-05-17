@@ -1,5 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
+
 import style from './app.module.css';
+
 import { Navbar } from './components/Navbar/Navbar';
 import { Clothes } from './components/Clothes/Clothes';
 import { Shoes } from './components/Shoes/Shoes';
@@ -14,10 +16,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
 import ContactUs from './components/ContactUs/ContactUs';
-
-import sliderImage from './img/images/slider/sliderImage.jpg';
-import leftButton from './img/icons/ButtonLeft.svg';
-import rightButton from './img/icons/ButtonRight.svg';
+import MainSlider  from './components/MainSlider/MainSlider';
 
 function App() {
   return (
@@ -25,11 +24,7 @@ function App() {
 
       <Navbar />
 
-      <div className={style.slider}>
-        <img src={sliderImage} alt="sliderImage" />
-        <img className={style.leftButton} src={leftButton} alt="leftButton" />
-        <img className={style.rightButton} src={rightButton} alt="rightButton" />
-      </div>
+      <MainSlider />
 
       <div className={style.container}>
         <Routes>
