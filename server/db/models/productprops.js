@@ -12,14 +12,15 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.hasMany(models.Order, { foreignKey: 'orderedProduct' });
       this.hasMany(models.Cart, { foreignKey: 'productPropsId' });
-      this.hasMany(models.Store, { foreignKey: 'productPropsId' });
       this.belongsTo(models.Product, { foreignKey: 'productId' });
     }
   }
   ProductProps.init({
     productId: DataTypes.INTEGER,
     colorId: DataTypes.INTEGER,
-    sizeId: DataTypes.INTEGER
+    sizeId: DataTypes.INTEGER,
+    vendorPrice: DataTypes.DECIMAL,
+    salePrice: DataTypes.DECIMAL,
   }, {
     sequelize,
     modelName: 'ProductProps',

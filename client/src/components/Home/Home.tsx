@@ -5,6 +5,7 @@ import { productType } from '../../types/product';
 import { getProducts } from '../../redux/Thunk/getProducts';
 import style from './home.module.css';
 import Card from '../Card/Card';
+import FilterBar from '../FilterBar/FilterBar';
 
 export function Home(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
@@ -17,9 +18,16 @@ export function Home(): JSX.Element {
     (state: RootState) => state.ProductReducer.loading
   );
 
+  const [category, setCategory] = useState(0);
+
+  function handleClick(category: number): void {
+    setCategory(category);
+  }
+
+
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [dispatch]);
 
   // хендл для local storage
   const handleAddToCart = (product: productType, e: any) => {
@@ -51,9 +59,13 @@ export function Home(): JSX.Element {
   };
 
   return (
+    <div className={style.catalog}>
+      <div className={style.filterBar}>
+        <FilterBar onClick={handleClick} />
+      </div>
     <div className={style.productsContainer}>
       {/*---------- данные для теста ---------- */}
-      <div className="testDivProduct">
+      {/* <div className="testDivProduct">
         {products.map((el) => (
           <div key={el.id}>
             <div>имя: ====={el.name}</div>
@@ -68,7 +80,7 @@ export function Home(): JSX.Element {
               добавить в корзину
             </button>
           </div>
-        ))}
+        ))} */}
         {/*---------- данные для теста ----------*/}
       </div>
       {loading ? (
@@ -77,8 +89,12 @@ export function Home(): JSX.Element {
         </div>
       ) : (
         <div className={style.loadedCards}>
-          {products.length ? (
+          {products.length && category === 0 ? (
             products.map((el: productType) => <Card key={el.id} el={el} />)
+            ) : products.length && category ? (
+              products
+                .filter((el) => el.categoryId === category)
+                .map((el: productType) => <Card key={el.id} el={el} />)
           ) : (
             <p className="products">No products found</p>
           )}

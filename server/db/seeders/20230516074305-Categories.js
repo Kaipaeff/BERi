@@ -7,13 +7,22 @@ module.exports = {
       'Categories',
       [
         {
-          category: 'Одежда',
+          category: 'Верхняя одежда',
         },
         {
-          category: 'Обувь',
+          category: 'Брюки',
         },
         {
-          category: 'Аксессуары',
+          category: 'Джинсы',
+        },
+        {
+          category: 'Футболки',
+        },
+        {
+          category: 'Рубашки',
+        },
+        {
+          category: 'ЧЕТА',
         },
       ],
       {}
