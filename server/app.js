@@ -15,7 +15,7 @@ const productRoutes = require('./routes/products.router');
 // вызов функции проверки соединения с базоый данных
 dbCheck();
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 
 app.use(express.static(path.resolve('public')));
 app.use(morgan('dev'));
@@ -23,8 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //роутеры
-app.use('/', indexRoutes);
-app.use('/cart', productRouter);
+
 app.use('/products', productRoutes);
 
 const PORT = process.env.PORT || 3100;

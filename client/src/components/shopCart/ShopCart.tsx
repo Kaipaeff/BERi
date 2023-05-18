@@ -1,27 +1,11 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import styles from './ShopCart.module.css';
 import shoesImage from './img/shoesForTest.jpg';
 import trashIcon from './img/trash.jpg';
 import truckIcon from './img/truck.jpg';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
-import { getAllProductInfo } from '../../redux/slices/Product/ProductInfo.selector';
+import { productType } from '../../types/product';
 
 export default function ShopCart() {
-  const dispatch = useAppDispatch();
-
-  const productInfoContainer = useAppSelector(getAllProductInfo);
-  console.log(productInfoContainer, '<<<<<<productInfoContainer');
-  interface ICounter {
-    counter: number;
-  }
-
-  // количество приходит с локал стореж
-  const initState: ICounter = {
-    counter: 1,
-  };
-
-  const [counter, setCounter] = useState<any>(initState);
-
   interface IPrice {
     price: number;
   }
@@ -35,36 +19,34 @@ export default function ShopCart() {
   );
 
   const [price, setPrice] = useState<any>(initStatePrice);
+  //надо поправить, считает только при выборе доставки
+  const [totalPrice, setTotalPrice] = useState(initStatePrice.price);
 
-  function Increment() {
-    setCounter((prev: any) => {
-      return { counter: prev.counter + 1 };
-    });
-    setPrice((prev: any) => {
-      return { price: prev.price + initStatePrice.price };
-    });
-  }
+  const [goods, setGoods] = useState([]);
+  const goodsForShopCart = localStorage.getItem('GoodsForShopCart');
 
-  function Dicrement() {
-    setCounter((prev: any) => {
-      if (prev.counter > 0) {
-        return { counter: prev.counter - 1 };
-      } else {
-        return { counter: 0 };
-      }
-    });
-
-    if (counter.counter !== 0) {
-      setPrice((prev: any) => {
-        if (prev.price >= initStatePrice.price) {
-          return { price: prev.price - initStatePrice.price };
-        }
-      });
+  useEffect(() => {
+    console.log('useEffect');
+    if (goodsForShopCart) {
+      setGoods(JSON.parse(goodsForShopCart));
     }
+  }, []);
+
+  function Increment(id: number) {
+    const goodsIncrementQuantity: any = goods.map((el: productType) =>
+      el.id === id ? { ...el, quantity: ((el.quantity as number) += 1) } : el
+    );
+    localStorage.setItem('GoodsForShopCart', JSON.stringify(goods));
+    setGoods(goodsIncrementQuantity);
   }
-  const test = () => {
-    console.log('test btn remove');
-  };
+
+  function Dicrement(id: number) {
+    const goodsIncrementQuantity: any = goods.map((el: productType) =>
+      el.id === id ? { ...el, quantity: ((el.quantity as number) -= 1) } : el
+    );
+    localStorage.setItem('GoodsForShopCart', JSON.stringify(goods));
+    setGoods(goodsIncrementQuantity);
+  }
 
   // бардер на радио кнопках
   const [radioClassName, setRadioClassName] = useState(false);
@@ -74,8 +56,6 @@ export default function ShopCart() {
     setRadioClassName(checked);
     setRadioClassName2(!checked);
   };
-  // тест
-  // localStorage.setItem('test', 'asd');
 
   const RadioBoolean2 = (checked: any) => {
     setRadioClassName(!checked);
@@ -91,7 +71,47 @@ export default function ShopCart() {
   const changePromoCodeHandler = (e: any) => {
     setPromoCode((pre: any) => ({ ...pre, [e.target.name]: e.target.value }));
   };
-  console.log(promoCode, '<<<promocode');
+
+  const deleteHandle = (element: any) => {
+    const newGoods = goods.filter((el: any) => el.id !== element);
+    localStorage.setItem('GoodsForShopCart', JSON.stringify(newGoods));
+    setGoods(newGoods);
+  };
+
+  const calculatePriceHandle = (dilevery: number) => {
+    console.log(price.price, '<<<PRICE');
+    setTotalPrice(price.price + dilevery);
+  };
+
+  const [totalPriceCalculate, setTotalPriceCalculate] = useState<{
+    [key: number]: number;
+  }>({});
+
+  const handleTotalPrice = useCallback(
+    (quantity: number, elId: number) => {
+      const calculateTotalPrice = quantity * price.price;
+
+      if (totalPriceCalculate[elId] !== calculateTotalPrice) {
+        setTotalPriceCalculate({
+          ...totalPriceCalculate,
+          [elId]: calculateTotalPrice,
+        });
+      }
+
+      return calculateTotalPrice;
+    },
+    [price.price, totalPriceCalculate]
+  );
+
+  const moreHanbleCalculate = () => {
+    const valuesArray = Object.values(totalPriceCalculate);
+
+    const totalPrice = valuesArray.reduce(
+      (total, currentValue) => total + currentValue,
+      0
+    );
+    return totalPrice;
+  };
 
   return (
     <div className={styles.Main}>
@@ -107,117 +127,77 @@ export default function ShopCart() {
         </div>
       </div>
       <div className={styles.Content}>
-        {/* тут будет map */}
-        <div className={styles.InfoGoods}>
-          <div className={styles.Product}>
-            <h5>Товар</h5>
-            <div className={styles.ProductChildElement}>
-              <div>
-                <img
-                  src={shoesImage}
-                  alt="product"
-                  className={styles.Img_Product}
-                />
-              </div>
-              <div className={styles.ProductInfo}>
-                <span>AirBrags@ Sneackers</span>
-                <span>Size: 2XL, Color: Green</span>
-                <div className={styles.TrashContainer}>
+        {goods.map((el: any, i) => (
+          <div className={styles.InfoGoods} key={i}>
+            <div className={styles.Product}>
+              <h5>Товар</h5>
+              <div className={styles.ProductChildElement}>
+                <div>
                   <img
-                    src={trashIcon}
-                    alt="trashImg"
-                    className={styles.Icon_Trash}
-                    onClick={test}
+                    src={shoesImage}
+                    alt="product"
+                    className={styles.Img_Product}
                   />
-                  <button onClick={test} className={styles.Btn_Remove}>
-                    Удалить
+                </div>
+                <div className={styles.ProductInfo}>
+                  <span>
+                    {el.name} &nbsp;&nbsp;
+                    {el.Vendor.name}
+                  </span>
+                  <span>{el.description}</span>
+                  <div className={styles.TrashContainer}>
+                    <img
+                      src={trashIcon}
+                      alt="trashImg"
+                      className={styles.Icon_Trash}
+                      onClick={() => deleteHandle(el.id)}
+                    />
+                    <button
+                      onClick={() => deleteHandle(el.id)}
+                      className={styles.Btn_Remove}
+                    >
+                      Удалить
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.Quantity}>
+              <h5>Количество</h5>
+              <div className={styles.Counter}>
+                <div className={styles.CounterBorder}>
+                  <button
+                    onClick={() => el.quantity > 1 && Dicrement(el.id)}
+                    className={styles.Dicrement}
+                  >
+                    -
+                  </button>
+                  <span className={styles.Count}>{el.quantity}</span>
+                  <button
+                    onClick={() => Increment(el.id)}
+                    className={styles.Increment}
+                  >
+                    +
                   </button>
                 </div>
               </div>
             </div>
-          </div>
-          <div className={styles.Quantity}>
-            <h5>Количество</h5>
-            <div className={styles.Counter}>
-              <div className={styles.CounterBorder}>
-                <button onClick={Dicrement} className={styles.Dicrement}>
-                  -
-                </button>
-                <span className={styles.Count}>{counter.counter}</span>
-                <button onClick={Increment} className={styles.Increment}>
-                  +
-                </button>
+            <div className={styles.Price}>
+              <h5>Стоимость</h5>
+              <div className={styles.PriceCounter}>
+                {/* нужно вытащить из базы стоимость */}
+                <span>{initStatePrice.price}р</span>
+              </div>
+            </div>
+            <div className={styles.Subtotal}>
+              <h5>Сумма</h5>
+              <div className={styles.PriceCounter}>
+                {/* <b>{handleTotalPrice(el.quantity, el.id)}р</b> */}
+                <b>{handleTotalPrice(el.quantity, el.id)}р</b>
               </div>
             </div>
           </div>
-          <div className={styles.Price}>
-            <h5>Стоимость</h5>
-            <div className={styles.PriceCounter}>
-              <span>{initStatePrice.price}$</span>
-            </div>
-          </div>
-          <div className={styles.Subtotal}>
-            <h5>Сумма</h5>
-            <div className={styles.PriceCounter}>
-              <b>{price.price}$</b>
-            </div>
-          </div>
-        </div>
-        <div className={styles.InfoGoods}>
-          <div className={styles.Product}>
-            <h5>Product</h5>
-            <div className={styles.ProductChildElement}>
-              <div>
-                <img
-                  src={shoesImage}
-                  alt="product"
-                  className={styles.Img_Product}
-                />
-              </div>
-              <div className={styles.ProductInfo}>
-                <span>AirBrags@ Sneackers</span>
-                <span>Size: 2XL, Color: Green</span>
-                <div className={styles.TrashContainer}>
-                  <img
-                    src={trashIcon}
-                    alt="trashImg"
-                    className={styles.Icon_Trash}
-                  />
-                  <button onClick={test} className={styles.Btn_Remove}>
-                    Remove
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.Quantity}>
-            <h5>Количество</h5>
-            <div className={styles.Counter}>
-              <div className={styles.CounterBorder}>
-                <button onClick={Dicrement} className={styles.Dicrement}>
-                  -
-                </button>
-                <span className={styles.Count}>{counter.counter}</span>
-                <button onClick={Increment} className={styles.Increment}>
-                  +
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className={styles.Price}>
-            <h5>Стоимость</h5>
-            <div className={styles.PriceCounter}>
-              <span>{initStatePrice.price}$</span>
-            </div>
-          </div>
-          <div className={styles.Subtotal}>
-            <h5>Сумма</h5>
-            <div className={styles.PriceCounter}>
-              <b>{price.price}$</b>
-            </div>
-          </div>
-        </div>
-        {/* тут map заканчивается */}
+        ))}
       </div>
       <div className={styles.InfoOrder}>
         <div className={styles.LeftSide_Promocod}>
@@ -250,7 +230,10 @@ export default function ShopCart() {
                   <div className={styles.ShippingContainer}>
                     <input
                       className={styles.RadioPrice}
-                      onChange={(e) => RadioBoolean(e.target)}
+                      onChange={(e) => {
+                        calculatePriceHandle(0);
+                        RadioBoolean(e.target);
+                      }}
                       type="radio"
                       name="delivery"
                       value="free-shipping"
@@ -269,25 +252,23 @@ export default function ShopCart() {
                   <div className={styles.ShippingContainer}>
                     <input
                       className={styles.RadioPrice}
-                      onChange={(e) => RadioBoolean2(e.target)}
+                      onChange={(e) => {
+                        // стоимость доставки доставать с бека
+                        calculatePriceHandle(100);
+                        RadioBoolean2(e.target);
+                      }}
                       type="radio"
                       name="delivery"
                       value="express-shipping"
                     />
                     <span className={styles.SpanPrice}>Экспресс доставка</span>
                   </div>
-                  <span>100$</span>
-                </div>
-                <div className={styles.DeliveryPrice}>
-                  <h4>Стоимость доставки</h4>
-                  <span>
-                    <b>$160</b>
-                  </span>
+                  <span>100р</span>
                 </div>
                 <div className={styles.DeliveryPrice}>
                   <h3>Итого к оплате</h3>
                   <span>
-                    <b>$160</b>
+                    <b>{moreHanbleCalculate()}р</b>
                   </span>
                 </div>
                 <button type="submit" className={styles.Btn_Order}>
