@@ -41,7 +41,10 @@ function App() {
 
           {location.pathname !== '/login' &&
             location.pathname !== '/register' &&
-            location.pathname !== '/account' && <MainSlider />}
+            location.pathname !== '/account' && 
+            location.pathname !== '/favorites' && 
+            
+            <MainSlider />}
 
           <Routes>
             <Route path="/" element={<Home />} />

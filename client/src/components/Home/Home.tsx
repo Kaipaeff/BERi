@@ -10,8 +10,11 @@ import FilterBar from '../FilterBar/FilterBar';
 
 
 export function Home(): JSX.Element {
+  
   const [cart, setCart] = useState<productType[]>([]);
+
   const dispatch = useAppDispatch();
+
   const products = useAppSelector(
     (state: RootState) => state.ProductReducer.products
   );
