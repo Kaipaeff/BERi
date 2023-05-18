@@ -30,7 +30,7 @@ a .saleLink {
 	position: absolute;
 	left: 0;
 	width: 0;
-	height: 2px;
+	height: 1px;
 	background-color: #121212;
 	content: "";
 	transition: width 0.3s ease-out;

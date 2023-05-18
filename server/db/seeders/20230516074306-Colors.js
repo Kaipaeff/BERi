@@ -7,13 +7,16 @@ module.exports = {
       'Colors',
       [
         {
-          color: 'Красный',
+          color: 'Белый',
         },
         {
-          color: 'Зеленый',
+          color: 'Черный',
         },
         {
           color: 'Синий',
+        },
+        {
+          color: 'Красный',
         },
       ],
       {}

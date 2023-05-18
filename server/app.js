@@ -24,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //роутеры
+
 app.use('/products', productRoutes);
 app.use('/account', accountRoutes);
 

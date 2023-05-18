@@ -21,6 +21,12 @@ module.exports = {
       img: {
         type: Sequelize.STRING,
       },
+      rating: {
+        type: Sequelize.FLOAT,
+      },
+      reviews: {
+        type: Sequelize.INTEGER,
+      },
       vendorId: {
         references: {
           model: {

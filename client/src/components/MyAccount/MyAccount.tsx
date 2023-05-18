@@ -5,6 +5,8 @@ import DeliveryAddresses from '../DeliveryAddresses/DeliveryAddresses';
 export default function MyAccount() {
   const [navigatorSelector, setNavigatorSelector] = useState(0);
 
+  const userId = 1;
+
   return (
     <div className={styleMyAccount.conteiner}>
       <div className={styleMyAccount.title}>
@@ -62,7 +64,11 @@ export default function MyAccount() {
                 На персональной странице пользователя Вы можете просматривать
                 свои последние заказы, управлять адресами доставки и выставления
                 счетов, а также редактировать свой пароль и данные учетной
-                записи.
+                записи. 
+              </p>
+              <p>
+                Для получения интересующей Вас информации используйте
+                навигационную панель в левой части страницы.
               </p>
             </>
           )}
@@ -73,19 +79,19 @@ export default function MyAccount() {
               </h4>
 
               <p>
-                Сдесь должен мапиться массив с данными о заказах пользователя...
+                Здесь должен мапиться массив с данными о заказах пользователя...
               </p>
             </>
           )}
-          {navigatorSelector === 2 && <DeliveryAddresses />}
+          {navigatorSelector === 2 && <DeliveryAddresses userId={userId} />}
           {navigatorSelector === 3 && (
             <>
               <h4 className={styleMyAccount.dashboardtitleinfo}>
-                Ваши адреса доставки...
+                регистрационные данные пользователя...
               </h4>
 
               <p>
-                Сдесь должен мапиться массив с данными пользователя о адресах
+                Здесь должены быть указаны регистрационные данные пользователя
                 доставки ...
               </p>
             </>
@@ -96,7 +102,7 @@ export default function MyAccount() {
                 Избранное...
               </h4>
 
-              <p>Сдесь должен мапиться массив с избранными товарами...</p>
+              <p>Здесь должен мапиться массив с избранными товарами...</p>
             </>
           )}
         </div>

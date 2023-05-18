@@ -29,48 +29,48 @@ import MainSlider  from './components/MainSlider/MainSlider';
 
 
 function App() {
-
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <>
-    <div className={style.wrapper}>
+      <div className={style.wrapper}>
+        <Navbar />
 
-      <Navbar />
+        {location.pathname !== '/login' &&
+          location.pathname !== '/register' &&
+          location.pathname !== '/account' && <MainSlider />}
 
-      {(location.pathname !== '/login' 
-        && location.pathname !== '/register' 
-        && location.pathname !== '/myaccount' ) && <MainSlider />}
+        <div className={style.container}>
+          <Routes>
+            <Route path="/" element={<Home />} />
 
-      <div className={style.container}>
-        <Routes>
-          <Route path="/" element={<Home />} />
+            <Route path="/clothes" element={<Clothes />} />
+            <Route path="/shoes" element={<Shoes />} />
+            <Route path="/accessories" element={<Accessories />} />
+            <Route path="/premiumbrands" element={<PremiumBrands />} />
+            <Route path="/sale" element={<Sale />} />
 
-          <Route path="/clothes" element={<Clothes />} />
-          <Route path="/shoes" element={<Shoes />} />
-          <Route path="/accessories" element={<Accessories />} />
-          <Route path="/premiumbrands" element={<PremiumBrands />} />
-          <Route path="/sale" element={<Sale />} />
+            <Route path="/favorites" element={<Favorites />} />
+            <Route path="/account" element={<MyAccount />} />
+            <Route path="/login" element={<LogIn />} />
+            <Route path="/cart" element={<ShopCart />} />
 
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/myaccount" element={<MyAccount />} />
-          <Route path="/login" element={<LogIn />} />
-          <Route path="/cart" element={<ShopCart />} />
-
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-          <Route path="/termsandconditions" element={<TermsAndConditions />} />
-          <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/shippingpolicy" element={<ShippingPolicy />} />
-          <Route path="/returnsandrefunds" element={<ReturnsAndRefunds />} />
-          <Route path="/cookiespolicy" element={<CookiesPolicy />} />
-          <Route path="/frequentlyasked" element={<FrequentlyAsked />} />
-
-        </Routes>
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+            <Route
+              path="/termsandconditions"
+              element={<TermsAndConditions />}
+            />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/shippingpolicy" element={<ShippingPolicy />} />
+            <Route path="/returnsandrefunds" element={<ReturnsAndRefunds />} />
+            <Route path="/cookiespolicy" element={<CookiesPolicy />} />
+            <Route path="/frequentlyasked" element={<FrequentlyAsked />} />
+          </Routes>
+        </div>
       </div>
-    </div>
       <Footer />
-      </>
+    </>
   );
 }
 

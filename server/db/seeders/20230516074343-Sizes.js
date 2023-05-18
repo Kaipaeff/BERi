@@ -7,13 +7,16 @@ module.exports = {
       'Sizes',
       [
         {
-          size: 48,
+          size: 10,
         },
         {
-          size: 50,
+          size: 20,
         },
         {
-          size: 52,
+          size: 30,
+        },
+        {
+          size: 40,
         },
       ],
       {}
