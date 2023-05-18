@@ -41,7 +41,7 @@ export function Home(): JSX.Element {
           <div className={style.loadedCards}>
             {products.length && category === 0 ? (
               products.map((el: productType) => <Card key={el.id} el={el} />)
-            ) : products.length && category > 0 ? (
+            ) : products.length && category ? (
               products
                 .filter((el) => el.categoryId === category)
                 .map((el: productType) => <Card key={el.id} el={el} />)
