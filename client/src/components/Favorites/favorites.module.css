@@ -17,6 +17,11 @@
 }
 
 
+.loadedCardsWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .loadedCards {
   display: flex;
   flex-wrap: wrap;

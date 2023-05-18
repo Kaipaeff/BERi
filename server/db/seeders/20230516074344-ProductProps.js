@@ -251,27 +251,27 @@ module.exports = {
           vendorPrice: 2000,
           salePrice: 3500,
         },
-        {
-          productId: 11,
-          colorId: 1,
-          sizeId: 1,
-          vendorPrice: 4000,
-          salePrice: 7500,
-        },
-        {
-          productId: 11,
-          colorId: 1,
-          sizeId: 2,
-          vendorPrice: 4000,
-          salePrice: 8500,
-        },
-        {
-          productId: 12,
-          colorId: 1,
-          sizeId: 3,
-          vendorPrice: 1000,
-          salePrice: 1500,
-        },
+        // {
+        //   productId: 11,
+        //   colorId: 1,
+        //   sizeId: 1,
+        //   vendorPrice: 4000,
+        //   salePrice: 7500,
+        // },
+        // {
+        //   productId: 11,
+        //   colorId: 1,
+        //   sizeId: 2,
+        //   vendorPrice: 4000,
+        //   salePrice: 8500,
+        // },
+        // {
+        //   productId: 12,
+        //   colorId: 1,
+        //   sizeId: 3,
+        //   vendorPrice: 1000,
+        //   salePrice: 1500,
+        // },
       ],
       {}
     );

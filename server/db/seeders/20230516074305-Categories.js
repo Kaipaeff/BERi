@@ -2,34 +2,26 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
       'Categories',
       [
         {
-          category: 'Верхняя одежда',
+          category: 'Одежда',
         },
         {
-          category: 'Брюки',
+          category: 'Обувь',
         },
         {
-          category: 'Джинсы',
+          category: 'Аксессуары',
         },
-        {
-          category: 'Футболки',
-        },
-        {
-          category: 'Рубашки',
-        },
-        {
-          category: 'ЧЕТА',
-        },
+ 
       ],
       {}
     );
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('Categories', null, {});
   }
 };

@@ -36,20 +36,20 @@ export function Favorites() {
         <div className={style.container}>
 
           
-
-        <p className={style.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p>
-          
           {loading ? (
             <div className="loading">
               <img src="./Spinner-1s-200px.gif" alt="" />
             </div>
             ) : (
-            <div className={style.loadedCards}>
-              {products.length ? (
-                products.map((el: productType) => <Card key={el.id} el={el} />)
-                ) : (
-                <p className="products">No products found</p>
-              )}
+              <div className={style.loadedCardsWrapper}>
+                <p className={style.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p>
+                <div className={style.loadedCards}>
+                  {products.length ? (
+                    products.map((el: productType) => <Card key={el.id} el={el} />)
+                    ) : (
+                    <p className="products">No products found</p>
+                  )}  
+                </div>
             </div>
           )}
 

@@ -7,16 +7,44 @@ module.exports = {
       'Vendors',
       [
         {
-          name: 'Adidas',
-          country: 'Германия',
+          name: 'MAJESTY',
+          country: 'Турция',
         },
         {
-          name: 'Nike',
-          country: 'США',
+          name: 'COCOLAND',
+          country: 'Турция',
         },
         {
-          name: 'Gucci',
-          country: 'Италия',
+          name: 'TETERO',
+          country: 'Турция',
+        },
+        {
+          name: 'MOONSTAR',
+          country: 'Турция',
+        },
+        {
+          name: 'PIER LONE',
+          country: 'Турция',
+        },
+        {
+          name: 'VIA GIRLS',
+          country: 'Турция',
+        },
+        {
+          name: 'MONNA ROSA',
+          country: 'Турция',
+        },
+        {
+          name: 'ZARA',
+          country: 'Испания',
+        },
+        {
+          name: 'H&M',
+          country: 'Швеция',
+        },
+        {
+          name: 'WANEX',
+          country: 'Турция',
         },
       ],
       {}
