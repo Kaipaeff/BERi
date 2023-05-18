@@ -63,6 +63,7 @@ export function Home(): JSX.Element {
   return (
     <>
     <div className={style.catalog}>
+
       <div className={style.filterBar}>
         <FilterBar onClick={handleClick} />
       </div>
@@ -87,6 +88,7 @@ export function Home(): JSX.Element {
           ))} */}
           {/*---------- данные для теста ----------*/}
       </div>
+
       {loading ? (
         <div className="loading">
           <img src="./Spinner-1s-200px.gif" alt="" />
@@ -104,8 +106,11 @@ export function Home(): JSX.Element {
           )}
         </div>
       )}
+
     </div>
+
     <MainBrandsBlock />
+    
     </>
   );
 }
