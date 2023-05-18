@@ -3,6 +3,7 @@ import styleOneAddressCard from './OneAddressCard.module.css';
 import IDeliveryAddress from '../../../types/DeliveryAddress';
 import { useAppDispatch } from '../../../redux/hooks/hooks';
 import { fetchDeleteTodoTasks } from '../../../redux/Thunk/DeliveryAddress/deleteDeliveryAddres';
+import { fetchEditOneDeliveryAddress } from '../../../redux/Thunk/DeliveryAddress/editOneDeliveryAddress.api';
 import editIconBtn from '../../../img/icons/editIconBtn.svg';
 import deleteIconBtn from '../../../img/icons/deleteIconBtn.svg';
 import checkMarkRing from '../../../img/icons/checkMarkRing.svg';
@@ -21,6 +22,22 @@ export default function OneAddressCard({
     e: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     setChangeAdress(e.target.value);
+  };
+
+  const editOneDeliveryAddressHandler = (
+    e: React.FormEvent<HTMLFormElement>
+  ): void => {
+    e.preventDefault();
+
+    const editOneAddress: IDeliveryAddress = {
+      id: address.id,
+      address: changeAdress,
+      userId: address.userId,
+    };
+
+    dispatch(fetchEditOneDeliveryAddress(editOneAddress));
+    setChangeAdress(changeAdress);
+    setEditAddress(0);
   };
 
   return (
@@ -55,7 +72,10 @@ export default function OneAddressCard({
         </div>
       </div>
       {editAddress === address.id ? (
-        <form className={styleOneAddressCard.editAddressForm}>
+        <form
+          onSubmit={editOneDeliveryAddressHandler}
+          className={styleOneAddressCard.editAddressForm}
+        >
           <div className={styleOneAddressCard.labelAndTextarea}>
             <label
               className={styleOneAddressCard.labelTextarea}
@@ -64,20 +84,28 @@ export default function OneAddressCard({
               Измените адрес доставки
             </label>
             <textarea
+            className={styleOneAddressCard.textAreaSizer}
               name="editAdress"
               id={`edit-${address.id}`}
               cols={37}
               rows={2}
               value={changeAdress}
               onChange={inputChangeAddressHandler}
+              minLength={5}
               required
             />
           </div>
-          <img
-            className={styleOneAddressCard.checkMarkRing}
-            src={checkMarkRing}
-            alt="checkMarkRing"
-          />
+          <button
+            className={styleOneAddressCard.editBtn}
+            title="Изменить адрес"
+            aria-label="edit"
+          >
+            <img
+              className={styleOneAddressCard.checkMarkRing}
+              src={checkMarkRing}
+              alt="checkMarkRing"
+            />
+          </button>
         </form>
       ) : (
         <p>{address.address}</p>

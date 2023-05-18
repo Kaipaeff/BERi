@@ -33,6 +33,22 @@ router.post('/address', async (req, res) => {
   }
 });
 
+// Изменение адреса доставки в БД
+router.put('/address', async (req, res) => {
+  const { id, address, userId } = req.body;
+
+  try {
+    const editedAddress = await DeliveryAddress.update(
+      { address },
+      { where: { id, userId } },
+      { raw: true }
+    );
+    return res.json(editedAddress);
+  } catch (error) {
+    console.error('Ошибка изменения адреса в БД!', error);
+  }
+});
+
 // удаление адреса
 router.delete('/address/:id', async (req, res) => {
   const id = Number(req.params.id);

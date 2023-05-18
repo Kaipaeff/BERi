@@ -24,6 +24,20 @@ const deliveryAddressSlice = createSlice({
           (el): boolean => el.id !== action.payload.id
         ),
       }),
+    editOneDeliveryAddressFront: (state, action) =>
+      (state = {
+        ...state,
+        addresses: state.addresses.map((el) =>
+          el.id === action.payload.id
+            ? {
+                ...el,
+                id: action.payload.id,
+                address: action.payload.address,
+                userId: action.payload.userId,
+              }
+            : el
+        ),
+      }),
   },
   extraReducers: (builder) => {
     builder
@@ -41,7 +55,10 @@ const deliveryAddressSlice = createSlice({
       .addDefaultCase(() => {});
   },
 });
-export const { addDeliveryAddressFront, deleteDeliveryAddressFront } =
-  deliveryAddressSlice.actions;
+export const {
+  addDeliveryAddressFront,
+  deleteDeliveryAddressFront,
+  editOneDeliveryAddressFront,
+} = deliveryAddressSlice.actions;
 
 export default deliveryAddressSlice.reducer;
