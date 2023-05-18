@@ -11,6 +11,7 @@ const dbCheck = require('./db/dbCheck');
 
 // импорт роутов
 const productRoutes = require('./routes/products.router');
+const accountRoutes = require('./routes/account.router');
 
 // вызов функции проверки соединения с базоый данных
 dbCheck();
@@ -25,6 +26,7 @@ app.use(express.json());
 //роутеры
 
 app.use('/products', productRoutes);
+app.use('/account', accountRoutes);
 
 const PORT = process.env.PORT || 3100;
 app.listen(PORT, (err) => {
