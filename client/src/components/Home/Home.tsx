@@ -24,7 +24,6 @@ export function Home(): JSX.Element {
     setCategory(category);
   }
 
-
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
@@ -63,9 +62,9 @@ export function Home(): JSX.Element {
       <div className={style.filterBar}>
         <FilterBar onClick={handleClick} />
       </div>
-    <div className={style.productsContainer}>
-      {/*---------- данные для теста ---------- */}
-      {/* <div className="testDivProduct">
+      <div className={style.productsContainer}>
+        {/*---------- данные для теста ---------- */}
+        {/* <div className="testDivProduct">
         {products.map((el) => (
           <div key={el.id}>
             <div>имя: ====={el.name}</div>
@@ -91,10 +90,10 @@ export function Home(): JSX.Element {
         <div className={style.loadedCards}>
           {products.length && category === 0 ? (
             products.map((el: productType) => <Card key={el.id} el={el} />)
-            ) : products.length && category ? (
-              products
-                .filter((el) => el.categoryId === category)
-                .map((el: productType) => <Card key={el.id} el={el} />)
+          ) : products.length && category ? (
+            products
+              .filter((el) => el.categoryId === category)
+              .map((el: productType) => <Card key={el.id} el={el} />)
           ) : (
             <p className="products">No products found</p>
           )}
