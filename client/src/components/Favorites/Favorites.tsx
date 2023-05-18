@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './favorites.module.css'
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { RootState } from '../../types/types';
@@ -8,7 +8,6 @@ import { getProducts } from '../../redux/Thunk/getProducts';
 import { useNavigate } from 'react-router-dom';
 
 import arrawLeft from '../../img/icons/arrow-left.svg'
-
 
 
 export function Favorites() {
@@ -28,6 +27,8 @@ export function Favorites() {
   }, [dispatch]);
 
   const navigate = useNavigate();
+
+  
 
   return (
     <>

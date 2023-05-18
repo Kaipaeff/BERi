@@ -75,9 +75,9 @@ export default function Footer(): JSX.Element {
 
             <p
               className={style.textlink}
-              onClick={() => navigate('/faq')}
+              onClick={() => navigate('/oferta')}
             >
-              Часто задаваемые вопросы
+              Публичная оферта
             </p>
 
             <p

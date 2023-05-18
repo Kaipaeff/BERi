@@ -12,6 +12,7 @@ import { Accessories } from './components/Accessories/Accessories';
 import { PremiumBrands } from './components/PremiumBrands/PremiumBrands';
 import { Sale } from './components/Sale/Sale';
 
+import { Search } from './components/Search/Search';
 import { Favorites } from './components/Favorites/Favorites';
 import MyAccount from './components/MyAccount/MyAccount';
 import LogIn from './components/LogIn/LogIn';
@@ -21,8 +22,8 @@ import AboutUs from './components/AboutUs/AboutUs';
 import ContactUs from './components/ContactUs/ContactUs';
 
 import ShippingPolicy from './components/ShippingPolicy/ShippingPolicy';
-import ReturnsAndRefunds from './components/ReturnsAndRefunds/ReturnsAndRefunds';
-import FrequentlyAsked from './components/Faq/Faq';
+import ReturnsPolicy from './components/ReturnsPolicy/ReturnsPolicy';
+import Oferta from './components/Oferta/Oferta';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
 import Footer from './components/Footer/Footer';
@@ -43,6 +44,10 @@ function App() {
             location.pathname !== '/register' &&
             location.pathname !== '/account' && 
             location.pathname !== '/favorites' && 
+            location.pathname !== '/shippingpolicy' && 
+            location.pathname !== '/returnspolicy' && 
+            location.pathname !== '/oferta' && 
+            location.pathname !== '/privacypolicy' && 
             
             <MainSlider />}
 
@@ -55,6 +60,7 @@ function App() {
             <Route path="/premiumbrands" element={<PremiumBrands />} />
             <Route path="/sale" element={<Sale />} />
 
+            <Route path="/search" element={<Search />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/account" element={<MyAccount />} />
             <Route path="/login" element={<LogIn />} />
@@ -64,8 +70,8 @@ function App() {
             <Route path="/contacts" element={<ContactUs />} />
          
             <Route path="/shippingpolicy" element={<ShippingPolicy />} />
-            <Route path="/returnspolicy" element={<ReturnsAndRefunds />} />
-            <Route path="/faq" element={<FrequentlyAsked />} />
+            <Route path="/returnspolicy" element={<ReturnsPolicy />} />
+            <Route path="/oferta" element={<Oferta />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           </Routes>
         </div>
