@@ -61,30 +61,12 @@ export function Home(): JSX.Element {
   };
 
   return (
-    <>
-      <div className={style.productsContainer}>
-        {loading ? (
-          <div className="loading">
-            <img src="./Spinner-1s-200px.gif" alt="" />
-          </div>
-        ) : (
-          <div className={style.loadedCards}>
-            {products.length ? (
-              products.map((el: productType) => <Card key={el.id} el={el} />)
-            ) : (
-              <p className="products">No products found</p>
-            )}
-          </div>
-        )}
-      </div>
-
-      <MainBrandsBlock />
-
-      
+    <>     
     <div className={style.catalog}>
       <div className={style.filterBar}>
-        <FilterBar onClick={handleClick} />
-      </div>
+      <FilterBar onClick={handleClick} />
+    </div>
+
     <div className={style.productsContainer}>
       {/*---------- данные для теста ---------- */}
       {/* <div className="testDivProduct">
@@ -123,6 +105,7 @@ export function Home(): JSX.Element {
         </div>
       )}
     </div>
+    <MainBrandsBlock />
     </>
   );
 }
