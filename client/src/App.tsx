@@ -25,7 +25,8 @@ import LogIn from './components/LogIn/LogIn';
 
 import MyAccount from './components/MyAccount/MyAccount';
 
-import MainSlider from './components/MainSlider/MainSlider';
+import MainSlider  from './components/MainSlider/MainSlider';
+
 
 function App() {
   const location = useLocation();

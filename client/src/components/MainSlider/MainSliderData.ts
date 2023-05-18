@@ -14,7 +14,7 @@ const images: IImages[] = [
   {
     id: 1,
     image: sliderImage1 ,
-    title: 'Все необходимое для Вашего ребенка',
+    title: 'Стиль и комфорт Вашего ребенка',
     description: 'внутри нашего каталога',
   },
 
