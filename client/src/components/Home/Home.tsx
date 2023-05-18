@@ -66,7 +66,7 @@ export function Home(): JSX.Element {
       </div>
     <div className={style.productsContainer}>
       {/*---------- данные для теста ---------- */}
-      <div className="testDivProduct">
+      {/* <div className="testDivProduct">
         {products.map((el) => (
           <div key={el.id}>
             <div>имя: ====={el.name}</div>
@@ -81,7 +81,7 @@ export function Home(): JSX.Element {
               добавить в корзину
             </button>
           </div>
-        ))}
+        ))} */}
         {/*---------- данные для теста ----------*/}
       </div>
       {loading ? (
