@@ -25,7 +25,8 @@ import LogIn from './components/LogIn/LogIn';
 
 import MyAccount from './components/MyAccount/MyAccount';
 
-import MainSlider  from './components/MainSlider/MainSlider';;
+import MainSlider  from './components/MainSlider/MainSlider';
+
 
 function App() {
 
@@ -64,7 +65,7 @@ function App() {
           <Route path="/returnsandrefunds" element={<ReturnsAndRefunds />} />
           <Route path="/cookiespolicy" element={<CookiesPolicy />} />
           <Route path="/frequentlyasked" element={<FrequentlyAsked />} />
-          
+
         </Routes>
       </div>
     </div>

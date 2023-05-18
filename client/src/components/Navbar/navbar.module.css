@@ -103,7 +103,7 @@ a .saleLink {
 	left: 10;
 	width: 0;
 	height: 2px;
-	background-color: #121212;
+	background-color: #f71111;
 	content: "";
 	transition: width 0.3s ease-out;
 }

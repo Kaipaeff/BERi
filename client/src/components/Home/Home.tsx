@@ -5,6 +5,7 @@ import { productType } from '../../types/product';
 import { getProducts } from '../../redux/Thunk/getProducts';
 import style from './home.module.css';
 import Card from '../Card/Card';
+import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 
 export function Home(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -20,6 +21,7 @@ export function Home(): JSX.Element {
   }, []);
 
   return (
+    <>
       <div className={style.productsContainer}>
         {loading ? (
           <div className="loading">
@@ -35,5 +37,9 @@ export function Home(): JSX.Element {
           </div>
         )}
       </div>
+
+      <MainBrandsBlock />
+
+      </>
   );
 }
