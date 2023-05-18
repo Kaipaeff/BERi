@@ -2,31 +2,282 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
       'ProductProps',
       [
         {
           productId: 1,
           colorId: 2,
-          sizeId: 3
+          sizeId: 3,
+          vendorPrice: 1000,
+          salePrice: 2000,
+        },
+        {
+          productId: 1,
+          colorId: 2,
+          sizeId: 1,
+          vendorPrice: 900,
+          salePrice: 1800,
+        },
+        {
+          productId: 1,
+          colorId: 2,
+          sizeId: 2,
+          vendorPrice: 800,
+          salePrice: 1700,
+        },
+        {
+          productId: 1,
+          colorId: 1,
+          sizeId: 2,
+          vendorPrice: 1000,
+          salePrice: 2000,
+        },
+        {
+          productId: 1,
+          colorId: 3,
+          sizeId: 3,
+          vendorPrice: 1000,
+          salePrice: 2000,
         },
         {
           productId: 2,
           colorId: 3,
-          sizeId: 1
+          sizeId: 1,
+          vendorPrice: 1500,
+          salePrice: 2500,
+        },
+        {
+          productId: 2,
+          colorId: 2,
+          sizeId: 2,
+          vendorPrice: 1300,
+          salePrice: 2400,
+        },
+        {
+          productId: 2,
+          colorId: 3,
+          sizeId: 3,
+          vendorPrice: 1500,
+          salePrice: 2500,
+        },
+        {
+          productId: 2,
+          colorId: 1,
+          sizeId: 3,
+          vendorPrice: 1500,
+          salePrice: 2500,
+        },
+        {
+          productId: 2,
+          colorId: 3,
+          sizeId: 2,
+          vendorPrice: 1500,
+          salePrice: 2500,
         },
         {
           productId: 3,
           colorId: 1,
-          sizeId: 1
+          sizeId: 1,
+          vendorPrice: 3000,
+          salePrice: 5500,
+        },
+        {
+          productId: 3,
+          colorId: 2,
+          sizeId: 2,
+          vendorPrice: 2000,
+          salePrice: 3500,
+        },
+        {
+          productId: 3,
+          colorId: 1,
+          sizeId: 3,
+          vendorPrice: 2000,
+          salePrice: 3500,
+        },
+        {
+          productId: 3,
+          colorId: 3,
+          sizeId: 1,
+          vendorPrice: 3000,
+          salePrice: 4500,
+        },
+        {
+          productId: 4,
+          colorId: 1,
+          sizeId: 1,
+          vendorPrice: 2000,
+          salePrice: 4200,
+        },
+        {
+          productId: 4,
+          colorId: 2,
+          sizeId: 1,
+          vendorPrice: 2000,
+          salePrice: 4100,
+        },
+        {
+          productId: 4,
+          colorId: 1,
+          sizeId: 3,
+          vendorPrice: 2000,
+          salePrice: 4000,
+        },
+        {
+          productId: 5,
+          colorId: 1,
+          sizeId: 2,
+          vendorPrice: 2000,
+          salePrice: 3800,
+        },
+        {
+          productId: 5,
+          colorId: 3,
+          sizeId: 1,
+          vendorPrice: 2000,
+          salePrice: 3800,
+        },
+        {
+          productId: 5,
+          colorId: 2,
+          sizeId: 3,
+          vendorPrice: 2000,
+          salePrice: 3500,
+        },
+        {
+          productId: 6,
+          colorId: 1,
+          sizeId: 2,
+          vendorPrice: 3000,
+          salePrice: 5500,
+        },
+        {
+          productId: 6,
+          colorId: 1,
+          sizeId: 1,
+          vendorPrice: 3000,
+          salePrice: 5100,
+        },
+        {
+          productId: 6,
+          colorId: 2,
+          sizeId: 3,
+          vendorPrice: 3000,
+          salePrice: 5500,
+        },
+        {
+          productId: 7,
+          colorId: 1,
+          sizeId: 1,
+          vendorPrice: 1000,
+          salePrice: 2000,
+        },
+        {
+          productId: 7,
+          colorId: 2,
+          sizeId: 2,
+          vendorPrice: 1000,
+          salePrice: 2000,
+        },
+        {
+          productId: 7,
+          colorId: 4,
+          sizeId: 3,
+          vendorPrice: 1000,
+          salePrice: 1500,
+        },
+        {
+          productId: 8,
+          colorId: 2,
+          sizeId: 1,
+          vendorPrice: 1000,
+          salePrice: 1800,
+        },
+        {
+          productId: 8,
+          colorId: 1,
+          sizeId: 3,
+          vendorPrice: 1000,
+          salePrice: 2100,
+        },
+        {
+          productId: 8,
+          colorId: 1,
+          sizeId: 3,
+          vendorPrice: 1000,
+          salePrice: 2100,
+        },
+        {
+          productId: 9,
+          colorId: 2,
+          sizeId: 3,
+          vendorPrice: 1000,
+          salePrice: 3000,
+        },
+        {
+          productId: 9,
+          colorId: 2,
+          sizeId: 1,
+          vendorPrice: 1000,
+          salePrice: 3000,
+        },
+        {
+          productId: 9,
+          colorId: 1,
+          sizeId: 2,
+          vendorPrice: 1000,
+          salePrice: 3200,
+        },
+        {
+          productId: 10,
+          colorId: 1,
+          sizeId: 1,
+          vendorPrice: 2000,
+          salePrice: 3500,
+        },
+        {
+          productId: 10,
+          colorId: 1,
+          sizeId: 2,
+          vendorPrice: 2000,
+          salePrice: 3500,
+        },
+        {
+          productId: 10,
+          colorId: 2,
+          sizeId: 3,
+          vendorPrice: 2000,
+          salePrice: 3500,
+        },
+        {
+          productId: 11,
+          colorId: 1,
+          sizeId: 1,
+          vendorPrice: 4000,
+          salePrice: 7500,
+        },
+        {
+          productId: 11,
+          colorId: 1,
+          sizeId: 2,
+          vendorPrice: 4000,
+          salePrice: 8500,
+        },
+        {
+          productId: 12,
+          colorId: 1,
+          sizeId: 3,
+          vendorPrice: 1000,
+          salePrice: 1500,
         },
       ],
       {}
     );
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('ProductProps', null, {});
-  }
+  },
 };

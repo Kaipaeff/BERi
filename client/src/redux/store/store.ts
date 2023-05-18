@@ -10,3 +10,5 @@ export const store = configureStore({
     AddNewAddressBtn,
   },
 });
+
+export default store;
