@@ -2,21 +2,24 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Vendors', {
+    await queryInterface.createTable('Tokens', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
-        type: Sequelize.STRING,
+      userId: {
+        references: {
+          model: {
+            tableName: 'Users',
+          },
+          key: 'id',
+        },
+        type: Sequelize.INTEGER,
       },
-      country: {
+      refreshToken: {
         type: Sequelize.STRING,
-      },
-      premium: {
-        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         defaultValue: new Date(),
@@ -31,6 +34,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Vendors');
+    await queryInterface.dropTable('Tokens');
   },
 };

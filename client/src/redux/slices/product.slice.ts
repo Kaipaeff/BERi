@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { stateType } from '../store.types';
-import { getProducts } from '../Thunk/getProducts';
+import { stateProductType } from '../store.types';
+import { getProducts } from '../Thunk/Products/getProducts';
 
-const initialState: stateType = {
+const initialState: stateProductType = {
   products: [],
   loading: false,
 };

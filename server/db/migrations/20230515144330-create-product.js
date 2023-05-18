@@ -15,17 +15,8 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
       },
-      sex: {
-        type: Sequelize.INTEGER,
-      },
       img: {
         type: Sequelize.STRING,
-      },
-      rating: {
-        type: Sequelize.FLOAT,
-      },
-      reviews: {
-        type: Sequelize.INTEGER,
       },
       vendorId: {
         references: {
@@ -36,6 +27,9 @@ module.exports = {
         },
         type: Sequelize.INTEGER,
       },
+      vendorPrice: {
+        type: Sequelize.DECIMAL,
+      },
       categoryId: {
         references: {
           model: {
@@ -44,6 +38,36 @@ module.exports = {
           key: 'id',
         },
         type: Sequelize.INTEGER,
+      },
+      productTypeId: {
+        references: {
+          model: {
+            tableName: 'ProductTypes',
+          },
+          key: 'id',
+        },
+        type: Sequelize.INTEGER,
+      },
+      sexId: {
+        references: {
+          model: {
+            tableName: 'Sexes',
+          },
+          key: 'id',
+        },
+        type: Sequelize.INTEGER,
+      },
+      ageId: {
+        references: {
+          model: {
+            tableName: 'Ages',
+          },
+          key: 'id',
+        },
+        type: Sequelize.INTEGER,
+      },
+      rating: {
+        type: Sequelize.FLOAT,
       },
       createdAt: {
         defaultValue: new Date(),

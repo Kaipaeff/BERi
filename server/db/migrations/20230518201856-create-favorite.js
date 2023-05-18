@@ -2,11 +2,20 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ProductProps', {
+    await queryInterface.createTable('Favorites', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER,
+      },
+      userId: {
+        references: {
+          model: {
+            tableName: 'Users',
+          },
+          key: 'id',
+        },
         type: Sequelize.INTEGER,
       },
       productId: {
@@ -16,36 +25,6 @@ module.exports = {
           },
           key: 'id',
         },
-        type: Sequelize.INTEGER,
-      },
-      colorId: {
-        references: {
-          model: {
-            tableName: 'Colors',
-          },
-          key: 'id',
-        },
-        type: Sequelize.INTEGER,
-      },
-      sizeId: {
-        references: {
-          model: {
-            tableName: 'Sizes',
-          },
-          key: 'id',
-        },
-        type: Sequelize.INTEGER,
-      },
-      salePrice: {
-        type: Sequelize.DECIMAL,
-      },
-      sale: {
-        type: Sequelize.BOOLEAN,
-      },
-      quantity: {
-        type: Sequelize.INTEGER,
-      },
-      amount: {
         type: Sequelize.INTEGER,
       },
       createdAt: {
@@ -61,6 +40,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ProductProps');
+    await queryInterface.dropTable('Favorites');
   },
 };

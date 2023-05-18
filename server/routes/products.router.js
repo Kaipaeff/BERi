@@ -1,6 +1,6 @@
 const express = require('express');
 const route = express.Router();
-const { Product, Vendor, ProductProps } = require('../db/models');
+const { Product, Vendor, ProductProps, Category } = require('../db/models');
 const db = require('../db/models/index');
 
 route.get('/', async (req, res) => {
@@ -25,15 +25,27 @@ route.get('/', async (req, res) => {
     });
 
     const prices = findPrices.map((el) => el.get({ plain: true }));
-    
+
     products.forEach((product) => {
       const price = prices.find((el) => el.productId === product.id);
       if (price) {
         product.minPrice = Number(price.minPrice);
       }
     });
-    
+
     res.json(products);
+  } catch (error) {
+    res.json({ error });
+  }
+});
+
+route.get('/categories', async (req, res) => {
+  try {
+    const findCategories = await Category.findAll({});
+
+    const categories = findCategories.map((el) => el.get({ plain: true }));
+
+    res.json(categories);
   } catch (error) {
     res.json({ error });
   }

@@ -7,7 +7,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
         references: {
@@ -16,7 +16,7 @@ module.exports = {
           },
           key: 'id',
         },
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       productPropsId: {
         references: {
@@ -25,24 +25,42 @@ module.exports = {
           },
           key: 'id',
         },
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+      },
+      productName: {
+        type: Sequelize.STRING,
       },
       quantity: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+      },
+      price: {
+        type: Sequelize.DECIMAL,
+      },
+      totalPrice: {
+        type: Sequelize.DECIMAL,
+      },
+      orderId: {
+        references: {
+          model: {
+            tableName: 'OrderLists',
+          },
+          key: 'id',
+        },
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         defaultValue: new Date(),
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         defaultValue: new Date(),
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Carts');
-  }
+  },
 };
