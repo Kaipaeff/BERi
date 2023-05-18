@@ -8,6 +8,7 @@ import Card from '../Card/Card';
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
 
+
 export function Home(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
   const dispatch = useAppDispatch();
@@ -60,6 +61,26 @@ export function Home(): JSX.Element {
   };
 
   return (
+    <>
+      <div className={style.productsContainer}>
+        {loading ? (
+          <div className="loading">
+            <img src="./Spinner-1s-200px.gif" alt="" />
+          </div>
+        ) : (
+          <div className={style.loadedCards}>
+            {products.length ? (
+              products.map((el: productType) => <Card key={el.id} el={el} />)
+            ) : (
+              <p className="products">No products found</p>
+            )}
+          </div>
+        )}
+      </div>
+
+      <MainBrandsBlock />
+
+      
     <div className={style.catalog}>
       <div className={style.filterBar}>
         <FilterBar onClick={handleClick} />
@@ -102,5 +123,6 @@ export function Home(): JSX.Element {
         </div>
       )}
     </div>
+    </>
   );
 }
