@@ -6,4 +6,5 @@ export type productType = {
   img: string;
   vendorId: number;
   categoryId: number;
+  quantity?: number | undefined;
 };
