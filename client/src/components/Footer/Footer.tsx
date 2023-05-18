@@ -14,6 +14,7 @@ export default function Footer(): JSX.Element {
         <Link to='/'>
           <div className={style.columnName}>
             <h1>BERi</h1>
+            <p>магазин детской одежды</p>
           </div>
         </Link>
 

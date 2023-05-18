@@ -5,7 +5,9 @@ import { productType } from '../../types/product';
 import { getProducts } from '../../redux/Thunk/getProducts';
 import style from './home.module.css';
 import Card from '../Card/Card';
+import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
+
 
 export function Home(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
@@ -58,29 +60,31 @@ export function Home(): JSX.Element {
   };
 
   return (
+    <>
     <div className={style.catalog}>
       <div className={style.filterBar}>
         <FilterBar onClick={handleClick} />
       </div>
+
       <div className={style.productsContainer}>
         {/*---------- данные для теста ---------- */}
         {/* <div className="testDivProduct">
-        {products.map((el) => (
-          <div key={el.id}>
-            <div>имя: ====={el.name}</div>
-            <br />
-            <div> описание: ====={el.description}</div>
-            <br />
-            <div>пол: ====={el.sex}</div>
-            <br />
-            <div>цена: ====={el.vendorId}</div>
-            <br />
-            <button onClick={(e) => handleAddToCart(el, e)}>
-              добавить в корзину
-            </button>
-          </div>
-        ))} */}
-        {/*---------- данные для теста ----------*/}
+          {products.map((el) => (
+            <div key={el.id}>
+              <div>имя: ====={el.name}</div>
+              <br />
+              <div> описание: ====={el.description}</div>
+              <br />
+              <div>пол: ====={el.sex}</div>
+              <br />
+              <div>цена: ====={el.vendorId}</div>
+              <br />
+              <button onClick={(e) => handleAddToCart(el, e)}>
+                добавить в корзину
+              </button>
+            </div>
+          ))} */}
+          {/*---------- данные для теста ----------*/}
       </div>
       {loading ? (
         <div className="loading">
@@ -100,5 +104,7 @@ export function Home(): JSX.Element {
         </div>
       )}
     </div>
+    <MainBrandsBlock />
+    </>
   );
 }
