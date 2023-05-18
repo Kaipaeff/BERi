@@ -1,37 +1,23 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './ShopCart.module.css';
 import shoesImage from './img/shoesForTest.jpg';
 import trashIcon from './img/trash.jpg';
 import truckIcon from './img/truck.jpg';
-import { productType } from '../../types/product';
+import { productType } from '../../../types/product';
+import { Link } from 'react-router-dom';
 
 export default function ShopCart() {
-  interface IPrice {
-    price: number;
-  }
-
-  const initStatePrice: IPrice = useMemo(
-    () => ({
-      //сюда прийдет цена из БД
-      price: 80,
-    }),
-    []
-  );
-
-  const [price, setPrice] = useState<any>(initStatePrice);
-  //надо поправить, считает только при выборе доставки
-  const [totalPrice, setTotalPrice] = useState(initStatePrice.price);
-
+  // парсинг товаров из localStorage
   const [goods, setGoods] = useState([]);
   const goodsForShopCart = localStorage.getItem('GoodsForShopCart');
 
   useEffect(() => {
-    console.log('useEffect');
     if (goodsForShopCart) {
       setGoods(JSON.parse(goodsForShopCart));
     }
   }, []);
 
+  // счетчик
   function Increment(id: number) {
     const goodsIncrementQuantity: any = goods.map((el: productType) =>
       el.id === id ? { ...el, quantity: ((el.quantity as number) += 1) } : el
@@ -49,19 +35,26 @@ export default function ShopCart() {
   }
 
   // бардер на радио кнопках
+
   const [radioClassName, setRadioClassName] = useState(false);
   const [radioClassName2, setRadioClassName2] = useState(false);
+
+  const [plusDilevery, setPlusDilevery] = useState(Boolean);
 
   const RadioBoolean = (checked: any) => {
     setRadioClassName(checked);
     setRadioClassName2(!checked);
+    setPlusDilevery(false);
   };
 
   const RadioBoolean2 = (checked: any) => {
     setRadioClassName(!checked);
     setRadioClassName2(checked);
+    setPlusDilevery(true);
+    console.log(plusDilevery, '<<<<plusdeleverT');
   };
 
+  // промокод
   const initPromoCode: any = {
     promoCode: '',
   };
@@ -72,24 +65,28 @@ export default function ShopCart() {
     setPromoCode((pre: any) => ({ ...pre, [e.target.name]: e.target.value }));
   };
 
+  // удаление
   const deleteHandle = (element: any) => {
     const newGoods = goods.filter((el: any) => el.id !== element);
     localStorage.setItem('GoodsForShopCart', JSON.stringify(newGoods));
     setGoods(newGoods);
-  };
 
-  const calculatePriceHandle = (dilevery: number) => {
-    console.log(price.price, '<<<PRICE');
-    setTotalPrice(price.price + dilevery);
+    // вызов функции handleTotalPrice для обновления totalPriceCalculate
+    setTotalPriceCalculate((prev) => {
+      const newPrice = { ...prev };
+      delete newPrice[element];
+      return newPrice;
+    });
   };
+  // калькулятор итоговой суммы
 
   const [totalPriceCalculate, setTotalPriceCalculate] = useState<{
     [key: number]: number;
   }>({});
 
   const handleTotalPrice = useCallback(
-    (quantity: number, elId: number) => {
-      const calculateTotalPrice = quantity * price.price;
+    (quantity: number, elId: number, minPrice: number) => {
+      const calculateTotalPrice = quantity * minPrice;
 
       if (totalPriceCalculate[elId] !== calculateTotalPrice) {
         setTotalPriceCalculate({
@@ -100,19 +97,20 @@ export default function ShopCart() {
 
       return calculateTotalPrice;
     },
-    [price.price, totalPriceCalculate]
+    [totalPriceCalculate]
   );
 
-  const moreHanbleCalculate = () => {
+  const totalPrice = () => {
     const valuesArray = Object.values(totalPriceCalculate);
 
     const totalPrice = valuesArray.reduce(
       (total, currentValue) => total + currentValue,
       0
     );
-    return totalPrice;
+    // сумму доставки брать из бека? сейчас это 100
+    return plusDilevery ? totalPrice + 100 : totalPrice;
   };
-
+  console.log(goods, '<<<<<godds');
   return (
     <div className={styles.Main}>
       <div className={styles.Head}>
@@ -127,77 +125,79 @@ export default function ShopCart() {
         </div>
       </div>
       <div className={styles.Content}>
-        {goods.map((el: any, i) => (
-          <div className={styles.InfoGoods} key={i}>
-            <div className={styles.Product}>
-              <h5>Товар</h5>
-              <div className={styles.ProductChildElement}>
-                <div>
-                  <img
-                    src={shoesImage}
-                    alt="product"
-                    className={styles.Img_Product}
-                  />
-                </div>
-                <div className={styles.ProductInfo}>
-                  <span>
-                    {el.name} &nbsp;&nbsp;
-                    {el.Vendor.name}
-                  </span>
-                  <span>{el.description}</span>
-                  <div className={styles.TrashContainer}>
+        {goods.length ? (
+          goods.map((el: any, i) => (
+            <div className={styles.InfoGoods} key={i}>
+              <div className={styles.Product}>
+                <h5>Товар</h5>
+                <div className={styles.ProductChildElement}>
+                  <div>
                     <img
-                      src={trashIcon}
-                      alt="trashImg"
-                      className={styles.Icon_Trash}
-                      onClick={() => deleteHandle(el.id)}
+                      src={el.img}
+                      alt="product"
+                      className={styles.Img_Product}
                     />
+                  </div>
+                  <div className={styles.ProductInfo}>
+                    <span>
+                      {el.name} &nbsp;&nbsp;
+                      {el.Vendor.name}
+                    </span>
+                    <span>{el.description}</span>
+                    <div className={styles.TrashContainer}>
+                      <img
+                        src={trashIcon}
+                        alt="trashImg"
+                        className={styles.Icon_Trash}
+                        onClick={() => deleteHandle(el.id)}
+                      />
+                      <button
+                        onClick={() => deleteHandle(el.id)}
+                        className={styles.Btn_Remove}
+                      >
+                        Удалить
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={styles.Quantity}>
+                <h5>Количество</h5>
+                <div className={styles.Counter}>
+                  <div className={styles.CounterBorder}>
                     <button
-                      onClick={() => deleteHandle(el.id)}
-                      className={styles.Btn_Remove}
+                      onClick={() => el.quantity > 1 && Dicrement(el.id)}
+                      className={styles.Dicrement}
                     >
-                      Удалить
+                      -
+                    </button>
+                    <span className={styles.Count}>{el.quantity}</span>
+                    <button
+                      onClick={() => Increment(el.id)}
+                      className={styles.Increment}
+                    >
+                      +
                     </button>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className={styles.Quantity}>
-              <h5>Количество</h5>
-              <div className={styles.Counter}>
-                <div className={styles.CounterBorder}>
-                  <button
-                    onClick={() => el.quantity > 1 && Dicrement(el.id)}
-                    className={styles.Dicrement}
-                  >
-                    -
-                  </button>
-                  <span className={styles.Count}>{el.quantity}</span>
-                  <button
-                    onClick={() => Increment(el.id)}
-                    className={styles.Increment}
-                  >
-                    +
-                  </button>
+              <div className={styles.Price}>
+                <h5>Стоимость</h5>
+                <div className={styles.PriceCounter}>
+                  <span>{el.minPrice}р</span>
+                </div>
+              </div>
+              <div className={styles.Subtotal}>
+                <h5>Сумма</h5>
+                <div className={styles.PriceCounter}>
+                  <b>{handleTotalPrice(el.quantity, el.id, el.minPrice)}р</b>
                 </div>
               </div>
             </div>
-            <div className={styles.Price}>
-              <h5>Стоимость</h5>
-              <div className={styles.PriceCounter}>
-                {/* нужно вытащить из базы стоимость */}
-                <span>{initStatePrice.price}р</span>
-              </div>
-            </div>
-            <div className={styles.Subtotal}>
-              <h5>Сумма</h5>
-              <div className={styles.PriceCounter}>
-                {/* <b>{handleTotalPrice(el.quantity, el.id)}р</b> */}
-                <b>{handleTotalPrice(el.quantity, el.id)}р</b>
-              </div>
-            </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <div>В вашей корзине пока что нет товаров</div>
+        )}
       </div>
       <div className={styles.InfoOrder}>
         <div className={styles.LeftSide_Promocod}>
@@ -207,6 +207,7 @@ export default function ShopCart() {
             <input
               className={styles.PromoInput}
               onChange={changePromoCodeHandler}
+              // нужно ограничить длинну инпута
               value={promoCode.promoCode}
               name="promoCode"
               type="text"
@@ -231,7 +232,6 @@ export default function ShopCart() {
                     <input
                       className={styles.RadioPrice}
                       onChange={(e) => {
-                        calculatePriceHandle(0);
                         RadioBoolean(e.target);
                       }}
                       type="radio"
@@ -253,8 +253,6 @@ export default function ShopCart() {
                     <input
                       className={styles.RadioPrice}
                       onChange={(e) => {
-                        // стоимость доставки доставать с бека
-                        calculatePriceHandle(100);
                         RadioBoolean2(e.target);
                       }}
                       type="radio"
@@ -268,12 +266,16 @@ export default function ShopCart() {
                 <div className={styles.DeliveryPrice}>
                   <h3>Итого к оплате</h3>
                   <span>
-                    <b>{moreHanbleCalculate()}р</b>
+                    {/* сумму доставки доставать из бека */}
+
+                    <b>{totalPrice()}р</b>
                   </span>
                 </div>
-                <button type="submit" className={styles.Btn_Order}>
-                  Оплатить
-                </button>
+                <Link to="payment">
+                  <button type="submit" className={styles.Btn_Order}>
+                    Оплатить
+                  </button>
+                </Link>
               </div>
             </form>
           </div>
