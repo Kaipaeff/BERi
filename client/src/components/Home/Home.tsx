@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { RootState } from '../../types/types';
 import { productType } from '../../types/product';
@@ -101,7 +100,6 @@ export function Home(): JSX.Element {
           )}
         </div>
       )}
-    </div>
     </div>
   );
 }
