@@ -9,5 +9,6 @@ export type productType = {
   vendorId: number;
   categoryId: number;
   minPrice: string;
+  quantity?: number | undefined;
 };
 
