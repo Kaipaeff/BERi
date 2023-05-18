@@ -10,13 +10,13 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       userId: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
         references: {
-          model: {
-            tableName: 'Users',
-          },
+          model: 'Users',
           key: 'id',
         },
-        type: Sequelize.INTEGER,
+        onDelete: 'cascade',
       },
       address: {
         type: Sequelize.STRING,
