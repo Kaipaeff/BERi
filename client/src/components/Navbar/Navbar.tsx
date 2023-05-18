@@ -57,7 +57,7 @@ export function Navbar() {
           <img className={style.favoritesIcon} src={favorites} alt="favoritesIcon" />
         </Link>
 
-        <Link to='/cabinet'>
+        <Link to='/account'>
           <img className={style.cabinetIcon} src={cabinet} alt="cabinetIcon" />
         </Link>
 
