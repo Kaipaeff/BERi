@@ -4,32 +4,35 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import style from './app.module.css';
 
 import { Navbar } from './components/Navbar/Navbar';
+import MainSlider from './components/MainSlider/MainSlider';
+import { Home } from './components/Home/Home';
+
 import { Clothes } from './components/Clothes/Clothes';
 import { Shoes } from './components/Shoes/Shoes';
 import { Accessories } from './components/Accessories/Accessories';
 import { PremiumBrands } from './components/PremiumBrands/PremiumBrands';
 import { Sale } from './components/Sale/Sale';
+
+import { Search } from './components/Search/Search';
 import { Favorites } from './components/Favorites/Favorites';
-import { Home } from './components/Home/Home';
-import ShopCart from './components/shopCart/ShopCart';
-import Footer from './components/Footer/Footer';
+
+import ShopCart from './components/ShoppingСart/ShopCart/ShopCart';
+
 import AboutUs from './components/AboutUs/AboutUs';
-import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
-import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions';
 import ContactUs from './components/ContactUs/ContactUs';
 
 import ShippingPolicy from './components/ShippingPolicy/ShippingPolicy';
-import ReturnsAndRefunds from './components/ReturnsAndRefunds/ReturnsAndRefunds';
-import CookiesPolicy from './components/CookiesPolicy/CookiesPolicy';
-import FrequentlyAsked from './components/Faq/Faq';
+import ReturnsPolicy from './components/ReturnsPolicy/ReturnsPolicy';
+import Oferta from './components/Oferta/Oferta';
+import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
 import MyAccount from './components/MyAccount/MyAccount';
-import MainSlider from './components/MainSlider/MainSlider';
+import AdminMainPage from './components/AdminPages/AdminMainPage/AdminMainPage';
 import { IUser } from './models/IUser';
 import { Context } from './index';
 import { observer } from 'mobx-react-lite';
-import UserService from './services/UserService'
-
+import UserService from './services/UserService';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const location = useLocation();
@@ -53,11 +56,11 @@ function App() {
   }
   if (storeContext.isLoading) {
     return <div>Загрузка...</div>;
-  };
+  }
 
   return (
     <>
-        <div className={style.wrapper}>
+      <div className={style.wrapper}>
         <h6>
           {storeContext.isAuth
             ? `Пользователь авторизован ${storeContext.user.email}`
@@ -74,13 +77,21 @@ function App() {
         {users.map((user) => (
           <div key={user.email}>{user.email}</div>
         ))}
-          <Navbar />
-
-        {location.pathname !== '/login' &&
-          location.pathname !== '/register' &&
-          location.pathname !== '/account' && <MainSlider />}
+        <Navbar />
 
         <div className={style.container}>
+          {location.pathname !== '/login' &&
+            location.pathname !== '/register' &&
+            location.pathname !== '/account' &&
+            location.pathname !== '/adminpages' &&
+            location.pathname !== '/favorites' &&
+            location.pathname !== '/shippingpolicy' &&
+            location.pathname !== '/returnspolicy' &&
+            location.pathname !== '/oferta' &&
+            location.pathname !== '/privacypolicy' &&
+            location.pathname !== '/search' &&
+            location.pathname !== '/cart' && <MainSlider />}
+
           <Routes>
             <Route path="/" element={<Home />} />
 
@@ -90,22 +101,20 @@ function App() {
             <Route path="/premiumbrands" element={<PremiumBrands />} />
             <Route path="/sale" element={<Sale />} />
 
+            <Route path="/search" element={<Search />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/account" element={<MyAccount />} />
-          
+
             <Route path="/cart" element={<ShopCart />} />
 
-            <Route path="/aboutus" element={<AboutUs />} />
-            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-            <Route
-              path="/termsandconditions"
-              element={<TermsAndConditions />}
-            />
-            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contacts" element={<ContactUs />} />
+
             <Route path="/shippingpolicy" element={<ShippingPolicy />} />
-            <Route path="/returnsandrefunds" element={<ReturnsAndRefunds />} />
-            <Route path="/cookiespolicy" element={<CookiesPolicy />} />
-            <Route path="/frequentlyasked" element={<FrequentlyAsked />} />
+            <Route path="/returnspolicy" element={<ReturnsPolicy />} />
+            <Route path="/oferta" element={<Oferta />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="/adminpages" element={<AdminMainPage />} />
           </Routes>
         </div>
       </div>

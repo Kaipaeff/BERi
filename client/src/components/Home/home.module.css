@@ -9,5 +9,6 @@
 .catalog {
   padding: 3rem;
   display: flex;
-  gap: 50px;
+  justify-content: space-between;
+  gap: 30px;
 }

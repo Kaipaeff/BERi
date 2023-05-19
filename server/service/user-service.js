@@ -8,7 +8,7 @@ const ApiError = require('../exceptions/api-error');
 const { where } = require('sequelize');
 
 class UserService {
-  async registration(email, phone, password) {
+  async registration(email, phone, password, isAdmin) {
     const candidate = await User.findOne({
       where: { email },
       raw: true,
@@ -25,6 +25,7 @@ class UserService {
       password: hashPassword,
       phone,
       activationLink,
+      isAdmin,
     });
     await mailService.sendActivationMail(
       email,

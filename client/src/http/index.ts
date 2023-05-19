@@ -30,7 +30,10 @@ $api.interceptors.response.use(
         const response = await axios.get<AuthResponse>(`${API_URL}/refresh`, {
           withCredentials: true,
         });
+        console.log('response  11111111111111111111111111111');
         localStorage.setItem('token', response.data.accessToken);
+        console.log('response  22222222222222222222222222222');
+
         return $api.request(originalRequest);
       } catch (e) {
         console.log('НЕ АВТОРИЗОВАН');
