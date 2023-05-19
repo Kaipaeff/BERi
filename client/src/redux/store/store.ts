@@ -5,7 +5,8 @@ import AddNewAddressBtn from '../slices/DeliveryAddress/addAddressButton.slice';
 import UserReducer from '../slices/User/user.slice';
 import ActivateReducer from '../slices/activebutton.slice'
 import CategoriesReducer from '../slices/categories.slice'
-import CartSlice from '../slices/shopCard/card.slice';
+import CartSlice from '../slices/shopCard/card.slice'
+import ChangeSexReducer from '../slices/sex.slice'
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     ActivateReducer,
     CategoriesReducer,
     CartSlice,
+    ChangeSexReducer,
   },
 });
 

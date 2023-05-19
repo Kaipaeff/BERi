@@ -21,6 +21,10 @@ export type stateActiveType = {
   active: number;
 };
 
+export type sexType = {
+  sex: number;
+}
+
 export type stateTypeUser = {
   allUsers: IOneUser[];
   loading: boolean;

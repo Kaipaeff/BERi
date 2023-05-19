@@ -19,6 +19,7 @@ export function Clothes(): JSX.Element {
   const loading = useAppSelector(
     (state: RootState) => state.ProductReducer.loading
   );
+  const sex = 
 
   useEffect(() => {
     dispatch(getProducts());
