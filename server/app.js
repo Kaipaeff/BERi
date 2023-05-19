@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const app = express();
 require('@babel/register');
 const morgan = require('morgan');
-const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config();
 

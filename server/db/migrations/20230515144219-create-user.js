@@ -10,26 +10,34 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       email: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       password: {
-        allowNull: false,
+        type: Sequelize.STRING
+      },
+      phone: {
         type: Sequelize.STRING
       },
       isAdmin: {
-        allowNull: false,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
+      isActivated: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
+      activationLink: {
+        type: Sequelize.STRING
       },
       createdAt: {
-        defaultValue: new Date(),
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date(),
       },
       updatedAt: {
-        defaultValue: new Date(),
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date(),
       }
     });
   },
