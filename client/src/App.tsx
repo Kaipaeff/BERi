@@ -1,3 +1,4 @@
+import React, { useContext, useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 
 import style from './app.module.css';
@@ -21,20 +22,59 @@ import ShippingPolicy from './components/ShippingPolicy/ShippingPolicy';
 import ReturnsAndRefunds from './components/ReturnsAndRefunds/ReturnsAndRefunds';
 import CookiesPolicy from './components/CookiesPolicy/CookiesPolicy';
 import FrequentlyAsked from './components/Faq/Faq';
-import LogIn from './components/LogIn/LogIn';
 
 import MyAccount from './components/MyAccount/MyAccount';
-
-import MainSlider  from './components/MainSlider/MainSlider';
+import MainSlider from './components/MainSlider/MainSlider';
+import { IUser } from './models/IUser';
+import { Context } from './index';
+import { observer } from 'mobx-react-lite';
+import UserService from './services/UserService'
 
 
 function App() {
   const location = useLocation();
 
+  const { storeContext } = useContext(Context);
+  const [users, setUsers] = useState<IUser[]>([]);
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      storeContext.checkAuth();
+    }
+  }, []);
+
+  async function getUsers() {
+    try {
+      const response = await UserService.fetchUsers();
+      setUsers(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  if (storeContext.isLoading) {
+    return <div>Загрузка...</div>;
+  };
+
   return (
     <>
-      <div className={style.wrapper}>
-        <Navbar />
+        <div className={style.wrapper}>
+        <h6>
+          {storeContext.isAuth
+            ? `Пользователь авторизован ${storeContext.user.email}`
+            : 'АВТОРИЗУЙТЕСЬ'}
+        </h6>
+        <h6>
+          {storeContext.user.isActivated
+            ? 'Аккаунт подтвержден по почте'
+            : 'Аккаунт не подтвержден'}
+        </h6>
+        <div>
+          <button onClick={getUsers}>Получить пользователей</button>
+        </div>
+        {users.map((user) => (
+          <div key={user.email}>{user.email}</div>
+        ))}
+          <Navbar />
 
         {location.pathname !== '/login' &&
           location.pathname !== '/register' &&
@@ -52,7 +92,7 @@ function App() {
 
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/account" element={<MyAccount />} />
-            <Route path="/login" element={<LogIn />} />
+          
             <Route path="/cart" element={<ShopCart />} />
 
             <Route path="/aboutus" element={<AboutUs />} />
@@ -74,4 +114,4 @@ function App() {
   );
 }
 
-export default App;
+export default observer(App);

@@ -23,7 +23,7 @@ export default function Footer(): JSX.Element {
             <h3 className={style.titletext}>Покупателям</h3>
             <p
               className={style.textlink}
-              onClick={() => navigate('/login')}
+              // onClick={() => navigate('/login')}
             >
               Вход
             </p>
