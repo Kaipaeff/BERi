@@ -7,10 +7,12 @@ const RegistrationModal = ({
   activeReg,
   setActiveReg,
   setActiveLog,
+  setModalSuccessActive,
 }: {
   activeReg: boolean;
   setActiveReg: any;
   setActiveLog: any;
+  setModalSuccessActive: any;
 }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -19,6 +21,12 @@ const RegistrationModal = ({
   const func = () => {
     setActiveLog(true);
     setActiveReg(false);
+  };
+  const regFunc = () => {
+    storeContext.registration(email, phone, password);
+    setModalSuccessActive(true);
+    setActiveReg(false);
+    setTimeout((() => setModalSuccessActive(false)), 2000)
   };
   return (
     <div
@@ -63,7 +71,7 @@ const RegistrationModal = ({
           </p>
           <button
             className="regButton"
-            onClick={() => storeContext.registration(email, phone, password)}
+            onClick={regFunc}
           >
             Регистрация
           </button>

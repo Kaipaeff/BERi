@@ -9,19 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       this.hasMany(models.DeliveryAddress, { foreignKey: 'userId' });
-<<<<<<< HEAD
       this.hasMany(models.Order, { foreignKey: 'userId' });
       this.hasMany(models.Cart, { foreignKey: 'userId' });
-=======
-      this.hasMany(models.OrderList, { foreignKey: 'userId' });
-      this.hasMany(models.ProductRating, { foreignKey: 'userId' });
-      this.hasMany(models.ProductRating, { foreignKey: 'userId' });
-      this.hasMany(models.Token, { foreignKey: 'userId' });
-      this.belongsToMany(models.Product, {
-        through: models.Favorite,
-        foreignKey: 'userId',
-      });
->>>>>>> dev
     }
   }
   User.init(
@@ -29,15 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       password: DataTypes.STRING,
       phone: DataTypes.STRING,
-<<<<<<< HEAD
       isAdmin: DataTypes.BOOLEAN,
       isActivated: DataTypes.BOOLEAN,
-=======
-      phone: DataTypes.STRING,
-      isAdmin: DataTypes.BOOLEAN,
-      isActivated: DataTypes.BOOLEAN,
-      activationLink: DataTypes.STRING,
->>>>>>> dev
     },
     {
       sequelize,

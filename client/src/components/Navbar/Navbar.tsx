@@ -11,6 +11,7 @@ import search from '../../img/icons/search.svg';
 import RegistrationModal from '../RegistrationModal/RegistrationModal';
 import LogInModal from '../LogInModal/LogInModal';
 import { Context } from '../../index';
+import Success from '../Success/Success';
 
 interface LogIn {
   modalLoginActive: boolean,
@@ -20,6 +21,7 @@ interface LogIn {
 export function Navbar() {
   const [modalRegActive, setModalRegActive] = useState<boolean>(false);
   const [modalLoginActive, setModalLoginActive] = useState(false);
+  const [modalSuccessActive, setModalSuccessActive] = useState(false);
   const { storeContext } = useContext(Context);
   return (
     <div className={style.navbar}>
@@ -89,10 +91,15 @@ export function Navbar() {
         </div>
       </div>
       <div></div>
+      {modalSuccessActive ? (<Success
+        modalSuccessActive={modalSuccessActive}
+        setModalSuccessActive={setModalSuccessActive}
+      />) : null}
       {modalRegActive ? (<RegistrationModal
         activeReg={modalRegActive}
         setActiveReg={setModalRegActive}
         setActiveLog={setModalLoginActive}
+        setModalSuccessActive={setModalSuccessActive}
       />) : null}
       {modalLoginActive ? (<LogInModal
         activeLog={modalLoginActive}
