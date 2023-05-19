@@ -2,5 +2,7 @@ export interface IUser {
     email: string;
     phone: string;
     isActivated: boolean;
-    id: string;
+    id: number;
+    isAuth: boolean;
+    isLoading: boolean;
 }

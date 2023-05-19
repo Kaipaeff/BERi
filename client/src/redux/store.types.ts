@@ -1,6 +1,6 @@
 import IDeliveryAddress from '../types/DeliveryAddress';
 import IOneUser from '../types/UserTypes';
-import { productType } from '../types/product';
+import { categoryType, productType } from '../types/product';
 
 export type stateProductType = {
   products: productType[];
