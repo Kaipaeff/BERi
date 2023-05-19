@@ -32,6 +32,7 @@ export default class StoreContext {
       console.log(response);
       localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
+      console.log('login.............', response.data.user);
       this.setUser(response.data.user);
     } catch (e) {
       console.log(e);
@@ -44,6 +45,7 @@ export default class StoreContext {
       console.log(response);
       localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
+      console.log('registration.............', response.data.user);
       this.setUser(response.data.user);
     } catch (e) {
       console.log(e);
