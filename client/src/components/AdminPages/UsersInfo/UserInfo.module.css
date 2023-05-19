@@ -25,3 +25,10 @@
   border-radius: 50%;
   background-color: rgb(202, 202, 202);
 }
+
+.filterIconBtn {
+  cursor: pointer;
+}
+.filterIconBtn:active {
+  background-color: rgb(34, 233, 255);
+}
