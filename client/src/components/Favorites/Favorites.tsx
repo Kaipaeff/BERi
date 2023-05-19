@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { RootState } from '../../types/types';
 import { productType } from '../../types/product';
 import Card from '../Card/Card';
-import { getProducts } from '../../redux/Thunk/getProducts';
+import { getProducts } from '../../redux/Thunk/Products/getProducts';
 import { useNavigate } from 'react-router-dom';
 
 import arrawLeft from '../../img/icons/arrow-left.svg'

@@ -15,8 +15,6 @@ import { Sale } from './components/Sale/Sale';
 
 import { Search } from './components/Search/Search';
 import { Favorites } from './components/Favorites/Favorites';
-import MyAccount from './components/MyAccount/MyAccount';
-import LogIn from './components/LogIn/LogIn';
 import ShopCart from './components/shopCart/ShopCart';
 
 import AboutUs from './components/AboutUs/AboutUs';
@@ -28,7 +26,6 @@ import Oferta from './components/Oferta/Oferta';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
 import MyAccount from './components/MyAccount/MyAccount';
-import MainSlider from './components/MainSlider/MainSlider';
 import AdminMainPage from './components/AdminPages/AdminMainPage/AdminMainPage';
 import { IUser } from './models/IUser';
 import { Context } from './index';
@@ -82,16 +79,13 @@ function App() {
         ))}
           <Navbar />
 
-        {location.pathname !== '/login' &&
-          location.pathname !== '/register' &&
-          location.pathname !== '/account' &&
-          location.pathname !== '/adminpages' && <MainSlider />}
 
         <div className={style.container}>
 
           {location.pathname !== '/login' &&
             location.pathname !== '/register' &&
             location.pathname !== '/account' && 
+            location.pathname !== '/adminpages' && 
             location.pathname !== '/favorites' && 
             location.pathname !== '/shippingpolicy' && 
             location.pathname !== '/returnspolicy' && 
