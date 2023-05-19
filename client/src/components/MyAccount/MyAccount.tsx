@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styleMyAccount from './MyAccount.module.css';
 import DeliveryAddresses from '../DeliveryAddresses/DeliveryAddresses';
 
 export default function MyAccount() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+
   const [navigatorSelector, setNavigatorSelector] = useState(0);
 
   const userId = 1;

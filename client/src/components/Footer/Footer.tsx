@@ -1,4 +1,5 @@
 import { NavigateFunction, useNavigate, Link } from 'react-router-dom';
+
 import style from './footer.module.css';
 
 import emailIcon from '../../img/icons/email.svg';
@@ -100,9 +101,9 @@ export default function Footer(): JSX.Element {
             {userIsAdmin && (
               <p
                 className={style.textlink}
-                onClick={() => navigate('/adminpages')}
+                onClick={() => navigate('/adminpage')}
               >
-                Для администрации
+                Панель администратора
               </p>
             )}
           </div>

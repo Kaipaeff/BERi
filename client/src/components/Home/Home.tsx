@@ -7,6 +7,7 @@ import style from './home.module.css';
 import Card from '../Card/Card';
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
+import Advantages from '../Advantages/Advantages';
 
 export function Home(): JSX.Element {
   
@@ -96,6 +97,7 @@ export function Home(): JSX.Element {
         <div className={style.pagination}>1 2 3 4 5</div>
 
     <MainBrandsBlock />
+    <Advantages />
     
     </>
   );

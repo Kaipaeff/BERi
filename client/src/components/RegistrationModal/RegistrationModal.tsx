@@ -29,7 +29,7 @@ const RegistrationModal = ({
         <div className="regModalHeader">
           <div className="registration">Регистрация</div>
           <div className="isLog">
-            <p>Уже зарегестрированы?</p>{' '}
+            <p>Уже зарегистрированы?</p>{' '}
             <p className="enter" onClick={func}>
               Войти
             </p>

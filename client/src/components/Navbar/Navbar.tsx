@@ -2,13 +2,14 @@ import React, { useContext, useState } from 'react';
 import style from './navbar.module.css';
 import { Link } from 'react-router-dom';
 
+import search from '../../img/icons/search.svg';
 import favorites from '../../img/icons/favorites.svg';
 import cabinet from '../../img/icons/cabinet.svg';
-import cart from '../../img/icons/cart.svg';
 import login from '../../img/icons/login.svg';
 import logout from '../../img/icons/logout.svg';
-import search from '../../img/icons/search.svg';
+import cart from '../../img/icons/cart.svg';
 import RegistrationModal from '../RegistrationModal/RegistrationModal';
+
 import LogInModal from '../LogInModal/LogInModal';
 import { Context } from '../../index';
 
