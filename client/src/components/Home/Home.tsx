@@ -9,10 +9,12 @@ import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
 
 export function Home(): JSX.Element {
+  
   const [cart, setCart] = useState<productType[]>([]);
   const [category, setCategory] = useState(0);
 
   const dispatch = useAppDispatch();
+
   const products = useAppSelector(
     (state: RootState) => state.ProductReducer.products
   );
@@ -57,6 +59,10 @@ export function Home(): JSX.Element {
     }
   };
 
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
     <>
       <div className={style.catalog}>
@@ -64,26 +70,7 @@ export function Home(): JSX.Element {
           <FilterBar onClick={handleClick} />
         </div>
 
-        <div className={style.productsContainer}>
-          {/*---------- данные для теста ---------- */}
-          {/* <div className="testDivProduct">
-          {products.map((el) => (
-            <div key={el.id}>
-              <div>имя: ====={el.name}</div>
-              <br />
-              <div> описание: ====={el.description}</div>
-              <br />
-              <div>пол: ====={el.sex}</div>
-              <br />
-              <div>цена: ====={el.vendorId}</div>
-              <br />
-              <button onClick={(e) => handleAddToCart(el, e)}>
-                добавить в корзину
-              </button>
-            </div>
-          ))} */}
-          {/*---------- данные для теста ----------*/}
-        </div>
+        <div className={style.productsContainer}></div>
         {loading ? (
           <div className="loading">
             <img src="./Spinner-1s-200px.gif" alt="" />
@@ -96,13 +83,16 @@ export function Home(): JSX.Element {
               products
                 .filter((el) => el.categoryId === category)
                 .map((el: productType) => <Card key={el.id} el={el} />)
-            ) : (
-              <p className="products">No products found</p>
-            )}
-          </div>
-        )}
-      </div>
-      <MainBrandsBlock />
+          ) : (
+            <p className="products">No products found</p>
+          )}
+        </div>
+      )}
+
+    </div>
+
+    <MainBrandsBlock />
+    
     </>
   );
 }

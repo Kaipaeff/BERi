@@ -70,8 +70,11 @@ export default function Footer(): JSX.Element {
               Условия возврата
             </p>
 
-            <p className={style.textlink} onClick={() => navigate('/faq')}>
-              Часто задаваемые вопросы
+            <p
+              className={style.textlink}
+              onClick={() => navigate('/oferta')}
+            >
+              Публичная оферта
             </p>
 
             <p
@@ -88,7 +91,10 @@ export default function Footer(): JSX.Element {
               О нас
             </p>
 
-            <p className={style.textlink} onClick={() => navigate('/contacts')}>
+            <p
+              className={style.textlink}
+              onClick={() => navigate('/contactus')}
+            >
               Контакты
             </p>
             {userIsAdmin && (

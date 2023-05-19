@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './premiumBrands.module.css'
+// import style from './clothes.module.css'
 
 export function PremiumBrands() {
 
