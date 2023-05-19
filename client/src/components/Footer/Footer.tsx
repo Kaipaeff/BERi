@@ -70,8 +70,11 @@ export default function Footer(): JSX.Element {
               Условия возврата
             </p>
 
-            <p className={style.textlink} onClick={() => navigate('/faq')}>
-              Часто задаваемые вопросы
+            <p
+              className={style.textlink}
+              onClick={() => navigate('/oferta')}
+            >
+              Публичная оферта
             </p>
 
             <p

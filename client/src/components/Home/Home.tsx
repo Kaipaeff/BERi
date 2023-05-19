@@ -9,10 +9,12 @@ import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
 
 export function Home(): JSX.Element {
+  
   const [cart, setCart] = useState<productType[]>([]);
   const [category, setCategory] = useState(0);
 
   const dispatch = useAppDispatch();
+
   const products = useAppSelector(
     (state: RootState) => state.ProductReducer.products
   );
@@ -83,26 +85,30 @@ export function Home(): JSX.Element {
             </div>
           ))} */}
           {/*---------- данные для теста ----------*/}
+      </div>
+
+      {loading ? (
+        <div className="loading">
+          <img src="./Spinner-1s-200px.gif" alt="" />
         </div>
-        {loading ? (
-          <div className="loading">
-            <img src="./Spinner-1s-200px.gif" alt="" />
-          </div>
-        ) : (
-          <div className={style.loadedCards}>
-            {products.length && category === 0 ? (
-              products.map((el: productType) => <Card key={el.id} el={el} />)
+      ) : (
+        <div className={style.loadedCards}>
+          {products.length && category === 0 ? (
+            products.map((el: productType) => <Card key={el.id} el={el} />)
             ) : products.length && category ? (
               products
                 .filter((el) => el.categoryId === category)
                 .map((el: productType) => <Card key={el.id} el={el} />)
-            ) : (
-              <p className="products">No products found</p>
-            )}
-          </div>
-        )}
-      </div>
-      <MainBrandsBlock />
+          ) : (
+            <p className="products">No products found</p>
+          )}
+        </div>
+      )}
+
+    </div>
+
+    <MainBrandsBlock />
+    
     </>
   );
 }

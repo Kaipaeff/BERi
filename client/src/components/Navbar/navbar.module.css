@@ -1,11 +1,27 @@
+html {
+  position: relative;
+}
+
+.wrapper {
+	width: 100%;
+	background-color: #ffffff;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	box-shadow: 0px 5px 25px #7a7a7a40;
+}
+
+
 .container {
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+	margin: 0 auto 0 auto;
   padding: 20px 0;
-  /* border: 1px solid #4d4d4d; */
+	width: 1440px;
+  /* border: 1px solid #8f8f8f; */
 }
 
 .navLogo {
@@ -30,7 +46,7 @@ a .saleLink {
 	position: absolute;
 	left: 0;
 	width: 0;
-	height: 1px;
+	height: 2px;
 	background-color: #121212;
 	content: "";
 	transition: width 0.3s ease-out;
