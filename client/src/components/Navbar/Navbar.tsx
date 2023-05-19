@@ -1,14 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
 import style from './navbar.module.css';
+import { Link } from 'react-router-dom';
 
 import favorites from '../../img/icons/favorites.svg';
 import cabinet from '../../img/icons/cabinet.svg';
 import cart from '../../img/icons/cart.svg';
 import login from '../../img/icons/login.svg';
+import logout from '../../img/icons/logout.svg';
 import search from '../../img/icons/search.svg';
+import RegistrationModal from '../RegistrationModal/RegistrationModal';
+import LogInModal from '../LogInModal/LogInModal';
+import { Context } from '../../index';
+
+interface LogIn {
+  modalLoginActive: boolean,
+  setModalLoginActive: any,
+}
 
 export function Navbar() {
+  const [modalRegActive, setModalRegActive] = useState<boolean>(false);
+  const [modalLoginActive, setModalLoginActive] = useState(false);
+  const { storeContext } = useContext(Context);
   return (
     <div className={style.wrapper}>
 
@@ -60,9 +72,19 @@ export function Navbar() {
               <img className={style.cabinetIcon} src={cabinet} alt="cabinetIcon" />
             </Link>
 
-            <Link to='/login'>
-              <img className={style.loginIcon} src={login} alt="loginIcon" />
-            </Link>
+              <Link to="/">
+          {storeContext.isAuth ? (<img
+              className={style.loginIcon}
+              src={logout}
+              onClick={() => storeContext.logout()}
+                  alt="logoutIcon"
+            />) : (<img
+              className={style.loginIcon}
+              src={login}
+              onClick={() => setModalRegActive(true)}
+              alt="loginIcon"
+            />)}
+              </Link>
 
             <Link to='/cart'>
               <img className={style.cartIcon} src={cart} alt="cartIcon" />
@@ -72,6 +94,17 @@ export function Navbar() {
           
         </div>
       </div>
+      <div></div>
+      {modalRegActive ? (<RegistrationModal
+        activeReg={modalRegActive}
+        setActiveReg={setModalRegActive}
+        setActiveLog={setModalLoginActive}
+      />) : null}
+      {modalLoginActive ? (<LogInModal
+        activeLog={modalLoginActive}
+        setActiveLog={setModalLoginActive}
+        setActiveReg={setModalRegActive}
+      />) : null}
     </div>
   );
 }

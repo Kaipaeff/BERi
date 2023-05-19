@@ -2,37 +2,33 @@ import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { RootState } from '../../types/types';
 import { productType } from '../../types/product';
-import { getProducts } from '../../redux/Thunk/getProducts';
+import { getProducts } from '../../redux/Thunk/Products/getProducts';
 import style from './home.module.css';
 import Card from '../Card/Card';
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
 
-
 export function Home(): JSX.Element {
   
   const [cart, setCart] = useState<productType[]>([]);
+  const [category, setCategory] = useState(0);
 
   const dispatch = useAppDispatch();
 
   const products = useAppSelector(
     (state: RootState) => state.ProductReducer.products
   );
-
   const loading = useAppSelector(
     (state: RootState) => state.ProductReducer.loading
   );
 
-  const [category, setCategory] = useState(0);
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
   function handleClick(category: number): void {
     setCategory(category);
   }
-
-
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
 
   // хендл для local storage
   const handleAddToCart = (product: productType, e: any) => {
@@ -65,15 +61,14 @@ export function Home(): JSX.Element {
 
   return (
     <>
-    <div className={style.catalog}>
+      <div className={style.catalog}>
+        <div className={style.filterBar}>
+          <FilterBar onClick={handleClick} />
+        </div>
 
-      <div className={style.filterBar}>
-        <FilterBar onClick={handleClick} />
-      </div>
-
-      <div className={style.productsContainer}>
-        {/*---------- данные для теста ---------- */}
-        {/* <div className="testDivProduct">
+        <div className={style.productsContainer}>
+          {/*---------- данные для теста ---------- */}
+          {/* <div className="testDivProduct">
           {products.map((el) => (
             <div key={el.id}>
               <div>имя: ====={el.name}</div>

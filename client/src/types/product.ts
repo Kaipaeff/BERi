@@ -12,3 +12,8 @@ export type productType = {
   quantity?: number | undefined;
 };
 
+export type categoryType = {
+  id: number;
+  category: string;
+}
+

@@ -5,10 +5,19 @@
   width: 200px;
 }
 
-.filterBar p {
+.catInActive {
+  color: #807E7E;;
   font-weight: 600;
   font-size: 15px;
   line-height: 22px;
+}
+
+.catActive {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  color: black;
+  text-decoration: underline;
 }
 
 .filterBar p:hover {
