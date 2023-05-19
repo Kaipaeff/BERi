@@ -28,7 +28,8 @@ import MainSlider from './components/MainSlider/MainSlider';
 import { IUser } from './models/IUser';
 import { Context } from './index';
 import { observer } from 'mobx-react-lite';
-import UserService from './services/UserService';
+import UserService from './services/UserService'
+
 
 function App() {
   const location = useLocation();
@@ -50,14 +51,13 @@ function App() {
       console.log(e);
     }
   }
-
   if (storeContext.isLoading) {
     return <div>Загрузка...</div>;
-  }
+  };
 
   return (
     <>
-      <div className={style.wrapper}>
+        <div className={style.wrapper}>
         <h6>
           {storeContext.isAuth
             ? `Пользователь авторизован ${storeContext.user.email}`
@@ -74,12 +74,11 @@ function App() {
         {users.map((user) => (
           <div key={user.email}>{user.email}</div>
         ))}
-
-        <Navbar />
+          <Navbar />
 
         {location.pathname !== '/login' &&
           location.pathname !== '/register' &&
-          location.pathname !== '/myaccount' && <MainSlider />}
+          location.pathname !== '/account' && <MainSlider />}
 
         <div className={style.container}>
           <Routes>
@@ -92,7 +91,8 @@ function App() {
             <Route path="/sale" element={<Sale />} />
 
             <Route path="/favorites" element={<Favorites />} />
-            <Route path="/myaccount" element={<MyAccount />} />
+            <Route path="/account" element={<MyAccount />} />
+            <Route path="/login" element={<LogIn />} />
             <Route path="/cart" element={<ShopCart />} />
 
             <Route path="/aboutus" element={<AboutUs />} />

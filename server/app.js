@@ -34,6 +34,7 @@ app.use('/api', router);
 app.use(errorMiddledware);
 
 //роутеры
+
 app.use('/products', productRoutes);
 app.use('/account', accountRoutes);
 

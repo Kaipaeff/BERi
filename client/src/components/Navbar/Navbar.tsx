@@ -65,13 +65,9 @@ export function Navbar() {
             />
           </Link>
 
-          <Link to="/cabinet">
-            <img
-              className={style.cabinetIcon}
-              src={cabinet}
-              alt="cabinetIcon"
-            />
-          </Link>
+        <Link to='/account'>
+          <img className={style.cabinetIcon} src={cabinet} alt="cabinetIcon" />
+        </Link>
 
           <Link to="/">
           {storeContext.isAuth ? (<img

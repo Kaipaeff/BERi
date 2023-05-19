@@ -1,0 +1,17 @@
+.iconDiv {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.icon {
+  font-size: 14px;
+  color: #ff760d;
+}
+
+.iconDiv p {
+  font-size: 14px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+}
