@@ -25,6 +25,7 @@ import FrequentlyAsked from './components/Faq/Faq';
 
 import MyAccount from './components/MyAccount/MyAccount';
 import MainSlider from './components/MainSlider/MainSlider';
+import AdminMainPage from './components/AdminPages/AdminMainPage/AdminMainPage';
 import { IUser } from './models/IUser';
 import { Context } from './index';
 import { observer } from 'mobx-react-lite';
@@ -78,7 +79,8 @@ function App() {
 
         {location.pathname !== '/login' &&
           location.pathname !== '/register' &&
-          location.pathname !== '/account' && <MainSlider />}
+          location.pathname !== '/account' &&
+          location.pathname !== '/adminpages' && <MainSlider />}
 
         <div className={style.container}>
           <Routes>
@@ -106,6 +108,7 @@ function App() {
             <Route path="/returnsandrefunds" element={<ReturnsAndRefunds />} />
             <Route path="/cookiespolicy" element={<CookiesPolicy />} />
             <Route path="/frequentlyasked" element={<FrequentlyAsked />} />
+            <Route path="/adminpages" element={<AdminMainPage />} />
           </Routes>
         </div>
       </div>

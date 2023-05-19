@@ -13,6 +13,7 @@ const dbCheck = require('./db/dbCheck');
 // импорт роутов
 const productRoutes = require('./routes/products.router');
 const accountRoutes = require('./routes/account.router');
+const userRoutes = require('./routes/user.router');
 const router = require('./routes/index');
 const errorMiddledware = require('./middlewares/error-middleware');
 
@@ -35,6 +36,7 @@ app.use(errorMiddledware);
 
 //роутеры
 
+app.use('/user', userRoutes);
 app.use('/products', productRoutes);
 app.use('/account', accountRoutes);
 
