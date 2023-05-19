@@ -66,30 +66,34 @@ export function Home(): JSX.Element {
   return (
     <>
       <div className={style.catalog}>
-        <div className={style.filterBar}>
-          <FilterBar onClick={handleClick} />
-        </div>
-
-        <div className={style.productsContainer}></div>
-        {loading ? (
-          <div className="loading">
-            <img src="./Spinner-1s-200px.gif" alt="" />
+        <div className={style.container}>
+          <div className={style.filterBar}>
+            <FilterBar onClick={handleClick} />
           </div>
-        ) : (
-          <div className={style.loadedCards}>
-            {products.length && category === 0 ? (
-              products.map((el: productType) => <Card key={el.id} el={el} />)
-            ) : products.length && category ? (
-              products
-                .filter((el) => el.categoryId === category)
-                .map((el: productType) => <Card key={el.id} el={el} />)
-          ) : (
-            <p className="products">No products found</p>
-          )}
+            <div className={style.productsContainer}>
+              <div className={style.cardContainer}>
+                {loading ? (
+                  <div className="loading">
+                    <img src="./Spinner-1s-200px.gif" alt="" />
+                  </div>
+                ) : (
+                    <div className={style.loadedCards}>
+                      {products.length && category === 0 ? (
+                        products.map((el: productType) => <Card key={el.id} el={el} />)
+                      ) : products.length && category ? (
+                        products
+                          .filter((el) => el.categoryId === category)
+                          .map((el: productType) => <Card key={el.id} el={el} />)
+                      ) : (
+                        <p className="products">No products found</p>
+                      )}
+                    </div>
+                )}
+              </div>
+            </div>
         </div>
-      )}
-
     </div>
+        <div className={style.pagination}>1 2 3 4 5</div>
 
     <MainBrandsBlock />
     

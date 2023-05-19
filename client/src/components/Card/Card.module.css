@@ -2,52 +2,34 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0px;
-  gap: 12px;
-
-  width: 228px;
-  height: 390px;
-  margin-top: 30px;
-}
-
-.card p {
-  font-weight: 600;
-}
-
-.img {
-  width: 228px;
-  max-height: 304px;
+  /* gap: 5px; */
+  width: 230px;
+  height: 340px;
+  margin-bottom: 30px;
+  border: 1px solid #e9e9e9;
 }
 
 .card:hover {
   cursor: pointer;
 }
-.sliderDescriptionBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  width: 100%;
 
-  height: 40px;
-  border-radius: 4px;
-  color: #ffffff;
-  font-size: 16px;
-  background-color: #121212;
-  border: none;
-  cursor: pointer;
-  padding: 10px 20px;
-}
-.sliderDescriptionBtn:active {
-  background: #3f3f3f;
+.img {
+  width: 228px;
+  max-height: 280px;
+  margin-bottom: 10px;
 }
 
-.sliderDescriptionBtn:hover {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+.name {
+  font-weight: 300;
+  margin-left: auto;
+  margin-right: auto;
 }
-.sliderDescriptionBtn img {
-  width: 25px;
-  height: 25px;
+
+.price {
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+
+
