@@ -48,10 +48,10 @@
   font-size: 11px;
 }
 .checkMarkRing {
-  margin-top: 15px;
+  margin-top: 2px;
   margin-right: 11px;
   cursor: pointer;
-  height: 25px;
+  height: 15px;
 }
 
 .editIconBtn {
@@ -103,4 +103,24 @@
   align-items: center;
   font-size: 14px;
   gap: 3px;
+}
+
+.editInputConteiner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.isAdminInputArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  padding-right: 3px;
+}
+.userIsActivatedArea{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  padding-right: 3px;
 }
