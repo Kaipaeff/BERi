@@ -91,7 +91,10 @@ export default function Footer(): JSX.Element {
               О нас
             </p>
 
-            <p className={style.textlink} onClick={() => navigate('/contacts')}>
+            <p
+              className={style.textlink}
+              onClick={() => navigate('/contactus')}
+            >
               Контакты
             </p>
             {userIsAdmin && (

@@ -59,6 +59,10 @@ export function Home(): JSX.Element {
     }
   };
 
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
     <>
       <div className={style.catalog}>
@@ -66,35 +70,15 @@ export function Home(): JSX.Element {
           <FilterBar onClick={handleClick} />
         </div>
 
-        <div className={style.productsContainer}>
-          {/*---------- данные для теста ---------- */}
-          {/* <div className="testDivProduct">
-          {products.map((el) => (
-            <div key={el.id}>
-              <div>имя: ====={el.name}</div>
-              <br />
-              <div> описание: ====={el.description}</div>
-              <br />
-              <div>пол: ====={el.sex}</div>
-              <br />
-              <div>цена: ====={el.vendorId}</div>
-              <br />
-              <button onClick={(e) => handleAddToCart(el, e)}>
-                добавить в корзину
-              </button>
-            </div>
-          ))} */}
-          {/*---------- данные для теста ----------*/}
-      </div>
-
-      {loading ? (
-        <div className="loading">
-          <img src="./Spinner-1s-200px.gif" alt="" />
-        </div>
-      ) : (
-        <div className={style.loadedCards}>
-          {products.length && category === 0 ? (
-            products.map((el: productType) => <Card key={el.id} el={el} />)
+        <div className={style.productsContainer}></div>
+        {loading ? (
+          <div className="loading">
+            <img src="./Spinner-1s-200px.gif" alt="" />
+          </div>
+        ) : (
+          <div className={style.loadedCards}>
+            {products.length && category === 0 ? (
+              products.map((el: productType) => <Card key={el.id} el={el} />)
             ) : products.length && category ? (
               products
                 .filter((el) => el.categoryId === category)
