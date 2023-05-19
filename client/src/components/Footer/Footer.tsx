@@ -30,7 +30,10 @@ export default function Footer(): JSX.Element {
         <div className={style.contentInfo}>
           <div className={style.columnShop}>
             <h3 className={style.titletext}>Покупателям</h3>
-            <p className={style.textlink} onClick={() => navigate('/login')}>
+            <p
+              className={style.textlink}
+              // onClick={() => navigate('/login')}
+            >
               Вход
             </p>
 

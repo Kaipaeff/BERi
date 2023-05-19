@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import style from '../FilterBar/FilterBar.module.css';
 import { BsCircleFill } from 'react-icons/bs';
-import { OnClick } from '../../types/types';
+import { OnClick, RootState } from '../../types/types';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
+import { activateButton } from '../../redux/slices/activebutton.slice';
+import { getActiveBtnSelector } from '../../redux/selectors/active.selector';
+import { getCategories } from '../../redux/Thunk/Categories/getCategories';
 
 export default function FilterBar({ onClick }: OnClick): JSX.Element {
-  const [activeBtn, setActiveBtn] = useState(0);
+  const dispatch = useAppDispatch();
+
+  const active = useAppSelector(getActiveBtnSelector);
+
+  const categories = useAppSelector(
+    (state: RootState) => state.CategoriesReducer.categories
+  );
 
   function categoryHandleClick(data: number): void {
     onClick(data);
   }
 
-  function activateHandleClick(num: number): void {
-    setActiveBtn(num);
+  function toggleActiveStyle(index: number) {
+    if (index === active) {
+      return style.catActive;
+    } else {
+      return style.catInActive;
+    }
   }
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, []);
 
   return (
     <div className={style.filterBar}>
@@ -23,66 +41,22 @@ export default function FilterBar({ onClick }: OnClick): JSX.Element {
       <div className={style.categories}>
         <h3>Категории</h3>
         <span className={style.catSpan}>
-          <p
-            onClick={() => {
-              categoryHandleClick(1);
-              activateHandleClick(1);
-            }}
-            style={{
-              color: activeBtn === 1 ? 'black' : '#807e7e',
-              textDecoration: activeBtn === 1 ? 'underline' : 'none',
-            }}
-          >
-            Верхняя одежда
-          </p>
-          <p
-            onClick={() => {
-              categoryHandleClick(2);
-              activateHandleClick(2);
-            }}
-            style={{
-              color: activeBtn === 2 ? 'black' : '#807e7e',
-              textDecoration: activeBtn === 2 ? 'underline' : 'none',
-            }}
-          >
-            Брюки
-          </p>
-          <p
-            onClick={() => {
-              categoryHandleClick(3);
-              activateHandleClick(3);
-            }}
-            style={{
-              color: activeBtn === 3 ? 'black' : '#807e7e',
-              textDecoration: activeBtn === 3 ? 'underline' : 'none',
-            }}
-          >
-            Джинсы
-          </p>
-          <p
-            onClick={() => {
-              categoryHandleClick(4);
-              activateHandleClick(4);
-            }}
-            style={{
-              color: activeBtn === 4 ? 'black' : '#807e7e',
-              textDecoration: activeBtn === 4 ? 'underline' : 'none',
-            }}
-          >
-            Футболки
-          </p>
-          <p
-            onClick={() => {
-              categoryHandleClick(5);
-              activateHandleClick(5);
-            }}
-            style={{
-              color: activeBtn === 5 ? 'black' : '#807e7e',
-              textDecoration: activeBtn === 5 ? 'underline' : 'none',
-            }}
-          >
-            Рубашки
-          </p>
+          {categories.length ? (
+            categories.map((el) => (
+              <p
+                key={el.id}
+                className={toggleActiveStyle(el.id)}
+                onClick={() => {
+                  categoryHandleClick(el.id);
+                  dispatch(activateButton(el.id));
+                }}
+              >
+                {el.category}
+              </p>
+            ))
+          ) : (
+            <p>Categories not found</p>
+          )}
         </span>
       </div>
       <div className={style.colors}>

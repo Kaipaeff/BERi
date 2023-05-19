@@ -2,14 +2,23 @@ import IDeliveryAddress from '../types/DeliveryAddress';
 import IOneUser from '../types/UserTypes';
 import { productType } from '../types/product';
 
-export type stateType = {
+export type stateProductType = {
   products: productType[];
+  loading: boolean;
+};
+
+export type stateCategoriesType = {
+  categories: categoryType[];
   loading: boolean;
 };
 
 export type stateTypeAddress = {
   addresses: IDeliveryAddress[];
   loading: boolean;
+};
+
+export type stateActiveType = {
+  active: number;
 };
 
 export type stateTypeUser = {

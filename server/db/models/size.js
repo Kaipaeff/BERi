@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Size.init(
     {
-      size: DataTypes.INTEGER,
+      size: DataTypes.FLOAT,
     },
     {
       sequelize,
