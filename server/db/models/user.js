@@ -11,13 +11,17 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.DeliveryAddress, {foreignKey: "userId"});
       this.hasMany(models.Order, {foreignKey: "userId"});
       this.hasMany(models.Cart, {foreignKey: "userId"});
+      this.hasMany(models.Token, { foreignKey: "userId"});
     }
   }
   User.init(
     {
       email: DataTypes.STRING,
       password: DataTypes.STRING,
+      phone: DataTypes.STRING,
       isAdmin: DataTypes.BOOLEAN,
+      isActivated: DataTypes.BOOLEAN,
+      activationLink: DataTypes.STRING
     },
     {
       sequelize,
