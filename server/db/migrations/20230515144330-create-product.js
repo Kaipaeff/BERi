@@ -15,17 +15,8 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
       },
-      sex: {
-        type: Sequelize.INTEGER,
-      },
       img: {
         type: Sequelize.STRING,
-      },
-      rating: {
-        type: Sequelize.FLOAT,
-      },
-      reviews: {
-        type: Sequelize.INTEGER,
       },
       vendorId: {
         references: {
@@ -34,7 +25,12 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
+      },
+      vendorPrice: {
+        type: Sequelize.DECIMAL,
       },
       categoryId: {
         references: {
@@ -43,6 +39,47 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
+        type: Sequelize.INTEGER,
+      },
+      productTypeId: {
+        references: {
+          model: {
+            tableName: 'ProductTypes',
+          },
+          key: 'id',
+        },
+        allowNull: false,
+        onDelete: 'cascade',
+        type: Sequelize.INTEGER,
+      },
+      sexId: {
+        references: {
+          model: {
+            tableName: 'Sexes',
+          },
+          key: 'id',
+        },
+        allowNull: false,
+        onDelete: 'cascade',
+        type: Sequelize.INTEGER,
+      },
+      ageId: {
+        references: {
+          model: {
+            tableName: 'Ages',
+          },
+          key: 'id',
+        },
+        allowNull: false,
+        onDelete: 'cascade',
+        type: Sequelize.INTEGER,
+      },
+      rating: {
+        type: Sequelize.FLOAT,
+      },
+      reviews: {
         type: Sequelize.INTEGER,
       },
       createdAt: {

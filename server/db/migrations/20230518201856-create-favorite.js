@@ -2,12 +2,12 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Orders', {
+    await queryInterface.createTable('Favorites', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       userId: {
         references: {
@@ -16,45 +16,34 @@ module.exports = {
           },
           key: 'id',
         },
-        type: Sequelize.INTEGER
+        allowNull: false,
+        onDelete: 'cascade',
+        type: Sequelize.INTEGER,
       },
-      orderedProduct: {
-        type: Sequelize.INTEGER
-      },
-      quantity: {
-        type: Sequelize.INTEGER
-      },
-      addressId: {
+      productId: {
         references: {
           model: {
-            tableName: 'DeliveryAddresses',
+            tableName: 'Products',
           },
           key: 'id',
         },
-        type: Sequelize.INTEGER
-      },
-      completed: {
-        type: Sequelize.BOOLEAN
-      },
-      purchased: {
-        type: Sequelize.BOOLEAN
-      },
-      canceled: {
-        type: Sequelize.BOOLEAN
+        allowNull: false,
+        onDelete: 'cascade',
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         defaultValue: new Date(),
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         defaultValue: new Date(),
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Orders');
-  }
+    await queryInterface.dropTable('Favorites');
+  },
 };

@@ -10,8 +10,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      this.belongsToMany(models.User, {
+        through: models.Favorite,
+        foreignKey: 'productId'
+      })
       this.belongsTo(models.Vendor, { foreignKey: 'vendorId' });
+      this.belongsTo(models.Sex, { foreignKey: 'sexId' });
+      this.belongsTo(models.Age, { foreignKey: 'ageId' });
+      this.belongsTo(models.ProductType, { foreignKey: 'productTypeId' });
       this.belongsTo(models.Category, { foreignKey: 'categoryId' });
+      this.hasMany(models.ProductRating, { foreignKey: 'productId' });
       this.hasMany(models.ProductProps, {
         foreignKey: 'productId',
       });
@@ -20,12 +28,15 @@ module.exports = (sequelize, DataTypes) => {
   Product.init({
     name: DataTypes.STRING,
     description: DataTypes.STRING,
-    sex: DataTypes.INTEGER,
     img: DataTypes.STRING,
-    rating: DataTypes.FLOAT,
-    reviews: DataTypes.INTEGER,
     vendorId: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER
+    vendorPrice: DataTypes.DECIMAL,
+    categoryId: DataTypes.INTEGER,
+    productTypeId: DataTypes.INTEGER,
+    sexId: DataTypes.INTEGER,
+    ageId: DataTypes.INTEGER,
+    rating: DataTypes.FLOAT,
+    reviews: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Product',

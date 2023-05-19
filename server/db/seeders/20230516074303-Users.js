@@ -9,20 +9,23 @@ module.exports = {
         {
           email: 'admin@mail.ru',
           password: '123',
-          phone: '+7(911) 333-44-55',
+          phone: '+79192223344',
           isAdmin: true,
+          isActivated: true,
         },
         {
           email: 'user1@mail.ru',
           password: '123',
-          phone: '+7(911) 333-44-55',
+          phone: '+79192223355',
           isAdmin: false,
+          isActivated: false,
         },
         {
           email: 'user2@mail.ru',
           password: '123',
-          phone: '+7(911) 333-44-55',
+          phone: '+79192223366',
           isAdmin: false,
+          isActivated: false,
         },
       ],
       {}

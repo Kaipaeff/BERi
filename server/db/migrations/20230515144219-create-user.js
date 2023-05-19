@@ -18,13 +18,23 @@ module.exports = {
       phone: {
         type: Sequelize.STRING
       },
+      phone: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      phone: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       isAdmin: {
-        type: Sequelize.BOOLEAN,
+        allowNull: false,
         defaultValue: false,
+        type: Sequelize.BOOLEAN
       },
       isActivated: {
-        type: Sequelize.BOOLEAN,
+        allowNull: false,
         defaultValue: false,
+        type: Sequelize.BOOLEAN
       },
       activationLink: {
         type: Sequelize.STRING

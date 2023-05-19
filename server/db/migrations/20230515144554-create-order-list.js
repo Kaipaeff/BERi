@@ -2,12 +2,12 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Carts', {
+    await queryInterface.createTable('OrderLists', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       userId: {
         references: {
@@ -18,55 +18,47 @@ module.exports = {
         },
         allowNull: false,
         onDelete: 'cascade',
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
-      productPropsId: {
+      totalOrderPrice: {
+        type: Sequelize.DECIMAL
+      },
+      addressId: {
         references: {
           model: {
-            tableName: 'ProductProps',
+            tableName: 'DeliveryAddresses',
           },
           key: 'id',
         },
         allowNull: false,
         onDelete: 'cascade',
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
-      productName: {
-        type: Sequelize.STRING,
+      accepted: {
+        type: Sequelize.BOOLEAN
       },
-      quantity: {
-        type: Sequelize.INTEGER,
+      processed: {
+        type: Sequelize.BOOLEAN
       },
-      price: {
-        type: Sequelize.DECIMAL,
+      completed: {
+        type: Sequelize.BOOLEAN
       },
-      totalPrice: {
-        type: Sequelize.DECIMAL,
-      },
-      orderId: {
-        references: {
-          model: {
-            tableName: 'OrderLists',
-          },
-          key: 'id',
-        },
-        allowNull: false,
-        onDelete: 'cascade',
-        type: Sequelize.INTEGER,
+      canceled: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         defaultValue: new Date(),
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
       updatedAt: {
         defaultValue: new Date(),
         allowNull: false,
-        type: Sequelize.DATE,
-      },
+        type: Sequelize.DATE
+      }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Carts');
-  },
+    await queryInterface.dropTable('OrderLists');
+  }
 };

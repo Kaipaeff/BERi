@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('DeliveryAddresses', {
+    await queryInterface.createTable('Tokens', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -20,7 +20,7 @@ module.exports = {
         onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
-      address: {
+      refreshToken: {
         type: Sequelize.STRING,
       },
       createdAt: {
@@ -36,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('DeliveryAddresses');
+    await queryInterface.dropTable('Tokens');
   },
 };
