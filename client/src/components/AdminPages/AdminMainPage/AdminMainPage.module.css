@@ -1,0 +1,49 @@
+.conteiner {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 50px;
+  width: 1440px;
+  max-height: 800px;
+  align-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.selectorPage {
+  width: 13%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.selectorPageLink {
+  cursor: pointer;
+}
+
+.selectorPageLink:active {
+  border-bottom: 1px solid black;
+}
+.pageContect {
+  width: 87%;
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  border: 1px solid rgb(216, 214, 214);
+}
+
+.pageTitle {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -16,6 +16,8 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       colorId: {
@@ -25,6 +27,8 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       sizeId: {
@@ -34,13 +38,21 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
-      },
-      vendorPrice: {
-        type: Sequelize.DECIMAL,
       },
       salePrice: {
         type: Sequelize.DECIMAL,
+      },
+      sale: {
+        type: Sequelize.BOOLEAN,
+      },
+      quantity: {
+        type: Sequelize.INTEGER,
+      },
+      amount: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         defaultValue: new Date(),
