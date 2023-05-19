@@ -9,10 +9,12 @@ import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
 
 export function Home(): JSX.Element {
+  
   const [cart, setCart] = useState<productType[]>([]);
   const [category, setCategory] = useState(0);
 
   const dispatch = useAppDispatch();
+
   const products = useAppSelector(
     (state: RootState) => state.ProductReducer.products
   );
@@ -81,13 +83,16 @@ export function Home(): JSX.Element {
               products
                 .filter((el) => el.categoryId === category)
                 .map((el: productType) => <Card key={el.id} el={el} />)
-            ) : (
-              <p className="products">No products found</p>
-            )}
-          </div>
-        )}
-      </div>
-      <MainBrandsBlock />
+          ) : (
+            <p className="products">No products found</p>
+          )}
+        </div>
+      )}
+
+    </div>
+
+    <MainBrandsBlock />
+    
     </>
   );
 }

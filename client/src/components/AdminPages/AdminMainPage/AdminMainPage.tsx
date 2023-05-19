@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styleAdminMainPage from './AdminMainPage.module.css';
 import UsersInfo from '../UsersInfo/UsersInfo';
 import VendorInfo from '../VendorInfo/VendorInfo';
@@ -8,6 +8,12 @@ import ColorTable from '../ColorTable/ColorTable';
 import SizeTable from '../SizeTable/SizeTable';
 
 export default function AdminMainPage() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+
   const [selectorPage, setSelectorPage] = useState<number>(0);
   return (
     <div className={styleAdminMainPage.conteiner}>
