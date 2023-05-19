@@ -16,6 +16,8 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       productPropsId: {
@@ -25,6 +27,8 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       productName: {
@@ -46,6 +50,8 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       createdAt: {

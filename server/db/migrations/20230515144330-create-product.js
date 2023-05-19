@@ -25,6 +25,8 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       vendorPrice: {
@@ -37,6 +39,8 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       productTypeId: {
@@ -46,6 +50,8 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       sexId: {
@@ -55,6 +61,8 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       ageId: {
@@ -64,10 +72,15 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       rating: {
         type: Sequelize.FLOAT,
+      },
+      reviews: {
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         defaultValue: new Date(),

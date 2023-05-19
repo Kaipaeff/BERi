@@ -31,6 +31,9 @@ module.exports = {
         defaultValue: false,
         type: Sequelize.BOOLEAN
       },
+      activationLink: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         defaultValue: new Date(),
         allowNull: false,

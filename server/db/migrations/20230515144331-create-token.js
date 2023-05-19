@@ -16,6 +16,8 @@ module.exports = {
           },
           key: 'id',
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
       refreshToken: {

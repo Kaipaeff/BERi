@@ -8,18 +8,12 @@ module.exports = {
       [
         {
           userId: 2,
-          productPropsId: 2,
-          quantity: 2
-        },
-        {
-          userId: 2,
-          productPropsId: 3,
-          quantity: 1
-        },
-        {
-          userId: 3,
           productPropsId: 1,
-          quantity: 1
+          productName: 'Куртка 1',
+          quantity: 2,
+          price: 3500,
+          totalPrice: 10000,
+          orderId: 1,
         },
       ],
       {}
