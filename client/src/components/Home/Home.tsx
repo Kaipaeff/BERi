@@ -88,13 +88,6 @@ export function Home(): JSX.Element {
         )}
       </div>
       <MainBrandsBlock />
-            ) : (
-              <p className="products">No products found</p>
-            )}
-          </div>
-        )}
-      </div>
-      <MainBrandsBlock />
     </>
   );
 }
