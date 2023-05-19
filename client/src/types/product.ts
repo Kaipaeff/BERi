@@ -1,19 +1,24 @@
+import { NumericLiteral } from 'typescript';
+
 export type productType = {
   id: number;
   name: string;
   description: string;
-  sex: number;
   img: string;
+  vendorId: number;
+  vendorPice: number;
+  categoryId: number;
+  productTypeId: number;
+  sexId: number;
+  ageId: number;
   rating: number;
   reviews: number;
-  vendorId: number;
-  categoryId: number;
-  minPrice: string;
+  minPrice: number;
+  Vendor: { premium: boolean };
   quantity?: number | undefined;
 };
 
 export type categoryType = {
   id: number;
-  category: string;
-}
-
+  productType: string;
+};
