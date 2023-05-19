@@ -7,6 +7,8 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import { RootState } from '../../../types/types';
 import { getAllUsersFromBack } from '../../../redux/Thunk/User/getAllUsersFromBack';
 
+// коммент
+
 export default function UsersInfo(): JSX.Element {
   const dispatch = useAppDispatch();
   const allUsers = useAppSelector(
@@ -16,7 +18,7 @@ export default function UsersInfo(): JSX.Element {
   useEffect(() => {
     dispatch(getAllUsersFromBack());
   }, []);
-  
+
   return (
     <>
       <div className={styleUserInfo.searchRow}>
