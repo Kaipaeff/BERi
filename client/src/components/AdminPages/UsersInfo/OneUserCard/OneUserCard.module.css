@@ -3,10 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 32px;
-  gap: 10px;
-  width: 424px;
-  height: 224px;
+  padding: 5px;
+  margin: 5px 0px;
+  gap: 5px;
+  width: 303px;
+  height: 70px;
   background: #ffffff;
   border: 1px solid #cbcbcb;
   border-radius: 6px;
@@ -19,13 +20,13 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: space-around;
 }
 
 .btnblock {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   width: auto;
@@ -47,17 +48,23 @@
   font-size: 11px;
 }
 .checkMarkRing {
-  margin-top: 15px;
+  margin-top: 2px;
   margin-right: 11px;
   cursor: pointer;
-  height: 25px;
+  height: 15px;
 }
 
+.editIconBtn {
+  height: 20px;
+}
 .editIconBtn:active {
   background-color: #f5c658;
   border-radius: 50%;
 }
 
+.deleteIconBtn {
+  height: 35px;
+}
 .deleteIconBtn:active {
   background-color: rgb(107, 32, 32);
   border-radius: 50%;
@@ -66,6 +73,7 @@
 .editBtn {
   border: none;
   background: none;
+  height: 20px;
 }
 
 .checkMarkRing:active {
@@ -73,12 +81,46 @@
   border-radius: 50%;
 }
 
-.textAreaSizer {
-  overflow: hidden;
-  min-height: 20px;
-  max-height: 95px;
-  max-width: 310px;
-  min-width: 310px;
-  width: 310px;
-  height: 30px;
+.isAdminIcon {
+  background-color: green;
+  border-radius: 50%;
+  height: 20px;
+}
+.phoneNumber {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  gap: 5px;
+}
+.phoneIcon {
+  height: 16px;
+}
+
+.emailAddress {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  gap: 3px;
+}
+
+.editInputConteiner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.isAdminInputArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  padding-right: 3px;
+}
+.userIsActivatedArea{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3px;
+  padding-right: 3px;
 }

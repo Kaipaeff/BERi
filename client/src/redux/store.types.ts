@@ -1,5 +1,6 @@
 import IDeliveryAddress from '../types/DeliveryAddress';
-import { categoryType, productType } from '../types/product';
+import IOneUser from '../types/UserTypes';
+import { productType } from '../types/product';
 
 export type stateProductType = {
   products: productType[];
@@ -18,4 +19,9 @@ export type stateTypeAddress = {
 
 export type stateActiveType = {
   active: number;
+};
+
+export type stateTypeUser = {
+  allUsers: IOneUser[];
+  loading: boolean;
 };
