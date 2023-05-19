@@ -26,7 +26,6 @@ import LogIn from './components/LogIn/LogIn';
 import MyAccount from './components/MyAccount/MyAccount';
 
 import MainSlider from './components/MainSlider/MainSlider';
-import PaymentPage from './components/ShoppingСart/PaymentPage/PaymentPage';
 
 function App() {
   const location = useLocation();
@@ -66,7 +65,6 @@ function App() {
             <Route path="/returnsandrefunds" element={<ReturnsAndRefunds />} />
             <Route path="/cookiespolicy" element={<CookiesPolicy />} />
             <Route path="/frequentlyasked" element={<FrequentlyAsked />} />
-            <Route path="/cart/payment" element={<PaymentPage />} />
           </Routes>
         </div>
       </div>
