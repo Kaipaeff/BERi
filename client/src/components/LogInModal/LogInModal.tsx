@@ -3,7 +3,11 @@ import { Context } from '../../index';
 import { observer } from 'mobx-react-lite';
 import './LogInModal.css';
 
-const LogInModal = ({ activeLog, setActiveLog, setActiveReg }) => {
+const LogInModal = ({ activeLog, setActiveLog, setActiveReg }: {
+  activeLog: boolean;
+  setActiveReg: any;
+  setActiveLog: any;
+}) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const { storeContext } = useContext(Context);

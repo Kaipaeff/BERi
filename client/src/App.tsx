@@ -92,7 +92,7 @@ function App() {
 
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/account" element={<MyAccount />} />
-            <Route path="/login" element={<LogIn />} />
+          
             <Route path="/cart" element={<ShopCart />} />
 
             <Route path="/aboutus" element={<AboutUs />} />
