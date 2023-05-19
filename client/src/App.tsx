@@ -48,6 +48,8 @@ function App() {
             location.pathname !== '/returnspolicy' && 
             location.pathname !== '/oferta' && 
             location.pathname !== '/privacypolicy' && 
+            location.pathname !== '/search' && 
+            location.pathname !== '/cart' && 
             
             <MainSlider />}
 
