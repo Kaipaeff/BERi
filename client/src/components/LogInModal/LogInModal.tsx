@@ -1,6 +1,7 @@
 import React, { FC, useContext, useState } from 'react';
 import { Context } from '../../index';
 import { observer } from 'mobx-react-lite';
+import close from '../../img/icons/close.svg';
 import './LogInModal.css';
 
 const LogInModal = ({
@@ -26,7 +27,7 @@ const LogInModal = ({
     setActiveReg(true);
   };
   const logFunc = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
     await storeContext.login(email, password);
     if (!storeContext.isAuth) {
       setModalLoginErrorActive(true);
@@ -39,13 +40,21 @@ const LogInModal = ({
   return (
     <div
       className={activeLog ? 'logInModal active' : 'logInModal'}
-      onClick={() => setActiveLog(false)}
     >
-      <div className="logInModalContent" onClick={(e) => e.stopPropagation()}>
+      <div className="logInModalContent">
         <div className="logModalHeader">
-          <div className="login">Вход</div>
+          <div className='logModalHeaderPlus'>
+            <div className="login">Вход</div>
+            <img
+              className="img"
+              src={close}
+              alt="close"
+              onClick={() => setActiveLog(false)}
+            />
+          </div>
+
           <div className="isReg">
-            <p>У вас нет учетной записи?</p>{' '}
+            <p>У вас нет учетной записи?</p>
             <p className="reg" onClick={func}>
               Регистрация
             </p>
@@ -67,7 +76,7 @@ const LogInModal = ({
             type="password"
             placeholder="Пароль"
           />
-          <button type='submit' className="logButton">
+          <button type="submit" className="logButton">
             Логин
           </button>
         </form>

@@ -56,6 +56,13 @@
   align-self: stretch;
   flex-grow: 0;
 }
+.logModalHeaderPlus {
+  display: flex;
+}
+.img {
+  margin-left: 24px;
+  cursor: pointer;
+}
 .isReg {
   display: flex;
 

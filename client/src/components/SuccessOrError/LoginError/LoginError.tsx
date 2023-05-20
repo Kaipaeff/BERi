@@ -21,7 +21,7 @@ const LoginError = ({
     >
       <div className="logErrModalContent">
         <div className="logErrHeader">
-          <img src={error} alt="success" /> <p>Войти не удалось</p>
+          <img src={error} alt="error" /> <p>Войти не удалось</p>
         </div>
         <br />
         <div className="logErrMesage">

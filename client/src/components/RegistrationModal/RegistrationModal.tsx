@@ -1,6 +1,7 @@
 import React, { FC, FormEvent, useContext, useState } from 'react';
 import { Context } from '../../index';
 import { observer } from 'mobx-react-lite';
+import close from '../../img/icons/close.svg';
 import './RegistrationModal.css';
 
 const RegistrationModal = ({
@@ -26,7 +27,7 @@ const RegistrationModal = ({
     setActiveReg(false);
   };
   const regFunc = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
     await storeContext.registration(email, phone, password);
     if (!storeContext.isAuth) {
       setModalMailErrorActive(true);
@@ -39,13 +40,17 @@ const RegistrationModal = ({
   return (
     <div
       className={activeReg ? 'regModal active' : 'regModal'}
-      onClick={() => setActiveReg(false)}
+      
     >
-      <div className="regModalContent" onClick={(e) => e.stopPropagation()}>
+      <div className="regModalContent">
         <div className="regModalHeader">
-          <div className="registration">Регистрация</div>
+          <div className='regModalHeaderPlus'>
+            <div className="registration">Регистрация</div>
+            <img className='img' src={close} alt="error" onClick={() => setActiveReg(false)}/>
+          </div>
+
           <div className="isLog">
-            <p>Уже зарегестрированы?</p>{' '}
+            <p>Уже зарегестрированы?</p>
             <p className="enter" onClick={func}>
               Войти
             </p>
@@ -57,6 +62,7 @@ const RegistrationModal = ({
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="email"
+            title="Почта должна включать символ '@' и не менее одной точки"
             placeholder="Email address"
             required
           />
@@ -75,16 +81,16 @@ const RegistrationModal = ({
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
-            placeholder="Password"
-            min='3'
-            max='32'
+            title="Пароль должен содержать не менее 3-х символов и не менее одной цыфры"
+            placeholder="Не менее 3-х символов и не менее одной цыфры"
+            pattern="(?=.*[0-9]).{3,}"
             required
           />
           <p className="isReg">
             Я согласен(-на) с политикой конфиденциальности и правилами
             использования
           </p>
-          <button type='submit' className="regButton">
+          <button type="submit" className="regButton">
             Регистрация
           </button>
         </form>

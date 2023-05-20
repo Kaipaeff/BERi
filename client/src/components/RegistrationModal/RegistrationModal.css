@@ -50,6 +50,13 @@
   align-self: stretch;
   flex-grow: 0;
 }
+.regModalHeaderPlus {
+  display: flex;
+}
+.img {
+  margin-left: 24px;
+  cursor: pointer;
+}
 .isLog {
   display: flex;
 
