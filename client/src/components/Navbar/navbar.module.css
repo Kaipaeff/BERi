@@ -146,6 +146,7 @@ a .saleLink {
 .navIcons {
   display: flex;
   justify-content: space-between;
+	align-items: baseline;
   width: 220px;
   height: 25px;
   /* border: 1px solid #121212; */
@@ -172,11 +173,11 @@ a .saleLink {
 }
 
 .searchIcon {
-  height: 20px;
+  height: 21px;
 }
 
 .favoritesIcon {
-  height: 19px;
+  height: 21px;
 }
 
 .cabinetIcon {
@@ -184,9 +185,9 @@ a .saleLink {
 }
 
 .loginIcon {
-  height: 20px;
+  height: 21px;
 }
 
 .cartIcon {
-  height: 22px;
+  height: 21.6px;
 }
