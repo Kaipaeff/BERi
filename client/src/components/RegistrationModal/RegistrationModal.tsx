@@ -26,7 +26,7 @@ const RegistrationModal = ({
     storeContext.registration(email, phone, password);
     setModalSuccessActive(true);
     setActiveReg(false);
-    setTimeout((() => setModalSuccessActive(false)), 2000)
+    // setTimeout((() => setModalSuccessActive(false)), 2000)
   };
   return (
     <div

@@ -3,6 +3,6 @@ export interface IUser {
     phone: string;
     isActivated: boolean;
     id: number;
-    isAuth: boolean;
+    isAdmin: boolean;
     isLoading: boolean;
 }
