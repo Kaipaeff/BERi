@@ -143,13 +143,20 @@ export default function Footer(): JSX.Element {
         {modalLoginActive ? (<LogInModal
           activeLog={modalLoginActive}
           setActiveLog={setModalLoginActive}
-          setActiveReg={setModalRegActive}
-        />) : null}
+          setActiveReg={setModalRegActive} 
+          modalLoginErrorActive={false} 
+          setModalLoginErrorActive={undefined} 
+          modalLoginSuccessActive={false} 
+          setModalLoginSuccessActive={undefined}    
+          />) : null}
 
         {modalRegActive ? (<RegistrationModal
           activeReg={modalRegActive}
           setActiveReg={setModalRegActive}
-          setActiveLog={setModalLoginActive}
+          setActiveLog={setModalLoginActive} 
+          setModalSuccessActive={undefined} 
+          modalMailErrorActive={false} 
+          setModalMailErrorActive={undefined}        
         />) : null}
 
       </div>

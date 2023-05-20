@@ -1,16 +1,22 @@
-import React, { FC, useContext, useEffect, useRef, useState } from 'react';
+import React, { FC, FormEvent, useContext, useState } from 'react';
 import { Context } from '../../index';
 import { observer } from 'mobx-react-lite';
+import close from '../../img/icons/close.svg';
 import './RegistrationModal.css';
 
 const RegistrationModal = ({
   activeReg,
   setActiveReg,
   setActiveLog,
+  setModalSuccessActive,
+  setModalMailErrorActive,
 }: {
   activeReg: boolean;
   setActiveReg: any;
   setActiveLog: any;
+  setModalSuccessActive: any;
+  modalMailErrorActive: boolean;
+  setModalMailErrorActive: any;
 }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -20,61 +26,74 @@ const RegistrationModal = ({
     setActiveLog(true);
     setActiveReg(false);
   };
-
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  useEffect(() => {
-    inputRef.current?.focus()
-  })
-
+  const regFunc = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await storeContext.registration(email, phone, password);
+    if (!storeContext.isAuth) {
+      setModalMailErrorActive(true);
+      setActiveReg(false);
+    } else {
+      setModalSuccessActive(true);
+      setActiveReg(false);
+    }
+  };
   return (
     <div
       className={activeReg ? 'regModal active' : 'regModal'}
       onClick={() => setActiveReg(false)}
     >
-      <div className="regModalContent" onClick={(e) => e.stopPropagation()}>
+      <div className="regModalContent">
         <div className="regModalHeader">
-          <div className="registration">Регистрация</div>
-          <div className="isLog">
-            <p>Уже зарегистрированы?</p>{' '}
-            <p className="enter" onClick={func}>
-              Войти
-            </p>
-          </div>
-        </div>
-        <div className="allInputsReg">
-          <input
-            className="emailInput"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            type="text"
-            ref={inputRef}
-            placeholder="Адрес электронной почты"
-          />
-          <input
-            className="phoneInputs"
-            onChange={(e) => setPhone(e.target.value)}
-            value={phone}
-            type="text"
-            placeholder="Телефон"
-          />
-          <input
-            className="passwordInputs"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            type="password"
-            placeholder="Пароль"
-          />
-          <p className="isReg">
-            Согласен(-на) с политикой конфиденциальности
-          </p>
-        </div>
-          <button
-            className="regButton"
-            onClick={() => storeContext.registration(email, phone, password)}
-          >
-            Регистрация
-          </button>
+          {/* <div className='regModalHeaderPlus'> */}
+            <div className="registration">Регистрация</div>
+            <img className='closeIcon' src={close} alt="error" onClick={() => setActiveReg(false)}/>
+            {/* </div> */}
+
+              <div className="isLog">
+                <p>Уже зарегистрированы?</p>
+                <p className="enter" onClick={func}>
+                  Войти
+                </p>
+              </div>
+            </div>
+            <form className="allInputsReg" onSubmit={regFunc}>
+              <input
+                className="emailInput"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                type="email"
+                // title="Почта должна включать символ '@' и не менее одной точки"
+                autoFocus
+                placeholder="Адрес электронной почты"
+                required
+              />
+              <input
+                className="phoneInputs"
+                onChange={(e) => setPhone(e.target.value)}
+                value={phone}
+                type="text"
+                placeholder="+7 (XXX) XXX-XX-XX"
+                pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"
+                required
+              />
+
+              <input
+                className="passwordInputs"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                type="password"
+                // title="Пароль должен содержать не менее 3-х символов и не менее одной цыфры"
+                placeholder="Пароль"
+                pattern="(?=.*[0-9]).{3,}"
+                required
+              />
+              <p className="isReg">
+                Согласен(-на) с политикой конфиденциальности
+              </p>
+            </form>
+            <button type="submit" className="regButton">
+              Регистрация
+            </button>
       </div>
     </div>
   );

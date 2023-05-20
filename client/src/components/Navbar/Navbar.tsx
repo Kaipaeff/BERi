@@ -103,12 +103,20 @@ export function Navbar() {
       {modalRegActive ? (<RegistrationModal
         activeReg={modalRegActive}
         setActiveReg={setModalRegActive}
-        setActiveLog={setModalLoginActive}
-      />) : null}
+        setActiveLog={setModalLoginActive} 
+        setModalSuccessActive={undefined} 
+        modalMailErrorActive={false} 
+        setModalMailErrorActive={undefined}      
+        />) : null}
+        
       {modalLoginActive ? (<LogInModal
         activeLog={modalLoginActive}
         setActiveLog={setModalLoginActive}
-        setActiveReg={setModalRegActive}
+        setActiveReg={setModalRegActive} 
+        modalLoginErrorActive={false} 
+        setModalLoginErrorActive={undefined} 
+        modalLoginSuccessActive={false} 
+        setModalLoginSuccessActive={undefined}      
       />) : null}
     </div>
   );
