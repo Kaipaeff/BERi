@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import search from '../../img/icons/search.svg';
 import favorites from '../../img/icons/favorites.svg';
-import cabinet from '../../img/icons/cabinet.svg';
+import account from '../../img/icons/account.svg';
 import login from '../../img/icons/login.svg';
 import logout from '../../img/icons/logout.svg';
 import cart from '../../img/icons/cart.svg';
@@ -73,22 +73,22 @@ export function Navbar() {
 
             <div className={style.navIconsUser}>
               <Link to='/account'>
-                {storeContext.isAuth && <img className={style.cabinetIcon} src={cabinet} alt="cabinetIcon" />}
+                {storeContext.isAuth && <img className={style.accountIcon} src={account} alt="accountIcon" />}
               </Link>
 
-                <Link to="/">
-              {storeContext.isAuth ? (<img
-                className={style.loginIcon}
-                src={logout}
-                onClick={() => storeContext.logout()}
-                    alt="logoutIcon"
-              />) : (<img
-                className={style.loginIcon}
-                src={login}
-                onClick={() => setModalRegActive(true)}
-                alt="loginIcon"
-              />)}
-                </Link>
+              <Link to="/">
+                {storeContext.isAuth ? (<img
+                  className={style.loginIcon}
+                  src={logout}
+                  onClick={() => storeContext.logout()}
+                      alt="logoutIcon"
+                />) : (<img
+                  className={style.loginIcon}
+                  src={login}
+                  onClick={() => setModalRegActive(true)}
+                  alt="loginIcon"
+                />)}
+              </Link>
 
               <Link to='/cart'>
                 <img className={style.cartIcon} src={cart} alt="cartIcon" />
@@ -99,6 +99,7 @@ export function Navbar() {
           
         </div>
       </div>
+      
       {modalRegActive ? (<RegistrationModal
         activeReg={modalRegActive}
         setActiveReg={setModalRegActive}

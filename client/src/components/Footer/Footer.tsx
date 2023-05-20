@@ -1,14 +1,18 @@
+import { useEffect, useState } from 'react';
 import { NavigateFunction, useNavigate, Link } from 'react-router-dom';
 
 import style from './footer.module.css';
 
 import emailIcon from '../../img/icons/email.svg';
 import telegramIcon from '../../img/icons/telegram.svg';
-import { useEffect, useState } from 'react';
+
+import LogInModal from '../LogInModal/LogInModal';
 
 export default function Footer(): JSX.Element {
   const navigate: NavigateFunction = useNavigate();
   const [userIsAdmin, setUserIsAdmin] = useState(false);
+
+  const [modalLoginActive, setModalLoginActive] = useState(false);
 
   // TODO: после готовности регистрации добавить функцию по изменению статуса userIsAdmin
 
@@ -33,7 +37,7 @@ export default function Footer(): JSX.Element {
             <h3 className={style.titletext}>Покупателям</h3>
             <p
               className={style.textlink}
-              // onClick={() => navigate('/login')}
+              onClick={() => setModalLoginActive(true)}
             >
               Вход
             </p>
@@ -133,6 +137,14 @@ export default function Footer(): JSX.Element {
             />
           </div>
         </div>
+
+        {modalLoginActive ? 
+        (<LogInModal
+            activeLog={modalLoginActive}
+            setActiveLog={setModalLoginActive} setActiveReg={undefined}/>
+        ) 
+        : null}
+
       </div>
     </div>
   );
