@@ -6,8 +6,6 @@ import arrowRight from '../../img/icons/arrowRight.svg';
 import { productType } from '../../types/product';
 
 export default function Card({ el }: El): JSX.Element {
- 
-
   const handleAddToCart = (product: productType) => {
     console.log(product, '<<<<<PRODUCT');
 
@@ -26,7 +24,6 @@ export default function Card({ el }: El): JSX.Element {
         el.id === product.id ? { ...el, quantity: el.quantity + 1 || 1 } : el
       );
       localStorage.setItem('GoodsForShopCart', JSON.stringify(testMap));
-      
     } else {
       localStorage.setItem(
         'GoodsForShopCart',
@@ -35,7 +32,6 @@ export default function Card({ el }: El): JSX.Element {
           { ...product, quantity: 1, price: el.minPrice },
         ])
       );
-     
     }
   };
 

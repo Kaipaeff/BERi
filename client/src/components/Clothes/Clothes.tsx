@@ -15,6 +15,7 @@ import {
   setCategoryState,
   setSexState,
 } from '../../redux/slices/categories.slice';
+import Skeleton from '../Skeleton/Skeleton';
 
 export function Clothes(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
@@ -78,9 +79,10 @@ export function Clothes(): JSX.Element {
         <div className={style.productsContainer}>
           <h2>Одежда</h2>
           {loading ? (
-            <div className="loading">
-              <img src="./Spinner-1s-200px.gif" alt="" />
-            </div>
+            <Skeleton />
+            // <div className="loading">
+            //   <img src="./Spinner-1s-200px.gif" alt="" />
+            // </div>
           ) : (
             <div className={style.loadedCards}>
               {products.length &&

@@ -53,6 +53,12 @@ export default function FilterBar(): JSX.Element {
     }
   }
 
+  function handleReset() {
+    dispatch(setSexState(0));
+    dispatch(setAgeState(0));
+    dispatch(setCategoryState(0));
+  }
+
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getAge());
@@ -62,7 +68,7 @@ export default function FilterBar(): JSX.Element {
     <div className={style.filterBar}>
       <div className={style.filterHeader}>
         <h2>Фильтры</h2>
-        <button className={style.closeBtn}></button>
+        <img onClick={handleReset} src="close.svg" alt="close" />
       </div>
       <div className={style.sexSelector}>
         {location.pathname !== '/accessories' && (

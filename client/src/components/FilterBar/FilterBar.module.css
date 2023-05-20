@@ -5,23 +5,49 @@
   width: 200px;
 }
 
+.filterHeader {
+  display: flex;
+  gap: 70px
+}
+
+.filterHeader img {
+  margin-top: 8px;
+}
+
+.filterHeader img:hover {
+  cursor: pointer;
+}
+
+h3 {
+  margin-bottom: 15px;
+}
+
 .catInActive,
 .sexInActive,
 .ageInActive {
-  color: #807E7E;;
+  padding: 4px 0 8px 10px;
+  color: #807e7e;
   font-weight: 600;
   font-size: 15px;
   line-height: 22px;
+  transition: color 0.3s ease;
+}
+
+.catInActive:hover,
+.sexInActive:hover,
+.ageInActive:hover {
+  color: black;
 }
 
 .catActive,
 .sexActive,
 .ageActive {
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 22px;
-  color: black;
-  text-decoration: underline;
+  padding: 4px 0 8px 10px;
+  width: 100%;
+  height: 20;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
 }
 
 .filterBar p:hover {

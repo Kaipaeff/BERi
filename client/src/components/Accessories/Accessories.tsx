@@ -11,6 +11,7 @@ import { getCategoryState } from '../../redux/selectors/category.selector';
 import { getAgeState } from '../../redux/selectors/age.selector';
 import { getSexState } from '../../redux/selectors/sex.selector';
 import { setAgeState, setCategoryState, setSexState } from '../../redux/slices/categories.slice';
+import Skeleton from '../Skeleton/Skeleton';
 
 export function Accessories(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
@@ -74,9 +75,10 @@ export function Accessories(): JSX.Element {
         <div className={style.productsContainer}>
           <h2>Аксессуары</h2>
           {loading ? (
-            <div className="loading">
-              <img src="./Spinner-1s-200px.gif" alt="" />
-            </div>
+            <Skeleton />
+            // <div className="loading">
+            //   <img src="./Spinner-1s-200px.gif" alt="" />
+            // </div>
           ) : (
             <div className={style.loadedCards}>
               {products.length &&

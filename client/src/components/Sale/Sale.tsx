@@ -8,6 +8,7 @@ import Card from '../Card/Card';
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
 import { getCategoryState } from '../../redux/selectors/category.selector';
+import Skeleton from '../Skeleton/Skeleton';
 
 export function Sale(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
@@ -65,9 +66,10 @@ export function Sale(): JSX.Element {
         <div className={style.productsContainer}>
           <h2>Sale</h2>
           {loading ? (
-            <div className="loading">
-              <img src="./Spinner-1s-200px.gif" alt="" />
-            </div>
+            <Skeleton />
+            // <div className="loading">
+            //   <img src="./Spinner-1s-200px.gif" alt="" />
+            // </div>
           ) : (
             <div className={style.loadedCards}>
               {products.length && categoryState === 0 ? (

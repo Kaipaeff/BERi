@@ -9,6 +9,7 @@ import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
 import { getCategoryState } from '../../redux/selectors/category.selector';
 import { setAgeState, setCategoryState, setSexState } from '../../redux/slices/categories.slice';
+import Skeleton from '../Skeleton/Skeleton';
 
 export function PremiumBrands(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
@@ -69,9 +70,10 @@ export function PremiumBrands(): JSX.Element {
         <div className={style.productsContainer}>
           <h2>Премиум бренды</h2>
           {loading ? (
-            <div className="loading">
-              <img src="./Spinner-1s-200px.gif" alt="" />
-            </div>
+            <Skeleton />
+            // <div className="loading">
+            //   <img src="./Spinner-1s-200px.gif" alt="" />
+            // </div>
           ) : (
             <div className={style.loadedCards}>
               {products.length && categoryState === 0 ? (
