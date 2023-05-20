@@ -61,41 +61,44 @@ export function Navbar() {
 
           <div className={style.navIcons}>
 
-            <Link to='/search'>
-              <img className={style.searchIcon} src={search} alt="searchIcon" />
-            </Link>
-
-            <Link to='/favorites'>
-              <img className={style.favoritesIcon} src={favorites} alt="favoritesIcon" />
-            </Link>
-
-            <Link to='/account'>
-              <img className={style.cabinetIcon} src={cabinet} alt="cabinetIcon" />
-            </Link>
-
-              <Link to="/">
-          {storeContext.isAuth ? (<img
-              className={style.loginIcon}
-              src={logout}
-              onClick={() => storeContext.logout()}
-                  alt="logoutIcon"
-            />) : (<img
-              className={style.loginIcon}
-              src={login}
-              onClick={() => setModalRegActive(true)}
-              alt="loginIcon"
-            />)}
+            <div className={style.navIconsOther}>
+              <Link to='/search'>
+                <img className={style.searchIcon} src={search} alt="searchIcon" />
               </Link>
 
-            <Link to='/cart'>
-              <img className={style.cartIcon} src={cart} alt="cartIcon" />
-            </Link>
+              <Link to='/favorites'>
+                <img className={style.favoritesIcon} src={favorites} alt="favoritesIcon" />
+              </Link>
+            </div>
+
+            <div className={style.navIconsUser}>
+              <Link to='/account'>
+                {storeContext.isAuth && <img className={style.cabinetIcon} src={cabinet} alt="cabinetIcon" />}
+              </Link>
+
+                <Link to="/">
+              {storeContext.isAuth ? (<img
+                className={style.loginIcon}
+                src={logout}
+                onClick={() => storeContext.logout()}
+                    alt="logoutIcon"
+              />) : (<img
+                className={style.loginIcon}
+                src={login}
+                onClick={() => setModalRegActive(true)}
+                alt="loginIcon"
+              />)}
+                </Link>
+
+              <Link to='/cart'>
+                <img className={style.cartIcon} src={cart} alt="cartIcon" />
+              </Link>
+            </div>
 
           </div>
           
         </div>
       </div>
-      <div></div>
       {modalRegActive ? (<RegistrationModal
         activeReg={modalRegActive}
         setActiveReg={setModalRegActive}
