@@ -7,12 +7,15 @@ import style from './premiumBrands.module.css';
 import Card from '../Card/Card';
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
+import { getCategoryState } from '../../redux/selectors/category.selector';
+import { setAgeState, setCategoryState, setSexState } from '../../redux/slices/categories.slice';
 
 export function PremiumBrands(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
-  const [categoryState, setCategoryState] = useState(0);
 
   const dispatch = useAppDispatch();
+
+  const categoryState = useAppSelector(getCategoryState);
   const products = useAppSelector(
     (state: RootState) => state.ProductReducer.products
   );
@@ -22,11 +25,10 @@ export function PremiumBrands(): JSX.Element {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
-
-  function handleClick(category: number): void {
-    setCategoryState(category);
-  }
+    dispatch(setSexState(0));
+    dispatch(setAgeState(0));
+    dispatch(setCategoryState(0));
+  }, []);
 
   // хендл для local storage
   const handleAddToCart = (product: productType, e: any) => {
@@ -61,7 +63,7 @@ export function PremiumBrands(): JSX.Element {
     <>
       <div className={style.catalog}>
         <div className={style.filterBar}>
-          <FilterBar onClick={handleClick} />
+          <FilterBar />
         </div>
 
         <div className={style.productsContainer}>

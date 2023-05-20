@@ -1,4 +1,4 @@
 import { RootState } from "../../types/types";
 
-export const getChangeSexSelector = (state: RootState) =>
-  state.ChangeSexReducer.sex;
+export const getSexState = (state: RootState) =>
+  state.CategoriesReducer.sexState;

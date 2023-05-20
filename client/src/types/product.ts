@@ -22,3 +22,9 @@ export type categoryType = {
   id: number;
   productType: string;
 };
+
+export type ageType = {
+  id: number;
+  age: string;
+};
+

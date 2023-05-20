@@ -11,7 +11,7 @@ export default function Footer(): JSX.Element {
   const navigate: NavigateFunction = useNavigate();
   const [userIsAdmin, setUserIsAdmin] = useState(false);
 
-  console.log('storeContext.isAuth>>>>>>>>>>>>>>>>>>>>', storeContext.isAuth);
+  // console.log('storeContext.isAuth>>>>>>>>>>>>>>>>>>>>', storeContext.isAuth);
 
   // TODO: после готовности регистрации добавить функцию по изменению статуса userIsAdmin
 
@@ -19,18 +19,18 @@ export default function Footer(): JSX.Element {
     setUserIsAdmin(storeContext.isAuth && storeContext.user.isAdmin);
   }, []);
 
-  console.log(
-    '🚀🚀 ~ file: Footer.tsx:13 ~ Footer ~ userIsAdmin~',
-    userIsAdmin
-  );
-  console.log(
-    '🚀🚀 ~ file: Footer.tsx:21 ~ useEffect ~ storeContext.isAuth~',
-    storeContext.isAuth
-  );
-  console.log(
-    '🚀🚀 ~ file: Footer.tsx:21 ~ useEffect ~ storeContext.user.isAdmin~',
-    storeContext.user.isAdmin
-  );
+  // console.log(
+  //   '🚀🚀 ~ file: Footer.tsx:13 ~ Footer ~ userIsAdmin~',
+  //   userIsAdmin
+  // );
+  // console.log(
+  //   '🚀🚀 ~ file: Footer.tsx:21 ~ useEffect ~ storeContext.isAuth~',
+  //   storeContext.isAuth
+  // );
+  // console.log(
+  //   '🚀🚀 ~ file: Footer.tsx:21 ~ useEffect ~ storeContext.user.isAdmin~',
+  //   storeContext.user.isAdmin
+  // );
 
   // todo-------------------------------------------------------------------------------
 

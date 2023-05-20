@@ -7,12 +7,14 @@ import style from './sale.module.css';
 import Card from '../Card/Card';
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
+import { getCategoryState } from '../../redux/selectors/category.selector';
 
 export function Sale(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
-  const [categoryState, setCategoryState] = useState(0);
 
   const dispatch = useAppDispatch();
+
+  const categoryState = useAppSelector(getCategoryState);
   const products = useAppSelector(
     (state: RootState) => state.ProductReducer.products
   );
@@ -22,11 +24,7 @@ export function Sale(): JSX.Element {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
-
-  function handleClick(category: number): void {
-    setCategoryState(category);
-  }
+  }, []);
 
   // хендл для local storage
   const handleAddToCart = (product: productType, e: any) => {
@@ -61,7 +59,7 @@ export function Sale(): JSX.Element {
     <>
       <div className={style.catalog}>
         <div className={style.filterBar}>
-          <FilterBar onClick={handleClick} />
+          <FilterBar />
         </div>
 
         <div className={style.productsContainer}>

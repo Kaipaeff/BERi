@@ -7,27 +7,37 @@ import style from './clothes.module.css';
 import Card from '../Card/Card';
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
+import { getCategoryState } from '../../redux/selectors/category.selector';
+import { getAgeState } from '../../redux/selectors/age.selector';
+import { getSexState } from '../../redux/selectors/sex.selector';
+import {
+  setAgeState,
+  setCategoryState,
+  setSexState,
+} from '../../redux/slices/categories.slice';
 
 export function Clothes(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
-  const [categoryState, setCategoryState] = useState(0);
 
   const dispatch = useAppDispatch();
+
+  const categoryState = useAppSelector(getCategoryState);
+  const ageState = useAppSelector(getAgeState);
+  const sexState = useAppSelector(getSexState);
+
   const products = useAppSelector(
     (state: RootState) => state.ProductReducer.products
   );
   const loading = useAppSelector(
     (state: RootState) => state.ProductReducer.loading
   );
-  const sex = 
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [dispatch]);
-
-  function handleClick(category: number): void {
-    setCategoryState(category);
-  }
+    dispatch(setSexState(0));
+    dispatch(setAgeState(0));
+    dispatch(setCategoryState(0));
+  }, []);
 
   // хендл для local storage
   const handleAddToCart = (product: productType, e: any) => {
@@ -62,7 +72,7 @@ export function Clothes(): JSX.Element {
     <>
       <div className={style.catalog}>
         <div className={style.filterBar}>
-          <FilterBar onClick={handleClick} />
+          <FilterBar />
         </div>
 
         <div className={style.productsContainer}>
@@ -73,14 +83,24 @@ export function Clothes(): JSX.Element {
             </div>
           ) : (
             <div className={style.loadedCards}>
-              {products.length && categoryState === 0 ? (
+              {products.length &&
+              categoryState === 0 &&
+              sexState === 0 &&
+              ageState === 0 ? (
                 products.map(
                   (el: productType) =>
                     el.categoryId === 1 && <Card key={el.id} el={el} />
                 )
-              ) : products.length && categoryState ? (
+              ) : products.length && (categoryState || sexState || ageState) ? (
                 products
-                  .filter((el) => el.productTypeId === categoryState)
+                  .filter(
+                    (el) =>
+                      (categoryState
+                        ? el.productTypeId === categoryState
+                        : el) &&
+                      (sexState ? el.sexId === sexState : el) &&
+                      (ageState ? el.ageId === ageState : el)
+                  )
                   .map(
                     (el: productType) =>
                       el.categoryId === 1 && <Card key={el.id} el={el} />
