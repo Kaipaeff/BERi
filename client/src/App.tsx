@@ -45,6 +45,10 @@ function App() {
       storeContext.checkAuth();
     }
   }, []);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  })
 
   async function getUsers() {
     try {

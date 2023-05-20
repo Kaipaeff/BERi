@@ -60,9 +60,6 @@ export function Home(): JSX.Element {
     }
   };
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
 
   return (
     <>
