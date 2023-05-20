@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useContext, useEffect, useRef, useState } from 'react';
 import { Context } from '../../index';
 import { observer } from 'mobx-react-lite';
 import './RegistrationModal.css';
@@ -20,6 +20,13 @@ const RegistrationModal = ({
     setActiveLog(true);
     setActiveReg(false);
   };
+
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    inputRef.current?.focus()
+  })
+
   return (
     <div
       className={activeReg ? 'regModal active' : 'regModal'}
@@ -41,6 +48,7 @@ const RegistrationModal = ({
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="text"
+            ref={inputRef}
             placeholder="Адрес электронной почты"
           />
           <input

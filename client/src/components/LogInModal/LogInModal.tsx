@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Context } from '../../index';
 import { observer } from 'mobx-react-lite';
 import './LogInModal.css';
@@ -24,6 +24,12 @@ const LogInModal = ({ activeLog, setActiveLog, setActiveReg }: {
       }
   }
 
+  useEffect(() => {
+    inputRef.current?.focus();
+  })
+
+  const inputRef = useRef<HTMLInputElement>(null)
+
   return (
     <div
       className={activeLog ? 'logInModal active' : 'logInModal'}
@@ -45,6 +51,7 @@ const LogInModal = ({ activeLog, setActiveLog, setActiveReg }: {
             value={email}
             type="text"
             placeholder="Адрес электронной почты"
+            ref={inputRef}
           />
           <input
           className='passwordInput'
