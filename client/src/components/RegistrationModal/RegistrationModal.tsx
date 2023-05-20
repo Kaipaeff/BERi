@@ -8,11 +8,15 @@ const RegistrationModal = ({
   setActiveReg,
   setActiveLog,
   setModalSuccessActive,
+  modalMailErrorActive,
+  setModalMailErrorActive,
 }: {
   activeReg: boolean;
   setActiveReg: any;
   setActiveLog: any;
   setModalSuccessActive: any;
+  modalMailErrorActive: boolean;
+  setModalMailErrorActive: any;
 }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -22,11 +26,15 @@ const RegistrationModal = ({
     setActiveLog(true);
     setActiveReg(false);
   };
-  const regFunc = () => {
-    storeContext.registration(email, phone, password);
-    setModalSuccessActive(true);
-    setActiveReg(false);
-    // setTimeout((() => setModalSuccessActive(false)), 2000)
+  const regFunc = async () => {
+    await storeContext.registration(email, phone, password);
+    if (!storeContext.isAuth) {
+      setModalMailErrorActive(true);
+      setActiveReg(false);
+    } else {
+        setModalSuccessActive(true);
+      setActiveReg(false);
+    }
   };
   return (
     <div
@@ -48,8 +56,9 @@ const RegistrationModal = ({
             className="inputs"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            type="text"
+            type="email"
             placeholder="Email address"
+            pattern="[0-9]+"
           />
           <input
             className="inputs"
@@ -57,6 +66,7 @@ const RegistrationModal = ({
             value={phone}
             type="text"
             placeholder="Phone"
+            pattern="[0-9]+"
           />
           <input
             className="inputs"
@@ -69,10 +79,7 @@ const RegistrationModal = ({
             Я согласен(-на) с политикой конфиденциальности и правилами
             использования
           </p>
-          <button
-            className="regButton"
-            onClick={regFunc}
-          >
+          <button className="regButton" onClick={regFunc}>
             Регистрация
           </button>
         </div>
