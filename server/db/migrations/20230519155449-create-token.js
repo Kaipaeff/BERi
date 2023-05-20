@@ -21,15 +21,13 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       refreshToken: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       createdAt: {
-        defaultValue: new Date(),
         allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        defaultValue: new Date(),
         allowNull: false,
         type: Sequelize.DATE,
       },

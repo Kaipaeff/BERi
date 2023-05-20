@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styleMyAccount from './MyAccount.module.css';
 import DeliveryAddresses from '../DeliveryAddresses/DeliveryAddresses';
+import { Context } from '../../index';
 
 export default function MyAccount() {
   const [navigatorSelector, setNavigatorSelector] = useState(0);
+  const { storeContext } = useContext(Context);
 
-  const userId = 1;
+  const userId = storeContext.user.id;
 
   return (
     <div className={styleMyAccount.conteiner}>
@@ -64,7 +66,7 @@ export default function MyAccount() {
                 На персональной странице пользователя Вы можете просматривать
                 свои последние заказы, управлять адресами доставки и выставления
                 счетов, а также редактировать свой пароль и данные учетной
-                записи. 
+                записи.
               </p>
               <p>
                 Для получения интересующей Вас информации используйте
