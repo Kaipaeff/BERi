@@ -1,6 +1,6 @@
 .logInModal {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color:#a1a1a1cb;
   position: fixed;
   top: 0;
