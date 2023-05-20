@@ -38,6 +38,13 @@ const userReducerSlice = createSlice({
             : el
         ),
       }),
+    findUserByEmailFront: (state, action: PayloadAction<string>) =>
+      (state = {
+        ...state,
+        allUsers: state.allUsers.filter((el): boolean =>
+          el.email.includes(action.payload)
+        ),
+      }),
   },
   extraReducers: (builder) => {
     builder
@@ -55,7 +62,11 @@ const userReducerSlice = createSlice({
       .addDefaultCase(() => {});
   },
 });
-export const { addUserFront, deleteOneUserFront, editOneUserFront } =
-  userReducerSlice.actions;
+export const {
+  addUserFront,
+  deleteOneUserFront,
+  editOneUserFront,
+  findUserByEmailFront,
+} = userReducerSlice.actions;
 
 export default userReducerSlice.reducer;

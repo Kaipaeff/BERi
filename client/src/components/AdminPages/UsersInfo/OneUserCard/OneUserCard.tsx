@@ -151,7 +151,7 @@ export default function OneUserCard({ OneUser }: { OneUser: IOneUser }) {
           <span
             onClick={() => setEditOneUserInfo(OneUser.id)}
             title="Изменить"
-            aria-label="done"
+            aria-label="edit"
           >
             <img
               className={styleOneUserCard.editIconBtn}
