@@ -3,17 +3,34 @@ import style from './footer.module.css';
 
 import emailIcon from '../../img/icons/email.svg';
 import telegramIcon from '../../img/icons/telegram.svg';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Context } from '../../index';
 
 export default function Footer(): JSX.Element {
+  const { storeContext } = useContext(Context);
   const navigate: NavigateFunction = useNavigate();
   const [userIsAdmin, setUserIsAdmin] = useState(false);
+
+  console.log('storeContext.isAuth>>>>>>>>>>>>>>>>>>>>', storeContext.isAuth);
 
   // TODO: после готовности регистрации добавить функцию по изменению статуса userIsAdmin
 
   useEffect(() => {
-    setUserIsAdmin(!userIsAdmin);
+    setUserIsAdmin(storeContext.isAuth && storeContext.user.isAdmin);
   }, []);
+
+  console.log(
+    '🚀🚀 ~ file: Footer.tsx:13 ~ Footer ~ userIsAdmin~',
+    userIsAdmin
+  );
+  console.log(
+    '🚀🚀 ~ file: Footer.tsx:21 ~ useEffect ~ storeContext.isAuth~',
+    storeContext.isAuth
+  );
+  console.log(
+    '🚀🚀 ~ file: Footer.tsx:21 ~ useEffect ~ storeContext.user.isAdmin~',
+    storeContext.user.isAdmin
+  );
 
   // todo-------------------------------------------------------------------------------
 
@@ -70,10 +87,7 @@ export default function Footer(): JSX.Element {
               Условия возврата
             </p>
 
-            <p
-              className={style.textlink}
-              onClick={() => navigate('/oferta')}
-            >
+            <p className={style.textlink} onClick={() => navigate('/oferta')}>
               Публичная оферта
             </p>
 
