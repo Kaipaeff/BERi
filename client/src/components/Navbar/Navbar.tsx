@@ -19,7 +19,7 @@ interface LogIn {
 }
 
 export function Navbar() {
-  const [modalRegActive, setModalRegActive] = useState<boolean>(true);
+  const [modalRegActive, setModalRegActive] = useState<boolean>(false);
   const [modalLoginActive, setModalLoginActive] = useState(false);
   const { storeContext } = useContext(Context);
   return (

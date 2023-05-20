@@ -7,12 +7,14 @@ import emailIcon from '../../img/icons/email.svg';
 import telegramIcon from '../../img/icons/telegram.svg';
 
 import LogInModal from '../LogInModal/LogInModal';
+import RegistrationModal from '../RegistrationModal/RegistrationModal';
 
 export default function Footer(): JSX.Element {
   const navigate: NavigateFunction = useNavigate();
   const [userIsAdmin, setUserIsAdmin] = useState(false);
 
   const [modalLoginActive, setModalLoginActive] = useState(false);
+  const [modalRegActive, setModalRegActive] = useState<boolean>(false);
 
   // TODO: после готовности регистрации добавить функцию по изменению статуса userIsAdmin
 
@@ -138,12 +140,17 @@ export default function Footer(): JSX.Element {
           </div>
         </div>
 
-        {modalLoginActive ? 
-        (<LogInModal
-            activeLog={modalLoginActive}
-            setActiveLog={setModalLoginActive} setActiveReg={undefined}/>
-        ) 
-        : null}
+        {modalLoginActive ? (<LogInModal
+          activeLog={modalLoginActive}
+          setActiveLog={setModalLoginActive}
+          setActiveReg={setModalRegActive}
+        />) : null}
+
+        {modalRegActive ? (<RegistrationModal
+          activeReg={modalRegActive}
+          setActiveReg={setModalRegActive}
+          setActiveLog={setModalLoginActive}
+        />) : null}
 
       </div>
     </div>
