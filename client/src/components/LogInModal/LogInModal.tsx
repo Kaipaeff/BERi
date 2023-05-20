@@ -7,9 +7,7 @@ const LogInModal = ({
   activeLog,
   setActiveLog,
   setActiveReg,
-  modalLoginErrorActive,
   setModalLoginErrorActive,
-  modalLoginSuccessActive,
   setModalLoginSuccessActive,
 }: {
   activeLog: boolean;
@@ -27,7 +25,8 @@ const LogInModal = ({
     setActiveLog(false);
     setActiveReg(true);
   };
-  const logFunc = async () => {
+  const logFunc = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     await storeContext.login(email, password);
     if (!storeContext.isAuth) {
       setModalLoginErrorActive(true);
@@ -53,7 +52,7 @@ const LogInModal = ({
           </div>
         </div>
 
-        <div className="allInputsLog">
+        <form className="allInputsLog" onSubmit={logFunc}>
           <input
             className="inputs"
             onChange={(e) => setEmail(e.target.value)}
@@ -68,10 +67,10 @@ const LogInModal = ({
             type="password"
             placeholder="Пароль"
           />
-          <button className="logButton" onClick={logFunc}>
+          <button type='submit' className="logButton">
             Логин
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

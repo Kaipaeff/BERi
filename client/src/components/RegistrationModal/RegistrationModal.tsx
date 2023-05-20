@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, FormEvent, useContext, useState } from 'react';
 import { Context } from '../../index';
 import { observer } from 'mobx-react-lite';
 import './RegistrationModal.css';
@@ -8,7 +8,6 @@ const RegistrationModal = ({
   setActiveReg,
   setActiveLog,
   setModalSuccessActive,
-  modalMailErrorActive,
   setModalMailErrorActive,
 }: {
   activeReg: boolean;
@@ -26,13 +25,14 @@ const RegistrationModal = ({
     setActiveLog(true);
     setActiveReg(false);
   };
-  const regFunc = async () => {
+  const regFunc = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     await storeContext.registration(email, phone, password);
     if (!storeContext.isAuth) {
       setModalMailErrorActive(true);
       setActiveReg(false);
     } else {
-        setModalSuccessActive(true);
+      setModalSuccessActive(true);
       setActiveReg(false);
     }
   };
@@ -51,40 +51,99 @@ const RegistrationModal = ({
             </p>
           </div>
         </div>
-        <div className="allInputsReg">
+        <form className="allInputsReg" onSubmit={regFunc}>
           <input
             className="inputs"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="email"
             placeholder="Email address"
-            pattern="[0-9]+"
+            required
           />
           <input
             className="inputs"
             onChange={(e) => setPhone(e.target.value)}
             value={phone}
             type="text"
-            placeholder="Phone"
-            pattern="[0-9]+"
+            placeholder="+X (XXX) XXX-XX-XX"
+            pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"
+            required
           />
+
           <input
             className="inputs"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
             placeholder="Password"
+            min='3'
+            max='32'
+            required
           />
           <p className="isReg">
             Я согласен(-на) с политикой конфиденциальности и правилами
             использования
           </p>
-          <button className="regButton" onClick={regFunc}>
+          <button type='submit' className="regButton">
             Регистрация
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );
 };
 export default observer(RegistrationModal);
+
+// const React = require('react');
+// const Layout = require('./Layout');
+
+// function NewPhone(props) {
+//   const { user } = props;
+//   console.log('￼￼ ~ file: NewPhone.jsx:6 ~ NewPhone ~ user~', user.id);
+
+//   return (
+//     <Layout {...props}>
+//       <script defer src="/js/newphone.js" />
+//       <div className="container">
+//         <form name="newPhone">
+//           <h3>Страница добавления абонента</h3>
+//           <div className="mb-3">
+//             <label className="form-label" htmlFor="controlInput1">
+//               Имя/наименование абонента:
+//             </label>
+//             <input
+//               type="text"
+//               className="form-control"
+//               id="controlInput1"
+//               placeholder="Абонент..."
+//               aria-label="default input example"
+//               name="subscriber"
+//               required
+//             />
+//           </div>
+//           <div className="mb-3">
+//             <label className="form-label" htmlFor="controlInput2">
+//               Номер телефона...
+//             </label>
+//             <input
+//               type="tel"
+//               className="form-control"
+//               id="controlInput2"
+//               aria-label="default input example"
+//               name="phoneNumber"
+//               placeholder="+X (XXX) XXX-XX-XX"
+//               pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"
+//               required
+//             />
+//           </div>
+//           <button id={user.id} type="submit" className="btn btn-primary">
+//             Сохранить
+//           </button>
+//         </form>
+//         <h5 className="msg" style={{ visibility: 'hidden', color: 'red' }} />
+//       </div>
+//     </Layout>
+//   );
+// }
+
+// module.exports = NewPhone;

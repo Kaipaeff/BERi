@@ -17,17 +17,17 @@ const MailError = ({
   };
   return (
     <div
-      className={modalMailErrorActive ? 'successModal active' : 'successModal'}
+      className={modalMailErrorActive ? 'mailErrModal active' : 'mailErrModal'}
     >
-      <div className="successModalContent">
-        <div className="successHeader">
+      <div className="mailErrModalContent">
+        <div className="mailErrHeader">
           <img src={error} alt="success" /> <p>Зарегестрироваться не удалось</p>
         </div>
         <br />
-        <div className="successMesage">
-          Пользователь с такой почтой уже зарегестрирован
+        <div className="mailErrMesage">
+          Введены некорректные данные или пользователь с такой почтой уже зарегестрирован
         </div>
-        <button className="successBtn" onClick={errorFunc}>
+        <button className="mailErrBtn" onClick={errorFunc}>
           Еще раз
         </button>
       </div>

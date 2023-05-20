@@ -1,49 +1,49 @@
-.successModal {
-    height: 100vh;
-    width: 100vw;
-    background-color: rgb(187, 182, 175, 0.8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: scale(0);
-    z-index: 999;
-  }
-  .successModal.active {
-    transform: scale(1);
-  }
-  .successModalContent {
-    padding: 32px;
-    background-color: rgb(255, 255, 255);
-    height: 228px;
-    width: 652px;
-  }
-  .successHeader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0px;
-    gap: 12px;
-    font-family: 'Space Grotesk';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 34px;
-    line-height: 38px;
-    letter-spacing: -0.6px;
-    color: #121212;
-  }
-  .successMesage {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-    color: #121212;
-  }
-  .successBtn {
-    display: flex;
+.logErrModal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(187, 182, 175, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  z-index: 999;
+}
+.logErrModal.active {
+  transform: scale(1);
+}
+.logErrModalContent {
+  padding: 32px;
+  background-color: rgb(255, 255, 255);
+  height: 228px;
+  width: 652px;
+}
+.logErrHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 38px;
+  letter-spacing: -0.6px;
+  color: #121212;
+}
+.logErrMesage {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #121212;
+}
+.logErrBtn {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -64,4 +64,4 @@
   text-align: center;
   letter-spacing: -0.4px;
   color: #ffffff;
-  }
+}

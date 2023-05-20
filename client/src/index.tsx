@@ -13,8 +13,11 @@ interface State {
 
 export const storeContext = new StoreContext();
 
+// export const modalContext = n
+
 export const Context = createContext<State>({
   storeContext,
+  
 })
 
 const root = ReactDOM.createRoot(

@@ -11,18 +11,18 @@ const LoginSuccess = ({
 }) => {
   return (
     <div
-      className={modalLoginSuccessActive ? 'successModal active' : 'successModal'}
+      className={modalLoginSuccessActive ? 'logSucModal active' : 'logSucModal'}
     >
-      <div className="successModalContent">
-        <div className="successHeader">
+      <div className="logSucModalContent">
+        <div className="logSucHeader">
           <img src={success} alt="success" /> <p>Авторизация прошла успешно!</p>
         </div>
         <br />
-        <div className="successMesage">
+        <div className="logSucMesage">
           Удачных покупок!
         </div>
         <button
-          className="successBtn"
+          className="logSucBtn"
           onClick={() => setModalLoginSuccessActive(false)}
         >
           Закрыть

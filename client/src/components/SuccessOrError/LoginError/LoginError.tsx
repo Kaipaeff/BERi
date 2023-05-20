@@ -17,17 +17,17 @@ const LoginError = ({
   };
   return (
     <div
-      className={modalLoginErrorActive ? 'successModal active' : 'successModal'}
+      className={modalLoginErrorActive ? 'logErrModal active' : 'logErrModal'}
     >
-      <div className="successModalContent">
-        <div className="successHeader">
+      <div className="logErrModalContent">
+        <div className="logErrHeader">
           <img src={error} alt="success" /> <p>Войти не удалось</p>
         </div>
         <br />
-        <div className="successMesage">
+        <div className="logErrMesage">
           Проверьте корректность почты и пароля
         </div>
-        <button className="successBtn" onClick={errorFunc}>
+        <button className="logErrBtn" onClick={errorFunc}>
           Еще раз
         </button>
       </div>
