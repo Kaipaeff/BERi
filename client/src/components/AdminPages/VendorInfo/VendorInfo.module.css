@@ -39,6 +39,7 @@
 .searchOffSimbol:hover {
   border-radius: 50%;
   background-color: yellow;
+  height: 15px;
 }
 
 .inputTextElement {
@@ -47,9 +48,6 @@
 
 .inputElement {
   cursor: pointer;
-}
-.filterIconBtn:active {
-  background-color: rgb(34, 233, 255);
 }
 
 .findBtn {
@@ -66,4 +64,32 @@
   justify-content: center;
   margin-top: 100px;
   width: auto;
+}
+
+.premiumIcon {
+  height: 15px;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 250px;
+  height: 30px;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 18px;
+  background-color: #121212;
+  border: none;
+  cursor: pointer;
+}
+
+.actionBtn:active {
+  background: #3f3f3f;
+}
+
+.actionBtn img {
+  width: 25px;
+  height: 25px;
 }

@@ -83,57 +83,58 @@ export default function UsersInfo(): JSX.Element {
 
   return (
     <>
+      <h4 className={styleUserInfo.titlePage}>ПОЛЬЗОВАТЕЛИ</h4>
       <div className={styleUserInfo.searchRow}>
         <p>Всего пользователей: {allUsers.length}</p>
-        <p>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (findEmail.length) {
-                setFindInputActive(!findInputActive);
-                dispatch(findUserByEmailFront(findEmail));
-              }
-            }}
-          >
-            <input
-              className={styleUserInfo.inputTextElement}
-              type="text"
-              name="findEmail"
-              value={findEmail}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setFindEmail(e.target.value)
-              }
-            />
-            {findInputActive ? (
-              <span title="Отменить поиск" aria-label="find">
-                <button
-                  onClick={() => {
-                    setFindInputActive(false);
-                    setFindEmail('');
-                    dispatch(getAllUsersFromBack());
-                  }}
-                  className={styleUserInfo.findBtn}
-                >
-                  <img
-                    className={styleUserInfo.searchOffSimbol}
-                    src={searchOff}
-                    alt="search"
-                  />
-                </button>
-              </span>
-            ) : (
-              <span title="Найти по email" aria-label="find">
-                <button type="submit" className={styleUserInfo.findBtn}>
-                  <img
-                    className={styleUserInfo.searchSimbol}
-                    src={search}
-                    alt="search"
-                  />
-                </button>
-              </span>
-            )}
-          </form>
-        </p>
+
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (findEmail.length) {
+              setFindInputActive(!findInputActive);
+              dispatch(findUserByEmailFront(findEmail));
+            }
+          }}
+        >
+          <input
+            className={styleUserInfo.inputTextElement}
+            type="text"
+            name="findEmail"
+            value={findEmail}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setFindEmail(e.target.value)
+            }
+          />
+          {findInputActive ? (
+            <span title="Отменить поиск" aria-label="find">
+              <button
+                onClick={() => {
+                  setFindInputActive(false);
+                  setFindEmail('');
+                  dispatch(getAllUsersFromBack());
+                }}
+                className={styleUserInfo.findBtn}
+              >
+                <img
+                  className={styleUserInfo.searchOffSimbol}
+                  src={searchOff}
+                  alt="search"
+                />
+              </button>
+            </span>
+          ) : (
+            <span title="Найти по email" aria-label="find">
+              <button type="submit" className={styleUserInfo.findBtn}>
+                <img
+                  className={styleUserInfo.searchSimbol}
+                  src={search}
+                  alt="search"
+                />
+              </button>
+            </span>
+          )}
+        </form>
+
         <p>
           <input
             className={styleUserInfo.inputElement}
@@ -205,9 +206,7 @@ export default function UsersInfo(): JSX.Element {
             ))}
           {filterStatus === 1 &&
             allUsers
-              .filter(
-                (el) => el.isAdmin === isAdminCheckbox
-              )
+              .filter((el) => el.isAdmin === isAdminCheckbox)
               .map((user: IOneUser) => (
                 <React.Fragment key={user.id}>
                   <OneUserCard OneUser={user} />

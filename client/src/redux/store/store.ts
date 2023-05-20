@@ -6,6 +6,7 @@ import UserReducer from '../slices/User/user.slice';
 import ActivateReducer from '../slices/activebutton.slice'
 import CategoriesReducer from '../slices/categories.slice'
 import CartSlice from '../slices/shopCard/card.slice';
+import VendorReducer from '../slices/Vendor/vendor.slise';
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
     ActivateReducer,
     CategoriesReducer,
     CartSlice,
+    VendorReducer,
   },
 });
 
