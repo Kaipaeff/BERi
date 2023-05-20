@@ -37,37 +37,36 @@ const RegistrationModal = ({
         </div>
         <div className="allInputsReg">
           <input
-            className="inputs"
+            className="emailInput"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="text"
-            placeholder="Email address"
+            placeholder="Адрес электронной почты"
           />
           <input
-            className="inputs"
+            className="phoneInputs"
             onChange={(e) => setPhone(e.target.value)}
             value={phone}
             type="text"
-            placeholder="Phone"
+            placeholder="Телефон"
           />
           <input
-            className="inputs"
+            className="passwordInputs"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
-            placeholder="Password"
+            placeholder="Пароль"
           />
           <p className="isReg">
-            Я согласен(-на) с политикой конфиденциальности и правилами
-            использования
+            Согласен(-на) с политикой конфиденциальности
           </p>
+        </div>
           <button
             className="regButton"
             onClick={() => storeContext.registration(email, phone, password)}
           >
             Регистрация
           </button>
-        </div>
       </div>
     </div>
   );

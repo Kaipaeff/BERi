@@ -15,6 +15,15 @@ const LogInModal = ({ activeLog, setActiveLog, setActiveReg }: {
     setActiveLog(false)
     setActiveReg(true)
   }
+
+  //авторизуем юзера и скрываем модалку, только если заполнены поля
+  const authClick = () => {
+      if(email && password) {
+        storeContext.login(email, password)
+        setActiveLog(false)
+      }
+  }
+
   return (
     <div
       className={activeLog ? 'logInModal active' : 'logInModal'}
@@ -31,23 +40,23 @@ const LogInModal = ({ activeLog, setActiveLog, setActiveReg }: {
 
         <div className='allInputsLog'>
           <input
-          className='inputs'
+          className='emailInput'
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="text"
-            placeholder="Email"
+            placeholder="Адрес электронной почты"
           />
           <input
-          className='inputs'
+          className='passwordInput'
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
             placeholder="Пароль"
           />
-          <button className='logButton' onClick={() => storeContext.login(email, password)}>
-            Логин
-          </button>
         </div>
+        <button className='loginButton' onClick={authClick}>
+          Авторизоваться
+        </button>
       </div>
     </div>
   );
