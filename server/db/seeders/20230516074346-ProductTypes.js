@@ -7,7 +7,10 @@ module.exports = {
       'ProductTypes',
       [
         {
-          productType: 'Белье',
+          productType: 'Куртки',
+        },
+        {
+          productType: 'Комбинезоны',
         },
         {
           productType: 'Брюки',
@@ -16,25 +19,7 @@ module.exports = {
           productType: 'Джинсы',
         },
         {
-          productType: 'Куртки',
-        },
-        {
-          productType: 'Комплекты',
-        },
-        {
-          productType: 'Майки',
-        },
-        {
-          productType: 'Комбинезоны',
-        },
-        {
-          productType: 'Носки',
-        },
-        {
-          productType: 'Рубашки',
-        },
-        {
-          productType: 'Спортивная коллекция',
+          productType: 'Шорты',
         },
         {
           productType: 'Толстовки',
@@ -43,10 +28,22 @@ module.exports = {
           productType: 'Трикотаж',
         },
         {
+          productType: 'Рубашки',
+        },
+        {
+          productType: 'Белье',
+        },
+        {
           productType: 'Футболки',
         },
         {
-          productType: 'Шорты',
+          productType: 'Майки',
+        },
+        {
+          productType: 'Комплекты',
+        },
+        {
+          productType: 'Спортивная коллекция',
         },
         {
           productType: 'Блузы',
@@ -92,6 +89,9 @@ module.exports = {
         },
         {
           productType: 'Часы',
+        },
+        {
+          productType: 'Носки',
         },
       ],
       {}

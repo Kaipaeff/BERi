@@ -47,9 +47,9 @@ export function Navbar() {
               <span className={style.accessoriesLink}>аксессуары</span>
             </Link>
 
-            <Link to="/premiumbrands">
-              <span className={style.PremiumBrandsLink}>премиум бренды</span>
-            </Link>
+          <Link to="/premiumbrands">
+            <span className={style.PremiumBrandsLink}>премиум бренды</span>
+          </Link>
 
             <Link to="/sale">
               <span className={style.saleLink}>sale %</span>
