@@ -16,7 +16,7 @@ export const store = configureStore({
     UserReducer,
     CategoriesReducer,
     CartSlice,
-    AgeReducer
+    AgeReducer,
     VendorReducer,
   },
 });
