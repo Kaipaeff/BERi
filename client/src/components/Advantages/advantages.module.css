@@ -51,7 +51,7 @@
   padding: 20px;
 }
 
-h2 {
+.shipping h2, .moneyBack h2, .support h2, .payment h2 {
   margin-bottom: 20px;
   color: #121212;
 }
