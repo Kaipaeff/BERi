@@ -9,6 +9,7 @@ export default class StoreContext {
   user = {} as IUser;
   isAuth = false;
   isLoading = false;
+  static user: any;
 
   constructor() {
     makeAutoObservable(this);

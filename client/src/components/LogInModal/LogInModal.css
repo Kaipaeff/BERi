@@ -1,7 +1,7 @@
 .logInModal {
   height: 100vh;
   width: 100vw;
-  background-color:rgb(187, 182, 175);
+  background-color:rgb(187, 182, 175, 0.8);
   position: fixed;
   top: 0;
   left: 0;
@@ -9,17 +9,15 @@
   align-items: center;
   justify-content: center;
   transform: scale(0);
-
+  z-index: 99999;
 }
 
 .logInModal.active {
     transform: scale(1);
-  
 }
 
 .logInModalContent {
   padding: 20px;
-  border-radius: 12px;
   background-color: rgb(255, 255, 255);
   height: 422px;
   width: 656px;
@@ -57,6 +55,13 @@
   order: 0;
   align-self: stretch;
   flex-grow: 0;
+}
+.logModalHeaderPlus {
+  display: flex;
+}
+.img {
+  margin-left: 24px;
+  cursor: pointer;
 }
 .isReg {
   display: flex;

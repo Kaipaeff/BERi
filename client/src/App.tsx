@@ -78,6 +78,7 @@ function App() {
           <div key={user.email}>{user.email}</div>
         ))}
         <Navbar />
+        
 
         <div className={style.container}>
           {location.pathname !== '/login' &&
