@@ -72,47 +72,49 @@ export function Clothes(): JSX.Element {
   return (
     <>
       <div className={style.catalog}>
-        <div className={style.filterBar}>
-          <FilterBar />
-        </div>
+        <div className={style.container}>
+          <div className={style.filterBar}>
+            <FilterBar />
+          </div>
 
-        <div className={style.productsContainer}>
-          <h2>Одежда</h2>
-          {loading ? (
-            <Skeleton />
-            // <div className="loading">
-            //   <img src="./Spinner-1s-200px.gif" alt="" />
-            // </div>
-          ) : (
-            <div className={style.loadedCards}>
-              {products.length &&
-              categoryState === 0 &&
-              sexState === 0 &&
-              ageState === 0 ? (
-                products.map(
-                  (el: productType) =>
-                    el.categoryId === 1 && <Card key={el.id} el={el} />
-                )
-              ) : products.length && (categoryState || sexState || ageState) ? (
-                products
-                  .filter(
-                    (el) =>
-                      (categoryState
-                        ? el.productTypeId === categoryState
-                        : el) &&
-                      (sexState ? el.sexId === sexState : el) &&
-                      (ageState ? el.ageId === ageState : el)
-                  )
-                  .map(
+          <div className={style.productsContainer}>
+            <h2>Одежда</h2>
+            {loading ? (
+              <Skeleton />
+              // <div className="loading">
+              //   <img src="./Spinner-1s-200px.gif" alt="" />
+              // </div>
+            ) : (
+              <div className={style.loadedCards}>
+                {products.length &&
+                categoryState === 0 &&
+                sexState === 0 &&
+                ageState === 0 ? (
+                  products.map(
                     (el: productType) =>
                       el.categoryId === 1 && <Card key={el.id} el={el} />
                   )
-              ) : (
-                <p className="products">No products found</p>
-              )}
-            </div>
-          )}
-        </div>
+                ) : products.length && (categoryState || sexState || ageState) ? (
+                  products
+                    .filter(
+                      (el) =>
+                        (categoryState
+                          ? el.productTypeId === categoryState
+                          : el) &&
+                        (sexState ? el.sexId === sexState : el) &&
+                        (ageState ? el.ageId === ageState : el)
+                    )
+                    .map(
+                      (el: productType) =>
+                        el.categoryId === 1 && <Card key={el.id} el={el} />
+                    )
+                ) : (
+                  <p className="products">No products found</p>
+                )}
+              </div>
+            )}
+          </div>   
+        </div>           
       </div>
       <MainBrandsBlock />
     </>

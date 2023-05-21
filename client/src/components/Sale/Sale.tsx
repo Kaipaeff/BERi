@@ -59,36 +59,38 @@ export function Sale(): JSX.Element {
   return (
     <>
       <div className={style.catalog}>
-        <div className={style.filterBar}>
-          <FilterBar />
-        </div>
+        <div className={style.container}>
+          <div className={style.filterBar}>
+            <FilterBar />
+          </div>
 
-        <div className={style.productsContainer}>
-          <h2>Sale</h2>
-          {loading ? (
-            <Skeleton />
-            // <div className="loading">
-            //   <img src="./Spinner-1s-200px.gif" alt="" />
-            // </div>
-          ) : (
-            <div className={style.loadedCards}>
-              {products.length && categoryState === 0 ? (
-                products.map(
-                  (el: productType) =>
-                    el.Vendor.premium && <Card key={el.id} el={el} />
-                )
-              ) : products.length && categoryState ? (
-                products
-                  .filter((el) => el.productTypeId === categoryState)
-                  .map(
+          <div className={style.productsContainer}>
+            <h2>Sale</h2>
+            {loading ? (
+              <Skeleton />
+              // <div className="loading">
+              //   <img src="./Spinner-1s-200px.gif" alt="" />
+              // </div>
+            ) : (
+              <div className={style.loadedCards}>
+                {products.length && categoryState === 0 ? (
+                  products.map(
                     (el: productType) =>
                       el.Vendor.premium && <Card key={el.id} el={el} />
                   )
-              ) : (
-                <p className="products">No products found</p>
-              )}
-            </div>
-          )}
+                ) : products.length && categoryState ? (
+                  products
+                    .filter((el) => el.productTypeId === categoryState)
+                    .map(
+                      (el: productType) =>
+                        el.Vendor.premium && <Card key={el.id} el={el} />
+                    )
+                ) : (
+                  <p className="products">No products found</p>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
       <MainBrandsBlock />

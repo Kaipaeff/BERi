@@ -12,6 +12,10 @@ import arrawLeft from '../../img/icons/arrow-left.svg'
 
 export function Favorites() {
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   const dispatch = useAppDispatch();
 
   const loading = useAppSelector(

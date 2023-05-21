@@ -28,6 +28,8 @@ const RegistrationModal = ({
   };
   const regFunc = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log('clicked');
+    
     await storeContext.registration(email, phone, password);
     if (!storeContext.isAuth) {
       setModalMailErrorActive(true);
@@ -37,6 +39,7 @@ const RegistrationModal = ({
       setActiveReg(false);
     }
   };
+
   return (
     <div
       className={activeReg ? 'regModal active' : 'regModal'}
@@ -44,56 +47,57 @@ const RegistrationModal = ({
     >
       <div className="regModalContent">
         <div className="regModalHeader">
-          <div className='regModalHeaderPlus'>
+          {/* <div className='regModalHeaderPlus'> */}
             <div className="registration">Регистрация</div>
-            <img className='img' src={close} alt="error" onClick={() => setActiveReg(false)}/>
-          </div>
+            <img className='closeIcon' src={close} alt="error" onClick={() => setActiveReg(false)}/>
+            {/* </div> */}
 
-          <div className="isLog">
-            <p>Уже зарегестрированы?</p>
-            <p className="enter" onClick={func}>
-              Войти
-            </p>
-          </div>
-        </div>
-        <form className="allInputsReg" onSubmit={regFunc}>
-          <input
-            className="inputs"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            type="email"
-            title="Почта должна включать символ '@' и не менее одной точки"
-            placeholder="Email address"
-            required
-          />
-          <input
-            className="inputs"
-            onChange={(e) => setPhone(e.target.value)}
-            value={phone}
-            type="text"
-            placeholder="+X (XXX) XXX-XX-XX"
-            pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"
-            required
-          />
+              <div className="isLog">
+                <p>Уже зарегистрированы?</p>
+                <p className="enter" onClick={func}>
+                  Войти
+                </p>
+              </div>
+            </div>
+            <form className="allInputsReg" onSubmit={regFunc}>
+              <input
+                className="emailInput"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                type="email"
+                // title="Почта должна включать символ '@' и не менее одной точки"
+                autoFocus
+                placeholder="Адрес электронной почты"
+                required
+              />
+              <input
+                className="phoneInputs"
+                onChange={(e) => setPhone(e.target.value)}
+                value={phone}
+                type="text"
+                placeholder="+7 (XXX) XXX-XX-XX"
+                pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"
+                required
+              />
 
-          <input
-            className="inputs"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            type="password"
-            title="Пароль должен содержать не менее 3-х символов и не менее одной цыфры"
-            placeholder="Не менее 3-х символов и не менее одной цыфры"
-            pattern="(?=.*[0-9]).{3,}"
-            required
-          />
-          <p className="isReg">
-            Я согласен(-на) с политикой конфиденциальности и правилами
-            использования
-          </p>
-          <button type="submit" className="regButton">
-            Регистрация
-          </button>
-        </form>
+              <input
+                className="passwordInputs"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                type="password"
+                // title="Пароль должен содержать не менее 3-х символов и не менее одной цыфры"
+                placeholder="Пароль"
+                pattern="(?=.*[0-9]).{3,}"
+                required
+              />
+              <p className="isReg">
+                Согласен(-на) с политикой конфиденциальности
+              </p>
+              <button type="submit" className="regButton">
+                Регистрация
+              </button>
+            </form>
+            
       </div>
     </div>
   );

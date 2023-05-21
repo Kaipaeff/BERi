@@ -1,22 +1,29 @@
 .filterBar {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  align-items: flex-start;
+  gap: 20px;
   width: 200px;
+  /* border: 1px solid #eb3939; */
 }
 
 .filterHeader {
   display: flex;
-  gap: 70px
+  flex-direction: row;
+  /* justify-content: center; */
+  gap: 70px;
+  /* border: 1px solid #39eb42; */
+
 }
 
 .filterHeader img {
-  margin-top: 8px;
+  /* margin-top: 8px; */
 }
 
 .filterHeader img:hover {
   cursor: pointer;
 }
+
 
 h3 {
   margin-bottom: 15px;
@@ -57,5 +64,85 @@ h3 {
 .categories {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 12px;
+}
+
+.catSpan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mainSizes {
+  display: flex;
+  gap: 12px;
+}
+
+.addictSizes {
+  display: flex;
+  gap: 12px;
+}
+
+.mainSizes button {
+  width: 43px;
+  height: 38px;
+  border: 1px solid #CBCBCB;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.mainSizes button:hover {
+  cursor: pointer;
+}
+
+.addictSizes button {
+  width: 88px;
+  height: 38px;
+  border: 1px solid #CBCBCB;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.addictSizes button:hover {
+  cursor: pointer;
+}
+
+.colors {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.iconSpan {
+  display: flex;
+  gap: 12px;
+}
+
+.colorIcon {
+  font-size: 35px;
+}
+
+.colorIcon:hover {
+  cursor: pointer;
+}
+
+#white {
+  color: white;
+  border: 1px solid black;
+  border-radius: 100%;
+}
+
+#blue {
+  color: rgb(74, 119, 254);
+}
+
+#red {
+  color: rgb(253, 32, 32);
 }

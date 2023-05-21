@@ -1,9 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+
 import styleMyAccount from './MyAccount.module.css';
 import DeliveryAddresses from '../DeliveryAddresses/DeliveryAddresses';
 import { Context } from '../../index';
 
 export default function MyAccount() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+
   const [navigatorSelector, setNavigatorSelector] = useState(0);
   const { storeContext } = useContext(Context);
 

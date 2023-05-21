@@ -14,18 +14,13 @@ const LoginSuccess = ({
       className={modalLoginSuccessActive ? 'logSucModal active' : 'logSucModal'}
     >
       <div className="logSucModalContent">
-        <div className="logSucHeader">
-          <img src={success} alt="success" /> <p>Авторизация прошла успешно!</p>
-        </div>
-        <br />
-        <div className="logSucMesage">
-          Удачных покупок!
-        </div>
+        <p className="logSucHeader">Авторизация прошла успешно!</p>
+
         <button
           className="logSucBtn"
           onClick={() => setModalLoginSuccessActive(false)}
         >
-          Закрыть
+          Отлично!
         </button>
       </div>
     </div>
