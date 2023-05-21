@@ -112,6 +112,9 @@ export function Accessories(): JSX.Element {
           </div>
         </div>
       </div>
+
+      <div className={style.pagination}>1 2 3 4 5</div>
+
       <MainBrandsBlock />
     </>
   );
