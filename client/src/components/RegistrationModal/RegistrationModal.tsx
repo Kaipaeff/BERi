@@ -1,5 +1,4 @@
 import React, { FC, FormEvent, useContext, useState } from 'react';
-import React, { FC, FormEvent, useContext, useState } from 'react';
 import { Context } from '../../index';
 import { observer } from 'mobx-react-lite';
 import close from '../../img/icons/close.svg';
@@ -26,17 +25,6 @@ const RegistrationModal = ({
   const func = () => {
     setActiveLog(true);
     setActiveReg(false);
-  };
-  const regFunc = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await storeContext.registration(email, phone, password);
-    if (!storeContext.isAuth) {
-      setModalMailErrorActive(true);
-      setActiveReg(false);
-    } else {
-      setModalSuccessActive(true);
-      setActiveReg(false);
-    }
   };
   const regFunc = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
