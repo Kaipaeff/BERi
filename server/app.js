@@ -14,6 +14,7 @@ const dbCheck = require('./db/dbCheck');
 const productRoutes = require('./routes/products.router');
 const accountRoutes = require('./routes/account.router');
 const userRoutes = require('./routes/user.router');
+const vendorRoutes = require('./routes/vendor.router');
 const router = require('./routes/index');
 const errorMiddledware = require('./middlewares/error-middleware');
 
@@ -27,10 +28,12 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-  credentials: true,
-  origin: process.env.CLIENT_URL
-}));
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL,
+  })
+);
 app.use('/api', router);
 app.use(errorMiddledware);
 
@@ -39,6 +42,7 @@ app.use(errorMiddledware);
 app.use('/user', userRoutes);
 app.use('/products', productRoutes);
 app.use('/account', accountRoutes);
+app.use('/vendor', vendorRoutes);
 
 const PORT = process.env.PORT || 3100;
 

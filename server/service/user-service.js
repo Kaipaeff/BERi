@@ -32,7 +32,7 @@ class UserService {
       `${process.env.API_URL}/api/activate/${activationLink}`
     );
     const userDto = new UserDto(user);
-    console.log('🚀🚀🚀🚀🚀 ~ userDto:', userDto);
+    // console.log('🚀🚀🚀🚀🚀 ~ userDto:', userDto);
     const tokens = tokenService.generateTokens({ ...userDto });
     await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
@@ -92,10 +92,10 @@ class UserService {
       user: userDto,
     };
   }
-  
+
   async getAllUsers() {
-        const users = await User.findAll();
-        return users
+    const users = await User.findAll();
+    return users;
   }
 }
 

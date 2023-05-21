@@ -1,9 +1,10 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { useState } from 'react';
 import styleOneUserCard from './OneUserCard.module.css';
 
 import IOneUser from '../../../../types/UserTypes';
 import { useAppDispatch } from '../../../../redux/hooks/hooks';
 import { fetchDeleteUserFromBack } from '../../../../redux/Thunk/User/deleteUser.api';
+import { fetchEditOneUser } from '../../../../redux/Thunk/User/editOneUser.api';
 
 import editIconBtn from '../../../../img/icons/editIconBtn.svg';
 import deleteIconBtn from '../../../../img/icons/deleteIconBtn.svg';
@@ -15,37 +16,54 @@ import isActivatedIcon from '../../../../img/icons/flagOn.svg';
 import notActivatedIcon from '../../../../img/icons/flagOff.svg';
 import checkMarkRing from '../../../../img/icons/checkMarkRing.svg';
 
-interface IInputCheckUser {
-  isAdmin: boolean;
-  isActivated: boolean;
-}
-
 export default function OneUserCard({ OneUser }: { OneUser: IOneUser }) {
+
   const dispatch = useAppDispatch();
 
   const [editOneUserInfo, setEditOneUserInfo] = useState<number>(0);
 
-  const [inputsCheckBoxes, setInputsCheckBoxes] =
-    useState<IInputCheckUser>() as [
-      IInputCheckUser,
-      Dispatch<SetStateAction<IInputCheckUser>>
-    ];
+  const [chekBoxIsAdmin, setChekBoxIsAdmin] = useState<boolean>(
+    OneUser.isAdmin
+  );
+  const [chekBoxIsActivated, setchekBoxIsActivated] = useState<boolean>(
+    OneUser.isActivated
+  );
 
-  // const formHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
-  //   setInputs((pre) => ({ ...pre, [e.target.name]: e.target.checked }));
-  // };
+  const formImputHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    e.target.name.includes('isAdmin')
+      ? setChekBoxIsAdmin((pre: boolean) => e.target.checked)
+      : setchekBoxIsActivated((pre: boolean) => e.target.checked);
+  };
+
+  const formSubmitHandler = async (e: React.FormEvent): Promise<void> => {
+    e.preventDefault();
+
+    const editOneUser: IOneUser = {
+      id: OneUser.id,
+      isAdmin: chekBoxIsAdmin,
+      isActivated: chekBoxIsActivated,
+      password: OneUser.password,
+      email: OneUser.email,
+      phone: OneUser.phone,
+    };
+
+    dispatch(fetchEditOneUser(editOneUser));
+    setEditOneUserInfo(0);
+  };
 
   return (
     <div className={styleOneUserCard.conteiner}>
       <div className={styleOneUserCard.title}>
         <div className={styleOneUserCard.titleText}>
           {editOneUserInfo === OneUser.id ? (
-            <form className={styleOneUserCard.editInputConteiner} action="">
+            <form onSubmit={formSubmitHandler} className={styleOneUserCard.editInputConteiner}>
               <span className={styleOneUserCard.isAdminInputArea}>
                 <input
                   id={`isAdmin-${OneUser.id}`}
                   type="checkbox"
-                  name="userIsAdmin"
+                  name={`isAdmin-${OneUser.id}`}
+                  checked={chekBoxIsAdmin}
+                  onChange={formImputHandler}
                 />
                 <label
                   className={styleOneUserCard.labelTextarea}
@@ -56,13 +74,15 @@ export default function OneUserCard({ OneUser }: { OneUser: IOneUser }) {
               </span>
               <span className={styleOneUserCard.userIsActivatedArea}>
                 <input
-                  id={`isAdmin-${OneUser.id}`}
+                  id={`isActivated-${OneUser.id}`}
                   type="checkbox"
-                  name="userIsActivated"
+                  name={`isActivated-${OneUser.id}`}
+                  checked={chekBoxIsActivated}
+                  onChange={formImputHandler}
                 />
                 <label
                   className={styleOneUserCard.labelTextarea}
-                  htmlFor={`isAdmin-${OneUser.id}`}
+                  htmlFor={`isActivated-${OneUser.id}`}
                 >
                   Aктивировать
                 </label>
@@ -131,7 +151,7 @@ export default function OneUserCard({ OneUser }: { OneUser: IOneUser }) {
           <span
             onClick={() => setEditOneUserInfo(OneUser.id)}
             title="Изменить"
-            aria-label="done"
+            aria-label="edit"
           >
             <img
               className={styleOneUserCard.editIconBtn}

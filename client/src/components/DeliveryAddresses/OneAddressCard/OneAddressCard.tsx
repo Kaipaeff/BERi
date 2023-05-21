@@ -84,7 +84,7 @@ export default function OneAddressCard({
               Измените адрес доставки
             </label>
             <textarea
-            className={styleOneAddressCard.textAreaSizer}
+              className={styleOneAddressCard.textAreaSizer}
               name="editAdress"
               id={`edit-${address.id}`}
               cols={37}
