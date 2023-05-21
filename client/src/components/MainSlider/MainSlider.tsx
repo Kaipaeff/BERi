@@ -1,3 +1,5 @@
+import React from 'react';
+import { Settings } from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -14,19 +16,21 @@ import style from './mainSlider.module.css'
 
 import images from './MainSliderData'
 
+let settings: Settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 5000,
+  arrows: false,
+};
+
+
 export default function MainSlider() {
 
   // const [sliderText, setSliderText ] = React.useState(images)  
-
-  let settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000
-  };
 
 
   return (

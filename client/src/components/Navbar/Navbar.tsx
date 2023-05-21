@@ -2,13 +2,14 @@ import React, { useContext, useState } from 'react';
 import style from './navbar.module.css';
 import { Link } from 'react-router-dom';
 
+import search from '../../img/icons/search.svg';
 import favorites from '../../img/icons/favorites.svg';
-import cabinet from '../../img/icons/cabinet.svg';
-import cart from '../../img/icons/cart.svg';
+import account from '../../img/icons/account.svg';
 import login from '../../img/icons/login.svg';
 import logout from '../../img/icons/logout.svg';
-import search from '../../img/icons/search.svg';
+import cart from '../../img/icons/cart.svg';
 import RegistrationModal from '../RegistrationModal/RegistrationModal';
+
 import LogInModal from '../LogInModal/LogInModal';
 import { Context } from '../../index';
 import RegSuccess from '../SuccessOrError/RegSuccess/RegSuccess';
@@ -16,7 +17,10 @@ import MailError from '../SuccessOrError/MailError/MailError';
 import LoginError from '../SuccessOrError/LoginError/LoginError';
 import LoginSuccess from '../SuccessOrError/LoginSuccess/LoginSuccess';
 
+
+
 export function Navbar() {
+  
   const [modalRegActive, setModalRegActive] = useState<boolean>(false);
   const [modalLoginActive, setModalLoginActive] = useState(false);
   const [modalSuccessActive, setModalSuccessActive] = useState(false);
@@ -57,51 +61,44 @@ export function Navbar() {
           </div>
 
           <div className={style.navIcons}>
-            <Link to="/search">
-              <img className={style.searchIcon} src={search} alt="searchIcon" />
-            </Link>
 
-            <Link to="/favorites">
-              <img
-                className={style.favoritesIcon}
-                src={favorites}
-                alt="favoritesIcon"
-              />
-            </Link>
+            <div className={style.navIconsOther}>
+              <Link to='/search'>
+                <img className={style.searchIcon} src={search} alt="searchIcon" />
+              </Link>
 
-            <Link to="/account">
-              <img
-                className={style.cabinetIcon}
-                src={cabinet}
-                alt="cabinetIcon"
-              />
-            </Link>
+              <Link to='/favorites'>
+                <img className={style.favoritesIcon} src={favorites} alt="favoritesIcon" />
+              </Link>
+            </div>
 
-            <Link to="/">
-              {storeContext.isAuth ? (
-                <img
+            <div className={style.navIconsUser}>
+              <Link to='/account'>
+                {storeContext.isAuth && <img className={style.accountIcon} src={account} alt="accountIcon" />}
+              </Link>
+
+              <Link to="/">
+                {storeContext.isAuth ? (<img
                   className={style.loginIcon}
                   src={logout}
                   onClick={() => storeContext.logout()}
-                  alt="logoutIcon"
-                />
-              ) : (
-                <img
+                      alt="logoutIcon"
+                />) : (<img
                   className={style.loginIcon}
                   src={login}
                   onClick={() => setModalRegActive(true)}
                   alt="loginIcon"
-                />
-              )}
-            </Link>
+                />)}
+              </Link>
 
-            <Link to="/cart">
-              <img className={style.cartIcon} src={cart} alt="cartIcon" />
-            </Link>
+              <Link to='/cart'>
+                <img className={style.cartIcon} src={cart} alt="cartIcon" />
+              </Link>
+            </div>
+
           </div>
         </div>
       </div>
-      <div></div>
       {modalLoginSuccessActive ? (
         <LoginSuccess
           modalLoginSuccessActive={modalLoginSuccessActive}

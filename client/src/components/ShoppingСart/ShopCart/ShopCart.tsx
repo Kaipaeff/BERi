@@ -6,6 +6,12 @@ import CartProduct from '../CartProduct';
 import DileveryPay from '../DileveryPay/DileveryPay';
 
 export default function ShopCart() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+  
   // парсинг товаров из localStorage
   const [goods, setGoods] = useState([]);
   const goodsForShopCart = localStorage.getItem('GoodsForShopCart');
