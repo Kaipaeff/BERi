@@ -1,13 +1,7 @@
 .logInModal {
-<<<<<<< HEAD
   height: 100%;
   width: 100%;
   background-color:#a1a1a1cb;
-=======
-  height: 100vh;
-  width: 100vw;
-  background-color:rgb(187, 182, 175, 0.8);
->>>>>>> dev
   position: fixed;
   top: 0;
   left: 0;
@@ -15,7 +9,6 @@
   align-items: center;
   justify-content: center;
   transform: scale(0);
-<<<<<<< HEAD
 }
 
 .logInModal.active {
@@ -34,20 +27,6 @@
   height: 380px;
 
   /* border: 1px solid #e22626; */
-=======
-  z-index: 99999;
-}
-
-.logInModal.active {
-    transform: scale(1);
-}
-
-.logInModalContent {
-  padding: 20px;
-  background-color: rgb(255, 255, 255);
-  height: 422px;
-  width: 656px;
->>>>>>> dev
 }
 
 .login {
@@ -67,17 +46,15 @@
   padding: 0 30px;
   /* border: 1px solid #c4c710; */
 }
-<<<<<<< HEAD
 
-=======
-.logModalHeaderPlus {
+/* .logModalHeaderPlus {
   display: flex;
 }
 .img {
   margin-left: 24px;
   cursor: pointer;
-}
->>>>>>> dev
+} */
+
 .isReg {
   display: flex;
   font-weight: 400;

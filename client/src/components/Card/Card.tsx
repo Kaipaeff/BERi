@@ -38,12 +38,9 @@ export default function Card({ el }: El): JSX.Element {
     <div className={style.card}>
       <img className={style.img} src={el.img} alt="cloth" />
       {/* <Rating el={el} /> */}
-<<<<<<< HEAD
       <p className={style.name}>{el.name}</p>
       <p className={style.price}>от {el.minPrice} ₽</p>
-=======
-      <p>{el.name}</p>
-      <p>От {el.minPrice} ₽</p>
+    
 
       {/* <button
         className={style.sliderDescriptionBtn}
@@ -52,7 +49,6 @@ export default function Card({ el }: El): JSX.Element {
         Добавить в корзину
         <img src={arrowRight} alt="arrowRight" />
       </button> */}
->>>>>>> dev
     </div>
   );
 }

@@ -1,36 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { NavigateFunction, useNavigate, Link } from 'react-router-dom';
 
 import style from './footer.module.css';
 
 import emailIcon from '../../img/icons/email.svg';
 import telegramIcon from '../../img/icons/telegram.svg';
-<<<<<<< HEAD
 
 import LogInModal from '../LogInModal/LogInModal';
 import RegistrationModal from '../RegistrationModal/RegistrationModal';
-=======
-import { useContext, useEffect, useState } from 'react';
 import { Context } from '../../index';
->>>>>>> dev
 
 export default function Footer(): JSX.Element {
   const { storeContext } = useContext(Context);
   const navigate: NavigateFunction = useNavigate();
   const [userIsAdmin, setUserIsAdmin] = useState(false);
 
-<<<<<<< HEAD
   const [modalLoginActive, setModalLoginActive] = useState(false);
   const [modalRegActive, setModalRegActive] = useState<boolean>(false);
 
   // TODO: после готовности регистрации добавить функцию по изменению статуса userIsAdmin
-=======
   // TODO: функция по определению статуса userIsAdmin
->>>>>>> dev
 
   useEffect(() => {
     setUserIsAdmin(storeContext.isAuth && storeContext.user.isAdmin);
+    
   }, []);
+  console.log('user is admin==================', userIsAdmin);
 
   // todo-------------------------------------------------------------------------------
 

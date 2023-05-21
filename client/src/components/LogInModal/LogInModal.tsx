@@ -43,22 +43,15 @@ const LogInModal = ({
     >
       <div className="logInModalContent">
         <div className="logModalHeader">
-<<<<<<< HEAD
           {/* <div className='logModalHeaderPlus'> */}
           <div className="login">Вход</div>
             <img
               className="closeIcon"
-=======
-          <div className='logModalHeaderPlus'>
-            <div className="login">Вход</div>
-            <img
-              className="img"
->>>>>>> dev
+
               src={close}
               alt="close"
               onClick={() => setActiveLog(false)}
             />
-<<<<<<< HEAD
           {/* </div> */}
 
             <div className='isReg'>
@@ -69,24 +62,9 @@ const LogInModal = ({
             </div>
         </div>
 
-        <form className='allInputsLog' onSubmit={logFunc}>
-          <input
-            className='emailInput'
-=======
-          </div>
-
-          <div className="isReg">
-            <p>У вас нет учетной записи?</p>
-            <p className="reg" onClick={func}>
-              Регистрация
-            </p>
-          </div>
-        </div>
-
         <form className="allInputsLog" onSubmit={logFunc}>
           <input
             className="inputs"
->>>>>>> dev
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="text"
@@ -94,27 +72,18 @@ const LogInModal = ({
             placeholder="Адрес электронной почты"
           />
           <input
-<<<<<<< HEAD
             className='passwordInput'
-=======
-            className="inputs"
->>>>>>> dev
+
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
             placeholder="Пароль"
           />
-<<<<<<< HEAD
-        </form>
-        <button type="submit" className="loginButton">
-          Авторизоваться
-        </button>
-=======
-          <button type="submit" className="logButton">
-            Логин
+          <button type="submit" className="loginButton">
+            Авторизоваться
           </button>
         </form>
->>>>>>> dev
+
       </div>
     </div>
   );

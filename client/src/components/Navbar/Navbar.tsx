@@ -17,7 +17,12 @@ import MailError from '../SuccessOrError/MailError/MailError';
 import LoginError from '../SuccessOrError/LoginError/LoginError';
 import LoginSuccess from '../SuccessOrError/LoginSuccess/LoginSuccess';
 
+
+
 export function Navbar() {
+
+  // добавить useEffect на isAuth
+  
   const [modalRegActive, setModalRegActive] = useState<boolean>(false);
   const [modalLoginActive, setModalLoginActive] = useState(false);
   const [modalSuccessActive, setModalSuccessActive] = useState(false);

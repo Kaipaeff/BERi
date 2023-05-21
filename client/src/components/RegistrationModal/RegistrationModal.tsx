@@ -28,6 +28,8 @@ const RegistrationModal = ({
   };
   const regFunc = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log('clicked');
+    
     await storeContext.registration(email, phone, password);
     if (!storeContext.isAuth) {
       setModalMailErrorActive(true);
@@ -37,6 +39,7 @@ const RegistrationModal = ({
       setActiveReg(false);
     }
   };
+
   return (
     <div
       className={activeReg ? 'regModal active' : 'regModal'}
@@ -90,10 +93,11 @@ const RegistrationModal = ({
               <p className="isReg">
                 Согласен(-на) с политикой конфиденциальности
               </p>
+              <button type="submit" className="regButton">
+                Регистрация
+              </button>
             </form>
-            <button type="submit" className="regButton">
-              Регистрация
-            </button>
+            
       </div>
     </div>
   );

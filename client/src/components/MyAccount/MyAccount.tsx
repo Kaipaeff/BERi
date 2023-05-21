@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react';
-=======
-import React, { useContext, useState } from 'react';
->>>>>>> dev
+import React, { useContext, useEffect, useState } from 'react';
+
 import styleMyAccount from './MyAccount.module.css';
 import DeliveryAddresses from '../DeliveryAddresses/DeliveryAddresses';
 import { Context } from '../../index';
