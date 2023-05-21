@@ -86,7 +86,7 @@ export function Navbar() {
                 />) : (<img
                   className={style.loginIcon}
                   src={login}
-                  onClick={() => setModalRegActive(true)}
+                  onClick={() => setModalLoginActive(true)}
                   alt="loginIcon"
                 />)}
               </Link>
