@@ -4,6 +4,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 const initialState: any = {
   goods: [],
+
   deliveryType: {},
 };
 
@@ -12,9 +13,7 @@ const CartSlice = createSlice({
   initialState: initialState,
   reducers: {
     addGoodsReducer: (state, action: PayloadAction<any>) => {
-      console.log(state, 'stateEEEEE');
-      console.log(action, 'action');
-      return (state = { ...state, goods: [...state.goods, action.payload] });
+      return { goods: action.payload };
     },
     addDileveryType: (state, action: PayloadAction<any>) =>
       (state = {
@@ -24,9 +23,15 @@ const CartSlice = createSlice({
           amount: action.payload.amount,
         },
       }),
+    getLocalGoods: (state) => {
+      const checkedLocalStorage = localStorage.getItem('GoodsForShopCart');
+      const parseGoods = JSON.parse(checkedLocalStorage as string);
+      return (state = { ...state, goods: parseGoods });
+    },
   },
 });
 
-export const { addGoodsReducer, addDileveryType } = CartSlice.actions;
+export const { addGoodsReducer, addDileveryType, getLocalGoods } =
+  CartSlice.actions;
 
 export default CartSlice.reducer;

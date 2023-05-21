@@ -2,17 +2,18 @@ import React from 'react';
 import styles from '../ShopCart/ShopCart.module.css';
 import { Link } from 'react-router-dom';
 
-export default function DileveryPay({ totalPriceCalculate }: any) {
-  const totalPrice = () => {
-    const valuesArray = Object.values(totalPriceCalculate);
+export default function DileveryPay({ totalPriceCalculate, totalPrice }: any) {
+  console.log(totalPrice(), '<<<<TOTAL PRICE');
+  // const totalPrice = () => {
+  //   const valuesArray = Object.values(totalPriceCalculate);
 
-    const totalPrice: any = valuesArray.reduce(
-      (total: any, currentValue) => total + currentValue,
-      0
-    );
-    // сумму доставки брать из бека? сейчас это 100
-    return totalPrice;
-  };
+  //   const totalPrice: any = valuesArray.reduce(
+  //     (total: any, currentValue) => total + currentValue,
+  //     0
+  //   );
+  //   // сумму доставки брать из бека? сейчас это 100
+  //   return totalPrice;
+  // };
 
   return (
     <div className={styles.InfoOrder}>
@@ -35,7 +36,7 @@ export default function DileveryPay({ totalPriceCalculate }: any) {
                 <span>
                   {/* сумму доставки доставать из бека */}
 
-                  <b>{totalPriceCalculate && totalPrice()}р</b>
+                  <b>{totalPrice()}р</b>
                 </span>
               </div>
 

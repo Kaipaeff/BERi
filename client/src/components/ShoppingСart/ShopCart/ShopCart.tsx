@@ -4,9 +4,13 @@ import truckIcon from './img/truck.jpg';
 import { productType } from '../../../types/product';
 import CartProduct from '../CartProduct';
 import DileveryPay from '../DileveryPay/DileveryPay';
+import { useAppDispatch } from '../../../redux/hooks/hooks';
+import { addGoodsReducer } from '../../../redux/slices/shopCard/card.slice';
+import { Progress } from 'antd';
 
 export default function ShopCart() {
   // парсинг товаров из localStorage
+  const dispatch = useAppDispatch();
   const [goods, setGoods] = useState([]);
   const goodsForShopCart = localStorage.getItem('GoodsForShopCart');
   const [totalPriceCalculate, setTotalPriceCalculate] = useState<{
@@ -17,8 +21,7 @@ export default function ShopCart() {
     if (goodsForShopCart) {
       setGoods(JSON.parse(goodsForShopCart));
     }
-    console.log(goodsForShopCart, 'goodsForShopCart');
-  }, []);
+  }, [goodsForShopCart]);
 
   // счетчик
   function Increment(id: number) {
@@ -29,27 +32,29 @@ export default function ShopCart() {
       'GoodsForShopCart',
       JSON.stringify(goodsIncrementQuantity)
     );
+    dispatch(addGoodsReducer(goodsIncrementQuantity));
     setGoods(goodsIncrementQuantity);
   }
 
   function Dicrement(id: number) {
-    const goodsIncrementQuantity: any = goods.map((el: productType) =>
+    const goodsDicrementQuantity: any = goods.map((el: productType) =>
       el.id === id ? { ...el, quantity: ((el.quantity as number) -= 1) } : el
     );
     localStorage.setItem(
       'GoodsForShopCart',
-      JSON.stringify(goodsIncrementQuantity)
+      JSON.stringify(goodsDicrementQuantity)
     );
-    setGoods(goodsIncrementQuantity);
+    dispatch(addGoodsReducer(goodsDicrementQuantity));
+    setGoods(goodsDicrementQuantity);
   }
 
   // удаление
   const deleteHandle = (element: any) => {
-    const newGoods = goods.filter((el: any) => el.id !== element);
+    const deleteProduct = goods.filter((el: any) => el.id !== element);
 
-    localStorage.setItem('GoodsForShopCart', JSON.stringify(newGoods));
-
-    setGoods(newGoods);
+    localStorage.setItem('GoodsForShopCart', JSON.stringify(deleteProduct));
+    dispatch(addGoodsReducer(deleteProduct));
+    setGoods(deleteProduct);
 
     // вызов функции handleTotalPrice для обновления totalPriceCalculate
     setTotalPriceCalculate((prev) => {
@@ -76,6 +81,17 @@ export default function ShopCart() {
     [totalPriceCalculate]
   );
 
+  const totalPrice = () => {
+    const valuesArray = Object.values(totalPriceCalculate);
+
+    const totalPrice: any = valuesArray.reduce(
+      (total: any, currentValue) => total + currentValue,
+      0
+    );
+    // сумму доставки брать из бека? сейчас это 100
+    return totalPrice;
+  };
+
   return (
     <div className={styles.Main}>
       <div className={styles.Head}>
@@ -85,7 +101,10 @@ export default function ShopCart() {
         </h4>
         <div className={styles.DileveryLine}>
           {/* зеленая полоска должна заполняться по мере накопленной суммы до бесплатной доставки */}
-          <div className={styles.DileveryLiner}></div>
+          <div className={styles.DileveryLiner}>
+            {' '}
+            <Progress percent={(totalPrice() / 10000) * 100} showInfo={true} />
+          </div>
 
           <img src={truckIcon} alt="truckIcon" />
         </div>
@@ -111,7 +130,10 @@ export default function ShopCart() {
         )}
       </div>
 
-      <DileveryPay totalPriceCalculate={totalPriceCalculate} />
+      <DileveryPay
+        totalPriceCalculate={totalPriceCalculate}
+        totalPrice={totalPrice}
+      />
     </div>
   );
 }

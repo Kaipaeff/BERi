@@ -3,14 +3,13 @@ html {
 }
 
 .wrapper {
-	width: 100%;
-	background-color: #ffffff;
-	position: fixed;
-	z-index: 1;
-	top: 0;
-	box-shadow: 0px 5px 25px #7a7a7a40;
+  width: 100%;
+  background-color: #ffffff;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  box-shadow: 0px 5px 25px #7a7a7a40;
 }
-
 
 .container {
   position: relative;
@@ -18,9 +17,9 @@ html {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-	margin: 0 auto 0 auto;
+  margin: 0 auto 0 auto;
   padding: 20px 0;
-	width: 1440px;
+  width: 1440px;
   /* border: 1px solid #8f8f8f; */
 }
 
@@ -40,98 +39,85 @@ a .saleLink {
   font-weight: 700;
 }
 
-
 .clothesLink:after {
-	display: block;
-	position: absolute;
-	left: 0;
-	width: 0;
-	height: 2px;
-	background-color: #121212;
-	content: "";
-	transition: width 0.3s ease-out;
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #121212;
+  content: '';
+  transition: width 0.3s ease-out;
 }
 
 .clothesLink:hover:after,
 .clothesLink:focus:after {
-	width: 12%; 
+  width: 12%;
 }
 
-
-
-
 .shoesLink:after {
-	display: block;
-	position: absolute;
-	left: 10; 
-	width: 0;
-	height: 2px;
-	background-color: #121212;
-	content: "";
-	transition: width 0.3s ease-out;
+  display: block;
+  position: absolute;
+  left: 10;
+  width: 0;
+  height: 2px;
+  background-color: #121212;
+  content: '';
+  transition: width 0.3s ease-out;
 }
 
 .shoesLink:hover:after,
 .shoesLink:focus:after {
-	width: 9%;
+  width: 9%;
 }
 
-
-
 .accessoriesLink:after {
-	display: block;
-	position: absolute;
-	left: 10;
-	width: 0;
-	height: 2px;
-	background-color: #121212;
-	content: "";
-	transition: width 0.3s ease-out;
+  display: block;
+  position: absolute;
+  left: 10;
+  width: 0;
+  height: 2px;
+  background-color: #121212;
+  content: '';
+  transition: width 0.3s ease-out;
 }
 
 .accessoriesLink:hover:after,
 .accessoriesLink:focus:after {
-	width: 18%;
+  width: 18%;
 }
 
-
-
 .PremiumBrandsLink:after {
-	display: block;
-	position: absolute;
-	left: 10;
-	width: 0;
-	height: 2px;
-	background-color: #121212;
-	content: "";
-	transition: width 0.3s ease-out;
+  display: block;
+  position: absolute;
+  left: 10;
+  width: 0;
+  height: 2px;
+  background-color: #121212;
+  content: '';
+  transition: width 0.3s ease-out;
 }
 
 .PremiumBrandsLink:hover:after,
 .PremiumBrandsLink:focus:after {
-	width: 27%;
+  width: 27%;
 }
 
-
 .saleLink:after {
-	display: block;
-	position: absolute;
-	left: 10;
-	width: 0;
-	height: 2px;
-	background-color: #f71111;
-	content: "";
-	transition: width 0.3s ease-out;
+  display: block;
+  position: absolute;
+  left: 10;
+  width: 0;
+  height: 2px;
+  background-color: #f71111;
+  content: '';
+  transition: width 0.3s ease-out;
 }
 
 .saleLink:hover:after,
 .saleLink:focus:after {
-	width: 10%; 
+  width: 10%;
 }
-
-
-
-
 
 .navMenu {
   position: absolute;
@@ -171,4 +157,17 @@ a .saleLink {
 
 .cartIcon {
   height: 22px;
+}
+.shopCart {
+  display: flex;
+}
+.shopCartCounter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247, 116, 16, 0.926);
+  width: 20px;
+  height: 20px;
+  margin: -6px;
+  border-radius: 50%;
 }

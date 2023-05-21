@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { El } from '../../types/types';
 import style from '../Card/Card.module.css';
 import Rating from '../Rating/Rating';
 import arrowRight from '../../img/icons/arrowRight.svg';
 import { productType } from '../../types/product';
+import { useAppDispatch } from '../../redux/hooks/hooks';
+import { addGoodsReducer } from '../../redux/slices/shopCard/card.slice';
 
 export default function Card({ el }: El): JSX.Element {
- 
+  const dispatch = useAppDispatch();
 
   const handleAddToCart = (product: productType) => {
-    console.log(product, '<<<<<PRODUCT');
-
-    //позже кнопку "в корзину" изменить на инкремент дикремент
+    //позже кнопку "в корзину" изменить на инкремент дикремент?
 
     const getItemLocalStorage = localStorage.getItem('GoodsForShopCart')
       ? JSON.parse(localStorage.getItem('GoodsForShopCart') as string)
@@ -22,11 +22,16 @@ export default function Card({ el }: El): JSX.Element {
     );
 
     if (findItem) {
-      const testMap = getItemLocalStorage.map((el: any) =>
+      const quantityProductFilter = getItemLocalStorage.map((el: any) =>
         el.id === product.id ? { ...el, quantity: el.quantity + 1 || 1 } : el
       );
-      localStorage.setItem('GoodsForShopCart', JSON.stringify(testMap));
-      
+
+      localStorage.setItem(
+        'GoodsForShopCart',
+        JSON.stringify(quantityProductFilter)
+      );
+
+      dispatch(addGoodsReducer(quantityProductFilter));
     } else {
       localStorage.setItem(
         'GoodsForShopCart',
@@ -35,7 +40,10 @@ export default function Card({ el }: El): JSX.Element {
           { ...product, quantity: 1, price: el.minPrice },
         ])
       );
-     
+      const firtsAddProductInLocalStorage = JSON.parse(
+        localStorage.getItem('GoodsForShopCart') as string
+      );
+      dispatch(addGoodsReducer(firtsAddProductInLocalStorage));
     }
   };
 
