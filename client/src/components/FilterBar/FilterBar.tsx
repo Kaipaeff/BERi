@@ -68,7 +68,7 @@ export default function FilterBar(): JSX.Element {
     <div className={style.filterBar}>
       <div className={style.filterHeader}>
         <h2>Фильтры</h2>
-        <img onClick={handleReset} src="adjustments-off.svg" alt="close" />
+        <img onClick={handleReset} src="filter-off.svg" alt="close" />
       </div>
       <div className={style.sexSelector}>
         {location.pathname !== '/accessories' && (

@@ -1,19 +1,28 @@
-.loadedCards {
-  margin-top: 12px;
+.catalog {
   display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  padding: 0px 0px 80px;
-  gap: 56px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 120px;
 }
 
-.catalog {
-  padding: 3rem;
+.container {
   display: flex;
-  gap: 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 120px;
+  /* border: 1px solid #09830f; */
 }
 
 .productsContainer {
   display: flex;
   flex-direction: column;
+}
+
+
+.loadedCards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100%;
+  gap: 20px;
 }
