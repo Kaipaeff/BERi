@@ -1,53 +1,85 @@
 import React, { FC, useContext, useState } from 'react';
 import { Context } from '../../index';
 import { observer } from 'mobx-react-lite';
+import close from '../../img/icons/close.svg';
 import './LogInModal.css';
 
-const LogInModal = ({ activeLog, setActiveLog, setActiveReg }: {
+const LogInModal = ({
+  activeLog,
+  setActiveLog,
+  setActiveReg,
+  setModalLoginErrorActive,
+  setModalLoginSuccessActive,
+}: {
   activeLog: boolean;
   setActiveReg: any;
   setActiveLog: any;
+  modalLoginErrorActive: boolean;
+  setModalLoginErrorActive: any;
+  modalLoginSuccessActive: boolean;
+  setModalLoginSuccessActive: any;
 }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const { storeContext } = useContext(Context);
   const func = () => {
-    setActiveLog(false)
-    setActiveReg(true)
-  }
+    setActiveLog(false);
+    setActiveReg(true);
+  };
+  const logFunc = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await storeContext.login(email, password);
+    if (!storeContext.isAuth) {
+      setModalLoginErrorActive(true);
+      setActiveLog(false);
+    } else {
+      setModalLoginSuccessActive(true);
+      setActiveLog(false);
+    }
+  };
   return (
     <div
       className={activeLog ? 'logInModal active' : 'logInModal'}
-      onClick={() => setActiveLog(false)}
     >
-      <div className="logInModalContent" onClick={(e) => e.stopPropagation()}>
+      <div className="logInModalContent">
         <div className="logModalHeader">
-          <div className="login">Вход</div>
-          <div className='isReg'>
-            <p>У вас нет учетной записи?</p>{' '}
-            <p className='reg' onClick={func}>Регистрация</p>
+          <div className='logModalHeaderPlus'>
+            <div className="login">Вход</div>
+            <img
+              className="img"
+              src={close}
+              alt="close"
+              onClick={() => setActiveLog(false)}
+            />
+          </div>
+
+          <div className="isReg">
+            <p>У вас нет учетной записи?</p>
+            <p className="reg" onClick={func}>
+              Регистрация
+            </p>
           </div>
         </div>
 
-        <div className='allInputsLog'>
+        <form className="allInputsLog" onSubmit={logFunc}>
           <input
-          className='inputs'
+            className="inputs"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="text"
             placeholder="Email"
           />
           <input
-          className='inputs'
+            className="inputs"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
             placeholder="Пароль"
           />
-          <button className='logButton' onClick={() => storeContext.login(email, password)}>
+          <button type="submit" className="logButton">
             Логин
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );

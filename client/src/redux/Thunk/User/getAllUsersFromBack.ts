@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchGetAllUsersFromBack } from './allUser.api';
 
 export const getAllUsersFromBack = createAsyncThunk(
-  'addresses/fetchGetAddresses',
+  'users/fetchGetUsers',
   async () => {
     try {
       const response = await fetchGetAllUsersFromBack();

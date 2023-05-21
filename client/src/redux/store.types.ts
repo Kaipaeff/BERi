@@ -1,5 +1,6 @@
 import IDeliveryAddress from '../types/DeliveryAddress';
 import IOneUser from '../types/UserTypes';
+import IOneVendor from '../types/VendorTypes';
 import { ageType, categoryType, productType } from '../types/product';
 
 export type stateProductType = {
@@ -37,5 +38,9 @@ export type sexType = {
 
 export type stateTypeUser = {
   allUsers: IOneUser[];
+  loading: boolean;
+};
+export type stateTypeVendor = {
+  allVendors: IOneVendor[];
   loading: boolean;
 };

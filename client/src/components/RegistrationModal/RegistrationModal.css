@@ -3,7 +3,6 @@
   width: 100vw;
   background-color: rgb(187, 182, 175, 0.8);
   position: fixed;
-
   top: 0;
   left: 0;
   display: flex;
@@ -12,20 +11,26 @@
   transform: scale(0);
   z-index: 99999;
 }
+.regModal.active {
+  transform: scale(1);
+}
+
+.regModalContent {
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  height: 537px;
+  width: 656px;
+}
 .registration {
   width: 532px;
   height: 44px;
-
   font-family: 'Space Grotesk';
   font-style: normal;
   font-weight: 500;
   font-size: 40px;
   line-height: 44px;
-
   letter-spacing: -0.4px;
-
   color: #121212;
-
   flex: none;
   order: 0;
   flex-grow: 1;
@@ -44,6 +49,13 @@
   order: 0;
   align-self: stretch;
   flex-grow: 0;
+}
+.regModalHeaderPlus {
+  display: flex;
+}
+.img {
+  margin-left: 24px;
+  cursor: pointer;
 }
 .isLog {
   display: flex;
@@ -123,15 +135,4 @@
   line-height: 34px;
   text-align: center;
   color: #ffffff;
-}
-
-.regModal.active {
-  transform: scale(1);
-}
-
-.regModalContent {
-  padding: 20px;
-  background-color: rgb(255, 255, 255);
-  height: 472px;
-  width: 656px;
 }

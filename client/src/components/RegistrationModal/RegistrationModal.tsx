@@ -1,16 +1,22 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, FormEvent, useContext, useState } from 'react';
 import { Context } from '../../index';
 import { observer } from 'mobx-react-lite';
+import close from '../../img/icons/close.svg';
 import './RegistrationModal.css';
 
 const RegistrationModal = ({
   activeReg,
   setActiveReg,
   setActiveLog,
+  setModalSuccessActive,
+  setModalMailErrorActive,
 }: {
   activeReg: boolean;
   setActiveReg: any;
   setActiveLog: any;
+  setModalSuccessActive: any;
+  modalMailErrorActive: boolean;
+  setModalMailErrorActive: any;
 }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -20,56 +26,130 @@ const RegistrationModal = ({
     setActiveLog(true);
     setActiveReg(false);
   };
+  const regFunc = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await storeContext.registration(email, phone, password);
+    if (!storeContext.isAuth) {
+      setModalMailErrorActive(true);
+      setActiveReg(false);
+    } else {
+      setModalSuccessActive(true);
+      setActiveReg(false);
+    }
+  };
   return (
     <div
       className={activeReg ? 'regModal active' : 'regModal'}
-      onClick={() => setActiveReg(false)}
+      
     >
-      <div className="regModalContent" onClick={(e) => e.stopPropagation()}>
+      <div className="regModalContent">
         <div className="regModalHeader">
-          <div className="registration">Регистрация</div>
+          <div className='regModalHeaderPlus'>
+            <div className="registration">Регистрация</div>
+            <img className='img' src={close} alt="error" onClick={() => setActiveReg(false)}/>
+          </div>
+
           <div className="isLog">
-            <p>Уже зарегестрированы?</p>{' '}
+            <p>Уже зарегестрированы?</p>
             <p className="enter" onClick={func}>
               Войти
             </p>
           </div>
         </div>
-        <div className="allInputsReg">
+        <form className="allInputsReg" onSubmit={regFunc}>
           <input
             className="inputs"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            type="text"
+            type="email"
+            title="Почта должна включать символ '@' и не менее одной точки"
             placeholder="Email address"
+            required
           />
           <input
             className="inputs"
             onChange={(e) => setPhone(e.target.value)}
             value={phone}
             type="text"
-            placeholder="Phone"
+            placeholder="+X (XXX) XXX-XX-XX"
+            pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"
+            required
           />
+
           <input
             className="inputs"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
-            placeholder="Password"
+            title="Пароль должен содержать не менее 3-х символов и не менее одной цыфры"
+            placeholder="Не менее 3-х символов и не менее одной цыфры"
+            pattern="(?=.*[0-9]).{3,}"
+            required
           />
           <p className="isReg">
             Я согласен(-на) с политикой конфиденциальности и правилами
             использования
           </p>
-          <button
-            className="regButton"
-            onClick={() => storeContext.registration(email, phone, password)}
-          >
+          <button type="submit" className="regButton">
             Регистрация
           </button>
-        </div>
+        </form>
       </div>
     </div>
   );
 };
 export default observer(RegistrationModal);
+
+// const React = require('react');
+// const Layout = require('./Layout');
+
+// function NewPhone(props) {
+//   const { user } = props;
+//   console.log('￼￼ ~ file: NewPhone.jsx:6 ~ NewPhone ~ user~', user.id);
+
+//   return (
+//     <Layout {...props}>
+//       <script defer src="/js/newphone.js" />
+//       <div className="container">
+//         <form name="newPhone">
+//           <h3>Страница добавления абонента</h3>
+//           <div className="mb-3">
+//             <label className="form-label" htmlFor="controlInput1">
+//               Имя/наименование абонента:
+//             </label>
+//             <input
+//               type="text"
+//               className="form-control"
+//               id="controlInput1"
+//               placeholder="Абонент..."
+//               aria-label="default input example"
+//               name="subscriber"
+//               required
+//             />
+//           </div>
+//           <div className="mb-3">
+//             <label className="form-label" htmlFor="controlInput2">
+//               Номер телефона...
+//             </label>
+//             <input
+//               type="tel"
+//               className="form-control"
+//               id="controlInput2"
+//               aria-label="default input example"
+//               name="phoneNumber"
+//               placeholder="+X (XXX) XXX-XX-XX"
+//               pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}"
+//               required
+//             />
+//           </div>
+//           <button id={user.id} type="submit" className="btn btn-primary">
+//             Сохранить
+//           </button>
+//         </form>
+//         <h5 className="msg" style={{ visibility: 'hidden', color: 'red' }} />
+//       </div>
+//     </Layout>
+//   );
+// }
+
+// module.exports = NewPhone;
