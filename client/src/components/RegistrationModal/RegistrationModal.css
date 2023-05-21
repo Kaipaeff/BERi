@@ -109,6 +109,12 @@
   margin-bottom: 5px;
 }
 
+.allInputsReg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .allInputsReg p{
   font-size: 12px;
   margin-bottom: 20px;

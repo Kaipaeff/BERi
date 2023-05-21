@@ -9,23 +9,29 @@ import telegramIcon from '../../img/icons/telegram.svg';
 import LogInModal from '../LogInModal/LogInModal';
 import RegistrationModal from '../RegistrationModal/RegistrationModal';
 import { Context } from '../../index';
+import RegSuccess from '../SuccessOrError/RegSuccess/RegSuccess';
+import LoginSuccess from '../SuccessOrError/LoginSuccess/LoginSuccess';
+import LoginError from '../SuccessOrError/LoginError/LoginError';
+import MailError from '../SuccessOrError/MailError/MailError';
 
 export default function Footer(): JSX.Element {
   const { storeContext } = useContext(Context);
   const navigate: NavigateFunction = useNavigate();
   const [userIsAdmin, setUserIsAdmin] = useState(false);
 
-  const [modalLoginActive, setModalLoginActive] = useState(false);
   const [modalRegActive, setModalRegActive] = useState<boolean>(false);
+  const [modalLoginActive, setModalLoginActive] = useState(false);
+  const [modalSuccessActive, setModalSuccessActive] = useState(false);
+  const [modalMailErrorActive, setModalMailErrorActive] = useState(false);
+  const [modalLoginErrorActive, setModalLoginErrorActive] = useState(false);
+  const [modalLoginSuccessActive, setModalLoginSuccessActive] = useState(false);
 
   // TODO: после готовности регистрации добавить функцию по изменению статуса userIsAdmin
   // TODO: функция по определению статуса userIsAdmin
-
+  
   useEffect(() => {
-    setUserIsAdmin(storeContext.isAuth && storeContext.user.isAdmin);
-    
-  }, []);
-  console.log('user is admin==================', userIsAdmin);
+    setUserIsAdmin(storeContext.isAuth && storeContext.user.isAdmin); 
+  });
 
   // todo-------------------------------------------------------------------------------
 
@@ -42,12 +48,8 @@ export default function Footer(): JSX.Element {
         <div className={style.contentInfo}>
           <div className={style.columnShop}>
             <h3 className={style.titletext}>Покупателям</h3>
-            <p
-              className={style.textlink}
-              onClick={() => setModalLoginActive(true)}
-            >
-              Вход
-            </p>
+            
+            {/* <p className={style.textlink} onClick={() => setModalLoginActive(true)}>Вход</p> */}
 
             <p className={style.textlink} onClick={() => navigate('/account')}>
               Личный кабинет
@@ -63,6 +65,13 @@ export default function Footer(): JSX.Element {
             <p className={style.textlink} onClick={() => navigate('/cart')}>
               Корзина
             </p>
+
+            {storeContext.isAuth ? 
+              <p onClick={() => storeContext.logout()} className={style.textlink}>Выход</p>
+             : 
+              <p className={style.textlink} onClick={() => setModalLoginActive(true)}>Вход</p>
+            }
+            
           </div>
 
           <div className={style.columnInfo}>
@@ -141,25 +150,53 @@ export default function Footer(): JSX.Element {
             />
           </div>
         </div>
-
-        {modalLoginActive ? (<LogInModal
-          activeLog={modalLoginActive}
+        {modalLoginSuccessActive ? (
+        <LoginSuccess
+          modalLoginSuccessActive={modalLoginSuccessActive}
+          setModalLoginSuccessActive={setModalLoginSuccessActive}
+        />
+      ) : null}
+      {modalLoginErrorActive ? (
+        <LoginError
+          modalLoginErrorActive={modalLoginErrorActive}
+          setModalLoginErrorActive={setModalLoginErrorActive}
           setActiveLog={setModalLoginActive}
-          setActiveReg={setModalRegActive} 
-          modalLoginErrorActive={false} 
-          setModalLoginErrorActive={undefined} 
-          modalLoginSuccessActive={false} 
-          setModalLoginSuccessActive={undefined}    
-          />) : null}
-
-        {modalRegActive ? (<RegistrationModal
+        />
+      ) : null}
+      {modalMailErrorActive ? (
+        <MailError
+          modalMailErrorActive={modalMailErrorActive}
+          setModalMailErrorActive={setModalMailErrorActive}
+          setActiveReg={setModalRegActive}
+        />
+      ) : null}
+      {modalSuccessActive ? (
+        <RegSuccess
+          modalSuccessActive={modalSuccessActive}
+          setModalSuccessActive={setModalSuccessActive}
+        />
+      ) : null}
+      {modalRegActive ? (
+        <RegistrationModal
           activeReg={modalRegActive}
           setActiveReg={setModalRegActive}
-          setActiveLog={setModalLoginActive} 
-          setModalSuccessActive={undefined} 
-          modalMailErrorActive={false} 
-          setModalMailErrorActive={undefined}        
-        />) : null}
+          setActiveLog={setModalLoginActive}
+          setModalSuccessActive={setModalSuccessActive}
+          modalMailErrorActive={modalMailErrorActive}
+          setModalMailErrorActive={setModalMailErrorActive}
+        />
+      ) : null}
+      {modalLoginActive ? (
+        <LogInModal
+          activeLog={modalLoginActive}
+          setActiveLog={setModalLoginActive}
+          setActiveReg={setModalRegActive}
+          modalLoginErrorActive={modalLoginErrorActive}
+          setModalLoginErrorActive={setModalLoginErrorActive}
+          modalLoginSuccessActive={modalLoginSuccessActive}
+          setModalLoginSuccessActive={setModalLoginSuccessActive}
+        />
+      ) : null}
 
       </div>
     </div>

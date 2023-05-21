@@ -64,7 +64,7 @@ const LogInModal = ({
 
         <form className="allInputsLog" onSubmit={logFunc}>
           <input
-            className="inputs"
+            className="emailInput"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="text"
@@ -73,7 +73,6 @@ const LogInModal = ({
           />
           <input
             className='passwordInput'
-
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"

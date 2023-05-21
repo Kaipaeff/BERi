@@ -25,7 +25,6 @@
   background-color: #ffffff;
   width: 360px;
   height: 380px;
-
   /* border: 1px solid #e22626; */
 }
 
@@ -33,7 +32,6 @@
   font-size: 24px;
   font-weight: 500;
   color: #4d4d4d;
-  /* margin-bottom: 30px; */
 }
 
 .logModalHeader {
@@ -47,16 +45,11 @@
   /* border: 1px solid #c4c710; */
 }
 
-/* .logModalHeaderPlus {
-  display: flex;
-}
-.img {
-  margin-left: 24px;
-  cursor: pointer;
-} */
 
 .isReg {
   display: flex;
+  justify-content: space-between;
+  width: 300px;
   font-weight: 400;
   margin: 0 auto 0 auto;
   font-size: 14px;
@@ -66,7 +59,7 @@
 
 .reg {
   cursor: pointer;
-  margin-left: 40px;
+  /* margin-left: 30px; */
   font-weight: 600;
 }
 
@@ -91,6 +84,12 @@
   font-size: 16px;
   color: #a7a7a7;
   margin-bottom: 90px;
+}
+
+.allInputsLog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .loginButton {

@@ -32,10 +32,15 @@ import { Context } from './index';
 import { observer } from 'mobx-react-lite';
 import Footer from './components/Footer/Footer';
 
+import { IUser } from './models/IUser';
+import UserService from './services/UserService';
+
 function App() {
+
   const location = useLocation();
 
   const { storeContext } = useContext(Context);
+  const [users, setUsers] = useState<IUser[]>([]);
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -44,14 +49,45 @@ function App() {
   }, []);
   
   
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   })
+
+  async function getUsers() {
+    try {
+      const response = await UserService.fetchUsers();
+      setUsers(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  if (storeContext.isLoading) {
+    return <div>Загрузка...</div>;
+  }
 
 
   return (
     <>
       <div className={style.wrapper}>
+
+        <h6>
+          {storeContext.isAuth
+            ? `Пользователь авторизован ${storeContext.user.email}`
+            : 'АВТОРИЗУЙТЕСЬ'}
+        </h6>
+        <h6>
+          {storeContext.user.isActivated
+            ? 'Аккаунт подтвержден по почте'
+            : 'Аккаунт не подтвержден'}
+        </h6>
+        <div>
+          <button onClick={getUsers}>Получить пользователей</button>
+        </div>
+        {users.map((user) => (
+          <div key={user.email}>{user.email}</div>
+        ))}
+
         <Navbar />
         
 

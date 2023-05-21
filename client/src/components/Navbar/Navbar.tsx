@@ -20,8 +20,6 @@ import LoginSuccess from '../SuccessOrError/LoginSuccess/LoginSuccess';
 
 
 export function Navbar() {
-
-  // добавить useEffect на isAuth
   
   const [modalRegActive, setModalRegActive] = useState<boolean>(false);
   const [modalLoginActive, setModalLoginActive] = useState(false);
@@ -101,7 +99,6 @@ export function Navbar() {
           </div>
         </div>
       </div>
-      <div></div>
       {modalLoginSuccessActive ? (
         <LoginSuccess
           modalLoginSuccessActive={modalLoginSuccessActive}
