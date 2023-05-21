@@ -38,17 +38,17 @@ export default function Card({ el }: El): JSX.Element {
   return (
     <div className={style.card}>
       <img className={style.img} src={el.img} alt="cloth" />
-      <Rating el={el} />
+      {/* <Rating el={el} /> */}
       <p>{el.name}</p>
       <p>От {el.minPrice} ₽</p>
 
-      <button
+      {/* <button
         className={style.sliderDescriptionBtn}
         onClick={() => handleAddToCart(el)}
       >
         Добавить в корзину
         <img src={arrowRight} alt="arrowRight" />
-      </button>
+      </button> */}
     </div>
   );
 }
