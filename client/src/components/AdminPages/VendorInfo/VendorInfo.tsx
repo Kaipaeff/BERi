@@ -5,14 +5,13 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import IOneVendor from '../../../types/VendorTypes';
 import { RootState } from '../../../types/types';
 import { getAllVendorFromBack } from '../../../redux/Thunk/Vendors/getAllVendorsFromBack';
-// import { findVendorByNameFront } from '../../../redux/slices/User/user.slice';
 import OneVendorCard from './OneVendorCard/OneVendorCard';
 
 import search from '../../../img/icons/search.svg';
 import searchOff from '../../../img/icons/searchOff.svg';
 import arrowRight from '../../../img/icons/arrowRight.svg';
 
-import { fetchGetAllVendorFromBack } from '../../../redux/Thunk/Vendors/allVendor.api';
+import { findVendorByNameOrCountryFront } from '../../../redux/slices/Vendor/vendor.slise';
 
 export default function UsersInfo(): JSX.Element {
   const dispatch = useAppDispatch();
@@ -20,6 +19,7 @@ export default function UsersInfo(): JSX.Element {
     (state: RootState) => state.VendorReducer.allVendors
   );
   const [isPremiumCheckbox, setIsPremiumCheckbox] = useState(false);
+  const [nonPremiumCheckbox, setNonPremiumCheckbox] = useState(false);
   const [filterStatus, setFilterStatus] = useState(0);
   const [findInputActive, setFindInputActive] = useState(false);
 
@@ -28,6 +28,12 @@ export default function UsersInfo(): JSX.Element {
   useEffect(() => {
     dispatch(getAllVendorFromBack());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (!isPremiumCheckbox && !nonPremiumCheckbox) setFilterStatus(0);
+    if (isPremiumCheckbox) setFilterStatus(1);
+    if (nonPremiumCheckbox) setFilterStatus(2);
+  }, [isPremiumCheckbox, nonPremiumCheckbox]);
 
   console.log(
     '🚀🚀 ~ file: VendorInfo.tsx:19 ~ UsersInfo ~ allVendors~',
@@ -53,7 +59,7 @@ export default function UsersInfo(): JSX.Element {
             e.preventDefault();
             if (findVendorName.length) {
               setFindInputActive(!findInputActive);
-              // dispatch(findUserByEmailFront(findEmail));
+              dispatch(findVendorByNameOrCountryFront(findVendorName));
             }
           }}
         >
@@ -66,13 +72,14 @@ export default function UsersInfo(): JSX.Element {
               setFindVendorName(e.target.value)
             }
           />
+
           {findInputActive ? (
             <span title="Отменить поиск" aria-label="find">
               <button
                 onClick={() => {
                   setFindInputActive(false);
                   setFindVendorName('');
-                  // dispatch(getAllUsersFromBack());
+                  dispatch(getAllVendorFromBack());
                 }}
                 className={styleVendorInfo.findBtn}
               >
@@ -84,7 +91,7 @@ export default function UsersInfo(): JSX.Element {
               </button>
             </span>
           ) : (
-            <span title="Найти по email" aria-label="find">
+            <span title="Найти названию или стране" aria-label="find">
               <button type="submit" className={styleVendorInfo.findBtn}>
                 <img
                   className={styleVendorInfo.searchSimbol}
@@ -98,29 +105,58 @@ export default function UsersInfo(): JSX.Element {
         <p>
           <input
             className={styleVendorInfo.inputElement}
-            onChange={() => setIsPremiumCheckbox(!isPremiumCheckbox)}
+            onChange={() => {
+              if (nonPremiumCheckbox) {
+                setNonPremiumCheckbox(!nonPremiumCheckbox);
+              }
+              setIsPremiumCheckbox(!isPremiumCheckbox);
+            }}
             checked={isPremiumCheckbox}
             name="isPremiumCheckbox"
             type="checkbox"
           />{' '}
-          Товары премиального бренда
+          Премиум бренды
+        </p>
+        <p>
+          <input
+            className={styleVendorInfo.inputElement}
+            onChange={() => {
+              if (isPremiumCheckbox) {
+                setIsPremiumCheckbox(!isPremiumCheckbox);
+              }
+              setNonPremiumCheckbox(!nonPremiumCheckbox);
+            }}
+            checked={nonPremiumCheckbox}
+            name="nonPremiumCheckbox"
+            type="checkbox"
+          />{' '}
+          Обычные бренды
         </p>
       </div>
       {allVendors.length ? (
         <div className={styleVendorInfo.content}>
-          {filterStatus === 0
-            ? allVendors.map((vendor: IOneVendor) => (
+          {filterStatus === 0 &&
+            allVendors.map((vendor: IOneVendor) => (
+              <React.Fragment key={vendor.id}>
+                <OneVendorCard OneVendor={vendor} />
+              </React.Fragment>
+            ))}
+          {filterStatus === 1 &&
+            allVendors
+              .filter((el: IOneVendor) => el.premium === isPremiumCheckbox)
+              .map((vendor: IOneVendor) => (
                 <React.Fragment key={vendor.id}>
                   <OneVendorCard OneVendor={vendor} />
                 </React.Fragment>
-              ))
-            : allVendors
-                .filter((el: IOneVendor) => el.premium === isPremiumCheckbox)
-                .map((vendor: IOneVendor) => (
-                  <React.Fragment key={vendor.id}>
-                    <OneVendorCard OneVendor={vendor} />
-                  </React.Fragment>
-                ))}
+              ))}
+          {filterStatus === 2 &&
+            allVendors
+              .filter((el: IOneVendor) => el.premium === !nonPremiumCheckbox)
+              .map((vendor: IOneVendor) => (
+                <React.Fragment key={vendor.id}>
+                  <OneVendorCard OneVendor={vendor} />
+                </React.Fragment>
+              ))}
         </div>
       ) : (
         <span className={styleVendorInfo.message}>
