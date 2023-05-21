@@ -53,6 +53,7 @@ function App() {
     <>
       <div className={style.wrapper}>
         <Navbar />
+        
 
         <div className={style.container}>
           {location.pathname !== '/login' &&

@@ -9,6 +9,7 @@ export default class StoreContext {
   user = {} as IUser;
   isAuth = false;
   isLoading = false;
+  static user: any;
 
   constructor() {
     makeAutoObservable(this);
@@ -29,7 +30,7 @@ export default class StoreContext {
   async login(email: string, password: string) {
     try {
       const response = await AuthService.login(email, password);
-      console.log(response);
+      // console.log(response);
       localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
       this.setUser(response.data.user);
@@ -41,7 +42,6 @@ export default class StoreContext {
   async registration(email: string, phone: string, password: string) {
     try {
       const response = await AuthService.registration(email, phone, password);
-      console.log(response);
       localStorage.setItem('token', response.data.accessToken);
       this.setAuth(true);
       this.setUser(response.data.user);

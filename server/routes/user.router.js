@@ -15,36 +15,21 @@ router.get('/', async (req, res) => {
   }
 });
 
-// // добавление адреса доставки
-// router.post('/address', async (req, res) => {
-//   const { address, userId } = req.body;
-//   try {
-//     const response = await DeliveryAddress.create({
-//       address,
-//       userId,
-//     });
+// Изменение адреса доставки в БД
+router.put('/', async (req, res) => {
+  const { id, email, phone, isAdmin, isActivated } = req.body;
 
-//     return res.json(response);
-//   } catch (error) {
-//     console.error('Ошибка добавления записи в БД!', error);
-//   }
-// });
-
-// // Изменение адреса доставки в БД
-// router.put('/address', async (req, res) => {
-//   const { id, address, userId } = req.body;
-
-//   try {
-//     const editedAddress = await DeliveryAddress.update(
-//       { address },
-//       { where: { id, userId } },
-//       { raw: true }
-//     );
-//     return res.json(editedAddress);
-//   } catch (error) {
-//     console.error('Ошибка изменения адреса в БД!', error);
-//   }
-// });
+  try {
+    const editedUser = await User.update(
+      { email, phone, isAdmin, isActivated },
+      { where: { id } },
+      { raw: true }
+    );
+    return res.json(editedUser);
+  } catch (error) {
+    console.error('Ошибка изменения адреса в БД!', error);
+  }
+});
 
 // удаление Юзера
 router.delete('/:id', async (req, res) => {

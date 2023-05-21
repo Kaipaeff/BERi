@@ -12,51 +12,49 @@ import RegistrationModal from '../RegistrationModal/RegistrationModal';
 
 import LogInModal from '../LogInModal/LogInModal';
 import { Context } from '../../index';
-
-interface LogIn {
-  modalLoginActive: boolean,
-  setModalLoginActive: any,
-}
+import RegSuccess from '../SuccessOrError/RegSuccess/RegSuccess';
+import MailError from '../SuccessOrError/MailError/MailError';
+import LoginError from '../SuccessOrError/LoginError/LoginError';
+import LoginSuccess from '../SuccessOrError/LoginSuccess/LoginSuccess';
 
 export function Navbar() {
   const [modalRegActive, setModalRegActive] = useState<boolean>(false);
   const [modalLoginActive, setModalLoginActive] = useState(false);
+  const [modalSuccessActive, setModalSuccessActive] = useState(false);
+  const [modalMailErrorActive, setModalMailErrorActive] = useState(false);
+  const [modalLoginErrorActive, setModalLoginErrorActive] = useState(false);
+  const [modalLoginSuccessActive, setModalLoginSuccessActive] = useState(false);
   const { storeContext } = useContext(Context);
   return (
     <div className={style.wrapper}>
-
       <div className={style.navbar}>
-
         <div className={style.container}>
-
-          <Link to='/'>
+          <Link to="/">
             <div className={style.navLogo}>
               <span>BERi</span>
             </div>
           </Link>
 
           <div className={style.navMenu}>
-
-            <Link to='/clothes'>
+            <Link to="/clothes">
               <span className={style.clothesLink}>одежда</span>
             </Link>
 
-            <Link to='/shoes'>
+            <Link to="/shoes">
               <span className={style.shoesLink}>обувь</span>
             </Link>
 
-            <Link to='/accessories'>
+            <Link to="/accessories">
               <span className={style.accessoriesLink}>аксессуары</span>
             </Link>
 
-            <Link to='/premiumbrands'>
-              <span className={style.PremiumBrandsLink}>премиум бренды</span>
-            </Link>
+          <Link to="/premiumbrands">
+            <span className={style.PremiumBrandsLink}>премиум бренды</span>
+          </Link>
 
-            <Link to='/sale'>
+            <Link to="/sale">
               <span className={style.saleLink}>sale %</span>
             </Link>
-
           </div>
 
           <div className={style.navIcons}>
@@ -96,28 +94,56 @@ export function Navbar() {
             </div>
 
           </div>
-          
         </div>
       </div>
-      
-      {modalRegActive ? (<RegistrationModal
-        activeReg={modalRegActive}
-        setActiveReg={setModalRegActive}
-        setActiveLog={setModalLoginActive} 
-        setModalSuccessActive={undefined} 
-        modalMailErrorActive={false} 
-        setModalMailErrorActive={undefined}      
-        />) : null}
-        
-      {modalLoginActive ? (<LogInModal
-        activeLog={modalLoginActive}
-        setActiveLog={setModalLoginActive}
-        setActiveReg={setModalRegActive} 
-        modalLoginErrorActive={false} 
-        setModalLoginErrorActive={undefined} 
-        modalLoginSuccessActive={false} 
-        setModalLoginSuccessActive={undefined}      
-      />) : null}
+      <div></div>
+      {modalLoginSuccessActive ? (
+        <LoginSuccess
+          modalLoginSuccessActive={modalLoginSuccessActive}
+          setModalLoginSuccessActive={setModalLoginSuccessActive}
+        />
+      ) : null}
+      {modalLoginErrorActive ? (
+        <LoginError
+          modalLoginErrorActive={modalLoginErrorActive}
+          setModalLoginErrorActive={setModalLoginErrorActive}
+          setActiveLog={setModalLoginActive}
+        />
+      ) : null}
+      {modalMailErrorActive ? (
+        <MailError
+          modalMailErrorActive={modalMailErrorActive}
+          setModalMailErrorActive={setModalMailErrorActive}
+          setActiveReg={setModalRegActive}
+        />
+      ) : null}
+      {modalSuccessActive ? (
+        <RegSuccess
+          modalSuccessActive={modalSuccessActive}
+          setModalSuccessActive={setModalSuccessActive}
+        />
+      ) : null}
+      {modalRegActive ? (
+        <RegistrationModal
+          activeReg={modalRegActive}
+          setActiveReg={setModalRegActive}
+          setActiveLog={setModalLoginActive}
+          setModalSuccessActive={setModalSuccessActive}
+          modalMailErrorActive={modalMailErrorActive}
+          setModalMailErrorActive={setModalMailErrorActive}
+        />
+      ) : null}
+      {modalLoginActive ? (
+        <LogInModal
+          activeLog={modalLoginActive}
+          setActiveLog={setModalLoginActive}
+          setActiveReg={setModalRegActive}
+          modalLoginErrorActive={modalLoginErrorActive}
+          setModalLoginErrorActive={setModalLoginErrorActive}
+          modalLoginSuccessActive={modalLoginSuccessActive}
+          setModalLoginSuccessActive={setModalLoginSuccessActive}
+        />
+      ) : null}
     </div>
   );
 }

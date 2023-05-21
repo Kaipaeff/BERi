@@ -6,19 +6,49 @@
   width: 200px;
 }
 
-.catInActive {
-  color: #807E7E;;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 22px;
+.filterHeader {
+  display: flex;
+  gap: 70px
 }
 
-.catActive {
+.filterHeader img {
+  margin-top: 8px;
+}
+
+.filterHeader img:hover {
+  cursor: pointer;
+}
+
+h3 {
+  margin-bottom: 15px;
+}
+
+.catInActive,
+.sexInActive,
+.ageInActive {
+  padding: 4px 0 8px 10px;
+  color: #807e7e;
   font-weight: 600;
   font-size: 15px;
   line-height: 22px;
+  transition: color 0.3s ease;
+}
+
+.catInActive:hover,
+.sexInActive:hover,
+.ageInActive:hover {
   color: black;
-  text-decoration: underline;
+}
+
+.catActive,
+.sexActive,
+.ageActive {
+  padding: 4px 0 8px 10px;
+  width: 100%;
+  height: 20;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
 }
 
 .filterBar p:hover {
@@ -31,6 +61,7 @@
   align-items: flex-start;
   gap: 12px;
 }
+<<<<<<< HEAD
 
 .catSpan {
   display: flex;
@@ -110,3 +141,5 @@
 #red {
   color: rgb(253, 32, 32);
 }
+=======
+>>>>>>> dev

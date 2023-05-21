@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   ProductProps.init({
     productId: DataTypes.INTEGER,
+    img: DataTypes.STRING,
     colorId: DataTypes.INTEGER,
     sizeId: DataTypes.INTEGER,
     salePrice: DataTypes.DECIMAL,

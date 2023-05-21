@@ -5,8 +5,6 @@ import Rating from '../Rating/Rating';
 import { productType } from '../../types/product';
 
 export default function Card({ el }: El): JSX.Element {
- 
-
   const handleAddToCart = (product: productType) => {
     console.log(product, '<<<<<PRODUCT');
 
@@ -25,7 +23,6 @@ export default function Card({ el }: El): JSX.Element {
         el.id === product.id ? { ...el, quantity: el.quantity + 1 || 1 } : el
       );
       localStorage.setItem('GoodsForShopCart', JSON.stringify(testMap));
-      
     } else {
       localStorage.setItem(
         'GoodsForShopCart',
@@ -34,7 +31,6 @@ export default function Card({ el }: El): JSX.Element {
           { ...product, quantity: 1, price: el.minPrice },
         ])
       );
-     
     }
   };
 
@@ -42,8 +38,21 @@ export default function Card({ el }: El): JSX.Element {
     <div className={style.card}>
       <img className={style.img} src={el.img} alt="cloth" />
       {/* <Rating el={el} /> */}
+<<<<<<< HEAD
       <p className={style.name}>{el.name}</p>
       <p className={style.price}>от {el.minPrice} ₽</p>
+=======
+      <p>{el.name}</p>
+      <p>От {el.minPrice} ₽</p>
+
+      {/* <button
+        className={style.sliderDescriptionBtn}
+        onClick={() => handleAddToCart(el)}
+      >
+        Добавить в корзину
+        <img src={arrowRight} alt="arrowRight" />
+      </button> */}
+>>>>>>> dev
     </div>
   );
 }
