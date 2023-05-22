@@ -16,7 +16,7 @@ const RegSuccess = ({
         <p className="successHeader">Регистрация прошла успешно!</p>
         
         <div className="successMesage">
-          Для завершения регистрации, 
+          Для завершения регистрации 
           пройдите по ссылке, отправленной <br /> на Вашу почту 
         </div>
 
