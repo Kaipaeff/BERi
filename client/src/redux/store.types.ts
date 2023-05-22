@@ -1,4 +1,5 @@
 import IOneCategory from '../types/Category.types';
+import IOneColorElement from '../types/ColorTable.types';
 import IDeliveryAddress from '../types/DeliveryAddress';
 import IOneUser from '../types/UserTypes';
 import IOneVendor from '../types/VendorTypes';
@@ -47,5 +48,10 @@ export type stateTypeVendor = {
 };
 export type stateTypeCategory = {
   allCategories: IOneCategory[];
+  loading: boolean;
+};
+
+export type stateTypeColorScheme = {
+  allColorSchemes: IOneColorElement[];
   loading: boolean;
 };

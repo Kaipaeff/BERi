@@ -33,12 +33,12 @@ router.put('/', async (req, res) => {
   const { id, category } = req.body;
 
   try {
-    const editVendor = await Category.update(
+    const editCategory = await Category.update(
       { category },
       { where: { id } },
       { raw: true }
     );
-    return res.json(editVendor);
+    return res.json(editCategory);
   } catch (error) {
     console.error('Ошибка изменения данных о категории в БД!', error);
   }
