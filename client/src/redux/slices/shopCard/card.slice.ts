@@ -1,6 +1,4 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-// import { stateType } from '../store.types';
-// import { getProducts } from '../Thunk/getProducts';
 
 const initialState: any = {
   goods: [],

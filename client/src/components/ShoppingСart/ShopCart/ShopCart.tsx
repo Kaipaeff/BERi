@@ -100,7 +100,6 @@ export default function ShopCart() {
           Закажите на сумму от 10 000 и получите <b>Бесплатную доставку</b>
         </h4>
         <div className={styles.DileveryLine}>
-          {/* зеленая полоска должна заполняться по мере накопленной суммы до бесплатной доставки */}
           <div className={styles.DileveryLiner}>
             {' '}
             <Progress percent={(totalPrice() / 10000) * 100} showInfo={true} />
