@@ -1,6 +1,6 @@
 const express = require('express');
 const route = express.Router();
-const { Product, Vendor, ProductProps, Category } = require('../db/models');
+const { Product, Vendor, ProductProps, ProductType, Age } = require('../db/models');
 const db = require('../db/models/index');
 
 route.get('/', async (req, res) => {
@@ -9,7 +9,7 @@ route.get('/', async (req, res) => {
       include: [
         {
           model: Vendor,
-          attributes: ['name', 'country'],
+          attributes: ['name', 'country', 'premium'],
         },
       ],
     });
@@ -41,11 +41,23 @@ route.get('/', async (req, res) => {
 
 route.get('/categories', async (req, res) => {
   try {
-    const findCategories = await Category.findAll({});
+    const findCategories = await ProductType.findAll();
 
     const categories = findCategories.map((el) => el.get({ plain: true }));
 
     res.json(categories);
+  } catch (error) {
+    res.json({ error });
+  }
+});
+
+route.get('/age', async (req, res) => {
+  try {
+    const findAge = await Age.findAll();
+
+    const age = findAge.map((el) => el.get({ plain: true }));
+
+    res.json(age);
   } catch (error) {
     res.json({ error });
   }

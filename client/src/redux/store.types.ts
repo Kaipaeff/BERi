@@ -1,7 +1,7 @@
 import IDeliveryAddress from '../types/DeliveryAddress';
 import IOneUser from '../types/UserTypes';
 import IOneVendor from '../types/VendorTypes';
-import { categoryType, productType } from '../types/product';
+import { ageType, categoryType, productType } from '../types/product';
 
 export type stateProductType = {
   products: productType[];
@@ -9,7 +9,15 @@ export type stateProductType = {
 };
 
 export type stateCategoriesType = {
+  ageState: number;
+  sexState: number;
+  categoryState: number;
   categories: categoryType[];
+  loading: boolean;
+};
+
+export type stateAgeType = {
+  age: ageType[];
   loading: boolean;
 };
 
@@ -19,7 +27,13 @@ export type stateTypeAddress = {
 };
 
 export type stateActiveType = {
-  active: number;
+  sexActive: number,
+  ageActive: number,
+  catActive: number,
+};
+
+export type sexType = {
+  sex: number;
 };
 
 export type stateTypeUser = {

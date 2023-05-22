@@ -1,0 +1,17 @@
+.container {
+  text-align: justify;
+  font-size: 18px;
+  line-height: 30px;
+  margin: 36px auto 80px auto;
+  /* border: 1px solid #847588; */
+}
+
+.container p{
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0 10px 0;
+}
+
+hr {
+  margin-bottom: 40px;
+}

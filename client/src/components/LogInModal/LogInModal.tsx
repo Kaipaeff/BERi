@@ -43,43 +43,46 @@ const LogInModal = ({
     >
       <div className="logInModalContent">
         <div className="logModalHeader">
-          <div className='logModalHeaderPlus'>
-            <div className="login">Вход</div>
+          {/* <div className='logModalHeaderPlus'> */}
+          <div className="login">Вход</div>
             <img
-              className="img"
+              className="closeIcon"
+
               src={close}
               alt="close"
               onClick={() => setActiveLog(false)}
             />
-          </div>
+          {/* </div> */}
 
-          <div className="isReg">
-            <p>У вас нет учетной записи?</p>
-            <p className="reg" onClick={func}>
-              Регистрация
-            </p>
-          </div>
+            <div className='isReg'>
+              <p>У вас нет учетной записи?</p>
+              <p className='reg' onClick={func}>
+                Регистрация
+              </p>
+            </div>
         </div>
 
         <form className="allInputsLog" onSubmit={logFunc}>
           <input
-            className="inputs"
+            className="emailInput"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="text"
-            placeholder="Email"
+            autoFocus
+            placeholder="Адрес электронной почты"
           />
           <input
-            className="inputs"
+            className='passwordInput'
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
             placeholder="Пароль"
           />
-          <button type="submit" className="logButton">
-            Логин
+          <button type="submit" className="loginButton">
+            Авторизоваться
           </button>
         </form>
+
       </div>
     </div>
   );

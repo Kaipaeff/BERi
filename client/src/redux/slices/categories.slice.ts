@@ -1,16 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { stateCategoriesType } from '../store.types';
 import { getCategories } from '../Thunk/Categories/getCategories';
 
 const initialState: stateCategoriesType = {
+  ageState: 0,
+  sexState: 0,
+  categoryState: 0,
   categories: [],
-  loading: false
+  loading: false,
 };
 
 const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
-  reducers: {},
+  reducers: {
+    setCategoryState: (state, action: PayloadAction<number>) =>
+      (state = { ...state, categoryState: action.payload }),
+    setSexState: (state, action: PayloadAction<number>) =>
+      (state = { ...state, sexState: action.payload }),
+    setAgeState: (state, action: PayloadAction<number>) =>
+      (state = { ...state, ageState: action.payload }),
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getCategories.pending, (state) => {
@@ -27,5 +37,7 @@ const categoriesSlice = createSlice({
       .addDefaultCase(() => {});
   },
 });
+
+export const { setCategoryState, setSexState, setAgeState } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

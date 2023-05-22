@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { El } from '../../types/types';
 import style from '../Card/Card.module.css';
 import Rating from '../Rating/Rating';
-import arrowRight from '../../img/icons/arrowRight.svg';
 import { productType } from '../../types/product';
 
 export default function Card({ el }: El): JSX.Element {
- 
-
   const handleAddToCart = (product: productType) => {
     console.log(product, '<<<<<PRODUCT');
 
@@ -26,7 +23,6 @@ export default function Card({ el }: El): JSX.Element {
         el.id === product.id ? { ...el, quantity: el.quantity + 1 || 1 } : el
       );
       localStorage.setItem('GoodsForShopCart', JSON.stringify(testMap));
-      
     } else {
       localStorage.setItem(
         'GoodsForShopCart',
@@ -35,24 +31,24 @@ export default function Card({ el }: El): JSX.Element {
           { ...product, quantity: 1, price: el.minPrice },
         ])
       );
-     
     }
   };
 
   return (
     <div className={style.card}>
       <img className={style.img} src={el.img} alt="cloth" />
-      <Rating el={el} />
-      <p>{el.name}</p>
-      <p>От {el.minPrice} ₽</p>
+      {/* <Rating el={el} /> */}
+      <p className={style.name}>{el.name}</p>
+      <p className={style.price}>от {el.minPrice} ₽</p>
+    
 
-      <button
+      {/* <button
         className={style.sliderDescriptionBtn}
         onClick={() => handleAddToCart(el)}
       >
         Добавить в корзину
         <img src={arrowRight} alt="arrowRight" />
-      </button>
+      </button> */}
     </div>
   );
 }

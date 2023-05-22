@@ -26,8 +26,8 @@ html {
 
 .navLogo {
   color: #4d4d4d;
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 700;
 }
 
 a {
@@ -145,30 +145,49 @@ a .saleLink {
 
 .navIcons {
   display: flex;
-  gap: 30px;
-  align-items: baseline;
-  justify-content: flex-end;
+  justify-content: space-between;
+	align-items: baseline;
   width: 220px;
   height: 25px;
   /* border: 1px solid #121212; */
 }
 
+.navIconsUser {
+	display: flex;
+  gap: 30px;
+  align-items: baseline;
+  justify-content: flex-end;
+  width: 120px;
+  height: 25px;
+  /* border: 1px solid #121212; */
+}
+
+.navIconsOther {
+	display: flex;
+  gap: 30px;
+  align-items: baseline;
+  justify-content: flex-start;
+  width: 100px;
+  height: 25px;
+  /* border: 1px solid #121212; */
+}
+
 .searchIcon {
-  height: 20px;
+  height: 21px;
 }
 
 .favoritesIcon {
-  height: 19px;
+  height: 21px;
 }
 
-.cabinetIcon {
+.accountIcon {
   height: 22px;
 }
 
 .loginIcon {
-  height: 20px;
+  height: 21px;
 }
 
 .cartIcon {
-  height: 22px;
+  height: 21.6px;
 }
