@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../ShopCart/ShopCart.module.css';
+import { Link } from 'react-router-dom';
 
 export default function DileveryPay({ totalPriceCalculate, totalPrice }: any) {
   console.log(totalPrice(), '<<<<TOTAL PRICE');
@@ -13,6 +14,9 @@ export default function DileveryPay({ totalPriceCalculate, totalPrice }: any) {
           className={styles.inputDeliveryAdress}
           placeholder="'Адрес доставки тянется из ЛК'"
         />
+        <Link to="/map">
+          <button>Выбрать адрес доставки</button>
+        </Link>
       </div>
       <div className={styles.LeftSide_Promocod}></div>
 

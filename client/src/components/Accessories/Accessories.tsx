@@ -10,7 +10,11 @@ import FilterBar from '../FilterBar/FilterBar';
 import { getCategoryState } from '../../redux/selectors/category.selector';
 import { getAgeState } from '../../redux/selectors/age.selector';
 import { getSexState } from '../../redux/selectors/sex.selector';
-import { setAgeState, setCategoryState, setSexState } from '../../redux/slices/categories.slice';
+import {
+  setAgeState,
+  setCategoryState,
+  setSexState,
+} from '../../redux/slices/categories.slice';
 import Skeleton from '../Skeleton/Skeleton';
 
 export function Accessories(): JSX.Element {
@@ -77,10 +81,10 @@ export function Accessories(): JSX.Element {
             <h2>Аксессуары</h2>
             {loading ? (
               <Skeleton />
+            ) : (
               // <div className="loading">
               //   <img src="./Spinner-1s-200px.gif" alt="" />
               // </div>
-            ) : (
               <div className={style.loadedCards}>
                 {products.length &&
                 categoryState === 0 &&
@@ -90,7 +94,8 @@ export function Accessories(): JSX.Element {
                     (el: productType) =>
                       el.categoryId === 3 && <Card key={el.id} el={el} />
                   )
-                ) : products.length && (categoryState || sexState || ageState) ? (
+                ) : products.length &&
+                  (categoryState || sexState || ageState) ? (
                   products
                     .filter(
                       (el) =>

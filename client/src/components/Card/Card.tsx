@@ -52,7 +52,6 @@ export default function Card({ el }: El): JSX.Element {
       {/* <Rating el={el} /> */}
       <p className={style.name}>{el.name}</p>
       <p className={style.price}>от {el.minPrice} ₽</p>
-    
 
       {/* <button
         className={style.sliderDescriptionBtn}
