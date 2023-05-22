@@ -2,7 +2,7 @@
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
       'Sizes',
       [
@@ -62,6 +62,12 @@ module.exports = {
         },
         {
           size: 158,
+        },
+        {
+          size: 16,
+        },
+        {
+          size: 16.5,
         },
         {
           size: 17,
@@ -138,12 +144,15 @@ module.exports = {
         {
           size: 36,
         },
+        {
+          size: 0,
+        },
       ],
       {}
     );
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.bulkDelete('Sizes', null, {});
   }
 };
