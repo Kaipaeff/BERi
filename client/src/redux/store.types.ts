@@ -1,3 +1,4 @@
+import IOneCategory from '../types/Category.types';
 import IDeliveryAddress from '../types/DeliveryAddress';
 import IOneUser from '../types/UserTypes';
 import IOneVendor from '../types/VendorTypes';
@@ -27,9 +28,9 @@ export type stateTypeAddress = {
 };
 
 export type stateActiveType = {
-  sexActive: number,
-  ageActive: number,
-  catActive: number,
+  sexActive: number;
+  ageActive: number;
+  catActive: number;
 };
 
 export type sexType = {
@@ -42,5 +43,9 @@ export type stateTypeUser = {
 };
 export type stateTypeVendor = {
   allVendors: IOneVendor[];
+  loading: boolean;
+};
+export type stateTypeCategory = {
+  allCategories: IOneCategory[];
   loading: boolean;
 };
