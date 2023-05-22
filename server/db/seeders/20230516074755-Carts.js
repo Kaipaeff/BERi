@@ -9,7 +9,7 @@ module.exports = {
         {
           userId: 2,
           productPropsId: 1,
-          productName: 'Куртка 1',
+          productName: 'Куртка Zara',
           quantity: 2,
           price: 3500,
           totalPrice: 10000,
