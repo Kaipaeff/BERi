@@ -13,6 +13,7 @@
 .successModal.active {
   transform: scale(1);
 }
+
 .successModalContent {
   display: flex;
   flex-direction: column;
