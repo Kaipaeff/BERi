@@ -15,14 +15,11 @@
 }
 .DileveryLine {
   display: inline-flex;
-  align-items: center;
   gap: 10px;
 }
 .DileveryLiner {
   height: 8px;
   width: 500px;
-  border-radius: 45px;
-  background: #20c997;
 }
 .Content {
   display: flex;
@@ -34,9 +31,11 @@
 }
 
 .InfoGoods {
-  display: flex;
+  display: grid;
   flex-direction: row;
-  justify-content: space-between;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  justify-items: start;
+  margin-left: 100px;
 }
 .Img_Product {
   width: 77px;
@@ -76,7 +75,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  align-items: center;
 }
 .Count {
   padding: 0 10px 0 10px;

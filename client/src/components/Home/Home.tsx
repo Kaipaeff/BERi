@@ -11,7 +11,6 @@ import Advantages from '../Advantages/Advantages';
 import { getCategoryState } from '../../redux/selectors/category.selector';
 
 export function Home(): JSX.Element {
-  
   const [cart, setCart] = useState<productType[]>([]);
 
   const dispatch = useAppDispatch();
@@ -31,8 +30,6 @@ export function Home(): JSX.Element {
 
   // хендл для local storage
   const handleAddToCart = (product: productType, e: any) => {
-    console.log(product, '<<<<<PRODUCT');
-
     //позже кнопку "в корзину" изменить на инкремент дикремент
 
     const getItemLocalStorage = localStorage.getItem('GoodsForShopCart')
@@ -60,42 +57,41 @@ export function Home(): JSX.Element {
 
 
   return (
-    
+    <>
       <div className={style.catalog}>
         <div className={style.container}>
           <div className={style.filterBar}>
             <FilterBar />
           </div>
-            <div className={style.productsContainer}>
-              <div className={style.cardContainer}>
-                {loading ? (
-                  <div className="loading">
-                    <img src="./Spinner-1s-200px.gif" alt="" />
+
+          <div className={style.productsContainer}>
+            <div className={style.cardContainer}>
+              {loading ? (
+                <div className="loading">
+                  <img src="./Spinner-1s-200px.gif" alt="" />
+                </div>
+              ) : (
+                  <div className={style.loadedCards}>
+                    {products.length && categoryState === 0 ? (
+                      products.map((el: productType) => <Card key={el.id} el={el} />)
+                    ) : products.length && categoryState ? (
+                      products
+                        .filter((el) => el.categoryId === categoryState)
+                        .map((el: productType) => <Card key={el.id} el={el} />)
+                    ) : (
+                      <p className="products">No products found</p>
+                    )}
                   </div>
-                ) : (
-                    <div className={style.loadedCards}>
-                      {products.length && categoryState === 0 ? (
-                        products.map((el: productType) => <Card key={el.id} el={el} />)
-                      ) : products.length && categoryState ? (
-                        products
-                          .filter((el) => el.categoryId === categoryState)
-                          .map((el: productType) => <Card key={el.id} el={el} />)
-                      ) : (
-                        <p className="products">No products found</p>
-                      )}
-                    </div>
-                )}
-              </div>
+              )}
             </div>
           </div>
+        </div>
 
-        <div className={style.pagination}>1 2 3 4 5</div>
-
-        <MainBrandsBlock />
-        <Advantages />
-      
       </div>
-
+        <div className={style.pagination}>1 2 3 4 5</div>
+      <MainBrandsBlock />
+      <Advantages />
+      </>                     
     
   );
 }

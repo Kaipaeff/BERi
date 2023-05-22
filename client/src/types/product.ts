@@ -4,7 +4,6 @@ export type productType = {
   id: number;
   name: string;
   description: string;
-  img: string;
   vendorId: number;
   vendorPice: number;
   categoryId: number;
@@ -14,6 +13,7 @@ export type productType = {
   rating: number;
   reviews: number;
   minPrice: number;
+  Images: [{ src: string }];
   Vendor: { premium: boolean };
   quantity?: number | undefined;
 };
@@ -27,4 +27,3 @@ export type ageType = {
   id: number;
   age: string;
 };
-
