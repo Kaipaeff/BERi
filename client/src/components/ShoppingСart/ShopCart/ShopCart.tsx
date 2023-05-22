@@ -9,6 +9,12 @@ import { addGoodsReducer } from '../../../redux/slices/shopCard/card.slice';
 import { Progress } from 'antd';
 
 export default function ShopCart() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+  
   // парсинг товаров из localStorage
   const dispatch = useAppDispatch();
   const [goods, setGoods] = useState([]);

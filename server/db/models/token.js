@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Token extends Model {
     /**
@@ -13,12 +11,15 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.User, { foreignKey: 'userId' });
     }
   }
-  Token.init({
-    userId: DataTypes.INTEGER,
-    refreshToken: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Token',
-  });
+  Token.init(
+    {
+      userId: DataTypes.INTEGER,
+      refreshToken: DataTypes.TEXT,
+    },
+    {
+      sequelize,
+      modelName: 'Token',
+    }
+  );
   return Token;
 };

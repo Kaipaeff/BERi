@@ -1,0 +1,43 @@
+.logSucModal {
+  height: 100%;
+  width: 100%;
+  background-color:#a1a1a1cb;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+}
+
+.logSucModal.active {
+  transform: scale(1);
+}
+
+.logSucModalContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  background-color: #ffffff;
+  height: 150px;
+  width: 360px;
+}
+
+.logSucHeader {
+  font-weight: 400;
+  font-size: 18px;
+  color: #121212;
+}
+
+.logSucBtn {
+  width: 160px;
+  height: 38px;
+  border: none;
+  background-color: #121212;
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffffff;
+}

@@ -1,0 +1,28 @@
+.catalog {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 120px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 120px;
+  /* border: 1px solid #09830f; */
+}
+
+.productsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.loadedCards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100%;
+  gap: 20px;
+}

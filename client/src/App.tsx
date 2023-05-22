@@ -15,10 +15,11 @@ import { Sale } from './components/Sale/Sale';
 
 import { Search } from './components/Search/Search';
 import { Favorites } from './components/Favorites/Favorites';
+import MyAccount from './components/MyAccount/MyAccount';
 
 import ShopCart from './components/ShoppingСart/ShopCart/ShopCart';
 
-import AboutUs from './components/AboutUs/AboutUs';
+import AboutUs from './components/About/About';
 import ContactUs from './components/ContactUs/ContactUs';
 
 import ShippingPolicy from './components/ShippingPolicy/ShippingPolicy';
@@ -26,15 +27,16 @@ import ReturnsPolicy from './components/ReturnsPolicy/ReturnsPolicy';
 import Oferta from './components/Oferta/Oferta';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy';
 
-import MyAccount from './components/MyAccount/MyAccount';
-import AdminMainPage from './components/AdminPages/AdminMainPage/AdminMainPage';
-import { IUser } from './models/IUser';
+import AdminMainPage from './components/AdminPage/AdminMainPage/AdminMainPage';
 import { Context } from './index';
 import { observer } from 'mobx-react-lite';
-import UserService from './services/UserService';
 import Footer from './components/Footer/Footer';
 
+import { IUser } from './models/IUser';
+import UserService from './services/UserService';
+
 function App() {
+
   const location = useLocation();
 
   const { storeContext } = useContext(Context);
@@ -45,6 +47,12 @@ function App() {
       storeContext.checkAuth();
     }
   }, []);
+  
+  
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  })
 
   async function getUsers() {
     try {
@@ -58,9 +66,11 @@ function App() {
     return <div>Загрузка...</div>;
   }
 
+
   return (
     <>
       <div className={style.wrapper}>
+
         <h6>
           {storeContext.isAuth
             ? `Пользователь авторизован ${storeContext.user.email}`
@@ -77,20 +87,26 @@ function App() {
         {users.map((user) => (
           <div key={user.email}>{user.email}</div>
         ))}
+
         <Navbar />
+        
 
         <div className={style.container}>
           {location.pathname !== '/login' &&
             location.pathname !== '/register' &&
             location.pathname !== '/account' &&
-            location.pathname !== '/adminpages' &&
+            location.pathname !== '/adminpage' &&
             location.pathname !== '/favorites' &&
             location.pathname !== '/shippingpolicy' &&
             location.pathname !== '/returnspolicy' &&
             location.pathname !== '/oferta' &&
             location.pathname !== '/privacypolicy' &&
             location.pathname !== '/search' &&
-            location.pathname !== '/cart' && <MainSlider />}
+            location.pathname !== '/cart' && 
+            location.pathname !== '/about' && 
+            
+            <MainSlider />}
+
 
           <Routes>
             <Route path="/" element={<Home />} />
@@ -103,18 +119,18 @@ function App() {
 
             <Route path="/search" element={<Search />} />
             <Route path="/favorites" element={<Favorites />} />
-            <Route path="/account" element={<MyAccount />} />
 
+            <Route path="/account" element={<MyAccount />} />
             <Route path="/cart" element={<ShopCart />} />
 
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contacts" element={<ContactUs />} />
+            <Route path="/adminpage" element={<AdminMainPage />} />
 
             <Route path="/shippingpolicy" element={<ShippingPolicy />} />
             <Route path="/returnspolicy" element={<ReturnsPolicy />} />
             <Route path="/oferta" element={<Oferta />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-            <Route path="/adminpages" element={<AdminMainPage />} />
           </Routes>
         </div>
       </div>

@@ -1,0 +1,71 @@
+.titlePage {
+  margin-bottom: 5px;
+}
+
+.searchRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 5px;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-between;
+  gap: 5px;
+}
+
+.searchSimbol {
+  padding-top: 2px;
+  margin-left: 3px;
+  height: 14px;
+  cursor: pointer;
+}
+.searchSimbol:hover {
+  border-radius: 50%;
+  background-color: rgb(202, 202, 202);
+}
+
+.searchOffSimbol {
+  padding-top: 2px;
+  margin-left: 3px;
+  height: 16px;
+  cursor: pointer;
+}
+.searchOffSimbol:hover {
+  border-radius: 50%;
+  background-color: yellow;
+}
+
+.inputTextElement {
+  cursor: pointer;
+  height: 25px;
+  width: 250px;
+}
+
+.inputElement {
+  cursor: pointer;
+}
+.filterIconBtn:active {
+  background-color: rgb(34, 233, 255);
+}
+
+.findBtn {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.message {
+  font-size: 25px;
+  color: red;
+  display: flex;
+  align-items: centr;
+  justify-content: center;
+  margin-top: 100px;
+  width: auto;
+}

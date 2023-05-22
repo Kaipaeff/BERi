@@ -8,7 +8,7 @@ const ApiError = require('../exceptions/api-error');
 const { where } = require('sequelize');
 
 class UserService {
-  async registration(email, phone, password) {
+  async registration(email, phone, password, isAdmin) {
     const candidate = await User.findOne({
       where: { email },
       raw: true,
@@ -25,13 +25,14 @@ class UserService {
       password: hashPassword,
       phone,
       activationLink,
+      isAdmin,
     });
     await mailService.sendActivationMail(
       email,
       `${process.env.API_URL}/api/activate/${activationLink}`
     );
     const userDto = new UserDto(user);
-    console.log('🚀🚀🚀🚀🚀 ~ userDto:', userDto);
+    // console.log('🚀🚀🚀🚀🚀 ~ userDto:', userDto);
     const tokens = tokenService.generateTokens({ ...userDto });
     await tokenService.saveToken(userDto.id, tokens.refreshToken);
 
@@ -91,10 +92,10 @@ class UserService {
       user: userDto,
     };
   }
-  
+
   async getAllUsers() {
-        const users = await User.findAll();
-        return users
+    const users = await User.findAll();
+    return users;
   }
 }
 
