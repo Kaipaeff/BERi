@@ -5,3 +5,4 @@ import { AppDispatch, RootState } from "../../types/types";
 type DispatchFunc = () => AppDispatch;
 export const useAppDispatch: DispatchFunc = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+

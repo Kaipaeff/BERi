@@ -17,17 +17,21 @@ router.get('/', async (req, res) => {
 
 // Добавление вендора
 router.post('/', async (req, res) => {
-  const { id, name, country, premium } = req.body;
-
+  const { name, country, premium } = req.body;
   try {
-    const addedVendor = await Vendor.findOrCreate(
-      { name, country, premium },
-      { where: { id } },
-      { raw: true }
+    const addedVendor = await Vendor.findOrCreate({
+      where: { name },
+      defaults: { country, premium },
+      raw: true,
+    });
+
+    console.log(
+      '🚀🚀 ~ file: vendor.router.js:33 ~ router.post ~ addedVendor~',
+      addedVendor
     );
     return res.json(addedVendor);
   } catch (error) {
-    console.error('Ошибка добавления данных о вердере в БД!', error);
+    console.error('Ошибка добавления данных о поставщике в БД!', error);
   }
 });
 
@@ -51,7 +55,7 @@ router.put('/', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   const id = Number(req.params.id);
   try {
-    await User.destroy({ where: { id } });
+    await Vendor.destroy({ where: { id } });
     res.sendStatus(200);
     res.end();
   } catch (error) {

@@ -1,8 +1,12 @@
 .catalog {
+  width: 1440px;
+  height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 120px;
+  /* border: 1px solid #098319; */
+  border-bottom: 1px solid #cfcfcf;
+  margin-bottom: 20px;
 }
 
 .container {
@@ -11,6 +15,7 @@
   justify-content: space-between;
   gap: 120px;
   /* border: 1px solid #09830f; */
+  margin-bottom: 40px;
 }
 
 .productsContainer {
@@ -26,3 +31,9 @@
   height: 100%;
   gap: 20px;
 }
+
+.pagination {
+  margin: 0 auto 60px auto;
+}
+
+
