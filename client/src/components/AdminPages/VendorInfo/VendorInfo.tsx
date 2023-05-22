@@ -17,17 +17,17 @@ import closeSymbol from '../../../img/icons/closeSymbol.svg';
 
 export default function VendorInfo(): JSX.Element {
   const { storeContext } = useContext(Context);
-  const [userIsAdmin, setUserIsAdmin] = useState(false);
-
   const dispatch = useAppDispatch();
 
+  const [userIsAdmin, setUserIsAdmin] = useState(false);
   const allVendors = useAppSelector(
     (state: RootState) => state.VendorReducer.allVendors
   );
+
   const [isPremiumCheckbox, setIsPremiumCheckbox] = useState(false);
   const [nonPremiumCheckbox, setNonPremiumCheckbox] = useState(false);
   const [filterStatus, setFilterStatus] = useState(0);
-  const [findInputActive, setFindInputActive] = useState(false);
+  const [findElementInputActive, setFindElementInputActive] = useState(false);
   const [addCardIsActive, setAddCardIsActive] = useState(false);
 
   const [findVendorName, setFindVendorName] = useState('');
@@ -42,7 +42,7 @@ export default function VendorInfo(): JSX.Element {
 
   useEffect(() => {
     dispatch(getAllVendorFromBack());
-  }, [allVendors.length]);
+  }, [dispatch]);
 
   useEffect(() => {
     if (!isPremiumCheckbox && !nonPremiumCheckbox) setFilterStatus(0);
@@ -76,60 +76,59 @@ export default function VendorInfo(): JSX.Element {
           <AddVendorCard setAddCardIsActive={setAddCardIsActive} />
         ) : (
           <div className={styleVendorInfo.filterBlock}>
-            <p>Всего поставщиков: {allVendors.length}</p>
+            <div className={styleVendorInfo.filterFirstElement}>
+              <p>Всего поставщиков: {allVendors.length}</p>
+            </div>
 
             <form
               onSubmit={(e: React.FormEvent<HTMLFormElement>): void => {
                 e.preventDefault();
                 if (findVendorName.length) {
-                  console.log(
-                    '🚀🚀 ~ file: VendorInfo.tsx:85 ~ VendorInfo ~ findVendorName~',
-                    findVendorName
-                  );
-
-                  setFindInputActive(!findInputActive);
+                  setFindElementInputActive(!findElementInputActive);
                   dispatch(findVendorByNameOrCountryFront(findVendorName));
                 }
               }}
             >
-              <input
-                className={styleVendorInfo.inputTextElement}
-                type="text"
-                name="findEmail"
-                value={findVendorName}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setFindVendorName(e.target.value)
-                }
-              />
+              <div className={styleVendorInfo.inputBlockConteiner}>
+                <input
+                  className={styleVendorInfo.inputTextElement}
+                  type="text"
+                  name="findEmail"
+                  value={findVendorName}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setFindVendorName(e.target.value)
+                  }
+                />
 
-              {findInputActive ? (
-                <span title="Отменить поиск" aria-label="find">
-                  <button
-                    onClick={() => {
-                      setFindInputActive(false);
-                      setFindVendorName('');
-                      dispatch(getAllVendorFromBack());
-                    }}
-                    className={styleVendorInfo.findBtn}
-                  >
-                    <img
-                      className={styleVendorInfo.searchOffSimbol}
-                      src={searchOff}
-                      alt="search"
-                    />
-                  </button>
-                </span>
-              ) : (
-                <span title="Найти по названию или стране" aria-label="find">
-                  <button type="submit" className={styleVendorInfo.findBtn}>
-                    <img
-                      className={styleVendorInfo.searchSimbol}
-                      src={search}
-                      alt="search"
-                    />
-                  </button>
-                </span>
-              )}
+                {findElementInputActive ? (
+                  <span title="Отменить поиск" aria-label="find">
+                    <button
+                      onClick={() => {
+                        setFindElementInputActive(!findElementInputActive);
+                        setFindVendorName('');
+                        dispatch(getAllVendorFromBack());
+                      }}
+                      className={styleVendorInfo.findBtn}
+                    >
+                      <img
+                        className={styleVendorInfo.searchOffSimbol}
+                        src={searchOff}
+                        alt="search"
+                      />
+                    </button>
+                  </span>
+                ) : (
+                  <span title="Найти по названию или стране" aria-label="find">
+                    <button type="submit" className={styleVendorInfo.findBtn}>
+                      <img
+                        className={styleVendorInfo.searchSimbol}
+                        src={search}
+                        alt="search"
+                      />
+                    </button>
+                  </span>
+                )}
+              </div>
             </form>
             <span>
               <input
