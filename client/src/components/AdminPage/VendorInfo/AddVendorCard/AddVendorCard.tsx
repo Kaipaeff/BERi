@@ -8,8 +8,10 @@ import { useAppDispatch } from '../../../../redux/hooks/hooks';
 import { getAllVendorFromBack } from '../../../../redux/Thunk/Vendors/getAllVendorsFromBack';
 
 export default function AddVendorCard({
+  addCardIsActive,
   setAddCardIsActive,
 }: {
+  addCardIsActive: boolean;
   setAddCardIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const dispatch = useAppDispatch();
@@ -37,13 +39,12 @@ export default function AddVendorCard({
       premium: vendorPremiumStatus,
     };
 
-    console.log('New Vendor', NewVendor);
     dispatch(fetchAddNewVendor(NewVendor));
+    dispatch(getAllVendorFromBack());
     setVendorName('');
     setVendorCountry('');
     setVendorPremiumStatus(false);
-    setAddCardIsActive(false);
-    await dispatch(getAllVendorFromBack());
+    setAddCardIsActive(!addCardIsActive);
   };
 
   return (

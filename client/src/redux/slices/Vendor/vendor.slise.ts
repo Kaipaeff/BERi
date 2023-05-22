@@ -12,8 +12,12 @@ const userReducerSlice = createSlice({
   name: 'allVendors',
   initialState: initialStateVendors,
   reducers: {
-    addVendorFront: (state, action: PayloadAction<IOneVendor>) =>
-      (state = { ...state, allVendors: [...state.allVendors, action.payload] }),
+    addVendorFront: (state, action: PayloadAction<IOneVendor>) => {
+      return (state = {
+        ...state,
+        allVendors: [...state.allVendors, action.payload],
+      });
+    },
     deleteOneVendorFront: (state, action: PayloadAction<IOneVendor>) =>
       (state = {
         ...state,

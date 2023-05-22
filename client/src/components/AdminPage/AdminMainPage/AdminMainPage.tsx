@@ -6,13 +6,13 @@ import Categories from '../Categories/Categories';
 import ProductStore from '../ProductStore/ProductStore';
 import ColorTable from '../ColorTable/ColorTable';
 import SizeTable from '../SizeTable/SizeTable';
+import { useNavigate } from 'react-router-dom';
 
 export default function AdminMainPage() {
-
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
-
+  }, []);
 
   const [selectorPage, setSelectorPage] = useState<number>(0);
   return (
@@ -58,10 +58,10 @@ export default function AdminMainPage() {
             Таблица размеров
           </p>
           <p
-            onClick={() => setSelectorPage(0)}
+            onClick={() => navigate('/')}
             className={styleAdminMainPage.selectorPageLink}
           >
-            Закрыть страницу
+            Выйти
           </p>
         </div>
 
