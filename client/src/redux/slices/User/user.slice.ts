@@ -42,7 +42,7 @@ const userReducerSlice = createSlice({
       (state = {
         ...state,
         allUsers: state.allUsers.filter((el): boolean =>
-          el.email.includes(action.payload)
+          el.email.toUpperCase().includes(action.payload.toUpperCase())
         ),
       }),
   },

@@ -36,11 +36,13 @@ const userReducerSlice = createSlice({
             : el
         ),
       }),
-    findVendorByNameFront: (state, action: PayloadAction<string>) =>
+    findVendorByNameOrCountryFront: (state, action: PayloadAction<string>) =>
       (state = {
         ...state,
-        allVendors: state.allVendors.filter((el): boolean =>
-          el.name.includes(action.payload)
+        allVendors: state.allVendors.filter(
+          (el): boolean =>
+            el.name.toUpperCase().includes(action.payload.toUpperCase()) ||
+            el.country.toUpperCase().includes(action.payload.toUpperCase())
         ),
       }),
   },
@@ -64,7 +66,7 @@ export const {
   addVendorFront,
   deleteOneVendorFront,
   editOneVendorFront,
-  findVendorByNameFront,
+  findVendorByNameOrCountryFront,
 } = userReducerSlice.actions;
 
 export default userReducerSlice.reducer;
