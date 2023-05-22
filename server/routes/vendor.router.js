@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
       order: [['name', 'ASC']],
       raw: true,
     });
-    console.log(response);
     return res.json(response);
   } catch (error) {
     res.json({ error });
@@ -24,11 +23,6 @@ router.post('/', async (req, res) => {
       defaults: { country, premium },
       raw: true,
     });
-
-    console.log(
-      '🚀🚀 ~ file: vendor.router.js:33 ~ router.post ~ addedVendor~',
-      addedVendor
-    );
     return res.json(addedVendor);
   } catch (error) {
     console.error('Ошибка добавления данных о поставщике в БД!', error);

@@ -20,6 +20,7 @@ export default function VendorInfo(): JSX.Element {
   const dispatch = useAppDispatch();
 
   const [userIsAdmin, setUserIsAdmin] = useState(false);
+
   const allVendors = useAppSelector(
     (state: RootState) => state.VendorReducer.allVendors
   );
@@ -42,7 +43,7 @@ export default function VendorInfo(): JSX.Element {
 
   useEffect(() => {
     dispatch(getAllVendorFromBack());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (!isPremiumCheckbox && !nonPremiumCheckbox) setFilterStatus(0);
@@ -73,7 +74,10 @@ export default function VendorInfo(): JSX.Element {
           </button>
         )}
         {addCardIsActive ? (
-          <AddVendorCard setAddCardIsActive={setAddCardIsActive} />
+          <AddVendorCard
+            addCardIsActive={addCardIsActive}
+            setAddCardIsActive={setAddCardIsActive}
+          />
         ) : (
           <div className={styleVendorInfo.filterBlock}>
             <div className={styleVendorInfo.filterFirstElement}>
@@ -84,8 +88,8 @@ export default function VendorInfo(): JSX.Element {
               onSubmit={(e: React.FormEvent<HTMLFormElement>): void => {
                 e.preventDefault();
                 if (findVendorName.length) {
-                  setFindElementInputActive(!findElementInputActive);
                   dispatch(findVendorByNameOrCountryFront(findVendorName));
+                  setFindElementInputActive(!findElementInputActive);
                 }
               }}
             >
