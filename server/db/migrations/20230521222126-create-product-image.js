@@ -16,6 +16,8 @@ module.exports = {
           },
           key: 'id'
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER
       },
       productId: {
@@ -25,6 +27,8 @@ module.exports = {
           },
           key: 'id'
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER
       },
       productPropsId: {
@@ -34,13 +38,17 @@ module.exports = {
           },
           key: 'id'
         },
+        allowNull: false,
+        onDelete: 'cascade',
         type: Sequelize.INTEGER
       },
       createdAt: {
+        defaultValue: new Date(),
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
+        defaultValue: new Date(),
         allowNull: false,
         type: Sequelize.DATE
       }
