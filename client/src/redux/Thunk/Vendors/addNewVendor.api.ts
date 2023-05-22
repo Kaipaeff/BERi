@@ -19,7 +19,8 @@ export const fetchAddNewVendor =
       });
       if (response.ok) {
         const data = await response.json();
-        dispatch(addVendorFront(data));
+
+        dispatch(addVendorFront(data[0]));
       }
     } catch (error) {
       console.error(error);
