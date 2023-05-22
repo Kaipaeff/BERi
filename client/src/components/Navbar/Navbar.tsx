@@ -19,10 +19,7 @@ import MailError from '../SuccessOrError/MailError/MailError';
 import LoginError from '../SuccessOrError/LoginError/LoginError';
 import LoginSuccess from '../SuccessOrError/LoginSuccess/LoginSuccess';
 
-
-
 export function Navbar() {
-  
   const { storeContext } = useContext(Context);
   const dispatch = useAppDispatch();
 
@@ -56,7 +53,6 @@ export function Navbar() {
       <div className={style.navbar}>
         <div className={style.container}>
           <Link to="/">
-          <Link to="/">
             <div className={style.navLogo}>
               <span>BERi</span>
             </div>
@@ -64,16 +60,13 @@ export function Navbar() {
 
           <div className={style.navMenu}>
             <Link to="/clothes">
-            <Link to="/clothes">
               <span className={style.clothesLink}>одежда</span>
             </Link>
 
             <Link to="/shoes">
-            <Link to="/shoes">
               <span className={style.shoesLink}>обувь</span>
             </Link>
 
-            <Link to="/accessories">
             <Link to="/accessories">
               <span className={style.accessoriesLink}>аксессуары</span>
             </Link>
@@ -83,100 +76,117 @@ export function Navbar() {
             </Link>
 
             <Link to="/sale">
-            <Link to="/sale">
               <span className={style.saleLink}>sale %</span>
             </Link>
           </div>
 
           <div className={style.navIcons}>
-
             <div className={style.navIconsOther}>
-              <Link to='/search'>
-                <img className={style.searchIcon} src={search} alt="searchIcon" />
+              <Link to="/search">
+                <img
+                  className={style.searchIcon}
+                  src={search}
+                  alt="searchIcon"
+                />
               </Link>
 
-              <Link to='/favorites'>
-                <img className={style.favoritesIcon} src={favorites} alt="favoritesIcon" />
+              <Link to="/favorites">
+                <img
+                  className={style.favoritesIcon}
+                  src={favorites}
+                  alt="favoritesIcon"
+                />
               </Link>
             </div>
 
             <div className={style.navIconsUser}>
-              <Link to='/account'>
-                {storeContext.isAuth && <img className={style.accountIcon} src={account} alt="accountIcon" />}
+              <Link to="/account">
+                {storeContext.isAuth && (
+                  <img
+                    className={style.accountIcon}
+                    src={account}
+                    alt="accountIcon"
+                  />
+                )}
               </Link>
 
               <Link to="/">
-                {storeContext.isAuth ? (<img
-                  className={style.loginIcon}
-                  src={logout}
-                  onClick={() => storeContext.logout()}
-                      alt="logoutIcon"
-                />) : (<img
-                  className={style.loginIcon}
-                  src={login}
-                  onClick={() => setModalLoginActive(true)}
-                  alt="loginIcon"
-                />)}
+                {storeContext.isAuth ? (
+                  <img
+                    className={style.loginIcon}
+                    src={logout}
+                    onClick={() => storeContext.logout()}
+                    alt="logoutIcon"
+                  />
+                ) : (
+                  <img
+                    className={style.loginIcon}
+                    src={login}
+                    onClick={() => setModalLoginActive(true)}
+                    alt="loginIcon"
+                  />
+                )}
               </Link>
 
-            <Link to="/cart">
-              <div className={style.shopCart}>
-                <img className={style.cartIcon} src={cart} alt="cartIcon" />
-                <div className={style.shopCartCounter}>
-                  <p>{resultTotalProductCart}</p>
+              <Link to="/cart">
+                <div className={style.shopCart}>
+                  <img className={style.cartIcon} src={cart} alt="cartIcon" />
+                  <div className={style.shopCartCounter}>
+                    <p>{resultTotalProductCart}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
+        {modalLoginSuccessActive ? (
+          <LoginSuccess
+            modalLoginSuccessActive={modalLoginSuccessActive}
+            setModalLoginSuccessActive={setModalLoginSuccessActive}
+          />
+        ) : null}
+        {modalLoginErrorActive ? (
+          <LoginError
+            modalLoginErrorActive={modalLoginErrorActive}
+            setModalLoginErrorActive={setModalLoginErrorActive}
+            setActiveLog={setModalLoginActive}
+          />
+        ) : null}
+        {modalMailErrorActive ? (
+          <MailError
+            modalMailErrorActive={modalMailErrorActive}
+            setModalMailErrorActive={setModalMailErrorActive}
+            setActiveReg={setModalRegActive}
+          />
+        ) : null}
+        {modalSuccessActive ? (
+          <RegSuccess
+            modalSuccessActive={modalSuccessActive}
+            setModalSuccessActive={setModalSuccessActive}
+          />
+        ) : null}
+        {modalRegActive ? (
+          <RegistrationModal
+            activeReg={modalRegActive}
+            setActiveReg={setModalRegActive}
+            setActiveLog={setModalLoginActive}
+            setModalSuccessActive={setModalSuccessActive}
+            modalMailErrorActive={modalMailErrorActive}
+            setModalMailErrorActive={setModalMailErrorActive}
+          />
+        ) : null}
+        {modalLoginActive ? (
+          <LogInModal
+            activeLog={modalLoginActive}
+            setActiveLog={setModalLoginActive}
+            setActiveReg={setModalRegActive}
+            modalLoginErrorActive={modalLoginErrorActive}
+            setModalLoginErrorActive={setModalLoginErrorActive}
+            modalLoginSuccessActive={modalLoginSuccessActive}
+            setModalLoginSuccessActive={setModalLoginSuccessActive}
+          />
+        ) : null}
       </div>
-      {modalLoginSuccessActive ? (
-        <LoginSuccess
-          modalLoginSuccessActive={modalLoginSuccessActive}
-          setModalLoginSuccessActive={setModalLoginSuccessActive}
-        />
-      ) : null}
-      {modalLoginErrorActive ? (
-        <LoginError
-          modalLoginErrorActive={modalLoginErrorActive}
-          setModalLoginErrorActive={setModalLoginErrorActive}
-          setActiveLog={setModalLoginActive}
-        />
-      ) : null}
-      {modalMailErrorActive ? (
-        <MailError
-          modalMailErrorActive={modalMailErrorActive}
-          setModalMailErrorActive={setModalMailErrorActive}
-          setActiveReg={setModalRegActive}
-        />
-      ) : null}
-      {modalSuccessActive ? (
-        <RegSuccess
-          modalSuccessActive={modalSuccessActive}
-          setModalSuccessActive={setModalSuccessActive}
-        />
-      ) : null}
-      {modalRegActive ? (
-        <RegistrationModal
-          activeReg={modalRegActive}
-          setActiveReg={setModalRegActive}
-          setActiveLog={setModalLoginActive}
-          setModalSuccessActive={setModalSuccessActive}
-          modalMailErrorActive={modalMailErrorActive}
-          setModalMailErrorActive={setModalMailErrorActive}
-        />
-      ) : null}
-      {modalLoginActive ? (
-        <LogInModal
-          activeLog={modalLoginActive}
-          setActiveLog={setModalLoginActive}
-          setActiveReg={setModalRegActive}
-          modalLoginErrorActive={modalLoginErrorActive}
-          setModalLoginErrorActive={setModalLoginErrorActive}
-          modalLoginSuccessActive={modalLoginSuccessActive}
-          setModalLoginSuccessActive={setModalLoginSuccessActive}
-        />
-      ) : null}
     </div>
   );
 }
