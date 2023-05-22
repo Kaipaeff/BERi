@@ -68,10 +68,10 @@ export function Accessories(): JSX.Element {
   return (
     <>
       <div className={style.catalog}>
+        <div className={style.filterBar}>
+          <FilterBar />
+        </div>
         <div className={style.container}>
-          <div className={style.filterBar}>
-            <FilterBar />
-          </div>
 
           <div className={style.productsContainer}>
             <h2>Аксессуары</h2>

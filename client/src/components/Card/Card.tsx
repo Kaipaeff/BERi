@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { El } from '../../types/types';
 import style from '../Card/Card.module.css';
-import Rating from '../Rating/Rating';
+// import Rating from '../Rating/Rating';
 import { productType } from '../../types/product';
 import { useAppDispatch } from '../../redux/hooks/hooks';
 import { addGoodsReducer } from '../../redux/slices/shopCard/card.slice';
