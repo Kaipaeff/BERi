@@ -629,7 +629,7 @@ module.exports = {
         //accessories
         {
           name: 'Панама вельветовая',
-          description: '',
+          description: 'Панама вельветовая с вышивкой и принтом',
           vendorId: 1,
           vendorPrice: 2000,
           categoryId: 3,
