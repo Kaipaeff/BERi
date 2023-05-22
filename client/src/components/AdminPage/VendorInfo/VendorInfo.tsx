@@ -1,126 +1,192 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styleVendorInfo from './VendorInfo.module.css';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
+import { findVendorByNameOrCountryFront } from '../../../redux/slices/Vendor/vendor.slise';
+import AddVendorCard from './AddVendorCard/AddVendorCard';
+import { Context } from '../../../index';
 
 import IOneVendor from '../../../types/VendorTypes';
 import { RootState } from '../../../types/types';
 import { getAllVendorFromBack } from '../../../redux/Thunk/Vendors/getAllVendorsFromBack';
-// import { findVendorByNameFront } from '../../../redux/slices/User/user.slice';
 import OneVendorCard from './OneVendorCard/OneVendorCard';
 
 import search from '../../../img/icons/search.svg';
 import searchOff from '../../../img/icons/searchOff.svg';
 import arrowRight from '../../../img/icons/arrowRight.svg';
+import closeSymbol from '../../../img/icons/closeSymbol.svg';
 
-import { fetchGetAllVendorFromBack } from '../../../redux/Thunk/Vendors/allVendor.api';
-
-export default function UsersInfo(): JSX.Element {
+export default function VendorInfo(): JSX.Element {
+  const { storeContext } = useContext(Context);
   const dispatch = useAppDispatch();
+
+  const [userIsAdmin, setUserIsAdmin] = useState(false);
   const allVendors = useAppSelector(
     (state: RootState) => state.VendorReducer.allVendors
   );
+
   const [isPremiumCheckbox, setIsPremiumCheckbox] = useState(false);
+  const [nonPremiumCheckbox, setNonPremiumCheckbox] = useState(false);
   const [filterStatus, setFilterStatus] = useState(0);
-  const [findInputActive, setFindInputActive] = useState(false);
+  const [findElementInputActive, setFindElementInputActive] = useState(false);
+  const [addCardIsActive, setAddCardIsActive] = useState(false);
 
   const [findVendorName, setFindVendorName] = useState('');
+
+  // TODO: функция по определению статуса userIsAdmin
+
+  useEffect(() => {
+    setUserIsAdmin(storeContext.isAuth && storeContext.user.isAdmin);
+  }, []);
+
+  // todo-------------------------------------------------------------------------------
 
   useEffect(() => {
     dispatch(getAllVendorFromBack());
   }, [dispatch]);
 
-  console.log(
-    '🚀🚀 ~ file: VendorInfo.tsx:19 ~ UsersInfo ~ allVendors~',
-    allVendors
-  );
+  useEffect(() => {
+    if (!isPremiumCheckbox && !nonPremiumCheckbox) setFilterStatus(0);
+    if (isPremiumCheckbox) setFilterStatus(1);
+    if (nonPremiumCheckbox) setFilterStatus(2);
+  }, [isPremiumCheckbox, nonPremiumCheckbox]);
 
   return (
     <>
       <h4 className={styleVendorInfo.titlePage}>ПОСТАВЩИКИ</h4>
       <div className={styleVendorInfo.searchRow}>
-        <button
-          // onClick={() => dispatch(addNewAdressBtnToggle())}
-          className={styleVendorInfo.actionBtn}
-          type="submit"
-        >
-          Добавить поставщика
-          <img src={arrowRight} alt="arrowRight" />
-        </button>
-        <p>Всего поставщиков: {allVendors.length}</p>
+        {userIsAdmin && !addCardIsActive && (
+          <button
+            onClick={() => setAddCardIsActive(!addCardIsActive)}
+            className={styleVendorInfo.actionBtn}
+          >
+            Добавить
+            <img src={arrowRight} alt="arrowRight" />
+          </button>
+        )}
+        {userIsAdmin && addCardIsActive && (
+          <button
+            onClick={() => setAddCardIsActive(!addCardIsActive)}
+            className={styleVendorInfo.cancelBtn}
+          >
+            Отменить
+            <img src={closeSymbol} alt="closeSymbol" />
+          </button>
+        )}
+        {addCardIsActive ? (
+          <AddVendorCard setAddCardIsActive={setAddCardIsActive} />
+        ) : (
+          <div className={styleVendorInfo.filterBlock}>
+            <div className={styleVendorInfo.filterFirstElement}>
+              <p>Всего поставщиков: {allVendors.length}</p>
+            </div>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (findVendorName.length) {
-              setFindInputActive(!findInputActive);
-              // dispatch(findUserByEmailFront(findEmail));
-            }
-          }}
-        >
-          <input
-            className={styleVendorInfo.inputTextElement}
-            type="text"
-            name="findEmail"
-            value={findVendorName}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setFindVendorName(e.target.value)
-            }
-          />
-          {findInputActive ? (
-            <span title="Отменить поиск" aria-label="find">
-              <button
-                onClick={() => {
-                  setFindInputActive(false);
-                  setFindVendorName('');
-                  // dispatch(getAllUsersFromBack());
+            <form
+              onSubmit={(e: React.FormEvent<HTMLFormElement>): void => {
+                e.preventDefault();
+                if (findVendorName.length) {
+                  setFindElementInputActive(!findElementInputActive);
+                  dispatch(findVendorByNameOrCountryFront(findVendorName));
+                }
+              }}
+            >
+              <div className={styleVendorInfo.inputBlockConteiner}>
+                <input
+                  className={styleVendorInfo.inputTextElement}
+                  type="text"
+                  name="findEmail"
+                  value={findVendorName}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setFindVendorName(e.target.value)
+                  }
+                />
+
+                {findElementInputActive ? (
+                  <span title="Отменить поиск" aria-label="find">
+                    <button
+                      onClick={() => {
+                        setFindElementInputActive(!findElementInputActive);
+                        setFindVendorName('');
+                        dispatch(getAllVendorFromBack());
+                      }}
+                      className={styleVendorInfo.findBtn}
+                    >
+                      <img
+                        className={styleVendorInfo.searchOffSimbol}
+                        src={searchOff}
+                        alt="search"
+                      />
+                    </button>
+                  </span>
+                ) : (
+                  <span title="Найти по названию или стране" aria-label="find">
+                    <button type="submit" className={styleVendorInfo.findBtn}>
+                      <img
+                        className={styleVendorInfo.searchSimbol}
+                        src={search}
+                        alt="search"
+                      />
+                    </button>
+                  </span>
+                )}
+              </div>
+            </form>
+            <span>
+              <input
+                className={styleVendorInfo.inputElement}
+                onChange={() => {
+                  if (nonPremiumCheckbox) {
+                    setNonPremiumCheckbox(!nonPremiumCheckbox);
+                  }
+                  setIsPremiumCheckbox(!isPremiumCheckbox);
                 }}
-                className={styleVendorInfo.findBtn}
-              >
-                <img
-                  className={styleVendorInfo.searchOffSimbol}
-                  src={searchOff}
-                  alt="search"
-                />
-              </button>
+                checked={isPremiumCheckbox}
+                name="isPremiumCheckbox"
+                type="checkbox"
+              />{' '}
+              Премиум бренды
             </span>
-          ) : (
-            <span title="Найти по email" aria-label="find">
-              <button type="submit" className={styleVendorInfo.findBtn}>
-                <img
-                  className={styleVendorInfo.searchSimbol}
-                  src={search}
-                  alt="search"
-                />
-              </button>
+            <span>
+              <input
+                className={styleVendorInfo.inputElement}
+                onChange={() => {
+                  if (isPremiumCheckbox) {
+                    setIsPremiumCheckbox(!isPremiumCheckbox);
+                  }
+                  setNonPremiumCheckbox(!nonPremiumCheckbox);
+                }}
+                checked={nonPremiumCheckbox}
+                name="nonPremiumCheckbox"
+                type="checkbox"
+              />{' '}
+              Обычные бренды
             </span>
-          )}
-        </form>
-        <p>
-          <input
-            className={styleVendorInfo.inputElement}
-            onChange={() => setIsPremiumCheckbox(!isPremiumCheckbox)}
-            checked={isPremiumCheckbox}
-            name="isPremiumCheckbox"
-            type="checkbox"
-          />{' '}
-          Товары премиального бренда
-        </p>
+          </div>
+        )}
       </div>
       {allVendors.length ? (
         <div className={styleVendorInfo.content}>
-          {filterStatus === 0
-            ? allVendors.map((vendor: IOneVendor) => (
+          {filterStatus === 0 &&
+            allVendors.map((vendor: IOneVendor) => (
+              <React.Fragment key={vendor.id}>
+                <OneVendorCard OneVendor={vendor} />
+              </React.Fragment>
+            ))}
+          {filterStatus === 1 &&
+            allVendors
+              .filter((el: IOneVendor) => el.premium === isPremiumCheckbox)
+              .map((vendor: IOneVendor) => (
                 <React.Fragment key={vendor.id}>
                   <OneVendorCard OneVendor={vendor} />
                 </React.Fragment>
-              ))
-            : allVendors
-                .filter((el: IOneVendor) => el.premium === isPremiumCheckbox)
-                .map((vendor: IOneVendor) => (
-                  <React.Fragment key={vendor.id}>
-                    <OneVendorCard OneVendor={vendor} />
-                  </React.Fragment>
-                ))}
+              ))}
+          {filterStatus === 2 &&
+            allVendors
+              .filter((el: IOneVendor) => el.premium === !nonPremiumCheckbox)
+              .map((vendor: IOneVendor) => (
+                <React.Fragment key={vendor.id}>
+                  <OneVendorCard OneVendor={vendor} />
+                </React.Fragment>
+              ))}
         </div>
       ) : (
         <span className={styleVendorInfo.message}>
