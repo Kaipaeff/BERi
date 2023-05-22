@@ -11,7 +11,6 @@ import Advantages from '../Advantages/Advantages';
 import { getCategoryState } from '../../redux/selectors/category.selector';
 
 export function Home(): JSX.Element {
-  
   const [cart, setCart] = useState<productType[]>([]);
 
   const dispatch = useAppDispatch();
@@ -31,8 +30,6 @@ export function Home(): JSX.Element {
 
   // хендл для local storage
   const handleAddToCart = (product: productType, e: any) => {
-    console.log(product, '<<<<<PRODUCT');
-
     //позже кнопку "в корзину" изменить на инкремент дикремент
 
     const getItemLocalStorage = localStorage.getItem('GoodsForShopCart')
