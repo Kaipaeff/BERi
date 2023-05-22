@@ -15,7 +15,9 @@ export default function MainBrandsBlock() {
       <div className={style.brandsText}>
         <h2>Популярные бренды нашего магазина</h2>
 
-        <button className={style.brandsTextBtn}>
+        <button 
+          onClick={() => window.scrollTo(0, 450)}
+          className={style.brandsTextBtn}>
           Смотреть каталог
           <img src={arrowRight} alt="arrowRight" />
         </button>
