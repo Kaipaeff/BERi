@@ -8,14 +8,20 @@ import Card from '../Card/Card';
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
 import Advantages from '../Advantages/Advantages';
-import { getCategoryState } from '../../redux/selectors/category.selector';
+import { getSexState } from '../../redux/selectors/sex.selector';
+import {
+  setAgeState,
+  setCategoryState,
+  setSexState,
+} from '../../redux/slices/categories.slice';
+import Skeleton from '../Skeleton/Skeleton';
 
 export function Home(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
 
   const dispatch = useAppDispatch();
 
-  const categoryState = useAppSelector(getCategoryState);
+  const sexState = useAppSelector(getSexState);
   const products = useAppSelector(
     (state: RootState) => state.ProductReducer.products
   );
@@ -25,8 +31,10 @@ export function Home(): JSX.Element {
 
   useEffect(() => {
     dispatch(getProducts());
+    dispatch(setSexState(0));
+    dispatch(setAgeState(0));
+    dispatch(setCategoryState(0));
   }, []);
-
 
   // хендл для local storage
   const handleAddToCart = (product: productType, e: any) => {
@@ -55,7 +63,6 @@ export function Home(): JSX.Element {
     }
   };
 
-
   return (
     <>
       <div className={style.catalog}>
@@ -67,31 +74,29 @@ export function Home(): JSX.Element {
           <div className={style.productsContainer}>
             <div className={style.cardContainer}>
               {loading ? (
-                <div className="loading">
-                  <img src="./Spinner-1s-200px.gif" alt="" />
-                </div>
+                <Skeleton />
               ) : (
-                  <div className={style.loadedCards}>
-                    {products.length && categoryState === 0 ? (
-                      products.map((el: productType) => <Card key={el.id} el={el} />)
-                    ) : products.length && categoryState ? (
-                      products
-                        .filter((el) => el.categoryId === categoryState)
-                        .map((el: productType) => <Card key={el.id} el={el} />)
-                    ) : (
-                      <p className="products">No products found</p>
-                    )}
-                  </div>
+                <div className={style.loadedCards}>
+                  {products.length && sexState === 0 ? (
+                    products
+                      .filter((el) => el.rating > 4.5)
+                      .map((el: productType) => <Card key={el.id} el={el} />)
+                  ) : products.length && sexState ? (
+                    products
+                      .filter((el) => el.rating > 4.5 && el.sexId === sexState)
+                      .map((el: productType) => <Card key={el.id} el={el} />)
+                  ) : (
+                    <p className="products">No products found</p>
+                  )}
+                </div>
               )}
             </div>
           </div>
         </div>
-
       </div>
       <div className={style.pagination}>1 2 3 4 5</div>
       <MainBrandsBlock />
       <Advantages />
-      </>                     
-    
+    </>
   );
 }
