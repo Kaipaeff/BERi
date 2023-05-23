@@ -43,6 +43,7 @@ export default function AddDeliveryAddress({
           <label className={styleAddAdressForm.labelText} htmlFor="address">
             Адрес доставки
           </label>
+
           <div className={styleAddAdressForm.blockConteiner}>
             <input
               className={styleAddAdressForm.inputAddress}
@@ -50,7 +51,7 @@ export default function AddDeliveryAddress({
               onChange={inputNewAddressHandler}
               name="address"
               type="text"
-              placeholder="Укажите адрес по которому Вам удобно получить товар..."
+              placeholder="Укажите адрес, по которому Вам удобно получить товар"
               value={inputNewAddress}
               required
             />
