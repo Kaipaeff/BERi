@@ -1,6 +1,8 @@
 import IOneCategory from '../types/Category.types';
 import IOneColorElement from '../types/ColorTable.types';
 import IDeliveryAddress from '../types/DeliveryAddress';
+import IOneSize from '../types/Size.types';
+import IOneTypeOfProduct from '../types/TypeOfProducts.type';
 import IOneUser from '../types/UserTypes';
 import IOneVendor from '../types/VendorTypes';
 import { ageType, categoryType, productType } from '../types/product';
@@ -54,5 +56,15 @@ export type stateTypeCategory = {
 
 export type stateTypeColorScheme = {
   allColorSchemes: IOneColorElement[];
+  loading: boolean;
+};
+
+export type stateTypeSizeTable = {
+  allSizes: IOneSize[];
+  loading: boolean;
+};
+
+export type stateTypeAllTypesOfProduct = {
+  allTypesOfProducts: IOneTypeOfProduct[];
   loading: boolean;
 };
