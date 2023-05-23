@@ -88,7 +88,7 @@ export default function AdminMainPage() {
               onClick={() => setSelectorPage(8)}
               className={styleAdminMainPage.selectorPageLink}
             >
-              Возраст
+              Возрастные категории
             </p>
 
             <p

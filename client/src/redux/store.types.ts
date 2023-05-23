@@ -1,3 +1,4 @@
+import IOneAge from '../types/Age.type';
 import IOneCategory from '../types/Category.types';
 import IOneColorElement from '../types/ColorTable.types';
 import IDeliveryAddress from '../types/DeliveryAddress';
@@ -66,5 +67,10 @@ export type stateTypeSizeTable = {
 
 export type stateTypeAllTypesOfProduct = {
   allTypesOfProducts: IOneTypeOfProduct[];
+  loading: boolean;
+};
+
+export type stateTypeAges = {
+  allAges: IOneAge[];
   loading: boolean;
 };
