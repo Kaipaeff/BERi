@@ -1,69 +1,88 @@
+/* .wrapper {
+  width: 1440px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; */
+  /* border-bottom: 1px solid #cfcfcf;
+  margin-bottom: 20px; */
+  /* gap: 120px; */
+  /* border: 1px solid #098319; */
+/* } */
+
 .conteiner {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0px;
-  position: relative;
+  align-items:flex-start;
+  /* padding: 0px; */
+  /* position: relative; */
   width: 1440px;
-  height: 1347px;
-  background: #ffffff;
+  height: 700px;
+  padding: 30px;
+  margin-bottom: 60px;
+  border: 1px solid #d1d1d1;
+
 }
 
 .title {
-  margin: 52px 280px;
-  width: auto;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #d1d1d1;
+  color: #4d4d4d;
 }
 
 .dashboard {
-  margin: 0px 30px;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 30px;
-}
-.dashboardtitle {
-  padding-bottom: 20px;
+  /* border: 1px solid #e01010; */
 }
 
 .dashboarlink {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  border-bottom: 1px solid transparent; /* чтобы не прыгала анимация бордера */
+  border-bottom: 1px solid transparent; 
 }
 
 .dashboarlink:hover {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #d1d1d1;
 }
 
-.navigator {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  width: 30%;
-  /* height: 434px; */
-  font-size: 18px;
-}
+
 .navigatorlink {
   display: flex;
   flex-direction: column;
-  padding-top: 13px;
+  width: 300px;
+  height: 560px;
   gap: 20px;
   cursor: pointer;
+  /* border: 1px solid #d910e0; */
+  border-right: 1px solid #d1d1d1;
+  padding-right: 30px;
 }
 
 .navigatorinfo {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 0px;
-  width: 70%;
+  justify-content: flex-start;
+  width: 100%;
+  height: 560px;
   font-size: 18px;
-  gap: 32px;
+  gap: 30px;
   color: #121212;
+  /* border: 1px solid #161616; */
+  overflow: auto;
+}
+
+
+.backArrow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.backArrow img{
+  width: 15px;
+  margin-right: 5px;
 }
