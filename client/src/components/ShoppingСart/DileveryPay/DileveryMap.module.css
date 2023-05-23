@@ -1,0 +1,19 @@
+.map {
+  width: 100vh;
+  height: 100vh;
+}
+.mapContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid black;
+}
+.leftBar {
+}
+
+.inputAdress {
+  width: 450px;
+  height: 50px;
+  padding: 12px;
+  border: 1px solid #cbcbcb;
+}
