@@ -1,16 +1,12 @@
 .conteiner {
-    /* box-sizing: border-box; */
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* gap: 3px; */
     padding: 5px;
     margin-bottom: 10px;
-    /* gap: 10px; */
     width: 200px;
     height: 40px;
     border: 1px solid #d1d1d1;
-    border-radius: 6px;
   }
 
   .titleText {
@@ -62,10 +58,7 @@
 
 
   .checkMarkRing {
-    /* margin-top: 2px; */
-    /* margin-right: 11px; */
     cursor: pointer;
-    /* height: 25px; */
   }
   
   .editIconBtn {

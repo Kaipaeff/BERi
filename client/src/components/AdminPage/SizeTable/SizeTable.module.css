@@ -1,38 +1,45 @@
-.titlePage {
-  margin-bottom: 5px;
-}
-
 .searchRow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  height: 80px;
   padding: 5px;
-  border: 1px solid rgb(202, 202, 202);
-  border-radius: 5px;
-  margin-bottom: 5px;
-  gap: 4px;
+  gap: 20px;
+  /* border: 1px solid #d1d1d1; */
 }
+
+
 .filterBlock {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
-  width: 89%;
-  border: 1px solid rgb(202, 202, 202);
-  border-radius: 5px;
+  padding: 0 20px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #d1d1d1;
 }
 
 .content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   max-height: 500px;
   gap: 5px;
+  /* border: 1px solid #e01212; */
 }
+
+
 .filterFirstElement {
   width: 300px;
+}
+
+
+.titlePage {
+  color: #4d4d4d;
 }
 
 .inputBlockConteiner {
@@ -42,36 +49,41 @@
 }
 
 .searchSimbol {
-  padding-top: 5px;
-  margin-left: 3px;
+  margin-top: 5px;
   height: 20px;
   width: 20px;
   cursor: pointer;
-}
-.searchSimbol:hover {
-  border-radius: 50%;
-  background-color: rgb(202, 202, 202);
 }
 
+
+/* .searchSimbol:hover {
+  border-radius: 50%;
+  background-color: rgb(202, 202, 202);
+} */
+
 .searchOffSimbol {
-  padding-top: 5px;
-  margin-left: 3px;
+  margin-top: 5px;
   height: 20px;
   width: 20px;
   cursor: pointer;
 }
-.searchOffSimbol:hover {
+
+
+/* .searchOffSimbol:hover {
   border-radius: 50%;
   background-color: yellow;
   height: 20px;
-}
+} */
 
 .inputTextElement {
   height: 30px;
-  width: 100px;
+  width: 400px;
+  font-size: 22px;
+  padding-left: 20px;
+  margin-right: 20px;
   cursor: pointer;
-  font-size: 25px;
-  padding-left: 5px;
+  color: #4d4d4d;
+  border: 1px solid #d1d1d1;
 }
 
 .inputElement {
@@ -86,7 +98,7 @@
 
 .message {
   font-size: 25px;
-  color: red;
+  color: #4d4d4d;
   display: flex;
   align-items: centr;
   justify-content: center;
@@ -103,8 +115,8 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-  width: 11%;
-  height: 36px;
+  width: 160px;
+  height: 40px;
   border-radius: 4px;
   color: #ffffff;
   font-size: 16px;
@@ -127,12 +139,12 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-  width: 11%;
+  width: 160px;
   height: 36px;
   border-radius: 4px;
   color: #121212;
   font-size: 16px;
-  background-color: #f5c658;
+  background-color: #c5c5c5;
   border: none;
   cursor: pointer;
 }

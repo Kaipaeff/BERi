@@ -141,8 +141,8 @@ export default function SizeTable(): JSX.Element {
         </div>
       ) : (
         <span className={styleSizeTable.message}>
-          Информация о категориях отсутствует! Попробуйте изменить условие
-          поиска...
+          Размер не найден! Попробуйте изменить условие
+          поиска.
         </span>
       )}
     </>

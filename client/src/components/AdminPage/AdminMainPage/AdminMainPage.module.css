@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  /* border: 1px solid #28e010; */
+  /* border: 1px solid #e01010; */
 }
 
 .selectorPage {
@@ -64,6 +64,7 @@
   color: #121212;
   /* border: 1px solid #161616; */
   overflow: auto;
+  padding-right: 30px;
 }
 
 
