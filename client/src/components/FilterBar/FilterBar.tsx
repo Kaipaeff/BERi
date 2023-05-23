@@ -82,7 +82,9 @@ export default function FilterBar(): JSX.Element {
             <p
               className={toggleActiveSexStyle(1)}
               onClick={() => {
-                dispatch(setSexState(1));
+                sexState === 1
+                  ? dispatch(setSexState(0))
+                  : dispatch(setSexState(1));
               }}
             >
               Для мальчиков
@@ -90,7 +92,9 @@ export default function FilterBar(): JSX.Element {
             <p
               className={toggleActiveSexStyle(2)}
               onClick={() => {
-                dispatch(setSexState(2));
+                sexState === 2
+                  ? dispatch(setSexState(0))
+                  : dispatch(setSexState(2));
               }}
             >
               Для девочек
@@ -112,7 +116,9 @@ export default function FilterBar(): JSX.Element {
                         key={el.id}
                         className={toggleActiveAgeStyle(el.id)}
                         onClick={() => {
-                          dispatch(setAgeState(el.id));
+                          ageState === el.id
+                            ? dispatch(setAgeState(0))
+                            : dispatch(setAgeState(el.id));
                         }}
                       >
                         {el.age}
@@ -128,7 +134,9 @@ export default function FilterBar(): JSX.Element {
                         key={el.id}
                         className={toggleActiveAgeStyle(el.id)}
                         onClick={() => {
-                          dispatch(setAgeState(el.id));
+                          ageState === el.id
+                            ? dispatch(setAgeState(0))
+                            : dispatch(setAgeState(el.id));
                         }}
                       >
                         {el.age}
@@ -143,7 +151,9 @@ export default function FilterBar(): JSX.Element {
                         key={el.id}
                         className={toggleActiveAgeStyle(el.id)}
                         onClick={() => {
-                          dispatch(setAgeState(el.id));
+                          ageState === el.id
+                            ? dispatch(setAgeState(0))
+                            : dispatch(setAgeState(el.id));
                         }}
                       >
                         {el.age}
@@ -170,7 +180,9 @@ export default function FilterBar(): JSX.Element {
                       key={el.id}
                       className={toggleActiveCatStyle(el.id)}
                       onClick={() => {
-                        dispatch(setCategoryState(el.id));
+                        catState === el.id
+                          ? dispatch(setCategoryState(0))
+                          : dispatch(setCategoryState(el.id));
                       }}
                     >
                       {el.productType}
@@ -190,7 +202,9 @@ export default function FilterBar(): JSX.Element {
                       key={el.id}
                       className={toggleActiveCatStyle(el.id)}
                       onClick={() => {
-                        dispatch(setCategoryState(el.id));
+                        catState === el.id
+                          ? dispatch(setCategoryState(0))
+                          : dispatch(setCategoryState(el.id));
                       }}
                     >
                       {el.productType}
@@ -208,7 +222,9 @@ export default function FilterBar(): JSX.Element {
                       key={el.id}
                       className={toggleActiveCatStyle(el.id)}
                       onClick={() => {
-                        dispatch(setCategoryState(el.id));
+                        catState === el.id
+                          ? dispatch(setCategoryState(0))
+                          : dispatch(setCategoryState(el.id));
                       }}
                     >
                       {el.productType}

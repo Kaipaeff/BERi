@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {  createSlice } from '@reduxjs/toolkit';
 import { stateProductType } from '../store.types';
 import { getProducts } from '../Thunk/Products/getProducts';
 
@@ -10,7 +10,8 @@ const initialState: stateProductType = {
 const productSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state) => {
@@ -27,5 +28,6 @@ const productSlice = createSlice({
       .addDefaultCase(() => {});
   },
 });
+
 
 export default productSlice.reducer;
