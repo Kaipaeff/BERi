@@ -43,10 +43,11 @@ export default function OneAddressCard({
   return (
     <div className={styleOneAddressCard.conteiner}>
       <div className={styleOneAddressCard.title}>
-        <div className={styleOneAddressCard.titleText}>
+        {/* <div className={styleOneAddressCard.titleText}>
           <h4>Адрес доставки:</h4>
-        </div>
+        </div> */}
         <div className={styleOneAddressCard.btnblock}>
+
           <span
             onClick={() => setEditAddress(address.id)}
             title="Изменить адрес"
@@ -58,6 +59,7 @@ export default function OneAddressCard({
               alt="editIconBtn"
             />
           </span>
+
           <span
             onClick={() => dispatch(fetchDeleteTodoTasks(address))}
             title="Удалить адрес"
@@ -69,8 +71,10 @@ export default function OneAddressCard({
               alt="deleteIconBtn"
             />
           </span>
+
         </div>
       </div>
+      
       {editAddress === address.id ? (
         <form
           onSubmit={editOneDeliveryAddressHandler}
