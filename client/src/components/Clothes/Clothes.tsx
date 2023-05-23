@@ -16,6 +16,8 @@ import {
   setSexState,
 } from '../../redux/slices/categories.slice';
 import Skeleton from '../Skeleton/Skeleton';
+import PaginationFunc from '../PaginationFunc/PaginationFunc';
+import { Pagination } from 'antd';
 
 export function Clothes(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
@@ -26,9 +28,9 @@ export function Clothes(): JSX.Element {
   const ageState = useAppSelector(getAgeState);
   const sexState = useAppSelector(getSexState);
 
-  const products = useAppSelector(
-    (state: RootState) => state.ProductReducer.products
-  );
+  // const products = useAppSelector(
+  //   (state: RootState) => state.ProductReducer.products
+  // );
   const loading = useAppSelector(
     (state: RootState) => state.ProductReducer.loading
   );
@@ -40,7 +42,7 @@ export function Clothes(): JSX.Element {
     dispatch(setCategoryState(0));
   }, []);
 
-  // хендл для local storage
+  // хендл для local storage ...корзины
   const handleAddToCart = (product: productType, e: any) => {
     console.log(product, '<<<<<PRODUCT');
 
@@ -69,33 +71,36 @@ export function Clothes(): JSX.Element {
     }
   };
 
+  const { currentProducts, handlePageChange } = PaginationFunc();
+
   return (
     <>
       <div className={style.catalog}>
-        <div className={style.container}>
           <div className={style.filterBar}>
             <FilterBar />
           </div>
+        <div className={style.container}>
 
           <div className={style.productsContainer}>
             <h2>Одежда</h2>
             {loading ? (
               <Skeleton />
+            ) : (
               // <div className="loading">
               //   <img src="./Spinner-1s-200px.gif" alt="" />
               // </div>
-            ) : (
               <div className={style.loadedCards}>
-                {products.length &&
+                {currentProducts.length &&
                 categoryState === 0 &&
                 sexState === 0 &&
                 ageState === 0 ? (
-                  products.map(
+                  currentProducts.map(
                     (el: productType) =>
                       el.categoryId === 1 && <Card key={el.id} el={el} />
                   )
-                ) : products.length && (categoryState || sexState || ageState) ? (
-                  products
+                ) : currentProducts.length &&
+                  (categoryState || sexState || ageState) ? (
+                  currentProducts
                     .filter(
                       (el) =>
                         (categoryState
@@ -113,12 +118,17 @@ export function Clothes(): JSX.Element {
                 )}
               </div>
             )}
-          </div>   
-        </div>           
+          </div>
+        </div>
       </div>
-
-      <div className={style.pagination}>1 2 3 4 5</div>
-      
+      <Pagination
+        defaultCurrent={1}
+        total={50}
+        pageSize={10}
+        showSizeChanger={true}
+        showQuickJumper={true}
+        onChange={handlePageChange}
+      />
       <MainBrandsBlock />
     </>
   );

@@ -48,6 +48,8 @@ route.get('/', async (req, res) => {
       }
     });
 
+    console.log(products);
+
     res.json(products);
   } catch (error) {
     res.json({ error });

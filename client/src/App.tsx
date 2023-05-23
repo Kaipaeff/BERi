@@ -34,9 +34,9 @@ import Footer from './components/Footer/Footer';
 
 import { IUser } from './models/IUser';
 import UserService from './services/UserService';
+import DileveryMap from './components/ShoppingСart/DileveryPay/DileveryMap';
 
 function App() {
-
   const location = useLocation();
 
   const { storeContext } = useContext(Context);
@@ -47,12 +47,10 @@ function App() {
       storeContext.checkAuth();
     }
   }, []);
-  
-  
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  })
+  });
 
   async function getUsers() {
     try {
@@ -66,11 +64,9 @@ function App() {
     return <div>Загрузка...</div>;
   }
 
-
   return (
     <>
       <div className={style.wrapper}>
-
         <h6>
           {storeContext.isAuth
             ? `Пользователь авторизован ${storeContext.user.email}`
@@ -89,7 +85,6 @@ function App() {
         ))}
 
         <Navbar />
-        
 
         <div className={style.container}>
           {location.pathname !== '/login' &&
@@ -102,11 +97,8 @@ function App() {
             location.pathname !== '/oferta' &&
             location.pathname !== '/privacypolicy' &&
             location.pathname !== '/search' &&
-            location.pathname !== '/cart' && 
-            location.pathname !== '/about' && 
-            
-            <MainSlider />}
-
+            location.pathname !== '/cart' &&
+            location.pathname !== '/about' && <MainSlider />}
 
           <Routes>
             <Route path="/" element={<Home />} />
@@ -131,6 +123,7 @@ function App() {
             <Route path="/returnspolicy" element={<ReturnsPolicy />} />
             <Route path="/oferta" element={<Oferta />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="/map" element={<DileveryMap />} />
           </Routes>
         </div>
       </div>
