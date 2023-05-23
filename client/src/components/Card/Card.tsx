@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { El } from '../../types/types';
 import style from '../Card/Card.module.css';
-import Rating from '../Rating/Rating';
+// import Rating from '../Rating/Rating';
 import { productType } from '../../types/product';
 import { useAppDispatch } from '../../redux/hooks/hooks';
 import { addGoodsReducer } from '../../redux/slices/shopCard/card.slice';
@@ -48,7 +48,7 @@ export default function Card({ el }: El): JSX.Element {
 
   return (
     <div className={style.card}>
-      <img className={style.img} src={el.img} alt="cloth" />
+      <img className={style.img} src={el.Images[0].src} alt="cloth" />
       {/* <Rating el={el} /> */}
       <p className={style.name}>{el.name}</p>
       <p className={style.price}>от {el.minPrice} ₽</p>

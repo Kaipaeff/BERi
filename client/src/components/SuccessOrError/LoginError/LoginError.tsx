@@ -20,15 +20,14 @@ const LoginError = ({
       className={modalLoginErrorActive ? 'logErrModal active' : 'logErrModal'}
     >
       <div className="logErrModalContent">
-        <div className="logErrHeader">
-          <img src={error} alt="error" /> <p>Войти не удалось</p>
-        </div>
-        <br />
+        <p className="logErrHeader">Войти не удалось</p>
+
         <div className="logErrMesage">
-          Проверьте корректность почты и пароля
+          Проверьте корректность указываемых данных и повторите попытку
         </div>
+
         <button className="logErrBtn" onClick={errorFunc}>
-          Еще раз
+          ОК
         </button>
       </div>
     </div>

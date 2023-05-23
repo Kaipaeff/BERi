@@ -68,10 +68,10 @@ export function Shoes(): JSX.Element {
   return (
     <>
       <div className={style.catalog}>
+        <div className={style.filterBar}>
+          <FilterBar />
+        </div>
         <div className={style.container}>
-          <div className={style.filterBar}>
-            <FilterBar />
-          </div>
 
           <div className={style.productsContainer}>
             <h2>Обувь</h2>
@@ -112,6 +112,9 @@ export function Shoes(): JSX.Element {
           </div>
         </div>
       </div>
+
+      <div className={style.pagination}>1 2 3 4 5</div>
+
       <MainBrandsBlock />
     </>
   );

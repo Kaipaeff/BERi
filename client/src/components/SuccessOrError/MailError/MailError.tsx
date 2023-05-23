@@ -20,15 +20,14 @@ const MailError = ({
       className={modalMailErrorActive ? 'mailErrModal active' : 'mailErrModal'}
     >
       <div className="mailErrModalContent">
-        <div className="mailErrHeader">
-          <img src={error} alt="success" /> <p>Зарегестрироваться не удалось</p>
-        </div>
-        <br />
+        <p className="mailErrHeader">Зарегистрироваться не удалось</p>
+    
         <div className="mailErrMesage">
-          Введены некорректные данные или пользователь с такой почтой уже зарегестрирован
+          Введены некорректные данные или пользователь с такой почтой уже зарегистрирован
         </div>
+
         <button className="mailErrBtn" onClick={errorFunc}>
-          Еще раз
+          ОК
         </button>
       </div>
     </div>

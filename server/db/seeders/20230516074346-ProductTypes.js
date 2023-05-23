@@ -93,6 +93,9 @@ module.exports = {
         {
           productType: 'Носки',
         },
+        {
+          productType: 'Без категории>',
+        },
       ],
       {}
     );

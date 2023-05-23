@@ -1,12 +1,27 @@
 const express = require('express');
 const route = express.Router();
-const { Product, Vendor, ProductProps, ProductType, Age } = require('../db/models');
+const {
+  Product,
+  Vendor,
+  ProductProps,
+  ProductType,
+  Age,
+  Image,
+  ProductImage,
+} = require('../db/models');
 const db = require('../db/models/index');
 
 route.get('/', async (req, res) => {
   try {
     const findProducts = await Product.findAll({
       include: [
+        {
+          model: Image,
+          through: {
+            model: ProductImage,
+          },
+          attributes: ['src'],
+        },
         {
           model: Vendor,
           attributes: ['name', 'country', 'premium'],
@@ -32,6 +47,8 @@ route.get('/', async (req, res) => {
         product.minPrice = Number(price.minPrice);
       }
     });
+
+    console.log(products);
 
     res.json(products);
   } catch (error) {
