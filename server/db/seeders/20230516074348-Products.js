@@ -17,7 +17,7 @@ module.exports = {
           productTypeId: 1,
           sexId: 1,
           ageId: 1,
-          rating: 3.5,
+          rating: 4.7,
           reviews: 17,
         },
         {
