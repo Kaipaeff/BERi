@@ -12,8 +12,6 @@ import Skeleton from '../Skeleton/Skeleton';
 import { Pagination } from 'antd';
 
 export function Sale(): JSX.Element {
-  const [cart, setCart] = useState<productType[]>([]);
-
   const dispatch = useAppDispatch();
 
   const categoryState = useAppSelector(getCategoryState);
@@ -68,15 +66,14 @@ export function Sale(): JSX.Element {
           <FilterBar />
         </div>
         <div className={style.container}>
-
           <div className={style.productsContainer}>
             {/* <h2>Sale</h2> */}
             {loading ? (
               <Skeleton />
+            ) : (
               // <div className="loading">
               //   <img src="./Spinner-1s-200px.gif" alt="" />
               // </div>
-            ) : (
               <div className={style.loadedCards}>
                 {products.length && categoryState === 0 ? (
                   products.map(

@@ -1,0 +1,108 @@
+.conteiner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 5px;
+  margin: 5px 0px;
+  gap: 5px;
+  width: 200px;
+  height: 100px;
+  /* background: #ffffff; */
+  border: 1px solid #cbcbcb;
+  border-radius: 6px;
+}
+
+.colorInfo {
+  display: flex;
+  flex-direction: column;
+}
+.titleText {
+  width: 85%;
+}
+
+.showColorBlock {
+  width: 120px;
+  height: 45px;
+  border: 1px solid #cbcbcb;
+  border-radius: 4px;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.btnblock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+  cursor: pointer;
+}
+
+.label {
+  font-size: 14px;
+}
+
+.inputColorName {
+  margin-left: 3px;
+  width: 145px;
+  height: 25px;
+  padding-left: 3px;
+  background-color: #f0ecec;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.inputColorCode {
+  width: 150px;
+  height: 30px;
+  border: 0px;
+  cursor: pointer;
+}
+.checkMarkRing {
+  margin-top: 2px;
+  margin-right: 11px;
+  cursor: pointer;
+  height: 25px;
+}
+
+.editIconBtn {
+  height: 25px;
+}
+
+.editIconBtn:active {
+  background-color: #f5c658;
+  border-radius: 50%;
+}
+
+.deleteIconBtn {
+  height: 40px;
+}
+
+.deleteIconBtn:active {
+  background-color: rgb(107, 32, 32);
+  border-radius: 50%;
+}
+
+.submitFormBtn {
+  border: none;
+  background: none;
+}
+
+.checkMarkRing:active {
+  background-color: rgb(10, 92, 7);
+  border-radius: 50%;
+}
+
+.editInputConteiner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

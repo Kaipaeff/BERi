@@ -18,8 +18,6 @@ import { getSexState } from '../../redux/selectors/sex.selector';
 import { Pagination } from 'antd';
 
 export function PremiumBrands(): JSX.Element {
-  const [cart, setCart] = useState<productType[]>([]);
-
   const dispatch = useAppDispatch();
 
   const sexState = useAppSelector(getSexState);
@@ -77,7 +75,6 @@ export function PremiumBrands(): JSX.Element {
           <FilterBar />
         </div>
         <div className={style.container}>
-
           <div className={style.productsContainer}>
             {/* <h2>Премиум бренды</h2> */}
             {loading ? (

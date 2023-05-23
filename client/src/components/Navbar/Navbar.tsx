@@ -132,7 +132,7 @@ export function Navbar() {
                 <div className={style.shopCart}>
                   <img className={style.cartIcon} src={cart} alt="cartIcon" />
                   <div className={style.shopCartCounter}>
-                    <p>{resultTotalProductCart}</p>
+                    <p>{resultTotalProductCart || 0}</p>
                   </div>
                 </div>
               </Link>

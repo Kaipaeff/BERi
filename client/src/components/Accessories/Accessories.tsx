@@ -19,8 +19,6 @@ import Skeleton from '../Skeleton/Skeleton';
 import { Pagination } from 'antd';
 
 export function Accessories(): JSX.Element {
-  const [cart, setCart] = useState<productType[]>([]);
-
   const dispatch = useAppDispatch();
 
   const categoryState = useAppSelector(getCategoryState);
@@ -81,7 +79,6 @@ export function Accessories(): JSX.Element {
           <FilterBar />
         </div>
         <div className={style.container}>
-
           <div className={style.productsContainer}>
             {/* <h2>Аксессуары</h2> */}
             {loading ? (
