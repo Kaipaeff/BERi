@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react-lite';
-import success from '../../../img/icons/success.svg';
 import './RegSuccess.css';
 
 const RegSuccess = ({
@@ -14,19 +13,18 @@ const RegSuccess = ({
       className={modalSuccessActive ? 'successModal active' : 'successModal'}
     >
       <div className="successModalContent">
-        <div className="successHeader">
-          <img src={success} alt="success" /> <p>Регистрация прошла успешно!</p>
-        </div>
-        <br />
+        <p className="successHeader">Регистрация прошла успешно!</p>
+        
         <div className="successMesage">
-          Проверьте вашу почту и пройдите по ссылке, что бы закончить процесс
-          регистрации
+          Для завершения регистрации 
+          пройдите по ссылке, отправленной <br /> на Вашу почту 
         </div>
+
         <button
           className="successBtn"
           onClick={() => setModalSuccessActive(false)}
         >
-          Закрыть
+          Отлично!
         </button>
       </div>
     </div>
