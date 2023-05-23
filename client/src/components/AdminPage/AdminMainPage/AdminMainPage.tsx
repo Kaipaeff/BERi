@@ -9,6 +9,7 @@ import SizeTable from '../SizeTable/SizeTable';
 import { useNavigate } from 'react-router-dom';
 import TypeOfProduct from '../TypeOfProduct/TypeOfProduct';
 import AgePage from '../AgePage/AgePage';
+import ListOfOrders from '../ListOfOrders/ListOfOrders';
 
 export default function AdminMainPage() {
   const navigate = useNavigate();
@@ -72,6 +73,12 @@ export default function AdminMainPage() {
             Возраст
           </p>
           <p
+            onClick={() => setSelectorPage(9)}
+            className={styleAdminMainPage.selectorPageLink}
+          >
+            Заказы
+          </p>
+          <p
             onClick={() => navigate('/')}
             className={styleAdminMainPage.selectorPageLink}
           >
@@ -94,6 +101,7 @@ export default function AdminMainPage() {
           {selectorPage === 6 && <SizeTable />}
           {selectorPage === 7 && <TypeOfProduct />}
           {selectorPage === 8 && <AgePage />}
+          {selectorPage === 9 && <ListOfOrders />}
         </div>
       </div>
     </div>

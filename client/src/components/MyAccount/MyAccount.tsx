@@ -16,11 +16,12 @@ export default function MyAccount() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
-
+  }, []);
 
   const [navigatorSelector, setNavigatorSelector] = useState(0);
   const { storeContext } = useContext(Context);
+
+  const navigate = useNavigate();
 
   const userId = storeContext.user.id;
 
