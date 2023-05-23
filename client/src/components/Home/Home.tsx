@@ -67,6 +67,8 @@ export function Home(): JSX.Element {
 
   const { currentProducts, handlePageChange } = PaginationFunc();
 
+  console.log(currentProducts, '<<<<<currentProducts');
+
   return (
     <>
       <div className={style.catalog}>
@@ -74,7 +76,6 @@ export function Home(): JSX.Element {
           <FilterBar />
         </div>
         <div className={style.container}>
-
           <div className={style.productsContainer}>
             <div className={style.cardContainer}>
               {loading ? (
@@ -98,14 +99,17 @@ export function Home(): JSX.Element {
           </div>
         </div>
       </div>
-      <div className={style.pagination}>   <Pagination
+      <div className={style.pagination}>
+        {' '}
+        <Pagination
           defaultCurrent={1}
-          total={50}
+          total={100}
           pageSize={10}
           showSizeChanger={true}
           showQuickJumper={true}
           onChange={handlePageChange}
-        /></div>
+        />
+      </div>
       <MainBrandsBlock />
       <Advantages />
     </>
