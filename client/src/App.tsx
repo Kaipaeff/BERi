@@ -98,7 +98,13 @@ function App() {
             location.pathname !== '/privacypolicy' &&
             location.pathname !== '/search' &&
             location.pathname !== '/cart' &&
-            location.pathname !== '/about' && <MainSlider />}
+            location.pathname !== '/about' && 
+            location.pathname !== '/clothes' && 
+            location.pathname !== '/shoes' && 
+            location.pathname !== '/accessories' && 
+            location.pathname !== '/premiumbrands' && 
+            location.pathname !== '/sale' &&            
+            <MainSlider />}
 
           <Routes>
             <Route path="/" element={<Home />} />

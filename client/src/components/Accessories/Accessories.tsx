@@ -16,6 +16,7 @@ import {
   setSexState,
 } from '../../redux/slices/categories.slice';
 import Skeleton from '../Skeleton/Skeleton';
+import { Pagination } from 'antd';
 
 export function Accessories(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
@@ -69,6 +70,10 @@ export function Accessories(): JSX.Element {
     }
   };
 
+  function handlePageChange(page: number, pageSize: number): void {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <>
       <div className={style.catalog}>
@@ -78,7 +83,7 @@ export function Accessories(): JSX.Element {
         <div className={style.container}>
 
           <div className={style.productsContainer}>
-            <h2>Аксессуары</h2>
+            {/* <h2>Аксессуары</h2> */}
             {loading ? (
               <Skeleton />
             ) : (
@@ -118,7 +123,16 @@ export function Accessories(): JSX.Element {
         </div>
       </div>
 
-      <div className={style.pagination}>1 2 3 4 5</div>
+      <div className={style.pagination}>
+        <Pagination
+          defaultCurrent={1}
+          total={50}
+          pageSize={10}
+          showSizeChanger={false}
+          showQuickJumper={false}
+          onChange={handlePageChange}
+        />
+      </div>
 
       <MainBrandsBlock />
     </>

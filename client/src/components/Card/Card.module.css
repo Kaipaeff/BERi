@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -29,6 +30,12 @@
   font-weight: 400;
   margin-left: auto;
   margin-right: auto;
+}
+
+.favoriteFalse, .favoriteTrue {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 

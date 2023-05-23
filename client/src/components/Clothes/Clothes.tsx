@@ -82,7 +82,7 @@ export function Clothes(): JSX.Element {
         <div className={style.container}>
 
           <div className={style.productsContainer}>
-            <h2>Одежда</h2>
+            {/* <h2>Одежда</h2> */}
             {loading ? (
               <Skeleton />
             ) : (
@@ -121,14 +121,16 @@ export function Clothes(): JSX.Element {
           </div>
         </div>
       </div>
-      <Pagination
-        defaultCurrent={1}
-        total={50}
-        pageSize={10}
-        showSizeChanger={true}
-        showQuickJumper={true}
-        onChange={handlePageChange}
-      />
+      <div className={style.pagination}>
+        <Pagination
+          defaultCurrent={1}
+          total={50}
+          pageSize={10}
+          showSizeChanger={false}
+          showQuickJumper={false}
+          onChange={handlePageChange}
+        />
+      </div>
       <MainBrandsBlock />
     </>
   );

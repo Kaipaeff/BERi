@@ -77,6 +77,7 @@ export function Home(): JSX.Element {
         </div>
         <div className={style.container}>
           <div className={style.productsContainer}>
+
             <div className={style.cardContainer}>
               {loading ? (
                 <Skeleton />
@@ -100,13 +101,12 @@ export function Home(): JSX.Element {
         </div>
       </div>
       <div className={style.pagination}>
-        {' '}
         <Pagination
           defaultCurrent={1}
           total={100}
           pageSize={10}
-          showSizeChanger={true}
-          showQuickJumper={true}
+          showSizeChanger={false}
+          showQuickJumper={false}
           onChange={handlePageChange}
         />
       </div>
