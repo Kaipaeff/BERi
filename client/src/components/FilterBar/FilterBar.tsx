@@ -67,7 +67,11 @@ export default function FilterBar(): JSX.Element {
   return (
     <div className={style.filterBar}>
       <div className={style.filterHeader}>
-        <h2>Фильтры</h2>
+        {location.pathname === '/clothes' && <h2>Одежда</h2>}
+        {location.pathname === '/shoes' && <h2>Обувь</h2>}
+        {location.pathname === '/accessories' && <h2>Аксессуары</h2>}
+        {location.pathname === '/premiumbrands' && <h2>Премиум бренды</h2>}
+        {location.pathname === '/sale' && <h2>Sale</h2>}
         <img onClick={handleReset} src="filter-off.svg" alt="close" />
       </div>
       <div className={style.sexSelector}>
@@ -93,58 +97,64 @@ export default function FilterBar(): JSX.Element {
           </>
         )}
       </div>
-      <div className={style.age}>
-        <h3>Возраст</h3>
-        {age.length && location.pathname === '/clothes' ? (
-          age.map(
-            (el) =>
-              el.id < 4 && (
-                <p
-                  key={el.id}
-                  className={toggleActiveAgeStyle(el.id)}
-                  onClick={() => {
-                    dispatch(setAgeState(el.id));
-                  }}
-                >
-                  {el.age}
-                </p>
-              )
-          )
-        ) : age.length && location.pathname === '/shoes' ? (
-          age.map(
-            (el) =>
-              el.id > 3 &&
-              el.id < 16 && (
-                <p
-                  key={el.id}
-                  className={toggleActiveAgeStyle(el.id)}
-                  onClick={() => {
-                    dispatch(setAgeState(el.id));
-                  }}
-                >
-                  {el.age}
-                </p>
-              )
-          )
-        ) : age.length && location.pathname === '/accessories' ? (
-          age.map(
-            (el) =>
-              el.id > 15 && (
-                <p
-                  key={el.id}
-                  className={toggleActiveAgeStyle(el.id)}
-                  onClick={() => {
-                    dispatch(setAgeState(el.id));
-                  }}
-                >
-                  {el.age}
-                </p>
-              )
-          )
-        ) : (
-          <p>Age not found</p>
-        )}
-      </div>
+      <>
+        {location.pathname !== '/' &&
+          location.pathname !== '/premiumbrands' &&
+          location.pathname !== '/sale' && (
+            <div className={style.age}>
+              <h3>Возраст</h3>
+              {age.length && location.pathname === '/clothes' ? (
+                age.map(
+                  (el) =>
+                    el.id < 4 && (
+                      <p
+                        key={el.id}
+                        className={toggleActiveAgeStyle(el.id)}
+                        onClick={() => {
+                          dispatch(setAgeState(el.id));
+                        }}
+                      >
+                        {el.age}
+                      </p>
+                    )
+                )
+              ) : age.length && location.pathname === '/shoes' ? (
+                age.map(
+                  (el) =>
+                    el.id > 3 &&
+                    el.id < 16 && (
+                      <p
+                        key={el.id}
+                        className={toggleActiveAgeStyle(el.id)}
+                        onClick={() => {
+                          dispatch(setAgeState(el.id));
+                        }}
+                      >
+                        {el.age}
+                      </p>
+                    )
+                )
+              ) : age.length && location.pathname === '/accessories' ? (
+                age.map(
+                  (el) =>
+                    el.id > 15 && (
+                      <p
+                        key={el.id}
+                        className={toggleActiveAgeStyle(el.id)}
+                        onClick={() => {
+                          dispatch(setAgeState(el.id));
+                        }}
+                      >
+                        {el.age}
+                      </p>
+                    )
+                )
+              ) : (
+                <p>Age not found</p>
+              )}
+            </div>
+          )}
+      </>
       <div className={style.categories}>
         <span className={style.catSpan}>
           {categories.length &&

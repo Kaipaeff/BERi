@@ -8,15 +8,20 @@ import Card from '../Card/Card';
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
 import { getCategoryState } from '../../redux/selectors/category.selector';
-import { setAgeState, setCategoryState, setSexState } from '../../redux/slices/categories.slice';
+import {
+  setAgeState,
+  setCategoryState,
+  setSexState,
+} from '../../redux/slices/categories.slice';
 import Skeleton from '../Skeleton/Skeleton';
+import { getSexState } from '../../redux/selectors/sex.selector';
 
 export function PremiumBrands(): JSX.Element {
   const [cart, setCart] = useState<productType[]>([]);
 
   const dispatch = useAppDispatch();
 
-  const categoryState = useAppSelector(getCategoryState);
+  const sexState = useAppSelector(getSexState);
   const products = useAppSelector(
     (state: RootState) => state.ProductReducer.products
   );
@@ -72,19 +77,18 @@ export function PremiumBrands(): JSX.Element {
             <h2>Премиум бренды</h2>
             {loading ? (
               <Skeleton />
-              // <div className="loading">
-              //   <img src="./Spinner-1s-200px.gif" alt="" />
-              // </div>
             ) : (
               <div className={style.loadedCards}>
-                {products.length && categoryState === 0 ? (
-                  products.map(
-                    (el: productType) =>
-                      el.Vendor.premium && <Card key={el.id} el={el} />
-                  )
-                ) : products.length && categoryState ? (
+                {products.length && sexState === 0 ? (
                   products
-                    .filter((el) => el.productTypeId === categoryState)
+                    .filter((el) => el.rating > 4.5)
+                    .map(
+                      (el: productType) =>
+                        el.Vendor.premium && <Card key={el.id} el={el} />
+                    )
+                ) : products.length && sexState ? (
+                  products
+                    .filter((el) => el.rating > 4.5 && el.sexId === sexState)
                     .map(
                       (el: productType) =>
                         el.Vendor.premium && <Card key={el.id} el={el} />

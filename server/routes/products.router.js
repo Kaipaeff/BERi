@@ -47,7 +47,9 @@ route.get('/', async (req, res) => {
         product.minPrice = Number(price.minPrice);
       }
     });
-    console.log(products[0].Images);
+
+    console.log(products);
+
     res.json(products);
   } catch (error) {
     res.json({ error });
