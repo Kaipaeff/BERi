@@ -11,6 +11,7 @@ export type stateProductType = {
 };
 
 export type stateCategoriesType = {
+  mainCategoryState: number;
   ageState: number;
   sexState: number;
   categoryState: number;
