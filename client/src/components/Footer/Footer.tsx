@@ -50,21 +50,23 @@ export default function Footer(): JSX.Element {
             <h3 className={style.titletext}>Покупателям</h3>
             
             {/* <p className={style.textlink} onClick={() => setModalLoginActive(true)}>Вход</p> */}
+            {storeContext.isAuth && 
+              <p className={style.textlink} onClick={() => navigate('/account')}>
+                Личный кабинет
+              </p>
+            }
 
-            <p className={style.textlink} onClick={() => navigate('/account')}>
-              Личный кабинет
-            </p>
+            {storeContext.isAuth && 
+              <p className={style.textlink} onClick={() => navigate('/favorites')}>
+                Избранное
+              </p>
+            }
 
-            <p
-              className={style.textlink}
-              onClick={() => navigate('/favorites')}
-            >
-              Избранное
-            </p>
-
-            <p className={style.textlink} onClick={() => navigate('/cart')}>
-              Корзина
-            </p>
+            {storeContext.isAuth && 
+              <p className={style.textlink} onClick={() => navigate('/cart')}>
+                Корзина
+              </p>
+            }
 
             {storeContext.isAuth ? 
               <p onClick={() => storeContext.logout()} className={style.textlink}>Выход</p>

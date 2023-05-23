@@ -47,3 +47,13 @@
   font-size: 16px;
   color: #ffffff;
 }
+
+.logErrBtn:active {
+  background: #3f3f3f;
+}
+
+.logErrBtn:hover {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

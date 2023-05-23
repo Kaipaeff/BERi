@@ -180,6 +180,7 @@ a .saleLink {
 .shopCart {
   display: flex;
 }
+
 .shopCartCounter {
   display: flex;
   align-items: center;
