@@ -9,12 +9,10 @@ import { addGoodsReducer } from '../../../redux/slices/shopCard/card.slice';
 import { Progress } from 'antd';
 
 export default function ShopCart() {
-
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
-  
   // парсинг товаров из localStorage
   const dispatch = useAppDispatch();
   const [goods, setGoods] = useState([]);
@@ -108,7 +106,10 @@ export default function ShopCart() {
         <div className={styles.DileveryLine}>
           <div className={styles.DileveryLiner}>
             {' '}
-            <Progress percent={(totalPrice() / 10000) * 100} showInfo={true} />
+            <Progress
+              percent={Math.ceil((totalPrice() / 10000) * 100)}
+              showInfo={true}
+            />
           </div>
 
           <img src={truckIcon} alt="truckIcon" />
