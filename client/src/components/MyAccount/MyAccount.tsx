@@ -3,16 +3,17 @@ import React, { useContext, useEffect, useState } from 'react';
 import styleMyAccount from './MyAccount.module.css';
 import DeliveryAddresses from '../DeliveryAddresses/DeliveryAddresses';
 import { Context } from '../../index';
+import { useNavigate } from 'react-router-dom';
 
 export default function MyAccount() {
-
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
-
+  }, []);
 
   const [navigatorSelector, setNavigatorSelector] = useState(0);
   const { storeContext } = useContext(Context);
+
+  const navigate = useNavigate();
 
   const userId = storeContext.user.id;
 
@@ -56,7 +57,7 @@ export default function MyAccount() {
             </p>
             <p
               className={styleMyAccount.dashboarlink}
-              onClick={() => setNavigatorSelector(5)}
+              onClick={() => navigate('/')}
             >
               Выход
             </p>

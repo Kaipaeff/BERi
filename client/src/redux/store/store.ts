@@ -9,6 +9,7 @@ import ColorSchemeReducer from '../slices/ColorSheme/colorScheme.slice'
 import CartSlice from '../slices/shopCard/card.slice';
 import AgeReducer from '../slices/age.slice';
 import VendorReducer from '../slices/Vendor/vendor.slise';
+import SizeTableReducer from '../slices/SizeTable/sizetable.slice'
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export const store = configureStore({
     VendorReducer,
     CategoryCRUDReducer,
     ColorSchemeReducer,
+    SizeTableReducer,
   },
 });
 
