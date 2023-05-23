@@ -42,9 +42,9 @@ export default function OneSizeCard({ OneSize }: { OneSize: IOneSize }) {
             onSubmit={formEditSubmitHandler}
           >
             <div className={styleOneSizeCard.inputElementBlock}>
-              <label className={styleOneSizeCard.label} htmlFor="category">
+              {/* <label className={styleOneSizeCard.label} htmlFor="category">
                 Размер
-              </label>
+              </label> */}
               <input
                 className={styleOneSizeCard.inputElement}
                 id="size"
@@ -55,26 +55,26 @@ export default function OneSizeCard({ OneSize }: { OneSize: IOneSize }) {
                 onChange={formEditInputHandler}
                 required
               />
-            </div>
-            <div className={styleOneSizeCard.inputElementBlockDown}>
-              <button
-                type="submit"
-                className={styleOneSizeCard.submitFormBtn}
-                title="Изменить данные"
-                aria-label="add"
-              >
-                <img
-                  className={styleOneSizeCard.checkMarkRing}
-                  src={checkMarkRing}
-                  alt="checkMarkRing"
-                />
-              </button>
+              <div className={styleOneSizeCard.inputElementBlockDown}>
+                <button
+                  type="submit"
+                  className={styleOneSizeCard.submitFormBtn}
+                  title="Изменить данные"
+                  aria-label="add"
+                >
+                  <img
+                    className={styleOneSizeCard.checkMarkRing}
+                    src={checkMarkRing}
+                    alt="checkMarkRing"
+                  />
+                </button>
+              </div>
             </div>
           </form>
-        ) : (
-          <div className={styleOneSizeCard.titleText}>
-            <h1>{OneSize.size}</h1>
-          </div>
+          ) : (
+            <div className={styleOneSizeCard.titleText}>
+              <span>{OneSize.size}</span>
+            </div>
         )}
 
         <div className={styleOneSizeCard.btnblock}>

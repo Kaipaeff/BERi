@@ -1,33 +1,32 @@
 .conteiner {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3px;
+    flex-direction: row;
+    align-items: center;
+    /* gap: 3px; */
     padding: 5px;
-    margin: 5px 0px;
-    gap: 5px;
-    width: 118px;
-    height: 100px;
-    background: #ffffff;
-    border: 1px solid #cbcbcb;
+    margin-bottom: 10px;
+    /* gap: 10px; */
+    width: 200px;
+    height: 40px;
+    border: 1px solid #d1d1d1;
     border-radius: 6px;
   }
+
   .titleText {
-    width: 85%;
+    font-size: 26px;
   }
   
   .title {
     width: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: space-between;
   }
   
   .btnblock {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-end;
     width: auto;
@@ -39,18 +38,34 @@
   }
   
   .inputElement {
-    width: 70px;
-    height: 45px;
-    padding-left: 3px;
-    background-color: #f0ecec;
+    width: 130px;
     font-size: 22px;
     font-weight: bold;
+    padding-left: 10px;
+
   }
+
+  .inputElementBlock {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 1px solid #eb2020; */
+  }
+
+  .inputElementBlockDown {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    display: flex;
+  }
+
+
   .checkMarkRing {
-    margin-top: 2px;
-    margin-right: 11px;
+    /* margin-top: 2px; */
+    /* margin-right: 11px; */
     cursor: pointer;
-    height: 25px;
+    /* height: 25px; */
   }
   
   .editIconBtn {
@@ -58,7 +73,7 @@
   }
   
   .editIconBtn:active {
-    background-color: #f5c658;
+    background-color: #d1d1d1;
     border-radius: 50%;
   }
   
@@ -67,7 +82,7 @@
   }
   
   .deleteIconBtn:active {
-    background-color: rgb(107, 32, 32);
+    background-color: #6b2020;
     border-radius: 50%;
   }
   
@@ -77,12 +92,13 @@
   }
   
   .checkMarkRing:active {
-    background-color: rgb(10, 92, 7);
+    background-color: #d1d1d1;
     border-radius: 50%;
   }
   
-  .editInputConteiner {
+  /* .editInputConteiner {
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
+    border: 1px solid #0a5c07;
+  } */
