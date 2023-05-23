@@ -61,7 +61,7 @@ export default function MainSlider() {
             <p className={style.sliderDescription}>{el.description}</p>
 
             <button 
-              onClick={() => window.scrollTo(0, 450)}
+              onClick={() => window.scrollTo(0, 480)}
               className={style.sliderDescriptionBtn}>
               Смотреть
               <img src={arrowRight} alt="arrowRight" />
