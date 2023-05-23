@@ -7,9 +7,6 @@ import style from './catalog.module.css';
 import Card from '../Card/Card';
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import FilterBar from '../FilterBar/FilterBar';
-import { getCategoryState } from '../../redux/selectors/category.selector';
-import { getAgeState } from '../../redux/selectors/age.selector';
-import { getSexState } from '../../redux/selectors/sex.selector';
 import {
   setAgeState,
   setCategoryState,
@@ -18,12 +15,9 @@ import {
 import Skeleton from '../Skeleton/Skeleton';
 import PaginationFunc from '../PaginationFunc/PaginationFunc';
 import { Pagination } from 'antd';
-import { useLocation } from 'react-router-dom';
 import { getMainCategoryState } from '../../redux/selectors/maincategory.selector';
 
 export function Catalog(): JSX.Element {
-  const location = useLocation();
-
   const [cart, setCart] = useState<productType[]>([]);
 
   const dispatch = useAppDispatch();
@@ -70,7 +64,8 @@ export function Catalog(): JSX.Element {
     }
   };
 
-  const { currentProducts, handlePageChange } = PaginationFunc();
+  const { currentProducts, filteredProduct, handlePageChange } =
+    PaginationFunc();
 
   return (
     <>
@@ -84,27 +79,17 @@ export function Catalog(): JSX.Element {
               <Skeleton />
             ) : (
               <div className={style.loadedCards}>
-                {currentProducts.length ? (
-                  (location.pathname === '/premiumbrands' &&
-                    currentProducts.map((el: productType) => (
-                      <Card key={el.id} el={el} />
-                    ))) ||
-                  (location.pathname === '/sale' &&
-                    currentProducts.map((el: productType) => (
-                      <Card key={el.id} el={el} />
-                    ))) ||
-                  (location.pathname === '/' &&
-                    currentProducts
-                      // .filter((el) => el.rating > 4.5)
-                      .map((el: productType) => (
-                        <Card key={el.id} el={el} />
-                      ))) ||
+                {currentProducts.length && mainCategory ? (
                   currentProducts.map(
                     (el: productType) =>
                       el.categoryId === mainCategory && (
                         <Card key={el.id} el={el} />
                       )
                   )
+                ) : currentProducts.length && !mainCategory ? (
+                  currentProducts.map((el: productType) => (
+                    <Card key={el.id} el={el} />
+                  ))
                 ) : (
                   <p className="products">No products found</p>
                 )}
@@ -115,7 +100,7 @@ export function Catalog(): JSX.Element {
       </div>
       <Pagination
         defaultCurrent={1}
-        total={40}
+        total={filteredProduct.length}
         pageSize={8}
         onChange={handlePageChange}
       />

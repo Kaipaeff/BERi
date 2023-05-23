@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { RootState } from '../../types/types';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
+import { useAppSelector } from '../../redux/hooks/hooks';
 import { useLocation } from 'react-router-dom';
 import { getCategoryState } from '../../redux/selectors/category.selector';
 import { getAgeState } from '../../redux/selectors/age.selector';
 import { getSexState } from '../../redux/selectors/sex.selector';
 import { productType } from '../../types/product';
 import { getMainCategoryState } from '../../redux/selectors/maincategory.selector';
+
 
 export default function PaginationFunc() {
   const categoryState = useAppSelector(getCategoryState);
@@ -58,5 +59,5 @@ export default function PaginationFunc() {
 
   // console.log(currentProducts);
 
-  return { currentProducts, handlePageChange };
+  return { currentProducts, filteredProduct, handlePageChange };
 }
