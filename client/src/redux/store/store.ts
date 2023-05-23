@@ -5,11 +5,12 @@ import AddNewAddressBtn from '../slices/DeliveryAddress/addAddressButton.slice';
 import UserReducer from '../slices/User/user.slice';
 import CategoriesReducer from '../slices/categories.slice';
 import CategoryCRUDReducer from '../slices/CategoryCRUD/category.crud.slice';
-import ColorSchemeReducer from '../slices/ColorSheme/colorScheme.slice'
+import ColorSchemeReducer from '../slices/ColorSheme/colorScheme.slice';
 import CartSlice from '../slices/shopCard/card.slice';
 import AgeReducer from '../slices/age.slice';
 import VendorReducer from '../slices/Vendor/vendor.slise';
-import SizeTableReducer from '../slices/SizeTable/sizetable.slice'
+import SizeTableReducer from '../slices/SizeTable/sizetable.slice';
+import AllTypesOfProductReducer from '../slices/TypeOfProduct/typeOfProducts.slice';
 
 export const store = configureStore({
   reducer: {
@@ -24,6 +25,7 @@ export const store = configureStore({
     CategoryCRUDReducer,
     ColorSchemeReducer,
     SizeTableReducer,
+    AllTypesOfProductReducer,
   },
 });
 
