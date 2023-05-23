@@ -5,13 +5,13 @@ import style from './app.module.css';
 
 import { Navbar } from './components/Navbar/Navbar';
 import MainSlider from './components/MainSlider/MainSlider';
-import { Home } from './components/Home/Home';
+import Home from './components/Home/Home';
 
-import { Clothes } from './components/Clothes/Clothes';
-import { Shoes } from './components/Shoes/Shoes';
-import { Accessories } from './components/Accessories/Accessories';
-import { PremiumBrands } from './components/PremiumBrands/PremiumBrands';
-import { Sale } from './components/Sale/Sale';
+import Clothes from './components/Clothes/Clothes';
+import Shoes from './components/Shoes/Shoes';
+import Accessories from './components/Accessories/Accessories';
+import PremiumBrands from './components/PremiumBrands/PremiumBrands';
+import Sale from './components/Sale/Sale';
 
 import { Search } from './components/Search/Search';
 import { Favorites } from './components/Favorites/Favorites';

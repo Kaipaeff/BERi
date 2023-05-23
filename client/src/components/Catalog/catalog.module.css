@@ -20,17 +20,9 @@
   width: 100%;
 }
 
-.filterBar {
-  /* border: 1px solid #340983; */
-  height: 100%;
-  display: flex;
-  align-items: flex-start;
-}
-
 .productsContainer {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid #ee3a0d; */
 }
 
 .loadedCards {
@@ -38,7 +30,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   height: 100%;
-  gap: 50px;
+  gap: 20px;
 }
 
 .pagination {
