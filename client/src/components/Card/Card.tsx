@@ -53,13 +53,13 @@ export default function Card({ el }: El): JSX.Element {
       <p className={style.name}>{el.name}</p>
       <p className={style.price}>от {el.minPrice} ₽</p>
 
-      {/* <button
+      <button
         className={style.sliderDescriptionBtn}
         onClick={() => handleAddToCart(el)}
       >
         Добавить в корзину
-        <img src={arrowRight} alt="arrowRight" />
-      </button> */}
+        <img alt="arrowRight" />
+      </button>
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function CartProduct({
           <div className={styles.ProductChildElement}>
             <div>
               <img
-                src={product.img}
+                src={product.Images[0].src}
                 alt="product"
                 className={styles.Img_Product}
               />
@@ -27,7 +27,7 @@ export default function CartProduct({
                 {product.name} &nbsp;&nbsp;
                 {product.Vendor.name}
               </span>
-              <span>{product.description}</span>
+
               <div className={styles.TrashContainer}>
                 <img
                   src={trashIcon}
