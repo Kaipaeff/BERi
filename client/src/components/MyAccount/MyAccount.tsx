@@ -21,7 +21,6 @@ export default function MyAccount() {
   const [navigatorSelector, setNavigatorSelector] = useState(0);
   const { storeContext } = useContext(Context);
 
-  const navigate = useNavigate();
 
   const userId = storeContext.user.id;
 
