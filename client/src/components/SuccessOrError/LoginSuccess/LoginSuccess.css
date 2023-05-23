@@ -41,3 +41,13 @@
   font-size: 16px;
   color: #ffffff;
 }
+
+.logSucBtn:active {
+  background: #3f3f3f;
+}
+
+.logSucBtn:hover {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

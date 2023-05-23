@@ -25,7 +25,7 @@ export default function Categories(): JSX.Element {
     (state: RootState) => state.CategoryCRUDReducer.allCategories
   );
 
-  const [filterStatus, setFilterStatus] = useState(0);
+
   const [findElementInputActive, setFindElementInputActive] = useState(false);
   const [findCategories, setFindCategories] = useState('');
 

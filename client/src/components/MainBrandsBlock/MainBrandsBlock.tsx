@@ -7,6 +7,7 @@ import wanex from '../../img/images/brandsBlock/wanex.png'
 import zara from '../../img/images/brandsBlock/zara.png'
 
 import arrowRight from '../../img/icons/arrowRight.svg'
+import { Link } from 'react-router-dom'
 
 export default function MainBrandsBlock() {
   return (
@@ -15,12 +16,14 @@ export default function MainBrandsBlock() {
       <div className={style.brandsText}>
         <h2>Популярные бренды нашего магазина</h2>
 
-        <button 
-          onClick={() => window.scrollTo(0, 450)}
-          className={style.brandsTextBtn}>
-          Смотреть каталог
-          <img src={arrowRight} alt="arrowRight" />
-        </button>
+        <Link to="/premiumbrands">
+          <button 
+            onClick={() => window.scrollTo(0, 480)}
+            className={style.brandsTextBtn}>
+            Смотреть каталог
+            <img src={arrowRight} alt="arrowRight" />
+          </button>
+        </Link>
       </div>
       
       <div className={style.logotypes}>
