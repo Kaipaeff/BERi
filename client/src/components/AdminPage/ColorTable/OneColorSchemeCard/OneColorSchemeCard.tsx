@@ -3,6 +3,8 @@ import { ColorResult } from 'react-color';
 import IOneColorElement from '../../../../types/ColorTable.types';
 import { useAppDispatch } from '../../../../redux/hooks/hooks';
 import { fetchEditColorSchemeFromBack } from '../../../../redux/Thunk/ColorScheme/fetchEditColorSchemeFromBack.api';
+import { fetchDeleteColorSchemeFromBack } from '../../../../redux/Thunk/ColorScheme/fetchDeleteColorSchemeFromBack.api';
+
 import styleColorSchemeCard from './OneColorScheme.module.css';
 
 import editIconBtn from '../../../../img/icons/editIconBtn.svg';
@@ -30,7 +32,7 @@ export default function OneColorSchemeCard({
     OneColorScheme.color
   );
   const [colorSchemeCode, setColorSchemeCode] = useState<string>(
-    OneColorScheme.color
+    OneColorScheme.colorCode
   );
 
   const formEditInputHandler = (
@@ -47,8 +49,8 @@ export default function OneColorSchemeCard({
 
     const EditColorScheme: IOneColorElement = {
       id: OneColorScheme.id,
-      color: colorSchemeName,
-      colorCode: colorSchemeCode,
+      color: colorSchemeName.toUpperCase(),
+      colorCode: colorSchemeCode.toUpperCase(),
     };
     dispatch(fetchEditColorSchemeFromBack(EditColorScheme));
     setEditStatus(!editStatus);
@@ -63,15 +65,22 @@ export default function OneColorSchemeCard({
             onSubmit={formEditSubmitHandler}
           >
             <div className={styleColorSchemeCard.inputElementBlock}>
-              <label className={styleColorSchemeCard.label} htmlFor="category">
-                Наименование категории
-              </label>
+
               <input
-                className={styleColorSchemeCard.inputElement}
-                id="category"
-                name="category"
+                className={styleColorSchemeCard.inputColorName}
+                id="color"
+                name="color"
                 type="text"
                 value={colorSchemeName}
+                onChange={formEditInputHandler}
+                required
+              />
+              <input
+                className={styleColorSchemeCard.inputColorCode}
+                id="colorCode"
+                name="colorCode"
+                type="color"
+                value={colorSchemeCode}
                 onChange={formEditInputHandler}
                 required
               />
@@ -80,7 +89,7 @@ export default function OneColorSchemeCard({
               <button
                 type="submit"
                 className={styleColorSchemeCard.submitFormBtn}
-                title="Изменить данные"
+                title="Сохранить изменения"
                 aria-label="add"
               >
                 <img
@@ -99,7 +108,12 @@ export default function OneColorSchemeCard({
             <div className={styleColorSchemeCard.titleText}>
               <h3>{OneColorScheme.colorCode}</h3>
             </div>
-            <div style={backgroundStyle} className={styleColorSchemeCard.showColorBlock}>{''}</div>
+            <div
+              style={backgroundStyle}
+              className={styleColorSchemeCard.showColorBlock}
+            >
+              {''}
+            </div>
           </div>
         )}
 
@@ -116,7 +130,9 @@ export default function OneColorSchemeCard({
             />
           </span>
           <span
-            // onClick={() => dispatch(fetchDeleteCategoryFromBack(OneCategory))}
+            onClick={() =>
+              dispatch(fetchDeleteColorSchemeFromBack(OneColorScheme))
+            }
             title="Удалить"
             aria-label="delete"
           >
