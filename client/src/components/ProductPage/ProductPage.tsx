@@ -6,7 +6,9 @@ import { productType } from '../../types/product';
 import { useAppDispatch } from '../../redux/hooks/hooks';
 import { addGoodsReducer } from '../../redux/slices/shopCard/card.slice';
 import arrowRight from '../../img/icons/arrowRight.svg';
-import arrawLeft from '../../img/icons/arrow-left.svg'
+import arrawLeft from '../../img/icons/arrow-left.svg';
+import Rating from '../Rating/Rating/Rating';
+import SetRating from '../Rating/SetRating/SetRating';
 
 
 export default function ProductPage(): JSX.Element {
@@ -52,29 +54,32 @@ export default function ProductPage(): JSX.Element {
     }
   };
 
-
   const navigate = useNavigate();
+
 
   return (
     <div className={style.wrapper}>
+      <p className={style.backArrow} onClick={() => navigate(-1)}>
+        <img src={arrawLeft} alt="arrawLeft" />
+        назад
+      </p>
 
-      <p className={style.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p>
-    
-    <div className={style.cardContainer}>
-      <img className={style.productImg} src={el.Images[0].src} alt="cloth" />
-      {/* <Rating el={el} /> */}
-      <div className={style.descriptionContainer}>
-        <div className={style.description}>
-          <p className={style.name}>
-            <b>Название: </b> {el.name}
-          </p>
-          <p>
-            <b>Описание:</b> <br />
-            {el.description}
-          </p>
-        </div>
-        <div className={style.btnContainer}>
-          {/* <div className={style.priceContainer}> */}
+      <div className={style.cardContainer}>
+        <img className={style.productImg} src={el.Images[0].src} alt="cloth" />
+        <div className={style.descriptionContainer}>
+          <div className={style.description}>
+            <p className={style.name}>
+              <b>Название: </b> {el.name}
+            </p>
+            <p>
+              <b>Описание:</b> <br />
+              {el.description}
+            </p>
+            <Rating el={el} />
+            <SetRating />
+          </div>
+          <div className={style.btnContainer}>
+            {/* <div className={style.priceContainer}> */}
             <p className={style.price}>
               <b>{el.minPrice} ₽</b>
             </p>
@@ -85,12 +90,10 @@ export default function ProductPage(): JSX.Element {
               Добавить в корзину
               <img src={arrowRight} alt="arrowRight" />
             </button>
-          {/* </div> */}
+            {/* </div> */}
+          </div>
         </div>
       </div>
-    </div>
-    
-    
     </div>
   );
 }

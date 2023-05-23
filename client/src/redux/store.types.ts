@@ -10,6 +10,11 @@ export type stateProductType = {
   loading: boolean;
 };
 
+export type stateProductPropsType = {
+  productprops: productType[];
+  loading: boolean;
+};
+
 export type stateCategoriesType = {
   mainCategoryState: number;
   ageState: number;

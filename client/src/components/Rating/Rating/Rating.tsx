@@ -1,7 +1,7 @@
 import React from 'react';
-import { El } from '../../types/types';
+import { El } from '../../../types/types';
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
-import style from './Rating.module.css'
+import style from './Rating.module.css';
 
 export default function Rating({ el }: El): JSX.Element {
   const ratingStar = Array.from({ length: 5 }, (_, index) => {
@@ -20,10 +20,9 @@ export default function Rating({ el }: El): JSX.Element {
   });
 
   return (
-      <div className={style.iconDiv}>
-        {ratingStar}
-        <p>({el.reviews})</p>
-      </div>
+    <div className={style.iconDiv}>
+      {ratingStar}
+      <p>({el.reviews})</p>
+    </div>
   );
 }
-
