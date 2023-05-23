@@ -17,8 +17,6 @@ import Skeleton from '../Skeleton/Skeleton';
 import { getSexState } from '../../redux/selectors/sex.selector';
 
 export function PremiumBrands(): JSX.Element {
-  const [cart, setCart] = useState<productType[]>([]);
-
   const dispatch = useAppDispatch();
 
   const sexState = useAppSelector(getSexState);
@@ -36,35 +34,6 @@ export function PremiumBrands(): JSX.Element {
     dispatch(setCategoryState(0));
   }, []);
 
-  // хендл для local storage
-  const handleAddToCart = (product: productType, e: any) => {
-    console.log(product, '<<<<<PRODUCT');
-
-    //позже кнопку "в корзину" изменить на инкремент дикремент
-
-    const getItemLocalStorage = localStorage.getItem('GoodsForShopCart')
-      ? JSON.parse(localStorage.getItem('GoodsForShopCart') as string)
-      : [];
-
-    const findItem = getItemLocalStorage.find(
-      (el: productType) => el.id === product.id
-    );
-
-    if (findItem) {
-      const testMap = getItemLocalStorage.map((el: any) =>
-        el.id === product.id ? { ...el, quantity: el.quantity + 1 || 1 } : el
-      );
-      localStorage.setItem('GoodsForShopCart', JSON.stringify(testMap));
-      setCart(testMap);
-    } else {
-      localStorage.setItem(
-        'GoodsForShopCart',
-        JSON.stringify([...getItemLocalStorage, { ...product, quantity: 1 }])
-      );
-      setCart([...getItemLocalStorage, { ...product, quantity: 1 }]);
-    }
-  };
-
   return (
     <>
       <div className={style.catalog}>
@@ -72,7 +41,6 @@ export function PremiumBrands(): JSX.Element {
           <FilterBar />
         </div>
         <div className={style.container}>
-
           <div className={style.productsContainer}>
             <h2>Премиум бренды</h2>
             {loading ? (
