@@ -61,9 +61,9 @@ function App() {
       console.log(e);
     }
   }
-  if (storeContext.isLoading) {
-    return <div>Загрузка...</div>;
-  }
+  // if (storeContext.isLoading) {
+  //   return <div>Загрузка...</div>;
+  // }
 
   return (
     <>
@@ -104,7 +104,9 @@ function App() {
             location.pathname !== '/shoes' && 
             location.pathname !== '/accessories' && 
             location.pathname !== '/premiumbrands' && 
-            location.pathname !== '/sale' &&            
+            location.pathname !== '/sale' &&   
+            location.pathname !== '/product-page' &&   
+                   
             <MainSlider />}
 
           <Routes>

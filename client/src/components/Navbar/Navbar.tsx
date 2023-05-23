@@ -91,11 +91,13 @@ export function Navbar() {
               </Link>
 
               <Link to="/favorites">
+              {storeContext.isAuth && (
                 <img
                   className={style.favoritesIcon}
                   src={favorites}
                   alt="favoritesIcon"
                 />
+              )}
               </Link>
             </div>
 
