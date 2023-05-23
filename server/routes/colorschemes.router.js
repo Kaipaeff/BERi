@@ -5,7 +5,7 @@ const { Color } = require('../db/models');
 router.get('/', async (req, res) => {
   try {
     const response = await Color.findAll({
-      order: [['color', 'ASC']],
+      order: [['colorCode', 'ASC']],
       raw: true,
     });
     return res.json(response);

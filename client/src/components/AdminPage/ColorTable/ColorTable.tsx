@@ -4,7 +4,6 @@ import { ColorResult } from 'react-color';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import { Context } from '../../../index';
 import { RootState } from '../../../types/types';
-import ColorSelector from './ColorSelector/ColorSelector';
 
 import styleColorTable from './ColorTable.module.css';
 import search from '../../../img/icons/search.svg';
