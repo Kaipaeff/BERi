@@ -102,6 +102,17 @@
   color: #ffffff;
 }
 
+.loginButton:active {
+  background: #3f3f3f;
+}
+
+.loginButton:hover {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
 .closeIcon {
   position: absolute;
   top: 30px;

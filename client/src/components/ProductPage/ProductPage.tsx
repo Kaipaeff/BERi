@@ -1,11 +1,13 @@
 import React from 'react';
 import { El } from '../../types/types';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import style from './ProductPage.module.css';
 import { productType } from '../../types/product';
 import { useAppDispatch } from '../../redux/hooks/hooks';
 import { addGoodsReducer } from '../../redux/slices/shopCard/card.slice';
 import arrowRight from '../../img/icons/arrowRight.svg';
+import arrawLeft from '../../img/icons/arrow-left.svg'
+
 
 export default function ProductPage(): JSX.Element {
   const location = useLocation();
@@ -49,9 +51,17 @@ export default function ProductPage(): JSX.Element {
       dispatch(addGoodsReducer(firtsAddProductInLocalStorage));
     }
   };
+
+
+  const navigate = useNavigate();
+
   return (
+    <div className={style.wrapper}>
+
+      <p className={style.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p>
+    
     <div className={style.cardContainer}>
-      <img className={style.img} src={el.Images[0].src} alt="cloth" />
+      <img className={style.productImg} src={el.Images[0].src} alt="cloth" />
       {/* <Rating el={el} /> */}
       <div className={style.descriptionContainer}>
         <div className={style.description}>
@@ -64,7 +74,7 @@ export default function ProductPage(): JSX.Element {
           </p>
         </div>
         <div className={style.btnContainer}>
-          <div className={style.priceContainer}>
+          {/* <div className={style.priceContainer}> */}
             <p className={style.price}>
               <b>{el.minPrice} ₽</b>
             </p>
@@ -75,9 +85,12 @@ export default function ProductPage(): JSX.Element {
               Добавить в корзину
               <img src={arrowRight} alt="arrowRight" />
             </button>
-          </div>
+          {/* </div> */}
         </div>
       </div>
+    </div>
+    
+    
     </div>
   );
 }
