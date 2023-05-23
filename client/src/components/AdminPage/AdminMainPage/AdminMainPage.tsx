@@ -7,6 +7,8 @@ import ProductStore from '../ProductStore/ProductStore';
 import ColorTable from '../ColorTable/ColorTable';
 import SizeTable from '../SizeTable/SizeTable';
 import { useNavigate } from 'react-router-dom';
+import TypeOfProduct from '../TypeOfProduct/TypeOfProduct';
+import AgePage from '../AgePage/AgePage';
 
 export default function AdminMainPage() {
   const navigate = useNavigate();
@@ -58,6 +60,18 @@ export default function AdminMainPage() {
             Таблица размеров
           </p>
           <p
+            onClick={() => setSelectorPage(7)}
+            className={styleAdminMainPage.selectorPageLink}
+          >
+            Типы товаров
+          </p>
+          <p
+            onClick={() => setSelectorPage(8)}
+            className={styleAdminMainPage.selectorPageLink}
+          >
+            Возраст
+          </p>
+          <p
             onClick={() => navigate('/')}
             className={styleAdminMainPage.selectorPageLink}
           >
@@ -78,6 +92,8 @@ export default function AdminMainPage() {
           {selectorPage === 4 && <Categories />}
           {selectorPage === 5 && <ColorTable />}
           {selectorPage === 6 && <SizeTable />}
+          {selectorPage === 7 && <TypeOfProduct />}
+          {selectorPage === 8 && <AgePage />}
         </div>
       </div>
     </div>

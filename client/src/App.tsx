@@ -35,6 +35,7 @@ import Footer from './components/Footer/Footer';
 import { IUser } from './models/IUser';
 import UserService from './services/UserService';
 import DileveryMap from './components/ShoppingСart/DileveryPay/DileveryMap';
+import ProductPage from './components/ProductPage/ProductPage';
 
 function App() {
   const location = useLocation();
@@ -130,6 +131,7 @@ function App() {
             <Route path="/oferta" element={<Oferta />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
             <Route path="/map" element={<DileveryMap />} />
+            <Route path="/product-page" element={<ProductPage />} />
           </Routes>
         </div>
       </div>

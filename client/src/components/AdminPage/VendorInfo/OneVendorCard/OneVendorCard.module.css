@@ -95,30 +95,6 @@
   border-radius: 50%;
 }
 
-.isAdminIcon {
-  background-color: green;
-  border-radius: 50%;
-  height: 20px;
-}
-.phoneNumber {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 14px;
-  gap: 5px;
-}
-.phoneIcon {
-  height: 16px;
-}
-
-.emailAddress {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 14px;
-  gap: 3px;
-}
-
 .editInputConteiner {
   display: flex;
   flex-direction: row;

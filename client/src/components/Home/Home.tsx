@@ -19,14 +19,10 @@ import { Pagination } from 'antd';
 import PaginationFunc from '../PaginationFunc/PaginationFunc';
 
 export function Home(): JSX.Element {
-  const [cart, setCart] = useState<productType[]>([]);
-
   const dispatch = useAppDispatch();
 
   const sexState = useAppSelector(getSexState);
-  const products = useAppSelector(
-    (state: RootState) => state.ProductReducer.products
-  );
+
   const loading = useAppSelector(
     (state: RootState) => state.ProductReducer.loading
   );
@@ -37,33 +33,6 @@ export function Home(): JSX.Element {
     dispatch(setAgeState(0));
     dispatch(setCategoryState(0));
   }, []);
-
-  // хендл для local storage ...корзины
-  const handleAddToCart = (product: productType, e: any) => {
-    //позже кнопку "в корзину" изменить на инкремент дикремент
-
-    const getItemLocalStorage = localStorage.getItem('GoodsForShopCart')
-      ? JSON.parse(localStorage.getItem('GoodsForShopCart') as string)
-      : [];
-
-    const findItem = getItemLocalStorage.find(
-      (el: productType) => el.id === product.id
-    );
-
-    if (findItem) {
-      const testMap = getItemLocalStorage.map((el: any) =>
-        el.id === product.id ? { ...el, quantity: el.quantity + 1 || 1 } : el
-      );
-      localStorage.setItem('GoodsForShopCart', JSON.stringify(testMap));
-      setCart(testMap);
-    } else {
-      localStorage.setItem(
-        'GoodsForShopCart',
-        JSON.stringify([...getItemLocalStorage, { ...product, quantity: 1 }])
-      );
-      setCart([...getItemLocalStorage, { ...product, quantity: 1 }]);
-    }
-  };
 
   const { currentProducts, handlePageChange } = PaginationFunc();
 

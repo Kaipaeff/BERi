@@ -10,13 +10,15 @@ import FilterBar from '../FilterBar/FilterBar';
 import { getCategoryState } from '../../redux/selectors/category.selector';
 import { getAgeState } from '../../redux/selectors/age.selector';
 import { getSexState } from '../../redux/selectors/sex.selector';
-import { setAgeState, setCategoryState, setSexState } from '../../redux/slices/categories.slice';
+import {
+  setAgeState,
+  setCategoryState,
+  setSexState,
+} from '../../redux/slices/categories.slice';
 import Skeleton from '../Skeleton/Skeleton';
 import { Pagination } from 'antd';
 
 export function Shoes(): JSX.Element {
-  const [cart, setCart] = useState<productType[]>([]);
-
   const dispatch = useAppDispatch();
 
   const categoryState = useAppSelector(getCategoryState);
@@ -70,6 +72,7 @@ export function Shoes(): JSX.Element {
     throw new Error('Function not implemented.');
   }
 
+
   return (
     <>
       <div className={style.catalog}>
@@ -77,15 +80,14 @@ export function Shoes(): JSX.Element {
           <FilterBar />
         </div>
         <div className={style.container}>
-
           <div className={style.productsContainer}>
             {/* <h2>Обувь</h2> */}
             {loading ? (
               <Skeleton />
+            ) : (
               // <div className="loading">
               //   <img src="./Spinner-1s-200px.gif" alt="" />
               // </div>
-            ) : (
               <div className={style.loadedCards}>
                 {products.length &&
                 categoryState === 0 &&
@@ -95,7 +97,8 @@ export function Shoes(): JSX.Element {
                     (el: productType) =>
                       el.categoryId === 2 && <Card key={el.id} el={el} />
                   )
-                ) : products.length && (categoryState || sexState || ageState) ? (
+                ) : products.length &&
+                  (categoryState || sexState || ageState) ? (
                   products
                     .filter(
                       (el) =>
