@@ -10,7 +10,16 @@ const initialState: stateProductType = {
 const productSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    findProductByName: (state, action) =>
+      (state = {
+        ...state,
+        products: state.products.filter(
+          (el): boolean =>
+            el.name.toUpperCase().includes(action.payload.toUpperCase())
+        ),
+      }),
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state) => {
@@ -27,5 +36,8 @@ const productSlice = createSlice({
       .addDefaultCase(() => {});
   },
 });
+export const {
+  findProductByName,
+} = productSlice.actions;
 
 export default productSlice.reducer;
