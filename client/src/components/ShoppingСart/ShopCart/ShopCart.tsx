@@ -93,10 +93,9 @@ export default function ShopCart() {
       (total: any, currentValue) => total + currentValue,
       0
     );
-    // сумму доставки брать из бека? сейчас это 100
+
     return totalPrice;
   };
-
 
   return (
     <div className={styles.Main}>
@@ -118,6 +117,12 @@ export default function ShopCart() {
         </div>
       </div>
       <div className={styles.Content}>
+        <div className={styles.InfoGoods}>
+          <h5>Товар</h5>
+          <h5>Количество</h5>
+          <h5>Стоимость</h5>
+          <h5>Сумма</h5>
+        </div>
         {goods.length ? (
           goods.map((el: any, i) => (
             <CartProduct

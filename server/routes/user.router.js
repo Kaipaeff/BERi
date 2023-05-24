@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
       order: [['email', 'ASC']],
       raw: true,
     });
-    console.log(response);
+    // console.log(response);
     return res.json(response);
   } catch (error) {
     res.json({ error });

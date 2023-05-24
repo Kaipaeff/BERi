@@ -7,11 +7,11 @@
   padding: 5px;
   margin: 5px 0px;
   gap: 5px;
-  width: 303px;
+  width: 340px;
   height: 100px;
   background: #ffffff;
   border: 1px solid #cbcbcb;
-  border-radius: 6px;
+  /* border-radius: 6px; */
 }
 .titleText {
   width: 85%;
