@@ -5,13 +5,13 @@ import style from './app.module.css';
 
 import { Navbar } from './components/Navbar/Navbar';
 import MainSlider from './components/MainSlider/MainSlider';
-import { Home } from './components/Home/Home';
+import Home from './components/Home/Home';
 
-import { Clothes } from './components/Clothes/Clothes';
-import { Shoes } from './components/Shoes/Shoes';
-import { Accessories } from './components/Accessories/Accessories';
-import { PremiumBrands } from './components/PremiumBrands/PremiumBrands';
-import { Sale } from './components/Sale/Sale';
+import Clothes from './components/Clothes/Clothes';
+import Shoes from './components/Shoes/Shoes';
+import Accessories from './components/Accessories/Accessories';
+import PremiumBrands from './components/PremiumBrands/PremiumBrands';
+import Sale from './components/Sale/Sale';
 
 import { Search } from './components/Search/Search';
 import { Favorites } from './components/Favorites/Favorites';
@@ -61,9 +61,9 @@ function App() {
       console.log(e);
     }
   }
-  if (storeContext.isLoading) {
-    return <div>Загрузка...</div>;
-  }
+  // if (storeContext.isLoading) {
+  //   return <div>Загрузка...</div>;
+  // }
 
   return (
     <>
@@ -99,7 +99,15 @@ function App() {
             location.pathname !== '/privacypolicy' &&
             location.pathname !== '/search' &&
             location.pathname !== '/cart' &&
-            location.pathname !== '/about' && <MainSlider />}
+            location.pathname !== '/about' && 
+            location.pathname !== '/clothes' && 
+            location.pathname !== '/shoes' && 
+            location.pathname !== '/accessories' && 
+            location.pathname !== '/premiumbrands' && 
+            location.pathname !== '/sale' &&   
+            location.pathname !== '/product-page' &&   
+                   
+            <MainSlider />}
 
           <Routes>
             <Route path="/" element={<Home />} />

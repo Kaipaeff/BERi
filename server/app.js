@@ -17,6 +17,8 @@ const userRoutes = require('./routes/user.router');
 const vendorRoutes = require('./routes/vendor.router');
 const categoriesRoutes = require('./routes/category.router');
 const colorSchemeRoutes = require('./routes/colorschemes.router');
+const sizesRoutes = require('./routes/sizes.rourer');
+const typeofproductRouter = require('./routes/typesofproduct.router');
 const router = require('./routes/index');
 const errorMiddledware = require('./middlewares/error-middleware');
 
@@ -47,6 +49,8 @@ app.use('/account', accountRoutes);
 app.use('/vendor', vendorRoutes);
 app.use('/categories', categoriesRoutes);
 app.use('/colorschemes', colorSchemeRoutes);
+app.use('/sizes', sizesRoutes);
+app.use('/typeofproduct', typeofproductRouter);
 
 const PORT = process.env.PORT || 3100;
 
