@@ -13,6 +13,7 @@
 .container {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   justify-content: space-between;
   /* gap: 120px; */
   /* border: 1px solid #09830f; */
@@ -35,4 +36,5 @@
 
 .pagination {
   margin: 0 auto 60px auto;
+  color: black;
 }

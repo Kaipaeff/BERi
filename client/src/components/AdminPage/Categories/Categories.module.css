@@ -1,5 +1,6 @@
 .titlePage {
   margin-bottom: 5px;
+  color: #4d4d4d;
 }
 
 .searchRow {
@@ -28,8 +29,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-height: 500px;
+  justify-content: space-between;
+  height: 560px;
   gap: 5px;
+  /* border: 1px solid #db0b0b; */
+  overflow: auto;
 }
 .filterFirstElement {
   width: 300px;
@@ -84,7 +88,7 @@
 
 .message {
   font-size: 25px;
-  color: red;
+  color: #4d4d4d;
   display: flex;
   align-items: centr;
   justify-content: center;

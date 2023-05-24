@@ -1,5 +1,6 @@
 .titlePage {
   margin-bottom: 5px;
+  color: #4d4d4d;
 }
 
 .searchRow {
@@ -9,7 +10,7 @@
   align-items: center;
   padding: 5px;
   border: 1px solid rgb(202, 202, 202);
-  border-radius: 5px;
+  /* border-radius: 5px; */
   margin-bottom: 5px;
   gap: 4px;
 }
@@ -21,15 +22,19 @@
   padding: 10px;
   width: 89%;
   border: 1px solid rgb(202, 202, 202);
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 .content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   max-height: 500px;
   gap: 5px;
+  overflow: auto;
+  /* border: 1px solid #e92525; */
+
 }
 .filterFirstElement {
   width: 200px;
@@ -84,7 +89,7 @@
 
 .message {
   font-size: 25px;
-  color: red;
+  color: #4d4d4d;
   display: flex;
   align-items: centr;
   justify-content: center;
