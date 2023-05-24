@@ -7,7 +7,6 @@ export default function Card({ oneProduct }: any): JSX.Element {
   const dispatch = useAppDispatch();
 
   const handleAddToCart = (product: productType) => {
-    //позже кнопку "в корзину" изменить на инкремент дикремент?
 
     const getItemLocalStorage = localStorage.getItem('GoodsForShopCart')
       ? JSON.parse(localStorage.getItem('GoodsForShopCart') as string)
@@ -46,7 +45,6 @@ export default function Card({ oneProduct }: any): JSX.Element {
   return (
     <div className={style.card}>
       <img className={style.img} src={oneProduct.Images[0].src} alt="cloth" />
-      {/* <Rating el={el} /> */}
       <p className={style.name}>{oneProduct.name}</p>
       <p className={style.price}>от {oneProduct.minPrice} ₽</p>
 

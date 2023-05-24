@@ -1,14 +1,17 @@
-.content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-.mainSearchPage {
 
-}
+/* .mainSearchPage {
+
+} */
 .searchRow {
-/* margin-left: 100%; */
-
+/* 
+    display: flex;
+    justify-content: center;
+    align-items: center */
+}
+.inputBlockConteiner {
+    display: flex;
+    justify-content: center;
+    align-items: center
 }
 .inputTextElement {
   display: flex;
@@ -23,13 +26,13 @@
   border: 0;
   background-color: transparent;
   cursor: pointer;
-  position: absolute;
+  /* position: absolute;
   margin-left: 420px;
-  margin-top: -32px;
+  margin-top: -32px; */
 }
-.formSearchPage {
+/* .formSearchPage {
  
-}
+} */
 .searchSimbol {
     transform: scale(1.5);
 }
@@ -45,3 +48,8 @@
     width: 100%;
   }
 }
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }

@@ -7,7 +7,6 @@ import OneCardSearch from './OneCardSearch';
 import style from './search.module.css';
 
 import search from '../../img/icons/search.svg';
-import searchOff from '../../img/icons/searchOff.svg';
 
 export function Search() {
   const dispatch = useAppDispatch();
@@ -28,7 +27,6 @@ export function Search() {
 
   return (
     <div className={style.mainSearchPage}>
-      {/* <h4 className="titlePage"></h4> */}
       <div className={style.searchRow}>
         <form
           className={style.formSearchPage}
@@ -60,6 +58,7 @@ export function Search() {
       {stateText.length ? (
         <span className="message">Результы по запросу "{stateText}"</span>
       ) : null}
+     <p></p><br />
       {allProducts.length && stateText.length ? (
         <div className={style.content}>
           {allProducts
