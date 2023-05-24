@@ -26,7 +26,6 @@
   width: 520px;
   height: 640px;
   /* border: 1px solid #e03d3d; */
-
 }
 
 .descriptionContainer {
@@ -58,7 +57,6 @@
   box-shadow: 1px 1px 10px 1px #d4d4d4;
   padding: 30px;
 }
-
 
 .addToCardBtn {
   display: flex;
@@ -104,7 +102,6 @@
 }
 
 .backArrow img {
-.backArrow img {
   width: 15px;
   margin-right: 5px;
 }
@@ -114,14 +111,25 @@
   gap: 10px;
 }
 
-.sizeBar p {
+.sizeInActive {
   font-size: 16px;
   font-weight: 600;
   padding-top: 6px;
   text-align: center;
   width: 39px;
   height: 38px;
-  border: 1px solid #CBCBCB;
+  border: 1px solid #cbcbcb;
+}
+
+.sizeActive {
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 6px;
+  text-align: center;
+  width: 39px;
+  height: 38px;
+  border: 1px solid #121212;
+  background-color: #cbcbcb;
 }
 
 .ddToggle {
@@ -150,9 +158,10 @@
 }
 
 .ddMenu li:hover,
-.sizeBar p:hover {
+.sizeInActive:hover,
+.sizeActive:hover {
   cursor: pointer;
-  background-color: #CBCBCB;
+  background-color: #cbcbcb;
 }
 
 .colorIcon {
@@ -161,7 +170,8 @@
   border-radius: 50%;
 }
 
-.favoriteFalse, .favoriteTrue {
+.favoriteFalse,
+.favoriteTrue {
   position: absolute;
   top: 55px;
   left: 500px;

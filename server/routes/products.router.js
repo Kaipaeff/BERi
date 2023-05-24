@@ -70,6 +70,13 @@ route.get('/productprops/:id', async (req, res) => {
         {
           model: Color,
         },
+        {
+          model: Image,
+          through: {
+            model: ProductImage,
+          },
+          attributes: ['src'],
+        },
       ],
       order: [['sizeId', 'ASC']],
     });
