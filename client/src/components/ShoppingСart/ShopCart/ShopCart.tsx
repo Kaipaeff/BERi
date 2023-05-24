@@ -4,9 +4,10 @@ import truckIcon from './img/truck.jpg';
 import { productType } from '../../../types/product';
 import CartProduct from '../CartProduct';
 import DileveryPay from '../DileveryPay/DileveryPay';
-import { useAppDispatch } from '../../../redux/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import { addGoodsReducer } from '../../../redux/slices/shopCard/card.slice';
 import { Progress } from 'antd';
+import { RootState } from '../../../types/types';
 
 export default function ShopCart() {
   useEffect(() => {
@@ -95,6 +96,7 @@ export default function ShopCart() {
     // сумму доставки брать из бека? сейчас это 100
     return totalPrice;
   };
+
 
   return (
     <div className={styles.Main}>

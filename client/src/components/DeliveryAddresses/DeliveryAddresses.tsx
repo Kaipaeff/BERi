@@ -17,6 +17,7 @@ export default function DeliveryAddresses({ userId }: { userId: number }) {
   const addNewAdressBtn = useAppSelector(
     (state: RootState) => state.AddNewAddressBtn.addNewAdressBtn
   );
+
   useEffect(() => {
     dispatch(getDeliveryAddress(userId));
   }, []);

@@ -49,6 +49,7 @@ export default function ProductPage(): JSX.Element {
       dispatch(addGoodsReducer(firtsAddProductInLocalStorage));
     }
   };
+
   return (
     <div className={style.cardContainer}>
       <img className={style.img} src={el.Images[0].src} alt="cloth" />
