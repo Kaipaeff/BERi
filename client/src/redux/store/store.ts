@@ -9,7 +9,7 @@ import ColorSchemeReducer from '../slices/ColorSheme/colorScheme.slice';
 import CartSlice from '../slices/shopCard/card.slice';
 import AgeReducer from '../slices/age.slice';
 import VendorReducer from '../slices/Vendor/vendor.slise';
-import ProductPropsReducer from '../slices/ProductProps/productprops.slice'
+import ProductPropsReducer from '../slices/ProductProps/productprops.slice';
 import SizeTableReducer from '../slices/SizeTable/sizetable.slice';
 import AllTypesOfProductReducer from '../slices/TypeOfProduct/typeOfProducts.slice';
 
@@ -25,7 +25,7 @@ export const store = configureStore({
     VendorReducer,
     CategoryCRUDReducer,
     ColorSchemeReducer,
-    ProductPropsReducer
+    ProductPropsReducer,
     SizeTableReducer,
     AllTypesOfProductReducer,
   },

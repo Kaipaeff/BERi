@@ -21,7 +21,7 @@ const sizesRoutes = require('./routes/sizes.rourer');
 const typeofproductRouter = require('./routes/typesofproduct.router');
 const router = require('./routes/index');
 const errorMiddledware = require('./middlewares/error-middleware');
-
+const orderMailRouter = require('./routes/orderMail.router');
 // вызов функции проверки соединения с базоый данных
 dbCheck();
 
@@ -51,6 +51,7 @@ app.use('/categories', categoriesRoutes);
 app.use('/colorschemes', colorSchemeRoutes);
 app.use('/sizes', sizesRoutes);
 app.use('/typeofproduct', typeofproductRouter);
+app.use('/order', orderMailRouter);
 
 const PORT = process.env.PORT || 3100;
 
