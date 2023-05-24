@@ -25,7 +25,7 @@ export const store = configureStore({
     VendorReducer,
     CategoryCRUDReducer,
     ColorSchemeReducer,
-    ProductPropsReducer
+    ProductPropsReducer,
     SizeTableReducer,
     AllTypesOfProductReducer,
   },
