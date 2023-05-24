@@ -1,0 +1,97 @@
+.conteiner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 200px;
+    height: 40px;
+    border: 1px solid #d1d1d1;
+  }
+
+  .titleText {
+    font-size: 26px;
+  }
+  
+  .title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .btnblock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: auto;
+    cursor: pointer;
+  }
+  
+  .label {
+    font-size: 14px;
+  }
+  
+  .inputElement {
+    width: 130px;
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 10px;
+
+  }
+
+  .inputElementBlock {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* border: 1px solid #eb2020; */
+  }
+
+  .inputElementBlockDown {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    display: flex;
+  }
+
+
+  .checkMarkRing {
+    cursor: pointer;
+  }
+  
+  .editIconBtn {
+    height: 25px;
+  }
+  
+  .editIconBtn:active {
+    background-color: #d1d1d1;
+    border-radius: 50%;
+  }
+  
+  .deleteIconBtn {
+    height: 40px;
+  }
+  
+  .deleteIconBtn:active {
+    background-color: #6b2020;
+    border-radius: 50%;
+  }
+  
+  .submitFormBtn {
+    border: none;
+    background: none;
+  }
+  
+  .checkMarkRing:active {
+    background-color: #d1d1d1;
+    border-radius: 50%;
+  }
+  
+  /* .editInputConteiner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #0a5c07;
+  } */

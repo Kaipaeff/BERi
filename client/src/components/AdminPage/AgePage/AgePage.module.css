@@ -1,0 +1,138 @@
+.titlePage {
+  margin-bottom: 5px;
+}
+
+.searchRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  gap: 4px;
+}
+.filterBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  width: 89%;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 5px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-height: 500px;
+  gap: 5px;
+}
+.filterFirstElement {
+  width: 300px;
+}
+
+.inputBlockConteiner {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.searchSimbol {
+  padding-top: 5px;
+  margin-left: 3px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+.searchSimbol:hover {
+  border-radius: 50%;
+  background-color: rgb(202, 202, 202);
+}
+
+.searchOffSimbol {
+  padding-top: 5px;
+  margin-left: 3px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+.searchOffSimbol:hover {
+  border-radius: 50%;
+  background-color: yellow;
+  height: 20px;
+}
+
+.inputTextElement {
+  height: 25px;
+  width: 350px;
+  cursor: pointer;
+  font-size: 20px;
+  padding-left: 5px;
+}
+
+.inputElement {
+  cursor: pointer;
+}
+
+.findBtn {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.message {
+  font-size: 25px;
+  color: red;
+  display: flex;
+  align-items: centr;
+  justify-content: center;
+  margin-top: 100px;
+  width: auto;
+}
+
+.premiumIcon {
+  height: 15px;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 11%;
+  height: 36px;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #121212;
+  border: none;
+  cursor: pointer;
+}
+
+.actionBtn:active {
+  background: #3f3f3f;
+}
+
+.actionBtn img {
+  width: 23px;
+  height: 25px;
+}
+
+.cancelBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 11%;
+  height: 36px;
+  border-radius: 4px;
+  color: #121212;
+  font-size: 16px;
+  background-color: #f5c658;
+  border: none;
+  cursor: pointer;
+}

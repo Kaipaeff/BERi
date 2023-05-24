@@ -1,5 +1,5 @@
 import React from 'react';
-import { El } from '../../types/types';
+// import { El } from '../../types/types';
 import { useLocation, useNavigate } from 'react-router-dom';
 import style from './ProductPage.module.css';
 import { productType } from '../../types/product';
