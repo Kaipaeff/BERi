@@ -69,12 +69,14 @@ export function Catalog(): JSX.Element {
           </div>
         </div>
       </div>
-      <Pagination
-        defaultCurrent={1}
-        total={filteredProduct.length}
-        pageSize={8}
-        onChange={handlePageChange}
-      />
+      <div className={style.pagination}>
+        <Pagination
+          defaultCurrent={1}
+          total={filteredProduct.length}
+          pageSize={8}
+          onChange={handlePageChange}
+        />
+      </div>
       <MainBrandsBlock />
     </>
   );
