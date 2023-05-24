@@ -132,9 +132,13 @@ export default function ListOfOrders(): JSX.Element {
         <div className={styleListOfOrder.columnEmail}>Электронный адрес</div>
         <div className={styleListOfOrder.columnPhone}>Телефон</div>
         <div className={styleListOfOrder.columnAddress}>Адрес доставки</div>
+        <div className={styleListOfOrder.columnDate}>Дата</div>
         <div className={styleListOfOrder.columnStatuses}>Статус</div>
         <div className={styleListOfOrder.columnButtons}>Действия</div>
       </div>
+      <table>
+        <td></td>
+      </table>
 
       {/* -------------------------- */}
 

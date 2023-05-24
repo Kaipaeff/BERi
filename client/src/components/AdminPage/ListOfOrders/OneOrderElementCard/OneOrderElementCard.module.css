@@ -63,6 +63,17 @@
   padding-right: 3px;
   background-color: rgb(240, 239, 239);
 }
+.columnOrderData {
+  width: 12%;
+  height: 35px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-right: 1px solid rgb(202, 202, 202);
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: rgb(240, 239, 239);
+}
 .columnStatuses {
   width: 10%;
   height: 35px;
@@ -84,4 +95,16 @@
   padding-left: 3px;
   padding-right: 3px;
   background-color: rgb(240, 239, 239);
+}
+
+.editIconBtn {
+  cursor: pointer;
+}
+
+.clipboardTextBtn {
+  cursor: pointer;
+}
+
+.deleteIconBtn {
+  cursor: pointer;
 }
