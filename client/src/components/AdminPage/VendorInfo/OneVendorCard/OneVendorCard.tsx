@@ -119,18 +119,18 @@ export default function OneVendorCard({
             <h3>{OneVendor.name}</h3>
             <p>Страна: {OneVendor.country}</p>
             {OneVendor.premium && (
-              <div className={styleOneVendorCard.premiumIconBlock}>
                 <img
                   className={styleOneVendorCard.premiumIcon1}
                   src={premimumIcon}
                   alt="premimum"
                 />
-                <img
+              // <div className={styleOneVendorCard.premiumIconBlock}>
+                /* <img
                   className={styleOneVendorCard.premiumIcon2}
                   src={premimumIcon1}
                   alt="premimum"
-                />
-              </div>
+                /> */
+              /* </div> */
             )}
           </div>
         )}

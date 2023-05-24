@@ -140,7 +140,7 @@ export default function Categories(): JSX.Element {
       ) : (
         <span className={styleCategories.message}>
           Информация о категориях отсутствует! Попробуйте изменить условие
-          поиска...
+          поиска.
         </span>
       )}
     </>

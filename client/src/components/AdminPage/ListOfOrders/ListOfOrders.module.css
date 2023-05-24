@@ -1,6 +1,5 @@
 .titlePage {
   margin-bottom: 5px;
-  color: #4d4d4d;
 }
 
 .searchRow {
@@ -8,36 +7,32 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  height: 80px;
   padding: 5px;
-  gap: 20px;
-  border: 1px solid #d1d1d1;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  gap: 4px;
 }
 .filterBlock {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  width: 89%;
+  padding: 5px;
+  width: 100%;
   border: 1px solid rgb(202, 202, 202);
-  /* border-radius: 5px; */
+  border-radius: 5px;
 }
 
 .content {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
   max-height: 500px;
   gap: 5px;
-  overflow: auto;
-  /* border: 1px solid #e92525; */
-
 }
 .filterFirstElement {
-  width: 200px;
+  width: 300px;
 }
 
 .inputBlockConteiner {
@@ -72,9 +67,11 @@
 }
 
 .inputTextElement {
-  height: 25px;
+  height: 28px;
   width: 350px;
   cursor: pointer;
+  padding-left: 5px;
+  font-size: 18px;
 }
 
 .inputElement {
@@ -89,7 +86,7 @@
 
 .message {
   font-size: 25px;
-  color: #4d4d4d;
+  color: red;
   display: flex;
   align-items: centr;
   justify-content: center;
@@ -138,4 +135,77 @@
   background-color: #f5c658;
   border: none;
   cursor: pointer;
+}
+
+.tableTitle {
+  width: 100%;
+  height: 35px;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
+  background-color: rgb(240, 239, 239);
+  border: 1px solid rgb(202, 202, 202);
+  font-size: 12px;
+}
+.columnId {
+  /* width: 20px; */
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgb(202, 202, 202);
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.columnPrice {
+  /* width: 10%; */
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgb(202, 202, 202);
+}
+.columnEmail {
+  /* width: 20%; */
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgb(202, 202, 202);
+}
+.columnPhone {
+  /* width: 15%; */
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgb(202, 202, 202);
+}
+.columnAddress {
+  /* width: 45%; */
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgb(202, 202, 202);
+}
+.columnStatuses {
+  /* width: 45%; */
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgb(202, 202, 202);
+}
+.columnButtons {
+  /* width: 5px; */
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

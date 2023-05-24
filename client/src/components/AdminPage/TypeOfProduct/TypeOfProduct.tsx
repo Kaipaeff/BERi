@@ -141,7 +141,7 @@ export default function ProductsType(): JSX.Element {
       ) : (
         <span className={styleProductsType.message}>
           Информация о типах товаров отсутствует! Попробуйте изменить условие
-          поиска...
+          поиска.
         </span>
       )}
     </>
