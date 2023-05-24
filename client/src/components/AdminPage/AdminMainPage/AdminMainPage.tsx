@@ -62,7 +62,7 @@ export default function AdminMainPage() {
               onClick={() => setSelectorPage(4)}
               className={styleAdminMainPage.selectorPageLink}
             >
-              Категории
+              Категории товаров
             </p>
 
             <p
@@ -97,7 +97,7 @@ export default function AdminMainPage() {
               onClick={() => setSelectorPage(9)}
               className={styleAdminMainPage.selectorPageLink}
             >
-              Заказы
+              Заказы пользователей
             </p>
 
             <p
