@@ -10,7 +10,7 @@ route.post('/', (req, res) => {
     infoProduct.name = el.name;
   });
   console.log(infoProduct, '<<<<INFOPRODUCT');
-  console.log(test, '<<<<<<TEST');
+  //   console.log(test, '<<<<<<TEST');
   const { phone, adress } = req.body;
 
   const message = {
@@ -19,7 +19,7 @@ route.post('/', (req, res) => {
     subject: 'THEME MAIL TEST MAIL SEEEEEEND',
     text: `Номер клиента: ${phone}
     Адрес клиента: ${adress}
-    Товары: ${test}
+    Товары: 123123123
     `,
   };
   sendOrderMail(message);

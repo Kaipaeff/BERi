@@ -1,6 +1,6 @@
 export const fetchSendOrderMail = async (order: any) => {
   try {
-    await fetch('/order', {
+    await fetch('/sendOrderMail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

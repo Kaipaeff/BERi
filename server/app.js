@@ -52,7 +52,7 @@ app.use('/categories', categoriesRoutes);
 app.use('/colorschemes', colorSchemeRoutes);
 app.use('/sizes', sizesRoutes);
 app.use('/typeofproduct', typeofproductRouter);
-app.use('/order', orderMailRouter);
+app.use('/sendOrderMail', orderMailRouter);
 app.use('/order', ordersRoutes);
 
 const PORT = process.env.PORT || 3100;
