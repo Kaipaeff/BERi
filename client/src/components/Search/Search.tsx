@@ -16,47 +16,31 @@ export function Search() {
     (state: RootState) => state.ProductReducer.products
   );
 
-  // let allProductsArr = allProducts;
-
   const [findProductName, setFindProductName] = useState('');
-  const [findElementInputActive, setFindElementInputActive] = useState(false);
-  // const [prod, setProd] = useState(allProducts);
-
+  const [stateText, setStateText] = useState('');
   useEffect(() => {
     dispatch(getProducts());
   }, []);
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   if (findProductName.length) {
-        // dispatch(findProductByName(findProductName));
-        // setFindElementInputActive(!findElementInputActive);
-      // }
-       
-      // setFindElementInputActive(!findElementInputActive);
-      // setFindProductName('');
-    // }, 300);
     console.log(findProductName);
-    console.log("🚀🚀🚀🚀🚀 ~ findElementInputActive:", findElementInputActive)
   }, [findProductName]);
 
   return (
-    <>
-      <h4 className="titlePage">Страница поиска</h4>
-      <div className="searchRow">
+    <div className={style.mainSearchPage}>
+      {/* <h4 className="titlePage"></h4> */}
+      <div className={style.searchRow}>
         <form
+          className={style.formSearchPage}
           onSubmit={(e: React.FormEvent<HTMLFormElement>): void => {
             e.preventDefault();
-            // if (findProductName.length) {
-            //   dispatch(findProductByName(findProductName));
-            //   setFindElementInputActive(!findElementInputActive);
-            // }
+            setStateText(findProductName);
           }}
         >
           <div className={style.inputBlockConteiner}>
             <input
-            placeholder='Поиск товаров...'
-              className="inputTextElement"
+              placeholder="Поиск товаров..."
+              className={style.inputTextElement}
               type="text"
               name="findEmail"
               value={findProductName}
@@ -64,39 +48,33 @@ export function Search() {
                 setFindProductName(e.target.value)
               }
             />
-            {/* <span title="Найти по названию" aria-label="find">
-                <button type="submit" className="findBtn" onClick={() => {
-                  if (findProductName.length) {
-                    dispatch(findProductByName(findProductName));
-                    setFindElementInputActive(!findElementInputActive);
-                    
-                  }
-                    setFindElementInputActive(!findElementInputActive);
-                    setFindProductName('');
-                    
-                  }}>
-                  <img className="searchSimbol" src={search} alt="search" />
-                </button>
-              </span> */}
+            <span title="Найти по названию" aria-label="find">
+              <button type="submit" className={style.findBtn}>
+                <img className={style.searchSimbol} src={search} alt="search" />
+              </button>
+            </span>
           </div>
         </form>
       </div>
-
-      {allProducts.length && findProductName ? (
+      <br />
+      {stateText.length ? (
+        <span className="message">Результы по запросу "{stateText}"</span>
+      ) : null}
+      {allProducts.length && stateText.length ? (
         <div className={style.content}>
-          {allProducts.filter(
-          (el): boolean =>
-            el.name.toUpperCase().includes(findProductName.toUpperCase())
-        ).map((product) => (
-            // <div key={product.id}>{product.name}</div>
-            <React.Fragment key={product.id}>
-              <OneCardSearch oneProduct={product} />
-            </React.Fragment>
-          ))}
+          {allProducts
+            .filter((el): boolean =>
+              el.name.toUpperCase().includes(stateText.toUpperCase())
+            )
+            .map((product) => (
+              <React.Fragment key={product.id}>
+                <OneCardSearch oneProduct={product} />
+              </React.Fragment>
+            ))}
         </div>
       ) : (
-        <span className="message">Информация о товарах отсутствует</span>
+        <span className="message"></span>
       )}
-    </>
+    </div>
   );
 }

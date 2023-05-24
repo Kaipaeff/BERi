@@ -1,18 +1,47 @@
 .content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-.inputBlockConteiner {
+.mainSearchPage {
 
 }
+.searchRow {
+/* margin-left: 100%; */
+
+}
+.inputTextElement {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+  border-radius: 6px;
+  width: 450px;
+  height: 52px;
+}
+.findBtn {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  margin-left: 420px;
+  margin-top: -32px;
+}
+.formSearchPage {
+ 
+}
+.searchSimbol {
+    transform: scale(1.5);
+}
+
+
 @media (max-width: 1200px) {
-    .singleTodo {
-      width: 40%;
-    }
+  .mainSearchPage {
+    width: 40%;
   }
+}
 @media (max-width: 700px) {
-    .singleTodo {
-      width: 100%;
-    }
+  .mainSearchPage {
+    width: 100%;
   }
+}
