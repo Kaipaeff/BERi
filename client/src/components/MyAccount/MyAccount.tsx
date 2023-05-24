@@ -6,6 +6,7 @@ import { Context } from '../../index';
 import { Link, useNavigate } from 'react-router-dom';
 
 import arrawLeft from '../../img/icons/arrow-left.svg'
+import account from '../../img/icons/user-check.svg'
 
 
 
@@ -30,6 +31,7 @@ export default function MyAccount() {
       <div className={styleMyAccount.conteiner}>
 
         <div className={styleMyAccount.title}>
+          <img className={styleMyAccount.titleIcon} src={account} alt="account" />
           <h1>Личный кабинет</h1>
         </div>
         

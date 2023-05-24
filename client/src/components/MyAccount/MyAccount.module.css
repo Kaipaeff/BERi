@@ -25,10 +25,20 @@
 }
 
 .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
   width: 100%;
   margin-bottom: 50px;
+  font-size: 12px;
   border-bottom: 1px solid #d1d1d1;
+  padding-bottom: 5px;
   color: #4d4d4d;
+}
+
+.titleIcon {
+  height: 22px;
 }
 
 .dashboard {
