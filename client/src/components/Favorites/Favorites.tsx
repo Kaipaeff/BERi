@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import arrawLeft from '../../img/icons/arrow-left.svg'
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import Advantages from '../Advantages/Advantages';
-import FilterBar from '../FilterBar/FilterBar';
+// import FilterBar from '../FilterBar/FilterBar';
 import { getCategoryState } from '../../redux/selectors/category.selector';
 
 
