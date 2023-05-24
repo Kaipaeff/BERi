@@ -2,6 +2,7 @@ import IOneAge from '../types/Age.type';
 import IOneCategory from '../types/Category.types';
 import IOneColorElement from '../types/ColorTable.types';
 import IDeliveryAddress from '../types/DeliveryAddress';
+import IOneOrderElement from '../types/ListOfOrders.type';
 import IOneSize from '../types/Size.types';
 import IOneTypeOfProduct from '../types/TypeOfProducts.type';
 import IOneUser from '../types/UserTypes';
@@ -77,5 +78,10 @@ export type stateTypeAllTypesOfProduct = {
 
 export type stateTypeAges = {
   allAges: IOneAge[];
+  loading: boolean;
+};
+
+export type stateTypeListOfOrders = {
+  fullListOfOreders: IOneOrderElement[];
   loading: boolean;
 };
