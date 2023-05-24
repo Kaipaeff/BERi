@@ -11,6 +11,7 @@ import AgeReducer from '../slices/age.slice';
 import VendorReducer from '../slices/Vendor/vendor.slise';
 import SizeTableReducer from '../slices/SizeTable/sizetable.slice';
 import AllTypesOfProductReducer from '../slices/TypeOfProduct/typeOfProducts.slice';
+import ListOfUserOrdersReduser from '../slices/ListOfOrders/listOfOrders.slice';
 
 export const store = configureStore({
   reducer: {
@@ -26,6 +27,7 @@ export const store = configureStore({
     ColorSchemeReducer,
     SizeTableReducer,
     AllTypesOfProductReducer,
+    ListOfUserOrdersReduser,
   },
 });
 
