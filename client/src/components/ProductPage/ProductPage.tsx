@@ -13,8 +13,15 @@ import { getProductPropsFromBack } from '../../redux/Thunk/ProductProps/getProdu
 import { getLoading } from '../../redux/slices/ProductProps/loading.selector';
 import { getProductProps } from '../../redux/slices/ProductProps/productprops.selector';
 import { BsCircleFill } from 'react-icons/bs';
+import favorites from '../../img/icons/favorites.svg'
+import favorite from '../../img/icons/favorite.svg'
+
 
 export default function ProductPage(): JSX.Element {
+
+  const [isFavorite, setIsFavorite] = useState(false)
+
+
   const location = useLocation();
   const el = location.state.el;
   const dispatch = useAppDispatch();
@@ -91,6 +98,14 @@ export default function ProductPage(): JSX.Element {
 
       <div className={style.cardContainer}>
         <img className={style.productImg} src={el.Images[0].src} alt="cloth" />
+
+        {isFavorite ? 
+          <img onClick={() => setIsFavorite(!isFavorite)} className={style.favoriteTrue} src={favorite} alt="favorite" />
+        :
+          <img onClick={() => setIsFavorite(!isFavorite)} className={style.favoriteFalse} src={favorites} alt="favorite" />
+        }
+
+
         <div className={style.descriptionContainer}>
           <div className={style.description}>
             <p className={style.name}>
@@ -171,3 +186,7 @@ export default function ProductPage(): JSX.Element {
     </div>
   );
 }
+
+
+{/* <img className={style.favoriteFalse} src={favorites} alt="favorite" /> */}
+{/* <img className={style.favoriteTrue} src={favorite} alt="favorite" /> */}
