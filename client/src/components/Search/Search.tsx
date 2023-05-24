@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { RootState } from '../../types/types';
-import { findProductByName } from '../../redux/slices/product.slice';
+
 import { getProducts } from '../../redux/Thunk/Products/getProducts';
+import OneCardSearch from './OneCardSearch';
+import style from './search.module.css';
 
 import search from '../../img/icons/search.svg';
 import searchOff from '../../img/icons/searchOff.svg';
@@ -14,12 +16,29 @@ export function Search() {
     (state: RootState) => state.ProductReducer.products
   );
 
+  // let allProductsArr = allProducts;
+
   const [findProductName, setFindProductName] = useState('');
   const [findElementInputActive, setFindElementInputActive] = useState(false);
+  // const [prod, setProd] = useState(allProducts);
 
   useEffect(() => {
     dispatch(getProducts());
   }, []);
+
+  useEffect(() => {
+    // setTimeout(() => {
+    //   if (findProductName.length) {
+        // dispatch(findProductByName(findProductName));
+        // setFindElementInputActive(!findElementInputActive);
+      // }
+       
+      // setFindElementInputActive(!findElementInputActive);
+      // setFindProductName('');
+    // }, 300);
+    console.log(findProductName);
+    console.log("🚀🚀🚀🚀🚀 ~ findElementInputActive:", findElementInputActive)
+  }, [findProductName]);
 
   return (
     <>
@@ -28,14 +47,15 @@ export function Search() {
         <form
           onSubmit={(e: React.FormEvent<HTMLFormElement>): void => {
             e.preventDefault();
-            if (findProductName.length) {
-              dispatch(findProductByName(findProductName));
-              setFindElementInputActive(!findElementInputActive);
-            }
+            // if (findProductName.length) {
+            //   dispatch(findProductByName(findProductName));
+            //   setFindElementInputActive(!findElementInputActive);
+            // }
           }}
         >
-          <div className="inputBlockConteiner">
+          <div className={style.inputBlockConteiner}>
             <input
+            placeholder='Поиск товаров...'
               className="inputTextElement"
               type="text"
               name="findEmail"
@@ -44,38 +64,34 @@ export function Search() {
                 setFindProductName(e.target.value)
               }
             />
-            {findElementInputActive ? (
-              <span title="Отменить поиск" aria-label="find">
-                <button
-                  onClick={() => {
+            {/* <span title="Найти по названию" aria-label="find">
+                <button type="submit" className="findBtn" onClick={() => {
+                  if (findProductName.length) {
+                    dispatch(findProductByName(findProductName));
+                    setFindElementInputActive(!findElementInputActive);
+                    
+                  }
                     setFindElementInputActive(!findElementInputActive);
                     setFindProductName('');
-                    dispatch(getProducts());
-                  }}
-                  className="findBtn"
-                >
-                  <img
-                    className="searchOffSimbol"
-                    src={searchOff}
-                    alt="search"
-                  />
-                </button>
-              </span>
-            ) : (
-              <span title="Найти по названию" aria-label="find">
-                <button type="submit" className="findBtn">
+                    
+                  }}>
                   <img className="searchSimbol" src={search} alt="search" />
                 </button>
-              </span>
-            )}
+              </span> */}
           </div>
         </form>
       </div>
 
-      {allProducts.length ? (
-        <div className="content">
-          {allProducts.map((product) => (
-            <div key={product.id}>{product.name}</div>
+      {allProducts.length && findProductName ? (
+        <div className={style.content}>
+          {allProducts.filter(
+          (el): boolean =>
+            el.name.toUpperCase().includes(findProductName.toUpperCase())
+        ).map((product) => (
+            // <div key={product.id}>{product.name}</div>
+            <React.Fragment key={product.id}>
+              <OneCardSearch oneProduct={product} />
+            </React.Fragment>
           ))}
         </div>
       ) : (
