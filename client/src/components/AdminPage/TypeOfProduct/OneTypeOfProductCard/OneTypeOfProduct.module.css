@@ -17,13 +17,13 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
 }
 
 .btnblock {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   /* justify-content: flex-end; */
   width: auto;
