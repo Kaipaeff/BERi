@@ -20,7 +20,7 @@
 }
 
 .columnPrice {
-  width: 130px;
+  width: 100px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -37,10 +37,12 @@
   border-right: 1px solid #cacaca;
   padding: 0 10px 0 10px;
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .columnPhone {
-  width: 150px;
+  width: 130px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -50,24 +52,25 @@
 }
 
 .columnAddress {
-  width: 300px;
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-right: 1px solid #cacaca;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.columnOrderData {
+  width: 120px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   border-right: 1px solid #cacaca;
   padding: 0 10px 0 10px;
   font-size: 14px;
-}
-.columnOrderData {
-  width: 12%;
-  height: 35px;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  border-right: 1px solid rgb(202, 202, 202);
-  padding-left: 3px;
-  padding-right: 3px;
-  background-color: rgb(240, 239, 239);
 }
 .columnStatuses {
   width: 120px;
