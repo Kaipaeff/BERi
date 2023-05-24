@@ -56,6 +56,18 @@ route.get('/', async (req, res) => {
   }
 });
 
+route.get('/productprops', async (req, res) => {
+  try {
+    const findProductProps = await ProductProps.findAll();
+
+    const categories = findCategories.map((el) => el.get({ plain: true }));
+
+    res.json(categories);
+  } catch (error) {
+    res.json({ error });
+  }
+});
+
 route.get('/categories', async (req, res) => {
   try {
     const findCategories = await ProductType.findAll();
