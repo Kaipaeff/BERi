@@ -3,15 +3,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 3px;
   padding: 5px;
-  margin: 5px 0px;
-  gap: 5px;
-  width: 303px;
-  height: 70px;
-  background: #ffffff;
+  margin-bottom: 30px;
+  width: 260px;
+  height: 80px;
   border: 1px solid #cbcbcb;
-  border-radius: 6px;
+  /* border-radius: 6px; */
 }
 .titleText {
   width: 85%;

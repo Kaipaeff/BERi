@@ -138,7 +138,7 @@ export default function ColorTable() {
       ) : (
         <span className={styleColorTable.message}>
           Информация о цветах товаров отсутствует! Попробуйте изменить условие
-          поиска...
+          поиска.
         </span>
       )}
     </>

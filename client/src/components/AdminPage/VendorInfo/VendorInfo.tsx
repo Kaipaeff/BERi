@@ -194,7 +194,8 @@ export default function VendorInfo(): JSX.Element {
         </div>
       ) : (
         <span className={styleVendorInfo.message}>
-          Информация о поставщиках отсутствует! Попробуйте изменить фильтр.
+          Информация о поставщиках отсутствует! Попробуйте изменить условие
+          поиска.
         </span>
       )}
     </>

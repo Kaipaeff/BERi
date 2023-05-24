@@ -143,7 +143,7 @@ export default function AgePage(): JSX.Element {
       ) : (
         <span className={styleAgePage.message}>
           Информация о категориях отсутствует! Попробуйте изменить условие
-          поиска...
+          поиска.
         </span>
       )}
     </>
