@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { El } from '../../types/types';
 import { useLocation, useNavigate } from 'react-router-dom';
 import style from './ProductPage.module.css';
@@ -9,7 +9,6 @@ import arrowRight from '../../img/icons/arrowRight.svg';
 import arrawLeft from '../../img/icons/arrow-left.svg';
 import Rating from '../Rating/Rating/Rating';
 import SetRating from '../Rating/SetRating/SetRating';
-
 
 export default function ProductPage(): JSX.Element {
   const location = useLocation();
@@ -56,6 +55,15 @@ export default function ProductPage(): JSX.Element {
 
   const navigate = useNavigate();
 
+  const [activeRating, setActiveRating] = useState<boolean>(false);
+
+  function handleActiveRating() {
+    setActiveRating(true);
+  }
+
+  function handleInactiveRating() {
+    setActiveRating(false);
+  }
 
   return (
     <div className={style.wrapper}>
@@ -75,8 +83,21 @@ export default function ProductPage(): JSX.Element {
               <b>Описание:</b> <br />
               {el.description}
             </p>
-            <Rating el={el} />
-            <SetRating />
+            {activeRating ? (
+              <div
+                className={style.setRatingDiv}
+                onMouseLeave={handleInactiveRating}
+              >
+                <SetRating />
+              </div>
+            ) : (
+              <div
+                className={style.ratingDiv}
+                onMouseEnter={handleActiveRating}
+              >
+                <Rating el={el} />
+              </div>
+            )}
           </div>
           <div className={style.btnContainer}>
             {/* <div className={style.priceContainer}> */}

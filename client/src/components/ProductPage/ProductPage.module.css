@@ -75,6 +75,17 @@
   cursor: pointer;
 }
 
+.ratingDiv {
+  width: 180px;
+  height: 50px;
+  padding-left: 1px;
+}
+
+.setRatingDiv {
+  width: 180px;
+  height: 50px;
+}
+
 .addToCardBtn:active {
   background: #3f3f3f;
 }

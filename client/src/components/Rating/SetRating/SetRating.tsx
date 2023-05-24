@@ -20,7 +20,7 @@ export default function SetRating() {
             {currentRating <= (hover || rating) ? (
               <BsStarFill
                 className={style.starIcon}
-                size={30}
+                size={28}
                 color={'#ff760d'}
                 onMouseEnter={() => setHover(currentRating)}
                 onMouseLeave={() => setHover(0)}
@@ -28,7 +28,7 @@ export default function SetRating() {
             ) : (
               <BsStar
                 className={style.starIcon}
-                size={30}
+                size={28}
                 color={'#ff760d'}
                 onMouseEnter={() => setHover(currentRating)}
                 onMouseLeave={() => setHover(0)}
@@ -37,7 +37,7 @@ export default function SetRating() {
           </label>
         );
       })}
-      <p>Рейтинг {rating}</p>
+      <p>{rating}</p>
     </div>
   );
 }
