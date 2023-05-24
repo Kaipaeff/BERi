@@ -19,7 +19,7 @@
   height: 700px;
   margin-bottom: 40px;
   padding: 30px;
-  /* border: 1px solid #e03d3d; */
+  border: 1px solid #cfcfcf;
 }
 
 .productImg {
@@ -90,6 +90,8 @@
   align-items: center;
   margin-bottom: 20px;
   cursor: pointer;
+  width: 70px;
+  /* border: 1px solid #e03d3d; */
 }
 
 .backArrow img {
