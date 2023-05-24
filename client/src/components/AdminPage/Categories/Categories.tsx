@@ -25,7 +25,7 @@ export default function Categories(): JSX.Element {
     (state: RootState) => state.CategoryCRUDReducer.allCategories
   );
 
-  const [filterStatus, setFilterStatus] = useState(0);
+
   const [findElementInputActive, setFindElementInputActive] = useState(false);
   const [findCategories, setFindCategories] = useState('');
 
@@ -140,7 +140,7 @@ export default function Categories(): JSX.Element {
       ) : (
         <span className={styleCategories.message}>
           Информация о категориях отсутствует! Попробуйте изменить условие
-          поиска...
+          поиска.
         </span>
       )}
     </>

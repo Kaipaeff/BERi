@@ -13,24 +13,17 @@
 .container {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   justify-content: space-between;
   /* gap: 120px; */
   /* border: 1px solid #09830f; */
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   width: 100%;
-}
-
-.filterBar {
-  /* border: 1px solid #340983; */
-  height: 100%;
-  display: flex;
-  align-items: flex-start;
 }
 
 .productsContainer {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid #ee3a0d; */
 }
 
 .loadedCards {
@@ -38,9 +31,10 @@
   justify-content: space-between;
   flex-wrap: wrap;
   height: 100%;
-  gap: 50px;
+  /* gap: 20px; */
 }
 
 .pagination {
   margin: 0 auto 60px auto;
+  color: black;
 }

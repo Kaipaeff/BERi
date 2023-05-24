@@ -17,6 +17,7 @@ export default function DeliveryAddresses({ userId }: { userId: number }) {
   const addNewAdressBtn = useAppSelector(
     (state: RootState) => state.AddNewAddressBtn.addNewAdressBtn
   );
+
   useEffect(() => {
     dispatch(getDeliveryAddress(userId));
   }, []);
@@ -26,8 +27,8 @@ export default function DeliveryAddresses({ userId }: { userId: number }) {
       {!addresses.length && (
         <div className={styleDeliveryAddress.addAddressConteiner}>
           <div>
-            <h4>Информация о адресах доставки отсутствует!</h4>
-            <p>Пожалуйста, заполните необходимую информацию...</p>
+            <h4>Информация об адресах доставки отсутствует!</h4>
+            <p>Пожалуйста, заполните необходимую информацию.</p>
           </div>
           <br />
           <AddDeliveryAddress userId={userId} isCancel={false} />

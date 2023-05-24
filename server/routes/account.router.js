@@ -3,7 +3,6 @@ const router = express.Router();
 const { DeliveryAddress } = require('../db/models');
 
 router.get('/address/:id', async (req, res) => {
-  console.log('ADDRESS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
   try {
     const userId = req.params.id;
     const response = await DeliveryAddress.findAll({

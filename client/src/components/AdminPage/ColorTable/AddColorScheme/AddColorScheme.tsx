@@ -1,11 +1,17 @@
-import React, { CSSProperties, useState } from 'react';
+import React, { useState } from 'react';
 import styleAddColorScheme from './AddColorScheme.module.css';
 import checkMarkRing from '../../../../img/icons/checkMarkRing.svg';
 import { INewColorElement } from '../../../../types/ColorTable.types';
 import { useAppDispatch } from '../../../../redux/hooks/hooks';
 import { fetchAddColorSchemeFromBack } from '../../../../redux/Thunk/ColorScheme/fetchAddColorSchemeFromBack.api';
 
-export default function AddColorScheme() {
+export default function AddColorScheme({
+  addCardIsActive,
+  setAddCardIsActive,
+}: {
+  addCardIsActive: boolean;
+  setAddCardIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const dispatch = useAppDispatch();
   const [colorName, setColorName] = useState('');
   const [selectedColor, setSelectedColor] = useState('#000000');
@@ -14,10 +20,11 @@ export default function AddColorScheme() {
     e.preventDefault();
 
     const NewColor: INewColorElement = {
-      color: colorName,
-      colorCode: selectedColor,
+      color: colorName.toUpperCase(),
+      colorCode: selectedColor.toUpperCase(),
     };
     dispatch(fetchAddColorSchemeFromBack(NewColor));
+    setAddCardIsActive(!addCardIsActive);
   };
 
   return (
@@ -58,7 +65,7 @@ export default function AddColorScheme() {
             <button
               type="submit"
               className={styleAddColorScheme.submitFormBtn}
-              title="Добавить поставщика"
+              title="Добавить"
               aria-label="add"
             >
               <img

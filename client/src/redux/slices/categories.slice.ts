@@ -3,6 +3,7 @@ import { stateCategoriesType } from '../store.types';
 import { getCategories } from '../Thunk/Categories/getCategories';
 
 const initialState: stateCategoriesType = {
+  mainCategoryState: 0,
   ageState: 0,
   sexState: 0,
   categoryState: 0,
@@ -14,6 +15,8 @@ const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
+    setMainCategoryState: (state, action: PayloadAction<number>) =>
+      (state = { ...state, mainCategoryState: action.payload }),
     setCategoryState: (state, action: PayloadAction<number>) =>
       (state = { ...state, categoryState: action.payload }),
     setSexState: (state, action: PayloadAction<number>) =>
@@ -38,6 +41,11 @@ const categoriesSlice = createSlice({
   },
 });
 
-export const { setCategoryState, setSexState, setAgeState } = categoriesSlice.actions;
+export const {
+  setCategoryState,
+  setSexState,
+  setAgeState,
+  setMainCategoryState,
+} = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

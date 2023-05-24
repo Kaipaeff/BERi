@@ -18,6 +18,12 @@ import RegSuccess from '../SuccessOrError/RegSuccess/RegSuccess';
 import MailError from '../SuccessOrError/MailError/MailError';
 import LoginError from '../SuccessOrError/LoginError/LoginError';
 import LoginSuccess from '../SuccessOrError/LoginSuccess/LoginSuccess';
+import {
+  setAgeState,
+  setCategoryState,
+  setMainCategoryState,
+  setSexState,
+} from '../../redux/slices/categories.slice';
 
 export function Navbar() {
   const { storeContext } = useContext(Context);
@@ -53,30 +59,88 @@ export function Navbar() {
       <div className={style.navbar}>
         <div className={style.container}>
           <Link to="/">
-            <div className={style.navLogo}>
+            <div
+              onClick={() => {
+                dispatch(setMainCategoryState(0));
+                dispatch(setSexState(0));
+                dispatch(setAgeState(0));
+                dispatch(setCategoryState(0));
+              }}
+              className={style.navLogo}
+            >
               <span>BERi</span>
             </div>
           </Link>
 
           <div className={style.navMenu}>
             <Link to="/clothes">
-              <span className={style.clothesLink}>одежда</span>
+              <span
+                onClick={() => {
+                  dispatch(setMainCategoryState(1));
+                  dispatch(setSexState(0));
+                  dispatch(setAgeState(0));
+                  dispatch(setCategoryState(0));
+                }}
+                className={style.clothesLink}
+              >
+                одежда
+              </span>
             </Link>
 
             <Link to="/shoes">
-              <span className={style.shoesLink}>обувь</span>
+              <span
+                onClick={() => {
+                  dispatch(setMainCategoryState(2));
+                  dispatch(setSexState(0));
+                  dispatch(setAgeState(0));
+                  dispatch(setCategoryState(0));
+                }}
+                className={style.shoesLink}
+              >
+                обувь
+              </span>
             </Link>
 
             <Link to="/accessories">
-              <span className={style.accessoriesLink}>аксессуары</span>
+              <span
+                onClick={() => {
+                  dispatch(setMainCategoryState(3));
+                  dispatch(setSexState(0));
+                  dispatch(setAgeState(0));
+                  dispatch(setCategoryState(0));
+                }}
+                className={style.accessoriesLink}
+              >
+                аксессуары
+              </span>
             </Link>
 
             <Link to="/premiumbrands">
-              <span className={style.PremiumBrandsLink}>премиум бренды</span>
+              <span
+                onClick={() => {
+                  dispatch(setMainCategoryState(0));
+                  dispatch(setSexState(0));
+                  dispatch(setAgeState(0));
+                  dispatch(setCategoryState(0));
+                }}
+                className={style.PremiumBrandsLink}
+              >
+                премиум бренды
+              </span>
             </Link>
 
             <Link to="/sale">
-              <span className={style.saleLink}>sale %</span>
+              <span
+                onClick={() => {
+                  dispatch(setMainCategoryState(0));
+                  dispatch(setSexState(0));
+                  dispatch(setAgeState(0));
+                  dispatch(setCategoryState(0));
+                }}
+                className={style.saleLink}
+              >
+                sale %
+              </span>
             </Link>
           </div>
 
@@ -91,11 +155,13 @@ export function Navbar() {
               </Link>
 
               <Link to="/favorites">
+              {storeContext.isAuth && (
                 <img
                   className={style.favoritesIcon}
                   src={favorites}
                   alt="favoritesIcon"
                 />
+              )}
               </Link>
             </div>
 
@@ -132,7 +198,7 @@ export function Navbar() {
                 <div className={style.shopCart}>
                   <img className={style.cartIcon} src={cart} alt="cartIcon" />
                   <div className={style.shopCartCounter}>
-                    <p>{resultTotalProductCart}</p>
+                    <p>{resultTotalProductCart || 0}</p>
                   </div>
                 </div>
               </Link>

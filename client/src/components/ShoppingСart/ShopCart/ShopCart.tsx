@@ -4,17 +4,16 @@ import truckIcon from './img/truck.jpg';
 import { productType } from '../../../types/product';
 import CartProduct from '../CartProduct';
 import DileveryPay from '../DileveryPay/DileveryPay';
-import { useAppDispatch } from '../../../redux/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import { addGoodsReducer } from '../../../redux/slices/shopCard/card.slice';
 import { Progress } from 'antd';
+import { RootState } from '../../../types/types';
 
 export default function ShopCart() {
-
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
-  
   // парсинг товаров из localStorage
   const dispatch = useAppDispatch();
   const [goods, setGoods] = useState([]);
@@ -94,7 +93,7 @@ export default function ShopCart() {
       (total: any, currentValue) => total + currentValue,
       0
     );
-    // сумму доставки брать из бека? сейчас это 100
+
     return totalPrice;
   };
 
@@ -108,13 +107,22 @@ export default function ShopCart() {
         <div className={styles.DileveryLine}>
           <div className={styles.DileveryLiner}>
             {' '}
-            <Progress percent={(totalPrice() / 10000) * 100} showInfo={true} />
+            <Progress
+              percent={Math.ceil((totalPrice() / 10000) * 100)}
+              showInfo={true}
+            />
           </div>
 
           <img src={truckIcon} alt="truckIcon" />
         </div>
       </div>
       <div className={styles.Content}>
+        <div className={styles.InfoGoods}>
+          <h5>Товар</h5>
+          <h5>Количество</h5>
+          <h5>Стоимость</h5>
+          <h5>Сумма</h5>
+        </div>
         {goods.length ? (
           goods.map((el: any, i) => (
             <CartProduct

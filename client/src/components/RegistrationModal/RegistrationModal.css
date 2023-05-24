@@ -131,6 +131,16 @@
   color: #ffffff;
 }
 
+.regButton:active {
+  background: #3f3f3f;
+}
+
+.regButton:hover {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 
 .closeIcon {
   position: absolute;

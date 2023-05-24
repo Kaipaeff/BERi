@@ -178,7 +178,7 @@ export default function UsersInfo(): JSX.Element {
             name="isActivatedCheckbox"
             type="checkbox"
           />{' '}
-          Почта активирована
+          Активированы
         </p>
         <p>
           <input
@@ -193,7 +193,7 @@ export default function UsersInfo(): JSX.Element {
             name="nonActivatedCheckbox"
             type="checkbox"
           />{' '}
-          Почта не активирована
+          Не активированы
         </p>
       </div>
       {allUsers.length ? (
@@ -287,7 +287,8 @@ export default function UsersInfo(): JSX.Element {
         </div>
       ) : (
         <span className={styleUserInfo.message}>
-          Информация о юзерах отсутствует! Попробуйте изменить фильтр...
+          Информация о юзерах отсутствует! Попробуйте изменить условие
+          поиска.
         </span>
       )}
     </>

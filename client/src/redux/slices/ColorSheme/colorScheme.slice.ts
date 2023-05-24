@@ -1,8 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { stateTypeColorScheme } from '../../store.types';
 
-
-import IOneCategory from '../../../types/Category.types';
 import IOneColorElement from '../../../types/ColorTable.types';
 import { getAllColorSchemesFromBack } from '../../Thunk/ColorScheme/getAllColorSchemesFromBack';
 
@@ -21,7 +19,7 @@ const colorSchemesSlice = createSlice({
         allColorSchemes: [...state.allColorSchemes, action.payload],
       });
     },
-    deleteOneColorSchemeFront: (state, action: PayloadAction<IOneCategory>) =>
+    deleteOneColorSchemeFront: (state, action: PayloadAction<IOneColorElement>) =>
       (state = {
         ...state,
         allColorSchemes: state.allColorSchemes.filter(

@@ -1,6 +1,4 @@
-import React, { CSSProperties, useContext, useEffect, useState } from 'react';
-import { ColorResult } from 'react-color';
-
+import React, {useContext, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
 import { Context } from '../../../index';
 import { RootState } from '../../../types/types';
@@ -14,6 +12,7 @@ import IOneColorElement from '../../../types/ColorTable.types';
 import AddColorScheme from './AddColorScheme/AddColorScheme';
 import { getAllColorSchemesFromBack } from '../../../redux/Thunk/ColorScheme/getAllColorSchemesFromBack';
 import OneColorSchemeCard from './OneColorSchemeCard/OneColorSchemeCard';
+import { findColorSchemeByOrCodeFront } from '../../../redux/slices/ColorSheme/colorScheme.slice';
 
 export default function ColorTable() {
   const { storeContext } = useContext(Context);
@@ -25,16 +24,8 @@ export default function ColorTable() {
     (state: RootState) => state.ColorSchemeReducer.allColorSchemes
   );
 
-  const [selectedColor, setSelectedColor] = useState<ColorResult>({
-    hex: '#000000',
-    hsl: { h: 0, s: 0, l: 0 },
-    rgb: { r: 0, g: 0, b: 0 },
-  });
-  const backgroundStyle: CSSProperties = { background: selectedColor.hex };
-
-  const [filterStatus, setFilterStatus] = useState(0);
   const [findElementInputActive, setFindElementInputActive] = useState(false);
-  const [findCategories, setFindCategories] = useState('');
+  const [findColorScheme, setFindColorScheme] = useState('');
 
   const [addCardIsActive, setAddCardIsActive] = useState(false);
 
@@ -52,7 +43,7 @@ export default function ColorTable() {
 
   return (
     <>
-      <h4 className={styleColorTable.titlePage}>КАТЕГОРИИ ТОВАРОВ</h4>
+      <h4 className={styleColorTable.titlePage}>ТАБЛИЦА ЦВЕТОВ</h4>
       <div className={styleColorTable.searchRow}>
         {userIsAdmin && !addCardIsActive && (
           <button
@@ -74,20 +65,20 @@ export default function ColorTable() {
         )}
         {addCardIsActive ? (
           <AddColorScheme
-          // addCardIsActive={addCardIsActive}
-          // setAddCardIsActive={setAddCardIsActive}
+            addCardIsActive={addCardIsActive}
+            setAddCardIsActive={setAddCardIsActive}
           />
         ) : (
           <div className={styleColorTable.filterBlock}>
             <div className={styleColorTable.filterFirstElement}>
-              <p>Количество цветовых гамм товаров: {allColorSchemes.length}</p>
+              <p>Количество цветовых схем: {allColorSchemes.length}</p>
             </div>
 
             <form
               onSubmit={(e: React.FormEvent<HTMLFormElement>): void => {
                 e.preventDefault();
-                if (findCategories.length) {
-                  // dispatch(findCategoryByNameFront(findCategories));
+                if (findColorScheme.length) {
+                  dispatch(findColorSchemeByOrCodeFront(findColorScheme));
                   setFindElementInputActive(!findElementInputActive);
                 }
               }}
@@ -97,9 +88,9 @@ export default function ColorTable() {
                   className={styleColorTable.inputTextElement}
                   type="text"
                   name="findEmail"
-                  value={findCategories}
+                  value={findColorScheme}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setFindCategories(e.target.value)
+                    setFindColorScheme(e.target.value)
                   }
                 />
 
@@ -108,8 +99,8 @@ export default function ColorTable() {
                     <button
                       onClick={() => {
                         setFindElementInputActive(!findElementInputActive);
-                        setFindCategories('');
-                        // dispatch(getAllCategoriesFromBack());
+                        setFindColorScheme('');
+                        dispatch(getAllColorSchemesFromBack());
                       }}
                       className={styleColorTable.findBtn}
                     >
@@ -147,28 +138,9 @@ export default function ColorTable() {
       ) : (
         <span className={styleColorTable.message}>
           Информация о цветах товаров отсутствует! Попробуйте изменить условие
-          поиска...
+          поиска.
         </span>
       )}
     </>
   );
-}
-
-// const [selectedColor, setSelectedColor] = useState<ColorResult>({
-//   hex: '#000000',
-//   hsl: { h: 0, s: 0, l: 0 },
-//   rgb: { r: 0, g: 0, b: 0 },
-// });
-
-// const colorStyle: CSSProperties = { color: selectedColor.hex };
-
-{
-  /* <div>
-<h1>Выбeрете цвет</h1>
-<ColorSelector
-  selectedColor={selectedColor}
-  setSelectedColor={setSelectedColor}
-/>
-<h1 style={colorStyle}> Here's your color codes: {selectedColor.hex} </h1>
-</div> */
 }

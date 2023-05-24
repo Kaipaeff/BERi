@@ -13,7 +13,7 @@ export default function CartProduct({
     <>
       <div className={styles.InfoGoods} key={product.id}>
         <div className={styles.Product}>
-          <h5>Товар</h5>
+         
           <div className={styles.ProductChildElement}>
             <div>
               <img
@@ -46,7 +46,7 @@ export default function CartProduct({
           </div>
         </div>
         <div className={styles.Quantity}>
-          <h5>Количество</h5>
+       
           <div className={styles.Counter}>
             <div className={styles.CounterBorder}>
               <button
@@ -66,13 +66,13 @@ export default function CartProduct({
           </div>
         </div>
         <div className={styles.Price}>
-          <h5>Стоимость</h5>
+         
           <div className={styles.PriceCounter}>
             <span>{product.minPrice}р</span>
           </div>
         </div>
         <div className={styles.Subtotal}>
-          <h5>Сумма</h5>
+      
           <div className={styles.PriceCounter}>
             <b>{handleTotalPrice}р</b>
           </div>
