@@ -1,5 +1,5 @@
 .titlePage {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   color: #4d4d4d;
 }
 
@@ -11,9 +11,10 @@
   padding: 5px;
   border: 1px solid #cacaca;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   gap: 4px;
 }
+
 .filterBlock {
   display: flex;
   flex-direction: row;
@@ -30,8 +31,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   max-height: 500px;
-  gap: 15px;
 }
+
 .filterFirstElement {
   width: 300px;
 }
@@ -104,8 +105,8 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-  width: 11%;
-  height: 36px;
+  width: 160px;
+  height: 40px;
   border-radius: 4px;
   color: #ffffff;
   font-size: 16px;
@@ -144,9 +145,11 @@
   flex-wrap: wrap;
   justify-content:space-between;
   width: 100%;
-  height: 35px;
+  min-height: 35px;
   background-color: #d1d1d17c;
   border: 1px solid #cacaca;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 
@@ -154,14 +157,14 @@
   width: 50px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border-right: 1px solid #cacaca;
   padding: 0 10px 0 10px;
   font-size: 14px;
 }
 
 .columnPrice {
-  width: 130px;
+  width: 100px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -169,6 +172,7 @@
   padding: 0 10px 0 10px;
   font-size: 14px;
 }
+
 .columnEmail {
   width: 180px;
   display: flex;
@@ -180,7 +184,7 @@
 }
 
 .columnPhone {
-  width: 150px;
+  width: 130px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -191,16 +195,17 @@
 
 
 .columnAddress {
-  width: 352px;
-  height: 35px;
+  width: 250px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-right: 1px solid rgb(202, 202, 202);
+  justify-content: flex-start;
+  border-right: 1px solid #cacaca;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
 }
+
 .columnDate {
-  width: 106px;
-  height: 35px;
+  width: 120px;
   display: flex;
   align-items: center;
   justify-content: flex-start;

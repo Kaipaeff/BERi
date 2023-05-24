@@ -128,7 +128,7 @@ export default function ListOfOrders(): JSX.Element {
       {/* заголовки таблицы */}
       <div className={styleListOfOrder.tableTitle}>
         <div className={styleListOfOrder.columnId}>№</div>
-        <div className={styleListOfOrder.columnPrice}>Стоимость (руб)</div>
+        <div className={styleListOfOrder.columnPrice}>Стоимость</div>
         <div className={styleListOfOrder.columnEmail}>Электронный адрес</div>
         <div className={styleListOfOrder.columnPhone}>Телефон</div>
         <div className={styleListOfOrder.columnAddress}>Адрес доставки</div>
@@ -136,11 +136,7 @@ export default function ListOfOrders(): JSX.Element {
         <div className={styleListOfOrder.columnStatuses}>Статус</div>
         <div className={styleListOfOrder.columnButtons}>Действия</div>
       </div>
-      <table>
-        <td></td>
-      </table>
-
-      {/* -------------------------- */}
+  
 
       {fullListOfOrders.length ? (
         <div className={styleListOfOrder.content}>

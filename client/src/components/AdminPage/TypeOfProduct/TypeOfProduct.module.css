@@ -1,5 +1,5 @@
 .titlePage {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   color: #4d4d4d;
 }
 
@@ -12,6 +12,7 @@
   height: 80px;
   padding: 5px;
   gap: 20px;
+  margin-bottom: 20px;
   border: 1px solid #d1d1d1;
 }
 .filterBlock {
@@ -107,8 +108,8 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-  width: 11%;
-  height: 36px;
+  width: 160px;
+  height: 40px;
   border-radius: 4px;
   color: #ffffff;
   font-size: 16px;
