@@ -1,5 +1,3 @@
-import { NumericLiteral } from 'typescript';
-
 export type productType = {
   id: number;
   name: string;
@@ -16,6 +14,20 @@ export type productType = {
   Images: [{ src: string }];
   Vendor: { premium: boolean };
   quantity?: number | undefined;
+};
+
+export type productPropsType = {
+  id: number;
+  Size: { size: number };
+  Color: { color: string; colorCode: string };
+  productId: number;
+  // img: null | string;
+  colorId: number;
+  sizeId: number;
+  salePrice: number;
+  sale: boolean;
+  quantity: number;
+  amount: number;
 };
 
 export type categoryType = {

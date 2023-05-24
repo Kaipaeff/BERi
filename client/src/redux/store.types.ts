@@ -6,7 +6,7 @@ import IOneSize from '../types/Size.types';
 import IOneTypeOfProduct from '../types/TypeOfProducts.type';
 import IOneUser from '../types/UserTypes';
 import IOneVendor from '../types/VendorTypes';
-import { ageType, categoryType, productType } from '../types/product';
+import { ageType, categoryType, productPropsType, productType } from '../types/product';
 
 export type stateProductType = {
   products: productType[];
@@ -14,7 +14,7 @@ export type stateProductType = {
 };
 
 export type stateProductPropsType = {
-  productprops: productType[];
+  productprops: productPropsType[];
   loading: boolean;
 };
 

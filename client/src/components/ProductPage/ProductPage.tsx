@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { El } from '../../types/types';
 import { useLocation, useNavigate } from 'react-router-dom';
 import style from './ProductPage.module.css';
 import { productType } from '../../types/product';
-import { useAppDispatch } from '../../redux/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { addGoodsReducer } from '../../redux/slices/shopCard/card.slice';
 import arrowRight from '../../img/icons/arrowRight.svg';
 import arrawLeft from '../../img/icons/arrow-left.svg';
 import Rating from '../Rating/Rating/Rating';
 import SetRating from '../Rating/SetRating/SetRating';
+import { getProductPropsFromBack } from '../../redux/Thunk/ProductProps/getProductPropsFromBack';
+import { getLoading } from '../../redux/slices/ProductProps/loading.selector';
+import { getProductProps } from '../../redux/slices/ProductProps/productprops.selector';
+import { BsCircleFill } from 'react-icons/bs';
 
 export default function ProductPage(): JSX.Element {
   const location = useLocation();
   const el = location.state.el;
-  console.log(el, '<<<el');
   const dispatch = useAppDispatch();
 
   const handleAddToCart = (product: productType) => {
@@ -56,6 +59,12 @@ export default function ProductPage(): JSX.Element {
   const navigate = useNavigate();
 
   const [activeRating, setActiveRating] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSize, setActiveSize] = useState<number>(0)
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   function handleActiveRating() {
     setActiveRating(true);
@@ -64,6 +73,14 @@ export default function ProductPage(): JSX.Element {
   function handleInactiveRating() {
     setActiveRating(false);
   }
+
+  useEffect(() => {
+    dispatch(getProductPropsFromBack(el.id));
+  }, []);
+
+  const loading = useAppSelector(getLoading);
+
+  const productProps = useAppSelector(getProductProps);
 
   return (
     <div className={style.wrapper}>
@@ -98,9 +115,46 @@ export default function ProductPage(): JSX.Element {
                 <Rating el={el} />
               </div>
             )}
+            <div className={style.sizeBar}>
+              {productProps
+                .filter(
+                  (product, index, self) =>
+                    index ===
+                    self.findIndex((el) => el.sizeId === product.sizeId)
+                )
+                .map((product) => (
+                  <p key={product.id}>{product.Size?.size}</p>
+                ))}
+            </div>
+            <div className={style.colorBar}>
+              <div className={style.colorDD}>
+                <button className={style.ddToggle} onClick={toggleMenu}>
+                  Цвета
+                  <img src="Vector.svg" alt="vector" />
+                </button>
+                {productProps.length && isOpen && (
+                  <ul className={style.ddMenu}>
+                    {productProps
+                      .filter(
+                        (product, index, self) =>
+                          index ===
+                          self.findIndex((el) => el.colorId === product.colorId)
+                      )
+                      .map((product) => (
+                        <li key={product.id}>
+                          {product.Color.color}{' '}
+                          <BsCircleFill
+                            style={{ color: `${product.Color.colorCode}` }}
+                            className={style.colorIcon}
+                          />
+                        </li>
+                      ))}
+                  </ul>
+                )}
+              </div>
+            </div>
           </div>
           <div className={style.btnContainer}>
-            {/* <div className={style.priceContainer}> */}
             <p className={style.price}>
               <b>{el.minPrice} ₽</b>
             </p>
@@ -111,7 +165,6 @@ export default function ProductPage(): JSX.Element {
               Добавить в корзину
               <img src={arrowRight} alt="arrowRight" />
             </button>
-            {/* </div> */}
           </div>
         </div>
       </div>

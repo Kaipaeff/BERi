@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       this.hasMany(models.Cart, { foreignKey: 'productPropsId' });
       this.belongsTo(models.Product, { foreignKey: 'productId' });
-      this.belongsTo(models.Size, { foreignKey: 'sizetId' });
+      this.belongsTo(models.Size, { foreignKey: 'sizeId' });
       this.belongsTo(models.Color, { foreignKey: 'colorId' });
     }
   }

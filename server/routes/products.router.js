@@ -1,6 +1,8 @@
 const express = require('express');
 const route = express.Router();
 const {
+  Size,
+  Color,
   Product,
   Vendor,
   ProductProps,
@@ -56,14 +58,28 @@ route.get('/', async (req, res) => {
   }
 });
 
-route.get('/productprops', async (req, res) => {
+route.get('/productprops/:id', async (req, res) => {
   try {
-    const findProductProps = await ProductProps.findAll();
+    const productId = req.params.id;
+    const findProductProps = await ProductProps.findAll({
+      where: { productId },
+      include: [
+        {
+          model: Size,
+        },
+        {
+          model: Color,
+        },
+      ],
+      order: [['sizeId', 'ASC']],
+    });
 
-    const categories = findCategories.map((el) => el.get({ plain: true }));
+    const productProps = findProductProps.map((el) => el.get({ plain: true }));
 
-    res.json(categories);
+    console.log(productProps);
+    res.json(productProps);
   } catch (error) {
+    console.log(error);
     res.json({ error });
   }
 });

@@ -10,7 +10,6 @@
   /* border: 1px solid #098319; */
 }
 
-
 .cardContainer {
   display: flex;
   flex-direction: row;
@@ -103,7 +102,59 @@
   cursor: pointer;
 }
 
-.backArrow img{
+.backArrow img {
   width: 15px;
   margin-right: 5px;
+}
+
+.sizeBar {
+  display: flex;
+  gap: 10px;
+}
+
+.sizeBar p {
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 6px;
+  text-align: center;
+  width: 39px;
+  height: 38px;
+  border: 1px solid #CBCBCB;
+}
+
+.ddToggle {
+  font-size: 16px;
+  font-weight: 600;
+  width: 150px;
+  border: 1px solid #121212;
+  height: 38px;
+}
+
+.ddToggle img {
+  padding-left: 20px;
+}
+
+.ddMenu {
+  font-size: 16px;
+  font-weight: 600;
+  width: 150px;
+}
+
+.ddMenu li {
+  height: 30px;
+  padding-left: 10px;
+  width: 150px;
+  border: 1px solid #121212;
+}
+
+.ddMenu li:hover,
+.sizeBar p:hover {
+  cursor: pointer;
+  background-color: #CBCBCB;
+}
+
+.colorIcon {
+  font-size: 20px;
+  border: 1px solid #121212;
+  border-radius: 50%;
 }

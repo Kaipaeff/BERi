@@ -33,10 +33,10 @@ export function Catalog(): JSX.Element {
     dispatch(setAgeState(0));
     dispatch(setCategoryState(0));
   }, []);
-
+  console.log('RENDER')
 
   const { currentProducts, filteredProduct, handlePageChange } =
-    PaginationFunc();
+  PaginationFunc();
 
   return (
     <>

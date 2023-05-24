@@ -1,6 +1,6 @@
-export const fetchProductProps = async () => {
+export const fetchProductProps = async (productId: number) => {
   try {
-    const response = await fetch('http://localhost:4000/productsprops', {
+    const response = await fetch(`http://localhost:4000/products/productprops/${productId}`, {
       headers: {
         'Content-Type': 'application/json',
       },
