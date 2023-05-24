@@ -58,7 +58,17 @@
   padding: 0 10px 0 10px;
   font-size: 14px;
 }
-
+.columnOrderData {
+  width: 12%;
+  height: 35px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-right: 1px solid rgb(202, 202, 202);
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: rgb(240, 239, 239);
+}
 .columnStatuses {
   width: 120px;
   height: 30px;
@@ -81,8 +91,14 @@
   font-size: 14px;
 }
 
-/* .columnButtons img{
-  width: 24px;
-  height: 24px;
+.editIconBtn {
+  cursor: pointer;
+}
 
-} */
+.clipboardTextBtn {
+  cursor: pointer;
+}
+
+.deleteIconBtn {
+  cursor: pointer;
+}

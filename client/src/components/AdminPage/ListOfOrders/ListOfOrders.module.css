@@ -191,7 +191,16 @@
 
 
 .columnAddress {
-  width: 300px;
+  width: 352px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid rgb(202, 202, 202);
+}
+.columnDate {
+  width: 106px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
