@@ -100,14 +100,10 @@
   margin-top: 50px;
   margin-bottom: 50px;
   display: flex;
+
   justify-content: space-around;
 }
-.LeftSide_Promocod {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 538px;
-}
+
 .RightSide_DeliveryChoice {
   padding: 13px 16px;
   display: flex;
@@ -167,10 +163,20 @@
 .deliveryAdress {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 300px;
 }
 .inputDeliveryAdress {
   width: 450px;
   height: 50px;
   padding: 12px;
   border: 1px solid #cbcbcb;
+}
+.adress {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: larger;
+  padding-left: 20px;
 }
