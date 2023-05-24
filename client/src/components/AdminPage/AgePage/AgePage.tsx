@@ -48,7 +48,7 @@ export default function AgePage(): JSX.Element {
 
   return (
     <>
-      <h4 className={styleAgePage.titlePage}>КАТЕГОРИИ ТОВАРОВ</h4>
+      <h4 className={styleAgePage.titlePage}>ВОЗРАСТНЫЕ КАТЕГОРИИ</h4>
       <div className={styleAgePage.searchRow}>
         {userIsAdmin && !addCardIsActive && (
           <button
@@ -143,7 +143,7 @@ export default function AgePage(): JSX.Element {
       ) : (
         <span className={styleAgePage.message}>
           Информация о категориях отсутствует! Попробуйте изменить условие
-          поиска...
+          поиска.
         </span>
       )}
     </>

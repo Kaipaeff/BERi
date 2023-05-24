@@ -35,12 +35,12 @@ export default function MyAccount() {
         
         <div className={styleMyAccount.dashboard}>
             <div className={styleMyAccount.navigatorlink}>
-              <p
+              {/* <p
                 className={styleMyAccount.dashboarlink}
                 onClick={() => setNavigatorSelector(0)}
               >
                 Информация
-              </p>
+              </p> */}
               <p
                 className={styleMyAccount.dashboarlink}
                 onClick={() => setNavigatorSelector(1)}
@@ -98,7 +98,7 @@ export default function MyAccount() {
                   </h4>
 
                   <p>
-                    Здесь будет мапиться массив с данными о заказах пользователя...
+                  Здесь отображаются данные о заказах пользователя.
                   </p>
                 </>
               )}
@@ -119,7 +119,7 @@ export default function MyAccount() {
                   </h4>
 
                   <p>
-                    Здесь должны быть указаны регистрационные данные пользователя...
+                    Здесь отображаются регистрационные данные пользователя.
                   </p>
                 </>
               )}
@@ -130,7 +130,7 @@ export default function MyAccount() {
                     Избранное
                   </h4>
 
-                  <p>Здесь будет мапиться массив с избранными товарами</p>
+                  <p>Здесь отображаются избранные товары</p>
                 </>
               )}
 

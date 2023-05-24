@@ -287,7 +287,8 @@ export default function UsersInfo(): JSX.Element {
         </div>
       ) : (
         <span className={styleUserInfo.message}>
-          Информация о юзерах отсутствует! Попробуйте изменить фильтр...
+          Информация о юзерах отсутствует! Попробуйте изменить условие
+          поиска.
         </span>
       )}
     </>
