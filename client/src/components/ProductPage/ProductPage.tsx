@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { El } from '../../types/types';
 import { useLocation, useNavigate } from 'react-router-dom';
 import style from './ProductPage.module.css';
@@ -10,8 +10,15 @@ import arrawLeft from '../../img/icons/arrow-left.svg';
 import Rating from '../Rating/Rating/Rating';
 import SetRating from '../Rating/SetRating/SetRating';
 
+import favorites from '../../img/icons/favorites.svg'
+import favorite from '../../img/icons/favorite.svg'
+
 
 export default function ProductPage(): JSX.Element {
+
+  const [isFavorite, setIsFavorite] = useState(false)
+
+
   const location = useLocation();
   const el = location.state.el;
   console.log(el, '<<<el');
@@ -66,6 +73,14 @@ export default function ProductPage(): JSX.Element {
 
       <div className={style.cardContainer}>
         <img className={style.productImg} src={el.Images[0].src} alt="cloth" />
+
+        {isFavorite ? 
+          <img onClick={() => setIsFavorite(!isFavorite)} className={style.favoriteTrue} src={favorite} alt="favorite" />
+        :
+          <img onClick={() => setIsFavorite(!isFavorite)} className={style.favoriteFalse} src={favorites} alt="favorite" />
+        }
+
+
         <div className={style.descriptionContainer}>
           <div className={style.description}>
             <p className={style.name}>
@@ -97,3 +112,7 @@ export default function ProductPage(): JSX.Element {
     </div>
   );
 }
+
+
+{/* <img className={style.favoriteFalse} src={favorites} alt="favorite" /> */}
+{/* <img className={style.favoriteTrue} src={favorite} alt="favorite" /> */}
