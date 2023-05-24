@@ -43,7 +43,7 @@ export default function ColorTable() {
 
   return (
     <>
-      <h4 className={styleColorTable.titlePage}>КАТЕГОРИИ ТОВАРОВ</h4>
+      <h4 className={styleColorTable.titlePage}>ТАБЛИЦА ЦВЕТОВ</h4>
       <div className={styleColorTable.searchRow}>
         {userIsAdmin && !addCardIsActive && (
           <button

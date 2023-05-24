@@ -1,5 +1,6 @@
 .titlePage {
   margin-bottom: 5px;
+  color: #4d4d4d;
 }
 
 .searchRow {
@@ -28,8 +29,10 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   max-height: 500px;
   gap: 5px;
+  overflow: auto;
 }
 .filterFirstElement {
   width: 300px;
