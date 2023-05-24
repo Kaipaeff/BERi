@@ -12,6 +12,7 @@ import VendorReducer from '../slices/Vendor/vendor.slise';
 import ProductPropsReducer from '../slices/ProductProps/productprops.slice'
 import SizeTableReducer from '../slices/SizeTable/sizetable.slice';
 import AllTypesOfProductReducer from '../slices/TypeOfProduct/typeOfProducts.slice';
+import ListOfUserOrdersReduser from '../slices/ListOfOrders/listOfOrders.slice';
 
 export const store = configureStore({
   reducer: {
@@ -28,6 +29,7 @@ export const store = configureStore({
     ProductPropsReducer,
     SizeTableReducer,
     AllTypesOfProductReducer,
+    ListOfUserOrdersReduser,
   },
 });
 
