@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useState } from 'react';
 import IOneOrderElement from '../../../../types/ListOfOrders.type';
 
 import editIconBtn from '../../../../img/icons/editIconBtn.svg';
@@ -6,10 +7,10 @@ import deleteIconBtn from '../../../../img/icons/deleteIconBtn.svg';
 import clipboardText from '../../../../img/icons/clipboardText.svg';
 
 import styleOneOrderElementCard from './OneOrderElementCard.module.css';
-import FiledRingIndicator from '../FiledRingIndicator/FiledRingIndicator';
-import OrderDetail from '../OrderDetail/OrderDetail';
+
+
 import EditOrderStatus from '../EditOrderStatus/EditOrderStatus';
-import { BsCircle, BsCircleFill } from 'react-icons/bs';
+import { BsCircleFill } from 'react-icons/bs';
 
 export default function OneOrderElementCard({
   OneOrderElement,

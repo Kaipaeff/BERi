@@ -1,8 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { stateTypeListOfOrders } from '../../store.types';
-import IOneOrderElement, {
-  IOneOrderChangeStatus,
-} from '../../../types/ListOfOrders.type';
+import IOneOrderElement from '../../../types/ListOfOrders.type';
 import { getFullListOfOrdersFromBack } from '../../Thunk/ListOfOrders/getFullListOfOrdersFromBack';
 
 const initialStateListOfOrders: stateTypeListOfOrders = {

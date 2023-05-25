@@ -1,4 +1,5 @@
 import IOneAge from '../types/Age.type';
+import IOneCartElement from '../types/Cart.type';
 import IOneCategory from '../types/Category.types';
 import IOneColorElement from '../types/ColorTable.types';
 import IDeliveryAddress from '../types/DeliveryAddress';
@@ -83,5 +84,10 @@ export type stateTypeAges = {
 
 export type stateTypeListOfOrders = {
   fullListOfOreders: IOneOrderElement[];
+  loading: boolean;
+};
+
+export type stateTypeListOfOrdersCartElements = {
+  allUserCartOrderedElements: IOneCartElement[];
   loading: boolean;
 };

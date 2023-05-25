@@ -13,6 +13,7 @@ import ProductPropsReducer from '../slices/ProductProps/productprops.slice';
 import SizeTableReducer from '../slices/SizeTable/sizetable.slice';
 import AllTypesOfProductReducer from '../slices/TypeOfProduct/typeOfProducts.slice';
 import ListOfUserOrdersReduser from '../slices/ListOfOrders/listOfOrders.slice';
+import FullListOfUserOrderCartElementsReducer from '../slices/FullListOfUserOrderCartElements/FullListOfUserOrderCartElements.slice'
 
 export const store = configureStore({
   reducer: {
@@ -30,6 +31,7 @@ export const store = configureStore({
     SizeTableReducer,
     AllTypesOfProductReducer,
     ListOfUserOrdersReduser,
+    FullListOfUserOrderCartElementsReducer,
   },
 });
 
