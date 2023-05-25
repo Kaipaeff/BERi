@@ -13,20 +13,23 @@ export default function CartProduct({
     <>
       <div className={styles.InfoGoods} key={product.id}>
         <div className={styles.Product}>
-         
           <div className={styles.ProductChildElement}>
             <div>
               <img
-                src={product.Images[0].src}
+                src={product?.Images[0]?.src}
                 alt="product"
                 className={styles.Img_Product}
               />
             </div>
             <div className={styles.ProductInfo}>
               <span>
-                {product.name} &nbsp;&nbsp;
-                {product.Vendor.name}
+                {product?.Product?.name} &nbsp;&nbsp;
+                {product?.Product?.Vendor?.name}
               </span>
+
+              <div>
+                <span>Размер: {product?.Size?.size}</span>
+              </div>
 
               <div className={styles.TrashContainer}>
                 <img
@@ -46,16 +49,15 @@ export default function CartProduct({
           </div>
         </div>
         <div className={styles.Quantity}>
-       
           <div className={styles.Counter}>
             <div className={styles.CounterBorder}>
               <button
-                onClick={() => product.quantity > 1 && Dicrement(product.id)}
+                onClick={() => product?.quantity > 1 && Dicrement(product.id)}
                 className={styles.Dicrement}
               >
                 -
               </button>
-              <span className={styles.Count}>{product.quantity}</span>
+              <span className={styles.Count}>{product?.quantity}</span>
               <button
                 onClick={() => Increment(product.id)}
                 className={styles.Increment}
@@ -66,13 +68,11 @@ export default function CartProduct({
           </div>
         </div>
         <div className={styles.Price}>
-         
           <div className={styles.PriceCounter}>
-            <span>{product.minPrice}р</span>
+            <span>{product?.salePrice}р</span>
           </div>
         </div>
         <div className={styles.Subtotal}>
-      
           <div className={styles.PriceCounter}>
             <b>{handleTotalPrice}р</b>
           </div>

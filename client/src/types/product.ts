@@ -20,9 +20,9 @@ export type productPropsType = {
   id: number;
   Size: { size: number };
   Images: [{ src: string }];
+  Product: { name: string; description: string; Vendor: { name: string } };
   Color: { color: string; colorCode: string };
   productId: number;
-  // img: null | string;
   colorId: number;
   sizeId: number;
   salePrice: number;

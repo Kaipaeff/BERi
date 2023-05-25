@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styles from './ShopCart.module.css';
 import truckIcon from './img/truck.jpg';
-import { productType } from '../../../types/product';
+import { productPropsType, productType } from '../../../types/product';
 import CartProduct from '../CartProduct';
 import DileveryPay from '../DileveryPay/DileveryPay';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks/hooks';
@@ -10,28 +10,33 @@ import { Progress } from 'antd';
 import { RootState } from '../../../types/types';
 
 export default function ShopCart() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   // парсинг товаров из localStorage
   const dispatch = useAppDispatch();
-  const [goods, setGoods] = useState([]);
-  const goodsForShopCart = localStorage.getItem('GoodsForShopCart');
+  const [goods, setGoods] = useState<productPropsType[] | null>(null);
   const [totalPriceCalculate, setTotalPriceCalculate] = useState<{
     [key: number]: number;
   }>({});
 
   useEffect(() => {
-    if (goodsForShopCart) {
-      setGoods(JSON.parse(goodsForShopCart));
+    window.scrollTo(0, 0);
+    const goodsForShopCart = localStorage.getItem('GoodsForShopCart');
+    const goodsParser = JSON.parse(goodsForShopCart!);
+
+    if (goodsParser) {
+      console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>', goodsParser);
+      setGoods(goodsParser);
     }
-  }, [goodsForShopCart]);
+  }, []);
+
+  // useEffect(() => {
+  //   if (goods?.length)
+  //     console.log(' GOOOOODS >>>>>>>>>>>>>>>>>>>>>>>>>>>>', goods);
+  // }, [goods]);
 
   // счетчик
   function Increment(id: number) {
-    const goodsIncrementQuantity: any = goods.map((el: productType) =>
-      el.id === id ? { ...el, quantity: ((el.quantity as number) += 1) } : el
+    const goodsIncrementQuantity: any = goods?.map((el: productPropsType) =>
+      el.id === id ? { ...el, quantity: ((el.quantity as number) + 1) } : el
     );
     localStorage.setItem(
       'GoodsForShopCart',
@@ -42,8 +47,8 @@ export default function ShopCart() {
   }
 
   function Dicrement(id: number) {
-    const goodsDicrementQuantity: any = goods.map((el: productType) =>
-      el.id === id ? { ...el, quantity: ((el.quantity as number) -= 1) } : el
+    const goodsDicrementQuantity: any = goods?.map((el: productPropsType) =>
+      el.id === id ? { ...el, quantity: ((el.quantity as number) - 1) } : el
     );
     localStorage.setItem(
       'GoodsForShopCart',
@@ -55,11 +60,11 @@ export default function ShopCart() {
 
   // удаление
   const deleteHandle = (element: any) => {
-    const deleteProduct = goods.filter((el: any) => el.id !== element);
+    const deleteProduct = goods?.filter((el: any) => el.id !== element);
 
     localStorage.setItem('GoodsForShopCart', JSON.stringify(deleteProduct));
     dispatch(addGoodsReducer(deleteProduct));
-    setGoods(deleteProduct);
+    setGoods(deleteProduct as productPropsType[]);
 
     // вызов функции handleTotalPrice для обновления totalPriceCalculate
     setTotalPriceCalculate((prev) => {
@@ -71,8 +76,8 @@ export default function ShopCart() {
   // калькулятор итоговой суммы
 
   const handleTotalPrice = useCallback(
-    (quantity: number, elId: number, minPrice: number) => {
-      const calculateTotalPrice = quantity * minPrice;
+    (quantity: number, elId: number, salePrice: number) => {
+      const calculateTotalPrice = quantity * salePrice;
 
       if (totalPriceCalculate[elId] !== calculateTotalPrice) {
         setTotalPriceCalculate({
@@ -123,17 +128,17 @@ export default function ShopCart() {
           <h5>Стоимость</h5>
           <h5>Сумма</h5>
         </div>
-        {goods.length ? (
-          goods.map((el: any, i) => (
+        {goods?.length ? (
+          goods?.map((el: productPropsType, i) => (
             <CartProduct
               key={el.id}
               product={el}
               Increment={() => Increment(el.id)}
               Dicrement={() => Dicrement(el.id)}
               handleTotalPrice={handleTotalPrice(
-                el.quantity,
+                el?.quantity,
                 el.id,
-                el.minPrice
+                el.salePrice
               )}
               deleteHandle={() => deleteHandle(el.id)}
             />

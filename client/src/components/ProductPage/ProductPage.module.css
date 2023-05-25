@@ -75,13 +75,13 @@
 
 .ratingDiv {
   width: 180px;
-  height: 50px;
+  height: 30px;
   padding-left: 1px;
 }
 
 .setRatingDiv {
   width: 180px;
-  height: 50px;
+  height: 30px;
 }
 
 .addToCardBtn:active {
@@ -177,4 +177,8 @@
   left: 500px;
   cursor: pointer;
   width: 25px;
+}
+
+.alertSize {
+  font-weight: 600;
 }

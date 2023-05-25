@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import { El } from '../../types/types';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import style from './ProductPage.module.css';
 import { productPropsType, productType } from '../../types/product';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
@@ -18,11 +18,12 @@ import favorite from '../../img/icons/favorite.svg';
 
 export default function ProductPage(): JSX.Element {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
-  const [color, setColor] = useState<string>('');
   const [activeRating, setActiveRating] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeSize, setActiveSize] = useState<number>(0);
   const [size, setSize] = useState<number>(0);
+  const [addToCart, setAddToCart] = useState<boolean>(false);
+  const [color, setColor] = useState<string>('');
 
   const location = useLocation();
   const el = location.state.el;
@@ -30,28 +31,30 @@ export default function ProductPage(): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(getProductPropsFromBack(el.id));
-  }, []);
-
   const loading = useAppSelector(getLoading);
 
   const productProps = useAppSelector(getProductProps);
 
+  useEffect(() => {
+    dispatch(getProductPropsFromBack(el.id));
+  }, []);
+
   const handleAddToCart = (product: productPropsType) => {
     //позже кнопку "в корзину" изменить на "перейти в корзину"?
+
+    console.log(product);
 
     const getItemLocalStorage = localStorage.getItem('GoodsForShopCart')
       ? JSON.parse(localStorage.getItem('GoodsForShopCart') as string)
       : [];
 
     const findItem = getItemLocalStorage.find(
-      (el: productPropsType) => el.id === product.id
+      (el: productPropsType) => el?.id === product?.id
     );
 
     if (findItem) {
       const quantityProductFilter = getItemLocalStorage.map((el: any) =>
-        el.id === product.id ? { ...el, quantity: el.quantity + 1 || 1 } : el
+        el.id === product?.id ? { ...el, quantity: el.quantity + 1 || 1 } : el
       );
 
       localStorage.setItem(
@@ -95,6 +98,10 @@ export default function ProductPage(): JSX.Element {
     setSize(size);
   }
 
+  function handleSetAddToCart(addToCart: boolean) {
+    setAddToCart(addToCart);
+  }
+
   function toggleActiveSizeStyle(index: number) {
     if (index === activeSize) {
       return style.sizeActive;
@@ -111,6 +118,10 @@ export default function ProductPage(): JSX.Element {
     (el) => el.Color?.color === color && el.Size?.size === size
   );
 
+  console.log('----');
+  console.log('color>>>>>', color);
+  console.log('----');
+
   return (
     <div className={style.wrapper}>
       <p className={style.backArrow} onClick={() => navigate(-1)}>
@@ -123,8 +134,8 @@ export default function ProductPage(): JSX.Element {
           className={style.productImg}
           src={
             color
-              ? filteredColorProductProp.Images[0].src
-              : productProps[0]?.Images[0].src
+              ? filteredColorProductProp.Images[0]?.src
+              : productProps[0]?.Images[0]?.src
           }
           alt="cloth"
         />
@@ -178,18 +189,23 @@ export default function ProductPage(): JSX.Element {
             <div className={style.sizeBar}>
               {productProps
                 .filter((product, index) =>
-                  color ? product.Color?.color === color : index === 0
+                  color
+                    ? product?.Color?.color === color
+                    : product?.Color?.color === productProps[0]?.Color?.color
                 )
                 .map((product) => (
                   <p
-                    className={toggleActiveSizeStyle(product.id)}
+                    className={toggleActiveSizeStyle(product?.id)}
                     onClick={() => {
-                      handleSetSize(product.Size?.size);
-                      activeSize === product.id
+                      !color && handleSetColor(productProps[0]?.Color?.color);
+                      size === product.Size?.size
+                        ? handleSetSize(0)
+                        : handleSetSize(product.Size?.size);
+                      activeSize === product?.id
                         ? setActiveSize(0)
-                        : setActiveSize(product.id);
+                        : setActiveSize(product?.id);
                     }}
-                    key={product.id}
+                    key={product?.id}
                   >
                     {product.Size?.size}
                   </p>
@@ -211,9 +227,12 @@ export default function ProductPage(): JSX.Element {
                       )
                       .map((product) => (
                         <li
-                          key={product.id}
+                          key={product?.id}
                           onClick={() => {
-                            handleSetColor(product.Color.color);
+                            handleSetColor(product?.Color?.color);
+                            handleSetSize(0);
+                            setActiveSize(0);
+                            handleSetAddToCart(false);
                             toggleMenu();
                           }}
                         >
@@ -238,13 +257,32 @@ export default function ProductPage(): JSX.Element {
                 ₽
               </b>
             </p>
-            <button
-              className={style.addToCardBtn}
-              onClick={() => handleAddToCart(filteredProductProp[0])}
-            >
-              Добавить в корзину
-              <img src={arrowRight} alt="arrowRight" />
-            </button>
+            {addToCart ? (
+              <Link to="/cart">
+                <button
+                  className={style.addToCardBtn}
+                  onClick={() => handleSetAddToCart(!addToCart)}
+                >
+                  Перейти в корзину
+                  <img src={arrowRight} alt="arrowRight" />
+                </button>
+              </Link>
+            ) : (
+              <button
+                className={style.addToCardBtn}
+                onClick={() => {
+                  filteredProductProp[0] &&
+                    handleAddToCart(filteredProductProp[0]);
+                  activeSize && handleSetAddToCart(!addToCart);
+                }}
+              >
+                Добавить в корзину
+                <img src={arrowRight} alt="arrowRight" />
+              </button>
+            )}
+            {!activeSize && (
+              <p className={style.alertSize}>Пожалуйста, выберите размер</p>
+            )}
           </div>
         </div>
       </div>

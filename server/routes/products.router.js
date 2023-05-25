@@ -77,6 +77,11 @@ route.get('/productprops/:id', async (req, res) => {
           },
           attributes: ['src'],
         },
+        {
+          model: Product,
+          attributes: ['name', 'description'],
+          include: [Vendor],
+        },
       ],
       order: [['sizeId', 'ASC']],
     });
