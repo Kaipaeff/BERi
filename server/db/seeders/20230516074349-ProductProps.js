@@ -19,7 +19,7 @@ module.exports = {
         },
         {
           productId: 1,
-          colorId: 2,
+          colorId: 1,
           sizeId: 13,
           salePrice: 3200,
           sale: false,
@@ -27,10 +27,11 @@ module.exports = {
           amount: 18,
         },
 
-
+        //id 2
+        //propsID 3 4
         {
           productId: 2,
-          colorId: 2,
+          colorId: 4,
           sizeId: 14,
           salePrice: 2300,
           sale: true,
@@ -39,7 +40,7 @@ module.exports = {
         },
         {
           productId: 2,
-          colorId: 1,
+          colorId: 4,
           sizeId: 15,
           salePrice: 2400,
           sale: false,
@@ -47,10 +48,13 @@ module.exports = {
           amount: 18,
         },
 
-        
+
+
+        //id 3
+        //propsID 5 6
         {
           productId: 3,
-          colorId: 1,
+          colorId: 14,
           sizeId: 16,
           salePrice: 2999,
           sale: true,
@@ -59,16 +63,21 @@ module.exports = {
         },
         {
           productId: 3,
-          colorId: 2,
+          colorId: 14,
           sizeId: 17,
           salePrice: 2780,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+
+        //id 4
+        //propsID 7 8
         {
           productId: 4,
-          colorId: 1,
+          colorId: 4,
           sizeId: 19,
           salePrice: 2699,
           sale: true,
@@ -77,16 +86,21 @@ module.exports = {
         },
         {
           productId: 4,
-          colorId: 2,
+          colorId: 4,
           sizeId: 14,
           salePrice: 2800,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+
+        //id 5
+        //propsID 9 10
         {
           productId: 5,
-          colorId: 3,
+          colorId: 12,
           sizeId: 17,
           salePrice: 2699,
           sale: true,
@@ -95,16 +109,21 @@ module.exports = {
         },
         {
           productId: 5,
-          colorId: 4,
+          colorId: 12,
           sizeId: 18,
           salePrice: 2800,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+
+        //id 6
+        //propsID 11 12
         {
           productId: 6,
-          colorId: 5,
+          colorId: 3,
           sizeId: 14,
           salePrice: 2699,
           sale: true,
@@ -113,16 +132,21 @@ module.exports = {
         },
         {
           productId: 6,
-          colorId: 6,
+          colorId: 3,
           sizeId: 16,
           salePrice: 2800,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+
+        //id 7
+        //propsID 13 14
         {
           productId: 7,
-          colorId: 7,
+          colorId: 5,
           sizeId: 14,
           salePrice: 3399,
           sale: true,
@@ -131,13 +155,17 @@ module.exports = {
         },
         {
           productId: 7,
-          colorId: 8,
+          colorId: 5,
           sizeId: 17,
           salePrice: 3500,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+        //id 8
+        //propsID 15 16
         {
           productId: 8,
           colorId: 9,
@@ -149,7 +177,7 @@ module.exports = {
         },
         {
           productId: 8,
-          colorId: 10,
+          colorId: 9,
           sizeId: 19,
           salePrice: 3100,
           sale: false,
@@ -160,6 +188,8 @@ module.exports = {
 
 
         //girls_6_14/blouses
+        //id 9
+        //propsID 17 18
         {
           productId: 9,
           colorId: 1,
@@ -171,16 +201,20 @@ module.exports = {
         },
         {
           productId: 9,
-          colorId: 2,
+          colorId: 1,
           sizeId: 13,
           salePrice: 2800,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+        //id 10
+        //propsID 19 20
         {
           productId: 10,
-          colorId: 2,
+          colorId: 1,
           sizeId: 14,
           salePrice: 2300,
           sale: true,
@@ -196,9 +230,14 @@ module.exports = {
           quantity: 20,
           amount: 18,
         },
+
+
+
+        //id 11
+        //propsID 21 22
         {
           productId: 11,
-          colorId: 1,
+          colorId: 12,
           sizeId: 16,
           salePrice: 2999,
           sale: true,
@@ -207,16 +246,21 @@ module.exports = {
         },
         {
           productId: 11,
-          colorId: 2,
+          colorId: 12,
           sizeId: 17,
           salePrice: 2780,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+
+        //id 12
+        //propsID 23 24
         {
           productId: 12,
-          colorId: 1,
+          colorId: 14,
           sizeId: 19,
           salePrice: 2699,
           sale: true,
@@ -225,16 +269,21 @@ module.exports = {
         },
         {
           productId: 12,
-          colorId: 2,
+          colorId: 14,
           sizeId: 14,
           salePrice: 2800,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+
+        //id 13
+        //propsID 25 26        
         {
           productId: 13,
-          colorId: 3,
+          colorId: 1,
           sizeId: 17,
           salePrice: 2699,
           sale: true,
@@ -243,16 +292,22 @@ module.exports = {
         },
         {
           productId: 13,
-          colorId: 4,
+          colorId: 1,
           sizeId: 18,
           salePrice: 2800,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+
+
+        //id 14
+        //propsID 27 28
         {
           productId: 14,
-          colorId: 5,
+          colorId: 14,
           sizeId: 14,
           salePrice: 2699,
           sale: true,
@@ -261,16 +316,23 @@ module.exports = {
         },
         {
           productId: 14,
-          colorId: 6,
+          colorId: 14,
           sizeId: 16,
           salePrice: 2800,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+
+
+
+        //id 15
+        //propsID 29 30
         {
           productId: 15,
-          colorId: 7,
+          colorId: 1,
           sizeId: 14,
           salePrice: 3399,
           sale: true,
@@ -279,16 +341,24 @@ module.exports = {
         },
         {
           productId: 15,
-          colorId: 8,
+          colorId: 1,
           sizeId: 17,
           salePrice: 3500,
           sale: false,
           quantity: 20,
           amount: 18,
         },
+
+
+
+
+
+
+        //id 16
+        //propsID 30 31
         {
           productId: 16,
-          colorId: 9,
+          colorId: 10,
           sizeId: 16,
           salePrice: 2999,
           sale: true,

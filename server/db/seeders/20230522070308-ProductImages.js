@@ -8,96 +8,287 @@ module.exports = {
       [
 
         //boys_6_14/jackets
+
+        //id 1
         {
           imgId: 1,
           productId: 1,
           productPropsId: 1,
         },
-
         {
-          imgId: 2,
-          productId: 2,
+          imgId: 1,
+          productId: 1,
           productPropsId: 2,
         },
 
 
+        //id 2
+        {
+          imgId: 2,
+          productId: 2,
+          productPropsId: 3,
+        },
+        {
+          imgId: 2,
+          productId: 2,
+          productPropsId: 4,
+        },
+
+
+
+
+
+        //id 3
         {
           imgId: 3,
           productId: 3,
-          productPropsId: 3,
+          productPropsId: 5,
+        },
+        {
+          imgId: 3,
+          productId: 3,
+          productPropsId: 6,
+        },
+
+
+
+
+
+
+        //id 4
+        {
+          imgId: 4,
+          productId: 4,
+          productPropsId: 7,
         },
         {
           imgId: 4,
           productId: 4,
-          productPropsId: 4,
-        },
-        {
-          imgId: 5,
-          productId: 5,
-          productPropsId: 5,
-        },
-        {
-          imgId: 6,
-          productId: 6,
-          productPropsId: 6,
-        },
-        {
-          imgId: 7,
-          productId: 7,
-          productPropsId: 7,
-        },
-        {
-          imgId: 8,
-          productId: 8,
           productPropsId: 8,
         },
 
 
 
-        //girls_6_14/blouses
+
+
+
+        //id 5
         {
-          imgId: 9,
-          productId: 9,
+          imgId: 5,
+          productId: 5,
           productPropsId: 9,
         },
         {
-          imgId: 10,
-          productId: 10,
+          imgId: 5,
+          productId: 5,
           productPropsId: 10,
         },
+
+
+
+
+
+
+
+
+        //id 6
         {
-          imgId: 11,
-          productId: 11,
+          imgId: 6,
+          productId: 6,
           productPropsId: 11,
         },
         {
-          imgId: 12,
-          productId: 12,
+          imgId: 6,
+          productId: 6,
           productPropsId: 12,
         },
+
+
+
+
+
+
+        //id 7
         {
-          imgId: 13,
-          productId: 13,
+          imgId: 7,
+          productId: 7,
           productPropsId: 13,
         },
         {
-          imgId: 14,
-          productId: 14,
+          imgId: 7,
+          productId: 7,
           productPropsId: 14,
         },
+
+
+
+
+
+        //id 8
         {
-          imgId: 15,
-          productId: 15,
+          imgId: 8,
+          productId: 8,
           productPropsId: 15,
         },
         {
-          imgId: 16,
-          productId: 16,
+          imgId: 8,
+          productId: 8,
           productPropsId: 16,
         },
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //girls_6_14/blouses
+        //id 9
+        {
+          imgId: 9,
+          productId: 9,
+          productPropsId: 17,
+        },
+        {
+          imgId: 9,
+          productId: 9,
+          productPropsId: 18,
+        },
+
+
+
+
+        //id 10
+        {
+          imgId: 10,
+          productId: 10,
+          productPropsId: 19,
+        },
+        {
+          imgId: 10,
+          productId: 10,
+          productPropsId: 20,
+        },
+
+
+
+
+        //id 11
+        {
+          imgId: 11,
+          productId: 11,
+          productPropsId: 21,
+        },
+        {
+          imgId: 11,
+          productId: 11,
+          productPropsId: 22,
+        },
+
+
+
+
+
+
+
+
+
+
+
+        //id 12
+        {
+          imgId: 12,
+          productId: 12,
+          productPropsId: 23,
+        },
+        {
+          imgId: 12,
+          productId: 12,
+          productPropsId: 24,
+        },
+
+
+
+
+
+
+
+
+        //id 13
+        {
+          imgId: 13,
+          productId: 13,
+          productPropsId: 25,
+        },
+        {
+          imgId: 13,
+          productId: 13,
+          productPropsId: 26,
+        },
+
+
+
+
+
+        //id 14
+        {
+          imgId: 14,
+          productId: 14,
+          productPropsId: 27,
+        },
+        {
+          imgId: 14,
+          productId: 14,
+          productPropsId: 28,
+        },
+
+
+
+        //id 15
+        {
+          imgId: 15,
+          productId: 15,
+          productPropsId: 29,
+        },
+        {
+          imgId: 15,
+          productId: 15,
+          productPropsId: 30,
+        },
+
+
+
+        //id 16
+        {
+          imgId: 16,
+          productId: 16,
+          productPropsId: 31,
+        },
+        {
+          imgId: 16,
+          productId: 16,
+          productPropsId: 32,
+        },
+
+
+
+
+
+
+
+        
 
         //boys_6months_5year
         {
@@ -336,7 +527,7 @@ module.exports = {
           productId: 56,
           productPropsId: 56,
         },
-     
+
 
 
 
