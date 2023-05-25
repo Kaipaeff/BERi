@@ -3,16 +3,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import styleMyAccount from './MyAccount.module.css';
 import DeliveryAddresses from '../DeliveryAddresses/DeliveryAddresses';
 import { Context } from '../../index';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import arrawLeft from '../../img/icons/arrow-left.svg'
-import account from '../../img/icons/user-check.svg'
-
-
-
+import arrawLeft from '../../img/icons/arrow-left.svg';
+import account from '../../img/icons/user-check.svg';
+import UserProfile from '../UserProfile/UserProfile';
 
 export default function MyAccount() {
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,20 +19,27 @@ export default function MyAccount() {
   const [navigatorSelector, setNavigatorSelector] = useState(0);
   const { storeContext } = useContext(Context);
 
-
   const userId = storeContext.user.id;
+  const userIsAuth = storeContext.isAuth;
 
   return (
-    <div className={styleMyAccount.wrapper}>
-      <p className={styleMyAccount.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p>
-      <div className={styleMyAccount.conteiner}>
+    <React.Fragment>
+      <div className={styleMyAccount.wrapper}>
+        <p className={styleMyAccount.backArrow} onClick={() => navigate(-1)}>
+          <img src={arrawLeft} alt="arrawLeft" />
+          назад
+        </p>
+        <div className={styleMyAccount.conteiner}>
+          <div className={styleMyAccount.title}>
+            <img
+              className={styleMyAccount.titleIcon}
+              src={account}
+              alt="account"
+            />
+            <h1>Личный кабинет</h1>
+          </div>
 
-        <div className={styleMyAccount.title}>
-          <img className={styleMyAccount.titleIcon} src={account} alt="account" />
-          <h1>Личный кабинет</h1>
-        </div>
-        
-        <div className={styleMyAccount.dashboard}>
+          <div className={styleMyAccount.dashboard}>
             <div className={styleMyAccount.navigatorlink}>
               {/* <p
                 className={styleMyAccount.dashboarlink}
@@ -83,8 +87,9 @@ export default function MyAccount() {
                   </h4>
 
                   <p>
-                    Здесь Вы можете просматривать свои последние заказы, управлять адресами доставки и выставления счетов, <br />
-                    а также редактировать свои регистрационные данные.
+                    Здесь Вы можете просматривать свои последние заказы,
+                    управлять адресами доставки и выставления счетов, <br />а
+                    также редактировать свои регистрационные данные.
                   </p>
                   <p>
                     Для получения интересующей Вас информации используйте
@@ -99,30 +104,25 @@ export default function MyAccount() {
                     Ваши последние заказы
                   </h4>
 
-                  <p>
-                  Здесь отображаются данные о заказах пользователя.
-                  </p>
+                  <p>Здесь отображаются данные о заказах пользователя.</p>
                 </>
               )}
 
-              {navigatorSelector === 2 && 
+              {navigatorSelector === 2 && (
                 <>
-                <h4 className={styleMyAccount.dashboardtitleinfo}>
-                  Адреса доставки
-                </h4>
-                <DeliveryAddresses userId={userId} />
+                  <h4 className={styleMyAccount.dashboardtitleinfo}>
+                    Адреса доставки
+                  </h4>
+                  <DeliveryAddresses userId={userId} />
                 </>
-              }
+              )}
 
               {navigatorSelector === 3 && (
                 <>
                   <h4 className={styleMyAccount.dashboardtitleinfo}>
                     Регистрационные данные пользователя
                   </h4>
-
-                  <p>
-                    Здесь отображаются регистрационные данные пользователя.
-                  </p>
+                  <UserProfile />
                 </>
               )}
 
@@ -135,13 +135,10 @@ export default function MyAccount() {
                   <p>Здесь отображаются избранные товары</p>
                 </>
               )}
-
             </div>
+          </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
-
-
-
