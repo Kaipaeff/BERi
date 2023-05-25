@@ -26,24 +26,49 @@ router.get('/', async (req, res) => {
 
 // Добавление заказа
 router.post('/', async (req, res) => {
-  const {
-    userId,
-    totalOrderPrice,
-    addressId,
-    accepted,
-    processed,
-    completed,
-    canceled,
-  } = req.body;
   try {
-    const addedOrder = await OrderList.findOrCreate({
-      where: { userId, totalOrderPrice },
-      default: { addressId, accepted, processed, completed, canceled },
-      raw: true,
-    });
-    return res.json(addedTypeOfProduct);
+    const {
+      userId,
+      totalOrderPrice,
+      addressId,
+      accepted,
+      processed,
+      completed,
+      canceled,
+    } = req.body;
+    const addedOrder = await OrderList.create(
+      {
+        userId,
+        totalOrderPrice,
+        addressId,
+        accepted,
+        processed,
+        completed,
+        canceled,
+      },
+      { raw: true }
+    );
+
+    res.json(addedOrder);
   } catch (error) {
     console.error('Ошибка добавления данных о заказе в БД!', error);
+  }
+});
+
+// Создание записей в базу данных Корзины
+router.post('/cart', async (req, res) => {
+  console.log('V RUCHKE BULK');
+
+  try {
+    console.log('>>>>>>>>>>>>>>>>> BODY', req.body);
+
+    const cartElements = await Cart.bulkCreate(req.body);
+
+    console.log('>>>>>>>>>>>>>>>> CART ELEMENT', cartElements);
+
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
   }
 });
 
@@ -79,7 +104,6 @@ router.delete('/:id', async (req, res) => {
 });
 
 router.get('/carts/:orderId', async (req, res) => {
-  console.log('ИЩЕМ КОРЗИНУ ПО # ЗАКАЗА', req.params.orderId);
   try {
     const { orderId } = req.params;
     const response = await Cart.findAll({

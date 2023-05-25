@@ -24,6 +24,16 @@ export interface INewOrderElement {
   canceled: boolean;
 }
 
+export interface INewCartElement {
+  userId: number;
+  productPropsId: number;
+  productName: string;
+  quantity: number;
+  price: number;
+  totalPrice: number;
+  orderId: number;
+}
+
 export interface IOneOrderChangeStatus {
   id: number;
   accepted: boolean;
