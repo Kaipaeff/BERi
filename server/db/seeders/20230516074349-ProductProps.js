@@ -10,7 +10,7 @@ module.exports = {
         //boys_6_14/jackets
         {
           productId: 1,
-          colorId: 1,
+          colorId: 4,
           sizeId: 12,
           salePrice: 3399,
           sale: true,
@@ -19,7 +19,7 @@ module.exports = {
         },
         {
           productId: 1,
-          colorId: 1,
+          colorId: 4,
           sizeId: 13,
           salePrice: 3200,
           sale: false,

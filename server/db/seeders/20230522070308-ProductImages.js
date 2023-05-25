@@ -21,7 +21,6 @@ module.exports = {
           productPropsId: 2,
         },
 
-
         //id 2
         {
           imgId: 2,
@@ -33,10 +32,6 @@ module.exports = {
           productId: 2,
           productPropsId: 4,
         },
-
-
-
-
 
         //id 3
         {
@@ -50,11 +45,6 @@ module.exports = {
           productPropsId: 6,
         },
 
-
-
-
-
-
         //id 4
         {
           imgId: 4,
@@ -66,11 +56,6 @@ module.exports = {
           productId: 4,
           productPropsId: 8,
         },
-
-
-
-
-
 
         //id 5
         {
@@ -84,13 +69,6 @@ module.exports = {
           productPropsId: 10,
         },
 
-
-
-
-
-
-
-
         //id 6
         {
           imgId: 6,
@@ -102,11 +80,6 @@ module.exports = {
           productId: 6,
           productPropsId: 12,
         },
-
-
-
-
-
 
         //id 7
         {
@@ -120,10 +93,6 @@ module.exports = {
           productPropsId: 14,
         },
 
-
-
-
-
         //id 8
         {
           imgId: 8,
@@ -135,23 +104,6 @@ module.exports = {
           productId: 8,
           productPropsId: 16,
         },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         //girls_6_14/blouses
@@ -167,9 +119,6 @@ module.exports = {
           productPropsId: 18,
         },
 
-
-
-
         //id 10
         {
           imgId: 10,
@@ -181,9 +130,6 @@ module.exports = {
           productId: 10,
           productPropsId: 20,
         },
-
-
-
 
         //id 11
         {
@@ -197,16 +143,6 @@ module.exports = {
           productPropsId: 22,
         },
 
-
-
-
-
-
-
-
-
-
-
         //id 12
         {
           imgId: 12,
@@ -218,13 +154,6 @@ module.exports = {
           productId: 12,
           productPropsId: 24,
         },
-
-
-
-
-
-
-
 
         //id 13
         {
@@ -238,10 +167,6 @@ module.exports = {
           productPropsId: 26,
         },
 
-
-
-
-
         //id 14
         {
           imgId: 14,
@@ -253,8 +178,6 @@ module.exports = {
           productId: 14,
           productPropsId: 28,
         },
-
-
 
         //id 15
         {
@@ -268,21 +191,17 @@ module.exports = {
           productPropsId: 30,
         },
 
-
-
         //id 16
+        {
+          imgId: 16,
+          productId: 16,
+          productPropsId: 30,
+        },
         {
           imgId: 16,
           productId: 16,
           productPropsId: 31,
         },
-        {
-          imgId: 16,
-          productId: 16,
-          productPropsId: 32,
-        },
-
-
 
         //boys_6months_5year
 
@@ -298,8 +217,6 @@ module.exports = {
           productPropsId: 33,
         },
 
-
-
         //id 18
         {
           imgId: 18,
@@ -311,8 +228,6 @@ module.exports = {
           productId: 18,
           productPropsId: 35,
         },
-
-
 
         //id 19
         {
@@ -326,9 +241,6 @@ module.exports = {
           productPropsId: 37,
         },
 
-
-
-
         //id 20
         {
           imgId: 20,
@@ -340,10 +252,6 @@ module.exports = {
           productId: 20,
           productPropsId: 39,
         },
-
-
-
-
 
         //id 21
         {
@@ -357,9 +265,6 @@ module.exports = {
           productPropsId: 41,
         },
 
-
-
-
         //id 22
         {
           imgId: 22,
@@ -372,9 +277,6 @@ module.exports = {
           productPropsId: 43,
         },
 
-
-
-
         //id 23
         {
           imgId: 23,
@@ -386,10 +288,6 @@ module.exports = {
           productId: 23,
           productPropsId: 45,
         },
-
-
-
-
 
         //id 24
         {
@@ -405,18 +303,9 @@ module.exports = {
 
 
 
-
-
-
-        //////////////////////////////////////////////////////////////////////
-
-
-
-
         //girls_6month_5year
 
         //id 25
-
         {
           imgId: 25,
           productId: 25,
@@ -427,9 +316,6 @@ module.exports = {
           productId: 25,
           productPropsId: 49,
         },
-
-
-
 
 
         //id 26
@@ -445,7 +331,6 @@ module.exports = {
         },
 
 
-
         //id 27
         {
           imgId: 27,
@@ -458,9 +343,7 @@ module.exports = {
           productPropsId: 53,
         },
 
-
-
-
+        
         //id 28
         {
           imgId: 28,
@@ -472,7 +355,6 @@ module.exports = {
           productId: 28,
           productPropsId: 55,
         },
-
 
         //5//id 29
         {
@@ -486,9 +368,6 @@ module.exports = {
           productPropsId: 57,
         },
 
-
-
-
         //6//id 30
         {
           imgId: 30,
@@ -500,9 +379,6 @@ module.exports = {
           productId: 30,
           productPropsId: 59,
         },
-
-
-
 
         //7//id 31
         {
@@ -517,8 +393,6 @@ module.exports = {
         },
 
 
-
-
         //8//id 32
         {
           imgId: 32,
@@ -530,10 +404,6 @@ module.exports = {
           productId: 32,
           productPropsId: 63,
         },
-
-
-
-
 
 
         //newborns
@@ -551,9 +421,6 @@ module.exports = {
           productPropsId: 65,
         },
 
-
-
-
         //2//id 34
         {
           imgId: 34,
@@ -566,8 +433,6 @@ module.exports = {
           productPropsId: 67,
         },
 
-
-
         //3//id 35
         {
           imgId: 35,
@@ -579,8 +444,6 @@ module.exports = {
           productId: 35,
           productPropsId: 69,
         },
-
-
 
 
         //4//id 36
@@ -596,8 +459,6 @@ module.exports = {
         },
 
 
-
-
         //5//id 37
         {
           imgId: 37,
@@ -609,8 +470,6 @@ module.exports = {
           productId: 37,
           productPropsId: 73,
         },
-
-
 
 
         //6//id 38
@@ -625,10 +484,6 @@ module.exports = {
           productPropsId: 75,
         },
 
-
-
-
-
         //7//id 39
         {
           imgId: 39,
@@ -640,9 +495,6 @@ module.exports = {
           productId: 39,
           productPropsId: 77,
         },
-
-
-
 
         //8//id 40
         {
@@ -657,14 +509,9 @@ module.exports = {
         },
 
 
-
-
-
-
         //shoes
 
         //1//id 41
-
         {
           imgId: 41,
           productId: 41,
@@ -680,9 +527,6 @@ module.exports = {
           productId: 41,
           productPropsId: 82,
         },
-
-
-
 
         //2//id 42
         {
@@ -701,10 +545,6 @@ module.exports = {
           productPropsId: 85,
         },
 
-
-
-
-
         //3//id 43
         {
           imgId: 43,
@@ -721,9 +561,6 @@ module.exports = {
           productId: 43,
           productPropsId: 88,
         },
-
-
-
 
         //4//id 44
         {
@@ -742,8 +579,6 @@ module.exports = {
           productPropsId: 91,
         },
 
-
-
         //5//id 45
         {
           imgId: 45,
@@ -760,9 +595,6 @@ module.exports = {
           productId: 45,
           productPropsId: 94,
         },
-
-
-
 
         //6//id 46
         {
@@ -781,8 +613,6 @@ module.exports = {
           productPropsId: 97,
         },
 
-
-
         //7//id 47
         {
           imgId: 47,
@@ -799,10 +629,6 @@ module.exports = {
           productId: 47,
           productPropsId: 100,
         },
-
-
-
-
 
         //8//id 48
         {
@@ -821,12 +647,6 @@ module.exports = {
           productPropsId: 103,
         },
 
-
-
-
-
-
-
         //accessories
 
         //1//id 49
@@ -841,9 +661,6 @@ module.exports = {
           productPropsId: 105,
         },
 
-
-
-
         //2//id 50
         {
           imgId: 50,
@@ -855,10 +672,6 @@ module.exports = {
           productId: 50,
           productPropsId: 107,
         },
-
-
-
-
 
         //3//id 51
         {
@@ -872,8 +685,6 @@ module.exports = {
           productPropsId: 109,
         },
 
-
-
         //4//id 52
         {
           imgId: 52,
@@ -885,9 +696,6 @@ module.exports = {
           productId: 52,
           productPropsId: 111,
         },
-
-
-
 
         //5//id 53
         {
@@ -901,9 +709,6 @@ module.exports = {
           productPropsId: 113,
         },
 
-
-
-
         //6//id 54
         {
           imgId: 54,
@@ -911,12 +716,12 @@ module.exports = {
           productPropsId: 114,
         },
         {
-          imgId: 54,
+          imgId: 55,
           productId: 54,
           productPropsId: 115,
         },
         {
-          imgId: 54,
+          imgId: 56,
           productId: 54,
           productPropsId: 116,
         },

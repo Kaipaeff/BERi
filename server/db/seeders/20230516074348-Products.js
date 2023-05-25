@@ -687,8 +687,9 @@ module.exports = {
           rating: 4.7,
           reviews: 13,
         },
+        //id 54
         {
-          name: 'Шапка желтая',
+          name: 'Шапка трикотажная',
           description: 'Шапка бини из трикотажа в рубчик с отворотом.',
           vendorId: 6,
           vendorPrice: 2000,
