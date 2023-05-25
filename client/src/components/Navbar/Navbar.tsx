@@ -42,6 +42,7 @@ export function Navbar() {
 
   useEffect(() => {
     dispatch(getLocalGoods());
+    
   }, []);
 
   useEffect(() => {

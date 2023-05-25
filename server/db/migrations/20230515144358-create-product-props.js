@@ -20,9 +20,6 @@ module.exports = {
         onDelete: 'cascade',
         type: Sequelize.INTEGER,
       },
-      img: {
-        type: Sequelize.STRING,
-      },
       colorId: {
         references: {
           model: {
