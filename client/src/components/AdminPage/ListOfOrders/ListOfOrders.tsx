@@ -136,7 +136,7 @@ export default function ListOfOrders(): JSX.Element {
           </div>
           <div className={styleListOfOrder.tableTitle}>
             <div className={styleListOfOrder.columnId}>№</div>
-            <div className={styleListOfOrder.columnPrice}>Стоимость (руб)</div>
+            <div className={styleListOfOrder.columnPrice}>Стоимость</div>
             <div className={styleListOfOrder.columnEmail}>
               Электронный адрес
             </div>

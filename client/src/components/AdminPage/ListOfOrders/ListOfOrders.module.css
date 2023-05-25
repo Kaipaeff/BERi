@@ -1,5 +1,6 @@
 .titlePage {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+  color: #4d4d4d;
 }
 
 .searchRow {
@@ -8,11 +9,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px;
-  border: 1px solid rgb(202, 202, 202);
+  border: 1px solid #cacaca;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   gap: 4px;
 }
+
 .filterBlock {
   display: flex;
   flex-direction: row;
@@ -20,7 +22,7 @@
   align-items: center;
   padding: 5px;
   width: 100%;
-  border: 1px solid rgb(202, 202, 202);
+  border: 1px solid #cacaca;
   border-radius: 5px;
 }
 
@@ -29,8 +31,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   max-height: 500px;
-  gap: 5px;
 }
+
 .filterFirstElement {
   width: 300px;
 }
@@ -50,7 +52,7 @@
 }
 .searchSimbol:hover {
   border-radius: 50%;
-  background-color: rgb(202, 202, 202);
+  background-color: #cacaca;
 }
 
 .searchOffSimbol {
@@ -86,9 +88,9 @@
 
 .message {
   font-size: 25px;
-  color: red;
+  color: #4d4d4d;
   display: flex;
-  align-items: centr;
+  align-items: center;
   justify-content: center;
   margin-top: 100px;
   width: auto;
@@ -103,8 +105,8 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
-  width: 11%;
-  height: 36px;
+  width: 160px;
+  height: 40px;
   border-radius: 4px;
   color: #ffffff;
   font-size: 16px;
@@ -136,83 +138,98 @@
   border: none;
   cursor: pointer;
 }
-
+/* ////////////////////////////////////////////////////// */
 .tableTitle {
-  width: 100%;
-  height: 35px;
-  margin: 0px;
-  padding: 0px;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  align-items: center;
-  background-color: rgb(240, 239, 239);
-  border: 1px solid rgb(202, 202, 202);
-  font-size: 10px;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  width: 100%;
+  min-height: 35px;
+  background-color: #d1d1d17c;
+  border: 1px solid #cacaca;
+  font-size: 14px;
+  font-weight: 700;
 }
+
+
 .columnId {
-  width: 28px;
-  height: 35px;
+  width: 50px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-right: 1px solid rgb(202, 202, 202);
-  padding-left: 3px;
-  padding-right: 3px;
+  justify-content: flex-start;
+  border-right: 1px solid #cacaca;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
 }
 
 .columnPrice {
-  width: 89px;
-  height: 35px;
+  width: 100px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-right: 1px solid rgb(202, 202, 202);
+  justify-content: flex-start;
+  border-right: 1px solid #cacaca;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
 }
+
 .columnEmail {
-  width: 177px;
-  height: 35px;
+  width: 180px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-right: 1px solid rgb(202, 202, 202);
+  justify-content: flex-start;
+  border-right: 1px solid #cacaca;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
 }
+
 .columnPhone {
-  width: 133px;
-  height: 35px;
+  width: 130px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-right: 1px solid rgb(202, 202, 202);
+  justify-content: flex-start;
+  border-right: 1px solid #cacaca;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
 }
+
+
 .columnAddress {
-  width: 352px;
-  height: 35px;
+  width: 250px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-right: 1px solid rgb(202, 202, 202);
+  justify-content: flex-start;
+  border-right: 1px solid #cacaca;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
 }
+
 .columnDate {
-  width: 106px;
-  height: 35px;
+  width: 120px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-right: 1px solid rgb(202, 202, 202);
+  justify-content: flex-start;
+  border-right: 1px solid #cacaca;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
 }
+
 .columnStatuses {
-  width: 89px;
-  height: 35px;
+  width: 120px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-right: 1px solid rgb(202, 202, 202);
+  justify-content: flex-start;
+  border-right: 1px solid #cacaca;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
 }
+
 .columnButtons {
-  width: 89px;
-  height: 35px;
+  width: 100px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
+  /* border-right: 1px solid #cacaca; */
+  padding: 0 10px 0 10px;
+  font-size: 14px;
 }

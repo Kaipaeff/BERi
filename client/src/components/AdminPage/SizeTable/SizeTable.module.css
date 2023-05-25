@@ -7,6 +7,7 @@
   height: 80px;
   padding: 5px;
   gap: 20px;
+  margin-bottom: 20px;
   border: 1px solid #d1d1d1;
 }
 
@@ -40,6 +41,7 @@
 
 
 .titlePage {
+  margin-bottom: 20px;
   color: #4d4d4d;
 }
 

@@ -12,6 +12,7 @@ import AgePage from '../AgePage/AgePage';
 import ListOfOrders from '../ListOfOrders/ListOfOrders';
 
 import arrawLeft from '../../../img/icons/arrow-left.svg'
+import settings from '../../../img/icons/settings.svg'
 
 
 export default function AdminMainPage() {
@@ -28,7 +29,8 @@ export default function AdminMainPage() {
       <div className={styleAdminMainPage.conteiner}>
 
         <div className={styleAdminMainPage.title}>
-        <h1>Страница администратора</h1>
+          <img className={styleAdminMainPage.titleIcon} src={settings} alt="settings" />
+          <h1>Панель администратора</h1>
         </div>
         
         <div className={styleAdminMainPage.content}>
@@ -60,7 +62,7 @@ export default function AdminMainPage() {
               onClick={() => setSelectorPage(4)}
               className={styleAdminMainPage.selectorPageLink}
             >
-              Категории
+              Категории товаров
             </p>
 
             <p
@@ -95,7 +97,7 @@ export default function AdminMainPage() {
               onClick={() => setSelectorPage(9)}
               className={styleAdminMainPage.selectorPageLink}
             >
-              Заказы
+              Заказы пользователей
             </p>
 
             <p
