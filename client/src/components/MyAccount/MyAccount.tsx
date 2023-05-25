@@ -5,7 +5,7 @@ import DeliveryAddresses from '../DeliveryAddresses/DeliveryAddresses';
 import { Context } from '../../index';
 import { useNavigate } from 'react-router-dom';
 
-import arrawLeft from '../../img/icons/arrow-left.svg';
+// import arrawLeft from '../../img/icons/arrow-left.svg';
 import account from '../../img/icons/user-check.svg';
 import UserProfile from '../UserProfile/UserProfile';
 
@@ -25,10 +25,10 @@ export default function MyAccount() {
   return (
     <React.Fragment>
       <div className={styleMyAccount.wrapper}>
-        <p className={styleMyAccount.backArrow} onClick={() => navigate(-1)}>
+        {/* <p className={styleMyAccount.backArrow} onClick={() => navigate(-1)}>
           <img src={arrawLeft} alt="arrawLeft" />
           назад
-        </p>
+        </p> */}
         <div className={styleMyAccount.conteiner}>
           <div className={styleMyAccount.title}>
             <img
@@ -87,9 +87,8 @@ export default function MyAccount() {
                   </h4>
 
                   <p>
-                    Здесь Вы можете просматривать свои последние заказы,
-                    управлять адресами доставки и выставления счетов, <br />а
-                    также редактировать свои регистрационные данные.
+                    Здесь Вы можете просматривать свои последние заказы, управлять адресами доставки и выставления счетов, <br />
+                    а также редактировать свои регистрационные данные.
                   </p>
                   <p>
                     Для получения интересующей Вас информации используйте

@@ -176,36 +176,36 @@ module.exports = {
         {
           src: 'images/catalog/shoes/8.jpg',
         },
-      
 
 
 
 
-          //accessories
-          {
-            src: 'images/catalog/accessories/hats/1.jpg',
-          },
-          {
-            src: 'images/catalog/accessories/hats/2.jpg',
-          },
-          {
-            src: 'images/catalog/accessories/hats/3.jpg',
-          },
-          {
-            src: 'images/catalog/accessories/hats/4.jpg',
-          },
-          {
-            src: 'images/catalog/accessories/hats/5.jpg',
-          },
-          {
-            src: 'images/catalog/accessories/hats/6.jpg',
-          },
-          {
-            src: 'images/catalog/accessories/hats/7.jpg',
-          },
-          {
-            src: 'images/catalog/accessories/hats/8.jpg',
-          },
+
+        //accessories
+        {
+          src: 'images/catalog/accessories/hats/1.jpg',
+        },
+        {
+          src: 'images/catalog/accessories/hats/2.jpg',
+        },
+        {
+          src: 'images/catalog/accessories/hats/3.jpg',
+        },
+        {
+          src: 'images/catalog/accessories/hats/4.jpg',
+        },
+        {
+          src: 'images/catalog/accessories/hats/5.jpg',
+        },
+        {
+          src: 'images/catalog/accessories/hats/6.jpg', // Желтый
+        },
+        {
+          src: 'images/catalog/accessories/hats/7.jpg', // Оранжевый
+        },
+        {
+          src: 'images/catalog/accessories/hats/8.jpg', // Зеленый
+        },
 
 
 

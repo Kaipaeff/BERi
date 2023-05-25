@@ -6,7 +6,7 @@ import { productPropsType, productType } from '../../types/product';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks/hooks';
 import { addGoodsReducer } from '../../redux/slices/shopCard/card.slice';
 import arrowRight from '../../img/icons/arrowRight.svg';
-import arrawLeft from '../../img/icons/arrow-left.svg';
+// import arrawLeft from '../../img/icons/arrow-left.svg';
 import Rating from '../Rating/Rating/Rating';
 import SetRating from '../Rating/SetRating/SetRating';
 import { getProductPropsFromBack } from '../../redux/Thunk/ProductProps/getProductPropsFromBack';
@@ -124,10 +124,10 @@ export default function ProductPage(): JSX.Element {
 
   return (
     <div className={style.wrapper}>
-      <p className={style.backArrow} onClick={() => navigate(-1)}>
+      {/* <p className={style.backArrow} onClick={() => navigate(-1)}>
         <img src={arrawLeft} alt="arrawLeft" />
         назад
-      </p>
+      </p> */}
 
       <div className={style.cardContainer}>
         <img
@@ -171,6 +171,7 @@ export default function ProductPage(): JSX.Element {
                 ? filteredColorProductProp?.Color?.color
                 : productProps[0]?.Color?.color}
             </p>
+
             {activeRating ? (
               <div
                 className={style.setRatingDiv}
@@ -186,6 +187,7 @@ export default function ProductPage(): JSX.Element {
                 <Rating el={el} />
               </div>
             )}
+
             <div className={style.sizeBar}>
               {productProps
                 .filter((product, index) =>
@@ -211,10 +213,11 @@ export default function ProductPage(): JSX.Element {
                   </p>
                 ))}
             </div>
+
             <div className={style.colorBar}>
               <div className={style.colorDD}>
                 <button className={style.ddToggle} onClick={toggleMenu}>
-                  Цвета
+                  Выбрать цвет
                   <img src="Vector.svg" alt="vector" />
                 </button>
                 {productProps.length && isOpen && (
@@ -290,9 +293,3 @@ export default function ProductPage(): JSX.Element {
   );
 }
 
-{
-  /* <img className={style.favoriteFalse} src={favorites} alt="favorite" /> */
-}
-{
-  /* <img className={style.favoriteTrue} src={favorite} alt="favorite" /> */
-}

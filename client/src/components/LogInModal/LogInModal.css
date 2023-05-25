@@ -110,6 +110,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  cursor: pointer;
 }
 
 
@@ -119,4 +120,5 @@
   right: 24px;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }

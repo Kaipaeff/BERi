@@ -7,7 +7,7 @@ import Card from '../Card/Card';
 import { getProducts } from '../../redux/Thunk/Products/getProducts';
 import { useNavigate } from 'react-router-dom';
 
-import arrawLeft from '../../img/icons/arrow-left.svg'
+// import arrawLeft from '../../img/icons/arrow-left.svg'
 import MainBrandsBlock from '../MainBrandsBlock/MainBrandsBlock';
 import Advantages from '../Advantages/Advantages';
 // import FilterBar from '../FilterBar/FilterBar';
@@ -46,7 +46,7 @@ export function Favorites() {
         {/* <div className={style.filterBar}>
           <FilterBar />
         </div> */}
-        <p className={style.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p>
+        {/* <p className={style.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p> */}
         <div className={style.container}>
 
           <div className={style.productsContainer}>
