@@ -59,8 +59,12 @@ module.exports = {
           colorCode: '#c8a2c8',
         },
         {
-          color: 'Фуксия',
-          colorCode: '#FF00FF',
+          color: 'Цветной',
+          colorCode: '#60FFF5',
+        },
+        {
+          color: 'Коричневый',
+          colorCode: '#5F0C0C',
         },
       ],
       {}

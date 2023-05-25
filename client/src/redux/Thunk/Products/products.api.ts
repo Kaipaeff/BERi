@@ -1,6 +1,6 @@
 export const fetchProducts = async () => {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 600));
     const response = await fetch('http://localhost:4000/products', {
       headers: {
         'Content-Type': 'application/json',

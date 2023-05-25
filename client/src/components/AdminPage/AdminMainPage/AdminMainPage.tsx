@@ -11,7 +11,7 @@ import TypeOfProduct from '../TypeOfProduct/TypeOfProduct';
 import AgePage from '../AgePage/AgePage';
 import ListOfOrders from '../ListOfOrders/ListOfOrders';
 
-import arrawLeft from '../../../img/icons/arrow-left.svg'
+// import arrawLeft from '../../../img/icons/arrow-left.svg'
 import settings from '../../../img/icons/settings.svg'
 
 
@@ -25,7 +25,7 @@ export default function AdminMainPage() {
   const [selectorPage, setSelectorPage] = useState<number>(0);
   return (
     <div className={styleAdminMainPage.wrapper}>
-      <p className={styleAdminMainPage.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p>
+      {/* <p className={styleAdminMainPage.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p> */}
       <div className={styleAdminMainPage.conteiner}>
 
         <div className={styleAdminMainPage.title}>

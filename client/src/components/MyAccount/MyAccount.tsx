@@ -5,7 +5,7 @@ import DeliveryAddresses from '../DeliveryAddresses/DeliveryAddresses';
 import { Context } from '../../index';
 import { Link, useNavigate } from 'react-router-dom';
 
-import arrawLeft from '../../img/icons/arrow-left.svg'
+// import arrawLeft from '../../img/icons/arrow-left.svg'
 import account from '../../img/icons/user-check.svg'
 
 
@@ -27,7 +27,7 @@ export default function MyAccount() {
 
   return (
     <div className={styleMyAccount.wrapper}>
-      <p className={styleMyAccount.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p>
+      {/* <p className={styleMyAccount.backArrow} onClick={() => navigate(-1)}><img src={arrawLeft} alt="arrawLeft" />назад</p> */}
       <div className={styleMyAccount.conteiner}>
 
         <div className={styleMyAccount.title}>
@@ -82,7 +82,7 @@ export default function MyAccount() {
                     Добро пожаловать на Вашу персональную страницу!
                   </h4>
 
-                  <p>
+                  <p className={styleMyAccount.dashboardSubTitle}>
                     Здесь Вы можете просматривать свои последние заказы, управлять адресами доставки и выставления счетов, <br />
                     а также редактировать свои регистрационные данные.
                   </p>

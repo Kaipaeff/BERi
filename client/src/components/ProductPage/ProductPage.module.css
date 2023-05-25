@@ -4,8 +4,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* border-bottom: 1px solid #cfcfcf;
-  margin-bottom: 20px; */
+  /* border-bottom: 1px solid #d31717; */
+  /* margin-bottom: 20px; */
   /* gap: 120px; */
   /* border: 1px solid #098319; */
 }
@@ -16,29 +16,39 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  height: 700px;
-  margin-bottom: 40px;
-  padding: 30px;
-  border: 1px solid #cfcfcf;
+  height: 751px;
+  padding: 30px 30px 0 30px;
+  border-top: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1;
+  /* border: 1px solid #cfcfcf; */
+
 }
 
 .productImg {
-  width: 520px;
-  height: 640px;
+  width: 540px;
+  height: 691px;
   /* border: 1px solid #e03d3d; */
 }
 
 .descriptionContainer {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 840px;
+  height: 691px;
+  padding: 30px 0 30px 30px;
+  /* border: 1px solid #3f3f3f; */
 }
 
 .description {
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  padding: 40px;
+  gap: 40px;
+  padding-right: 30px;
   font-size: large;
   width: 520px;
+  height: 640px;
+  /* border: 1px solid #3f3f3f; */
 }
 
 /* .priceContainer {
@@ -50,21 +60,31 @@
 .btnContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 200px;
-  width: 320px;
-  font-size: 33px;
-  border: 1px solid #e9e9e9;
-  box-shadow: 1px 1px 10px 1px #d4d4d4;
-  padding: 30px;
+  justify-content: flex-start;
+  height: 640px;
+  width: 260px;
+  /* border: 1px solid #e9e9e9; */
+  /* box-shadow: 1px 1px 10px 1px #d4d4d4; */
+  /* padding: 30px; */
 }
+
+.btnContainer .price {
+  font-size: 33px;
+  margin-bottom: 20px;
+}
+
+.alertSize {
+  font-size: 16px;
+}
+
 
 .addToCardBtn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
-  height: 70px;
+  width: 260px;
+  height: 50px;
   padding: 20px;
   border-radius: 4px;
   color: #ffffff;
@@ -72,17 +92,19 @@
   background-color: #121212;
   border: none;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .ratingDiv {
   width: 180px;
   height: 30px;
-  padding-left: 1px;
+  font-size: 24px;
 }
 
 .setRatingDiv {
   width: 180px;
   height: 30px;
+  font-size: 24px;
 }
 
 .addToCardBtn:active {
@@ -95,57 +117,109 @@
   justify-content: space-evenly;
 }
 
-.backArrow {
+/* .backArrow {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   cursor: pointer;
-  width: 70px;
+  width: 70px; */
   /* border: 1px solid #e03d3d; */
-}
+/* } */
 
-.backArrow img {
+/* .backArrow img {
   width: 15px;
   margin-right: 5px;
-}
+} */
 
 .sizeBar {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
 .sizeInActive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
   font-weight: 600;
-  padding-top: 6px;
-  text-align: center;
-  width: 39px;
-  height: 38px;
+  /* padding-top: 6px; */
+  width: 40px;
+  height: 40px;
   border: 1px solid #cbcbcb;
+  border-radius: 4px;
+
 }
 
 .sizeActive {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
   font-weight: 600;
-  padding-top: 6px;
+  /* padding-top: 6px; */
   text-align: center;
-  width: 39px;
-  height: 38px;
-  border: 1px solid #121212;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #a1a1a1b0;
+  background-color: #cbcbcb9c;
+  box-shadow: 1px 1px 15px 1px #d4d4d4;
+  border-radius: 4px;
+
+}
+
+.sizeInActive:hover,
+.sizeActive:hover {
+  cursor: pointer;
   background-color: #cbcbcb;
 }
 
 .ddToggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
   font-size: 16px;
   font-weight: 600;
-  width: 150px;
-  border: 1px solid #121212;
-  height: 38px;
+  width: 180px;
+  border: 1px solid #9b9b9b;
+  height: 35px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ddToggle:hover {
+  background-color: #e4e4e4;
 }
 
 .ddToggle img {
   padding-left: 20px;
 }
+
+.ddMenu li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 600;
+  height: 30px;
+  width: 180px;
+  margin-top: 2px;
+  z-index: -1;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid #9b9b9b;
+}
+
+.ddMenu li:hover {
+  cursor: pointer;
+  background-color: #cbcbcb;
+}
+
+
 
 .ddMenu {
   font-size: 16px;
@@ -153,19 +227,7 @@
   width: 150px;
 }
 
-.ddMenu li {
-  height: 30px;
-  padding-left: 10px;
-  width: 150px;
-  border: 1px solid #121212;
-}
 
-.ddMenu li:hover,
-.sizeInActive:hover,
-.sizeActive:hover {
-  cursor: pointer;
-  background-color: #cbcbcb;
-}
 
 .colorIcon {
   font-size: 20px;
@@ -176,8 +238,8 @@
 .favoriteFalse,
 .favoriteTrue {
   position: absolute;
-  top: 55px;
-  left: 500px;
+  top: 60px;
+  left: 515px;
   cursor: pointer;
   width: 25px;
 }
