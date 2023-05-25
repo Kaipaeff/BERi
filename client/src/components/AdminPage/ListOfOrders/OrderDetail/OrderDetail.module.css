@@ -4,3 +4,28 @@
   margin-bottom: 20px;
   cursor: pointer;
 }
+
+.mainOrderInfo {
+  width: auto;
+  border: 1px solid rgb(214, 214, 214);
+}
+
+.phoneIco {
+  height: 20px;
+}
+.firstRow {
+  display: flex;
+  direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 5px;
+}
+
+.secondRow {
+  display: flex;
+  direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 5px 5px;
+}

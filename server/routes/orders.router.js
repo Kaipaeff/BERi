@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { OrderList, User, DeliveryAddress } = require('../db/models');
+const { OrderList, User, DeliveryAddress, Cart } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
@@ -75,6 +75,22 @@ router.delete('/:id', async (req, res) => {
     res.end();
   } catch (error) {
     console.error('Ошибка удаления типa продукта из БД!', error);
+  }
+});
+
+router.get('/carts/:orderId', async (req, res) => {
+  console.log('ИЩЕМ КОРЗИНУ ПО # ЗАКАЗА', req.params.orderId);
+  try {
+    const { orderId } = req.params;
+    const response = await Cart.findAll({
+      where: { orderId },
+      order: [['id', 'ASC']],
+      raw: true,
+    });
+
+    return res.json(response);
+  } catch (error) {
+    res.json({ error });
   }
 });
 
