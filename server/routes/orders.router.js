@@ -5,7 +5,7 @@ const { OrderList, User, DeliveryAddress } = require('../db/models');
 router.get('/', async (req, res) => {
   try {
     const response = await OrderList.findAll({
-      order: [['createdAt', 'DESC']],
+      order: [['updatedAt', 'DESC']],
       include: [
         {
           model: User,
@@ -48,12 +48,12 @@ router.post('/', async (req, res) => {
 });
 
 // Изменение статусов заказа администратором
-router.put('/orderstatus', async (req, res) => {
-  const { id, accepted, processed, completed } = req.body;
+router.patch('/status', async (req, res) => {
+  const { id, accepted, processed, completed, canceled } = req.body;
 
   try {
     const editOrderStatuses = await OrderList.update(
-      { accepted, processed, completed },
+      { accepted, processed, completed, canceled },
       { where: { id } },
       { raw: true }
     );

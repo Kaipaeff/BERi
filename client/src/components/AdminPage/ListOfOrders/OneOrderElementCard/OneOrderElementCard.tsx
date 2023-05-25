@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import IOneOrderElement from '../../../../types/ListOfOrders.type';
 
 import editIconBtn from '../../../../img/icons/editIconBtn.svg';
 import deleteIconBtn from '../../../../img/icons/deleteIconBtn.svg';
 import clipboardText from '../../../../img/icons/clipboardText.svg';
-import checkMarkRing from '../../../../img/icons/checkMarkRing.svg';
 
 import styleOneOrderElementCard from './OneOrderElementCard.module.css';
 import FiledRingIndicator from '../FiledRingIndicator/FiledRingIndicator';
 import OrderDetail from '../OrderDetail/OrderDetail';
-import EditOrderStatus from './EditOrderStatus/EditOrderStatus';
+import EditOrderStatus from '../EditOrderStatus/EditOrderStatus';
+import { BsCircle, BsCircleFill } from 'react-icons/bs';
 
 export default function OneOrderElementCard({
   OneOrderElement,
+  setShowOneOrder,
+  setSelectedOrder,
 }: {
   OneOrderElement: IOneOrderElement;
+  setShowOneOrder: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedOrder: React.Dispatch<React.SetStateAction<IOneOrderElement>>;
 }) {
   const [editOrderStatus, setEditOrderStatus] = useState<boolean>(false);
   const [orderDetailSelector, setOrderDetailSelector] =
     useState<boolean>(false);
 
   return (
-    <>
+    <React.Fragment>
       <div className={styleOneOrderElementCard.conteiner}>
         <div className={styleOneOrderElementCard.columnId}>
           {OneOrderElement.id}
@@ -44,24 +48,24 @@ export default function OneOrderElementCard({
 
         <div className={styleOneOrderElementCard.columnStatuses}>
           {OneOrderElement.accepted ? (
-            <FiledRingIndicator colorCode={'#FFD700'} />
+            <BsCircleFill style={{ color: '#FFD700' }} />
           ) : (
-            <FiledRingIndicator colorCode={'#FFFFFF'} />
+            <BsCircleFill style={{ color: '#FFFFFF' }} />
           )}
           {OneOrderElement.processed ? (
-            <FiledRingIndicator colorCode={'#00FFFF'} />
+            <BsCircleFill style={{ color: '#00FFFF' }} />
           ) : (
-            <FiledRingIndicator colorCode={'#FFFFFF'} />
+            <BsCircleFill style={{ color: '#FFFFFF' }} />
           )}
           {OneOrderElement.completed ? (
-            <FiledRingIndicator colorCode={'#008000'} />
+            <BsCircleFill style={{ color: '#008000' }} />
           ) : (
-            <FiledRingIndicator colorCode={'#FFFFFF'} />
+            <BsCircleFill style={{ color: '#FFFFFF' }} />
           )}
           {OneOrderElement.canceled ? (
-            <FiledRingIndicator colorCode={'#FF0000'} />
+            <BsCircleFill style={{ color: '#FF0000' }} />
           ) : (
-            <FiledRingIndicator colorCode={'#FFFFFF'} />
+            <BsCircleFill style={{ color: '#FFFFFF' }} />
           )}
         </div>
 
@@ -83,9 +87,8 @@ export default function OneOrderElementCard({
           </span>
           <span
             onClick={() => {
-              if (!editOrderStatus) {
-                setOrderDetailSelector(!orderDetailSelector);
-              }
+              setShowOneOrder(true);
+              setSelectedOrder(OneOrderElement);
             }}
             title="Открыть заказ"
             aria-label="orderopen"
@@ -109,8 +112,13 @@ export default function OneOrderElementCard({
           </span>
         </div>
       </div>
-      {!editOrderStatus && orderDetailSelector && <OrderDetail />}
-      {editOrderStatus && !orderDetailSelector && <EditOrderStatus OneOrderElement={OneOrderElement}  />}
-    </>
+      {editOrderStatus && !orderDetailSelector && (
+        <EditOrderStatus
+          OneOrderElement={OneOrderElement}
+          editOrderStatus={editOrderStatus}
+          setEditOrderStatus={setEditOrderStatus}
+        />
+      )}
+    </React.Fragment>
   );
 }
