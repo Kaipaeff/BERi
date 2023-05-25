@@ -1,4 +1,5 @@
 import IOneAge from '../types/Age.type';
+import IOneCartElement from '../types/Cart.type';
 import IOneCategory from '../types/Category.types';
 import IOneColorElement from '../types/ColorTable.types';
 import IDeliveryAddress from '../types/DeliveryAddress';
@@ -7,7 +8,7 @@ import IOneSize from '../types/Size.types';
 import IOneTypeOfProduct from '../types/TypeOfProducts.type';
 import IOneUser from '../types/UserTypes';
 import IOneVendor from '../types/VendorTypes';
-import { ageType, categoryType, productType } from '../types/product';
+import { ageType, categoryType, productPropsType, productType } from '../types/product';
 
 export type stateProductType = {
   products: productType[];
@@ -15,7 +16,7 @@ export type stateProductType = {
 };
 
 export type stateProductPropsType = {
-  productprops: productType[];
+  productprops: productPropsType[];
   loading: boolean;
 };
 
@@ -83,5 +84,10 @@ export type stateTypeAges = {
 
 export type stateTypeListOfOrders = {
   fullListOfOreders: IOneOrderElement[];
+  loading: boolean;
+};
+
+export type stateTypeListOfOrdersCartElements = {
+  allUserCartOrderedElements: IOneCartElement[];
   loading: boolean;
 };

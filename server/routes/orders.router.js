@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { OrderList, User, DeliveryAddress } = require('../db/models');
+const { OrderList, User, DeliveryAddress, Cart } = require('../db/models');
 
 router.get('/', async (req, res) => {
   try {
     const response = await OrderList.findAll({
-      order: [['createdAt', 'DESC']],
+      order: [['updatedAt', 'DESC']],
       include: [
         {
           model: User,
@@ -48,12 +48,12 @@ router.post('/', async (req, res) => {
 });
 
 // Изменение статусов заказа администратором
-router.put('/orderstatus', async (req, res) => {
-  const { id, accepted, processed, completed } = req.body;
+router.patch('/status', async (req, res) => {
+  const { id, accepted, processed, completed, canceled } = req.body;
 
   try {
     const editOrderStatuses = await OrderList.update(
-      { accepted, processed, completed },
+      { accepted, processed, completed, canceled },
       { where: { id } },
       { raw: true }
     );
@@ -75,6 +75,22 @@ router.delete('/:id', async (req, res) => {
     res.end();
   } catch (error) {
     console.error('Ошибка удаления типa продукта из БД!', error);
+  }
+});
+
+router.get('/carts/:orderId', async (req, res) => {
+  console.log('ИЩЕМ КОРЗИНУ ПО # ЗАКАЗА', req.params.orderId);
+  try {
+    const { orderId } = req.params;
+    const response = await Cart.findAll({
+      where: { orderId },
+      order: [['id', 'ASC']],
+      raw: true,
+    });
+
+    return res.json(response);
+  } catch (error) {
+    res.json({ error });
   }
 });
 

@@ -26,7 +26,6 @@
   width: 520px;
   height: 640px;
   /* border: 1px solid #e03d3d; */
-
 }
 
 .descriptionContainer {
@@ -60,7 +59,6 @@
   padding: 30px;
 }
 
-
 .addToCardBtn {
   display: flex;
   align-items: center;
@@ -74,6 +72,17 @@
   background-color: #121212;
   border: none;
   cursor: pointer;
+}
+
+.ratingDiv {
+  width: 180px;
+  height: 30px;
+  padding-left: 1px;
+}
+
+.setRatingDiv {
+  width: 180px;
+  height: 30px;
 }
 
 .addToCardBtn:active {
@@ -100,11 +109,79 @@
   margin-right: 5px;
 }
 
+.sizeBar {
+  display: flex;
+  gap: 10px;
+}
 
-.favoriteFalse, .favoriteTrue {
+.sizeInActive {
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 6px;
+  text-align: center;
+  width: 39px;
+  height: 38px;
+  border: 1px solid #cbcbcb;
+}
+
+.sizeActive {
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 6px;
+  text-align: center;
+  width: 39px;
+  height: 38px;
+  border: 1px solid #121212;
+  background-color: #cbcbcb;
+}
+
+.ddToggle {
+  font-size: 16px;
+  font-weight: 600;
+  width: 150px;
+  border: 1px solid #121212;
+  height: 38px;
+}
+
+.ddToggle img {
+  padding-left: 20px;
+}
+
+.ddMenu {
+  font-size: 16px;
+  font-weight: 600;
+  width: 150px;
+}
+
+.ddMenu li {
+  height: 30px;
+  padding-left: 10px;
+  width: 150px;
+  border: 1px solid #121212;
+}
+
+.ddMenu li:hover,
+.sizeInActive:hover,
+.sizeActive:hover {
+  cursor: pointer;
+  background-color: #cbcbcb;
+}
+
+.colorIcon {
+  font-size: 20px;
+  border: 1px solid #121212;
+  border-radius: 50%;
+}
+
+.favoriteFalse,
+.favoriteTrue {
   position: absolute;
   top: 55px;
   left: 500px;
   cursor: pointer;
   width: 25px;
+}
+
+.alertSize {
+  font-weight: 600;
 }

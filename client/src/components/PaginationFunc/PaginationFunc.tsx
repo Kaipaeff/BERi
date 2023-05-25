@@ -27,8 +27,8 @@ export default function PaginationFunc() {
       return (
         (mainCategoryState ? el.categoryId === mainCategoryState : true) &&
         (location.pathname === '/' ? el.rating > 4.5 : true) &&
-        (location.pathname === '/premiumbrands' ? el.Vendor.premium : true) &&
-        (location.pathname === '/sale' ? el.Vendor.premium : true) &&
+        (location.pathname === '/premiumbrands' ? el?.Vendor?.premium : true) &&
+        (location.pathname === '/sale' ? el?.Vendor?.premium : true) &&
         (categoryState ? el.productTypeId === categoryState : true) &&
         (sexState ? el.sexId === sexState : true) &&
         (ageState ? el.ageId === ageState : true)

@@ -1,14 +1,16 @@
-export const fetchProducts = async () => {
+export const fetchGetFullListOfUserOrderCartElementsFromBack = async (
+  orderId: number
+) => {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    const response = await fetch('http://localhost:4000/products', {
+    const response = await fetch(`/order/carts/${orderId}`, {
       headers: {
         'Content-Type': 'application/json',
       },
+      credentials: 'include',
     });
+
     if (response.ok) {
       const data = await response.json();
-  
       return data;
     }
   } catch (error) {
