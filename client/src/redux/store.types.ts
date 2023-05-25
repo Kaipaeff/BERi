@@ -84,6 +84,7 @@ export type stateTypeAges = {
 
 export type stateTypeListOfOrders = {
   fullListOfOreders: IOneOrderElement[];
+  currentOrderData: number,
   loading: boolean;
 };
 

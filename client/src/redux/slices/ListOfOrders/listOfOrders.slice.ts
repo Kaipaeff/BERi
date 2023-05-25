@@ -5,6 +5,7 @@ import { getFullListOfOrdersFromBack } from '../../Thunk/ListOfOrders/getFullLis
 
 const initialStateListOfOrders: stateTypeListOfOrders = {
   fullListOfOreders: [],
+  currentOrderData: 0,
   loading: false,
 };
 
@@ -12,6 +13,14 @@ const listOfUserOrdersReduserSlice = createSlice({
   name: 'fullListOfOreders',
   initialState: initialStateListOfOrders,
   reducers: {
+    setCurrentOrderId: (state, action: PayloadAction<number>) => {
+      console.log('>>>>>>>>>>>>>>>>>>action', action.payload);
+
+      return (state = {
+        ...state,
+        currentOrderData: action.payload,
+      });
+    },
     addOrderElementFront: (state, action: PayloadAction<IOneOrderElement>) => {
       return (state = {
         ...state,
@@ -98,6 +107,7 @@ const listOfUserOrdersReduserSlice = createSlice({
   },
 });
 export const {
+  setCurrentOrderId,
   addOrderElementFront,
   deleteOneOrderElementFront,
   editOneOrderElementFront,
