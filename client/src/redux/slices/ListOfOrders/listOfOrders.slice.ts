@@ -31,8 +31,8 @@ const listOfUserOrdersReduserSlice = createSlice({
     editOneOrderElementFront: (
       state,
       action: PayloadAction<IOneOrderElement>
-    ) =>
-      (state = {
+    ) => {
+      const newState = {
         ...state,
         fullListOfOreders: state.fullListOfOreders.map((el) =>
           el.id === action.payload.id
@@ -46,6 +46,29 @@ const listOfUserOrdersReduserSlice = createSlice({
                 processed: action.payload.processed,
                 completed: action.payload.completed,
                 canceled: action.payload.canceled,
+              }
+            : el
+        ),
+      };
+      return (state = newState);
+    },
+    editOneOrderElementStatusByAdminFront: (
+      state,
+      action: PayloadAction<IOneOrderElement>
+    ) =>
+      (state = {
+        ...state,
+        fullListOfOreders: state.fullListOfOreders.map((el) =>
+          el.id === action.payload.id
+            ? {
+                ...el,
+                id: action.payload.id,
+                accepted: action.payload.accepted,
+                processed: action.payload.processed,
+                completed: action.payload.completed,
+                canceled: action.payload.canceled,
+                userId: action.payload.userId,
+                totalOrderPrice: action.payload.totalOrderPrice,
               }
             : el
         ),
@@ -78,6 +101,7 @@ export const {
   addOrderElementFront,
   deleteOneOrderElementFront,
   editOneOrderElementFront,
+  editOneOrderElementStatusByAdminFront,
   findOneOrderElementByIdFront,
 } = listOfUserOrdersReduserSlice.actions;
 

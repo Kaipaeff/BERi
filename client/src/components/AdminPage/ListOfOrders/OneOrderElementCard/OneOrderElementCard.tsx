@@ -1,95 +1,125 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useState } from 'react';
 import IOneOrderElement from '../../../../types/ListOfOrders.type';
 
 import editIconBtn from '../../../../img/icons/editIconBtn.svg';
 import deleteIconBtn from '../../../../img/icons/deleteIconBtn.svg';
 import clipboardText from '../../../../img/icons/clipboardText.svg';
-import checkMarkRing from '../../../../img/icons/checkMarkRing.svg';
 
 import styleOneOrderElementCard from './OneOrderElementCard.module.css';
-import FiledRingIndicator from '../FiledRingIndicator/FiledRingIndicator';
+
+
+import EditOrderStatus from '../EditOrderStatus/EditOrderStatus';
+import { BsCircleFill } from 'react-icons/bs';
 
 export default function OneOrderElementCard({
   OneOrderElement,
+  setShowOneOrder,
+  setSelectedOrder,
 }: {
   OneOrderElement: IOneOrderElement;
+  setShowOneOrder: React.Dispatch<React.SetStateAction<boolean>>;
+  setSelectedOrder: React.Dispatch<React.SetStateAction<IOneOrderElement>>;
 }) {
-  console.log('OneOrderElement', OneOrderElement);
-  return (
-    <div className={styleOneOrderElementCard.conteiner}>
-      <div className={styleOneOrderElementCard.columnId}>
-        {OneOrderElement.id}
-      </div>
-      <div className={styleOneOrderElementCard.columnPrice}>
-        {OneOrderElement.totalOrderPrice}
-      </div>
-      <div className={styleOneOrderElementCard.columnEmail}>
-        {OneOrderElement['User.email']}
-      </div>
-      <div className={styleOneOrderElementCard.columnPhone}>
-        {OneOrderElement['User.phone']}
-      </div>
-      <div className={styleOneOrderElementCard.columnAddress}>
-        {OneOrderElement['DeliveryAddress.address']}
-      </div>
-      <div className={styleOneOrderElementCard.columnStatuses}>
-        {OneOrderElement.accepted ? (
-          <FiledRingIndicator colorCode={'#FFD700'} />
-        ) : (
-          <FiledRingIndicator colorCode={'#FFFFFF'} />
-        )}
-        {OneOrderElement.processed ? (
-          <FiledRingIndicator colorCode={'#00FFFF'} />
-        ) : (
-          <FiledRingIndicator colorCode={'#FFFFFF'} />
-        )}
-        {OneOrderElement.completed ? (
-          <FiledRingIndicator colorCode={'#008000'} />
-        ) : (
-          <FiledRingIndicator colorCode={'#FFFFFF'} />
-        )}
-        {OneOrderElement.canceled ? (
-          <FiledRingIndicator colorCode={'#FF0000'} />
-        ) : (
-          <FiledRingIndicator colorCode={'#FFFFFF'} />
-        )}
-      </div>
+  const [editOrderStatus, setEditOrderStatus] = useState<boolean>(false);
+  const [orderDetailSelector, setOrderDetailSelector] =
+    useState<boolean>(false);
 
-      <div className={styleOneOrderElementCard.columnButtons}>
-        <span
-          // onClick={() => setEditStatus(!editStatus)}
-          title="Изменить"
-          aria-label="edit"
-        >
-          <img
-            className={styleOneOrderElementCard.editIconBtn}
-            src={editIconBtn}
-            alt="editIconBtn"
-          />
-        </span>
-        <span
-          // onClick={() => console.log('Подробно'))}
-          title="Открыть заказ"
-          aria-label="orderopen"
-        >
-          <img
-            className={styleOneOrderElementCard.deleteIconBtn}
-            src={clipboardText}
-            alt="clipboardTextn"
-          />
-        </span>
-        <span
-          // onClick={() => dispatch(fetchDeleteCategoryFromBack(OneCategory))}
-          title="Удалить"
-          aria-label="delete"
-        >
-          <img
-            className={styleOneOrderElementCard.deleteIconBtn}
-            src={deleteIconBtn}
-            alt="deleteIconBtn"
-          />
-        </span>
+  return (
+    <React.Fragment>
+      <div className={styleOneOrderElementCard.conteiner}>
+        <div className={styleOneOrderElementCard.columnId}>
+          {OneOrderElement.id}
+        </div>
+        <div className={styleOneOrderElementCard.columnPrice}>
+          {OneOrderElement.totalOrderPrice}
+        </div>
+        <div className={styleOneOrderElementCard.columnEmail}>
+          {OneOrderElement['User.email']}
+        </div>
+        <div className={styleOneOrderElementCard.columnPhone}>
+          {OneOrderElement['User.phone']}
+        </div>
+        <div className={styleOneOrderElementCard.columnAddress}>
+          {OneOrderElement['DeliveryAddress.address']}
+        </div>
+        <div className={styleOneOrderElementCard.columnOrderData}>
+          {OneOrderElement.createdAt.toLocaleString().slice(0, 10)}
+        </div>
+
+        <div className={styleOneOrderElementCard.columnStatuses}>
+          {OneOrderElement.accepted ? (
+            <BsCircleFill style={{ color: '#FFD700' }} />
+          ) : (
+            <BsCircleFill style={{ color: '#FFFFFF' }} />
+          )}
+          {OneOrderElement.processed ? (
+            <BsCircleFill style={{ color: '#00FFFF' }} />
+          ) : (
+            <BsCircleFill style={{ color: '#FFFFFF' }} />
+          )}
+          {OneOrderElement.completed ? (
+            <BsCircleFill style={{ color: '#008000' }} />
+          ) : (
+            <BsCircleFill style={{ color: '#FFFFFF' }} />
+          )}
+          {OneOrderElement.canceled ? (
+            <BsCircleFill style={{ color: '#FF0000' }} />
+          ) : (
+            <BsCircleFill style={{ color: '#FFFFFF' }} />
+          )}
+        </div>
+
+        <div className={styleOneOrderElementCard.columnButtons}>
+          <span
+            onClick={() => {
+              if (!orderDetailSelector) {
+                setEditOrderStatus(!editOrderStatus);
+              }
+            }}
+            title="Изменить"
+            aria-label="edit"
+          >
+            <img
+              className={styleOneOrderElementCard.editIconBtn}
+              src={editIconBtn}
+              alt="editIconBtn"
+            />
+          </span>
+          <span
+            onClick={() => {
+              setShowOneOrder(true);
+              setSelectedOrder(OneOrderElement);
+            }}
+            title="Открыть заказ"
+            aria-label="orderopen"
+          >
+            <img
+              className={styleOneOrderElementCard.clipboardTextBtn}
+              src={clipboardText}
+              alt="clipboardText"
+            />
+          </span>
+          <span
+            onClick={() => console.log('Нажата кнопка удалить ЗАКАЗ !!!')}
+            title="Удалить"
+            aria-label="delete"
+          >
+            <img
+              className={styleOneOrderElementCard.deleteIconBtn}
+              src={deleteIconBtn}
+              alt="deleteIconBtn"
+            />
+          </span>
+        </div>
       </div>
-    </div>
+      {editOrderStatus && !orderDetailSelector && (
+        <EditOrderStatus
+          OneOrderElement={OneOrderElement}
+          editOrderStatus={editOrderStatus}
+          setEditOrderStatus={setEditOrderStatus}
+        />
+      )}
+    </React.Fragment>
   );
 }

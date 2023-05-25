@@ -1,0 +1,55 @@
+
+/* .mainSearchPage {
+
+} */
+.searchRow {
+/* 
+    display: flex;
+    justify-content: center;
+    align-items: center */
+}
+.inputBlockConteiner {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.inputTextElement {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+  border-radius: 6px;
+  width: 450px;
+  height: 52px;
+}
+.findBtn {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  /* position: absolute;
+  margin-left: 420px;
+  margin-top: -32px; */
+}
+/* .formSearchPage {
+ 
+} */
+.searchSimbol {
+    transform: scale(1.5);
+}
+
+
+@media (max-width: 1200px) {
+  .mainSearchPage {
+    width: 40%;
+  }
+}
+@media (max-width: 700px) {
+  .mainSearchPage {
+    width: 100%;
+  }
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }

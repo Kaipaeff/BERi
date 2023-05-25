@@ -50,7 +50,7 @@ route.get('/', async (req, res) => {
       }
     });
 
-    console.log(products);
+    // console.log(products);
 
     res.json(products);
   } catch (error) {

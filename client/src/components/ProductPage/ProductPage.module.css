@@ -19,7 +19,7 @@
   height: 700px;
   margin-bottom: 40px;
   padding: 30px;
-  /* border: 1px solid #e03d3d; */
+  border: 1px solid #cfcfcf;
 }
 
 .productImg {
@@ -53,6 +53,7 @@
   justify-content: space-between;
   height: 200px;
   width: 320px;
+  font-size: 33px;
   border: 1px solid #e9e9e9;
   box-shadow: 1px 1px 10px 1px #d4d4d4;
   padding: 30px;
@@ -99,6 +100,8 @@
   align-items: center;
   margin-bottom: 20px;
   cursor: pointer;
+  width: 70px;
+  /* border: 1px solid #e03d3d; */
 }
 
 .backArrow img {

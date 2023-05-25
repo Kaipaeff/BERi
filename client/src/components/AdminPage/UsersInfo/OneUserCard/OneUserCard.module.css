@@ -53,7 +53,7 @@
 }
 
 .editIconBtn {
-  height: 20px;
+  height: 25px;
 }
 .editIconBtn:active {
   background-color: #f5c658;
@@ -61,7 +61,7 @@
 }
 
 .deleteIconBtn {
-  height: 35px;
+  height: 25px;
 }
 .deleteIconBtn:active {
   background-color: rgb(107, 32, 32);

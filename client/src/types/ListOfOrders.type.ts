@@ -23,3 +23,11 @@ export interface INewOrderElement {
   completed: boolean;
   canceled: boolean;
 }
+
+export interface IOneOrderChangeStatus {
+  id: number;
+  accepted: boolean;
+  processed: boolean;
+  completed: boolean;
+  canceled: boolean;
+}
