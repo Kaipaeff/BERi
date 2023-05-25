@@ -2,34 +2,42 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  /* gap: 5px; */
+  align-items: center;
   width: 230px;
   height: 340px;
   margin-bottom: 30px;
-  border: 1px solid #e9e9e9;
+  /* padding: 10px; */
+  border: 1px solid #d8d8d8;
+  padding: 10px 10px 0 10px;
+  transition: box-shadow 0.2s, ease-in-out, transform 0.2s ease-in-out;
 }
 
 .card:hover {
   cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 0px 10px 15px #d1d1d1;
+  transform: translateY(-1px);
+  border: none;
 }
 
 .img {
-  width: 228px;
-  max-height: 280px;
-  margin-bottom: 10px;
+  width: 100%;
+  max-height: 250px;
+  margin-bottom: 5px;
+  border-radius: 10px;
 }
 
 .name {
-  font-weight: 300;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 18px;
+  font-weight: 200;
+}
+
+.brand {
+  font-weight: 700;
 }
 
 .price {
   font-weight: 400;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 

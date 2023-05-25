@@ -27,6 +27,7 @@ export default function ProductPage(): JSX.Element {
 
   const location = useLocation();
   const el = location.state.el;
+  console.log("el:======================", el)
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -161,15 +162,25 @@ export default function ProductPage(): JSX.Element {
             <p className={style.name}>
               <b>Название: </b> {el.name}
             </p>
+
             <p>
               <b>Описание:</b> <br />
               {el.description}
             </p>
+
             <p>
               <b>Цвет:</b> <br />
               {color
                 ? filteredColorProductProp?.Color?.color
                 : productProps[0]?.Color?.color}
+            </p>
+
+            <p className={style.brand}>
+              <b>Бренд: </b> {el.Vendor.name}
+            </p>
+
+            <p className={style.country}>
+              <b>Страна: </b> {el.Vendor.country}
             </p>
 
             {activeRating ? (
