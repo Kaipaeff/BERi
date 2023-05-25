@@ -79,7 +79,6 @@ router.delete('/:id', async (req, res) => {
 });
 
 router.get('/carts/:orderId', async (req, res) => {
-  console.log('ИЩЕМ КОРЗИНУ ПО # ЗАКАЗА', req.params.orderId);
   try {
     const { orderId } = req.params;
     const response = await Cart.findAll({
