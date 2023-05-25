@@ -26,6 +26,8 @@ module.exports = {
           quantity: 20,
           amount: 18,
         },
+
+
         {
           productId: 2,
           colorId: 2,
@@ -44,6 +46,8 @@ module.exports = {
           quantity: 20,
           amount: 18,
         },
+
+        
         {
           productId: 3,
           colorId: 1,
