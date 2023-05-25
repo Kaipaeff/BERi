@@ -10,6 +10,9 @@ import { useAppDispatch, useAppSelector } from '../../../../redux/hooks/hooks';
 import { Context } from '../../../../index';
 import { RootState } from '../../../../types/types';
 import { getFullListOfUserOrderCartElementsFromBack } from '../../../../redux/Thunk/FullListOfUserOrderCartElements/getFullListOfUserOrderCartElementsFromBack';
+import { BsCircleFill } from 'react-icons/bs';
+import IOneOrderedCartElement from '../../../../types/Cart.type';
+import OneCartOrderedElement from '../OneCartOrderedElement/OneCartOrderedElement';
 
 export default function OrderDetail({
   showOneOrder,
@@ -41,12 +44,6 @@ export default function OrderDetail({
   useEffect(() => {
     dispatch(getFullListOfUserOrderCartElementsFromBack(selectedOrder.id));
   }, []);
-
-
-  console.log(
-    '🚀🚀 ~ file: OrderDetail.tsx:46 ~ allUserCartOrderedElements~',
-    allUserCartOrderedElements
-  );
 
   return (
     <React.Fragment>
@@ -85,7 +82,46 @@ export default function OrderDetail({
             {selectedOrder['User.phone']}
           </span>
         </div>
+        <div className={styleOrderDetail.statuses}>
+          <span>Статусы отслеживания заказа:</span>
+          {selectedOrder.accepted ? (
+            <BsCircleFill style={{ color: '#FFD700' }} />
+          ) : (
+            <BsCircleFill style={{ color: '#D6D6D6' }} />
+          )}
+          Принят в работу
+          {selectedOrder.processed ? (
+            <BsCircleFill style={{ color: '#00FFFF' }} />
+          ) : (
+            <BsCircleFill style={{ color: '#D6D6D6' }} />
+          )}
+          Готов к отправке
+          {selectedOrder.completed ? (
+            <BsCircleFill style={{ color: '#008000' }} />
+          ) : (
+            <BsCircleFill style={{ color: '#D6D6D6' }} />
+          )}
+          Исполнен
+          {selectedOrder.canceled ? (
+            <BsCircleFill style={{ color: '#FF0000' }} />
+          ) : (
+            <BsCircleFill style={{ color: '#D6D6D6' }} />
+          )}
+          Отменен
+        </div>
       </div>
+      <div className={styleOrderDetail.tableTitle}>
+        <div className={styleOrderDetail.columnArticle}>Артикул</div>
+        <div className={styleOrderDetail.columnName}>Наименование</div>
+        <div className={styleOrderDetail.columnQuantity}>Количество</div>
+        <div className={styleOrderDetail.columnPrice}>Стоимость</div>
+        <div className={styleOrderDetail.columnTotalAmount}>Сумма</div>
+      </div>
+      {allUserCartOrderedElements.map((el: IOneOrderedCartElement) => (
+        <React.Fragment key={el.id}>
+          <OneCartOrderedElement CartElement={el}/>
+        </React.Fragment>
+      ))}
     </React.Fragment>
   );
 }

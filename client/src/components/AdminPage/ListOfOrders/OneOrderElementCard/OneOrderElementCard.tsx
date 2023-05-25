@@ -8,9 +8,10 @@ import clipboardText from '../../../../img/icons/clipboardText.svg';
 
 import styleOneOrderElementCard from './OneOrderElementCard.module.css';
 
-
 import EditOrderStatus from '../EditOrderStatus/EditOrderStatus';
 import { BsCircleFill } from 'react-icons/bs';
+import { fetchDeleteOneOrderElementFromBack } from '../../../../redux/Thunk/ListOfOrders/fetchDeleteOneOrderElementFromBack.api';
+import { useAppDispatch } from '../../../../redux/hooks/hooks';
 
 export default function OneOrderElementCard({
   OneOrderElement,
@@ -21,6 +22,7 @@ export default function OneOrderElementCard({
   setShowOneOrder: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectedOrder: React.Dispatch<React.SetStateAction<IOneOrderElement>>;
 }) {
+  const dispatch = useAppDispatch();
   const [editOrderStatus, setEditOrderStatus] = useState<boolean>(false);
   const [orderDetailSelector, setOrderDetailSelector] =
     useState<boolean>(false);
@@ -77,7 +79,7 @@ export default function OneOrderElementCard({
                 setEditOrderStatus(!editOrderStatus);
               }
             }}
-            title="Изменить"
+            title="Изменить статус"
             aria-label="edit"
           >
             <img
@@ -101,7 +103,7 @@ export default function OneOrderElementCard({
             />
           </span>
           <span
-            onClick={() => console.log('Нажата кнопка удалить ЗАКАЗ !!!')}
+            onClick={() => dispatch(fetchDeleteOneOrderElementFromBack(OneOrderElement))}
             title="Удалить"
             aria-label="delete"
           >
