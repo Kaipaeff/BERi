@@ -10,6 +10,9 @@ const CartSlice = createSlice({
   name: 'cart',
   initialState: initialState,
   reducers: {
+    clearGoodsReducer: (state, action: PayloadAction<any>) => {
+      return { goods: action.payload };
+    },
     addGoodsReducer: (state, action: PayloadAction<any>) => {
       return { goods: action.payload };
     },
@@ -29,7 +32,7 @@ const CartSlice = createSlice({
   },
 });
 
-export const { addGoodsReducer, addDileveryType, getLocalGoods } =
+export const { addGoodsReducer, addDileveryType, getLocalGoods, clearGoodsReducer } =
   CartSlice.actions;
 
 export default CartSlice.reducer;
