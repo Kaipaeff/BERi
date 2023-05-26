@@ -24,12 +24,21 @@ import {
   setMainCategoryState,
   setSexState,
 } from '../../redux/slices/categories.slice';
+import { RootState } from '../../types/types';
 
-export function Navbar() {
+export interface NavbarProps {
+  resultTotalProductCart: number;
+  setResultTotalProductCart: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export function Navbar({
+  resultTotalProductCart,
+  setResultTotalProductCart,
+}: NavbarProps) {
   const { storeContext } = useContext(Context);
   const dispatch = useAppDispatch();
 
-  const goodsFromStore = useAppSelector((state: any) => state.CartSlice);
+  const goodsFromStore = useAppSelector((state: RootState) => state.CartSlice);
 
   const [modalRegActive, setModalRegActive] = useState<boolean>(false);
   const [modalLoginActive, setModalLoginActive] = useState(false);
@@ -37,23 +46,26 @@ export function Navbar() {
   const [modalMailErrorActive, setModalMailErrorActive] = useState(false);
   const [modalLoginErrorActive, setModalLoginErrorActive] = useState(false);
   const [modalLoginSuccessActive, setModalLoginSuccessActive] = useState(false);
-  const [resultTotalProductCart, setResultTotalProductCart] =
-    useState<number>();
+  // const [resultTotalProductCart, setResultTotalProductCart] =
+  //   useState<number>();
 
   useEffect(() => {
     dispatch(getLocalGoods());
-    
   }, []);
 
   useEffect(() => {
-    if (goodsFromStore.goods) {
+    if (goodsFromStore.goods?.length) {
       const calculateActialQuantity = goodsFromStore.goods.reduce(
         (acc: number, el: any) => acc + el.quantity,
         0
       );
       setResultTotalProductCart(calculateActialQuantity);
+    } else {
+      setResultTotalProductCart(0);
     }
   }, [goodsFromStore, resultTotalProductCart, goodsFromStore.goods]);
+
+  console.log('КРУЖОК>>>>>>>>>>>>>', resultTotalProductCart);
 
   return (
     <div className={style.wrapper}>
@@ -156,13 +168,13 @@ export function Navbar() {
               </Link>
 
               <Link to="/favorites">
-              {storeContext.isAuth && (
-                <img
-                  className={style.favoritesIcon}
-                  src={favorites}
-                  alt="favoritesIcon"
-                />
-              )}
+                {storeContext.isAuth && (
+                  <img
+                    className={style.favoritesIcon}
+                    src={favorites}
+                    alt="favoritesIcon"
+                  />
+                )}
               </Link>
             </div>
 
