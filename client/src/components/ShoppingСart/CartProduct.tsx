@@ -31,20 +31,7 @@ export default function CartProduct({
                 <span>Размер: {product?.Size?.size}</span>
               </div>
 
-              <div className={styles.TrashContainer}>
-                <img
-                  src={trashIcon}
-                  alt="trashImg"
-                  className={styles.Icon_Trash}
-                  onClick={() => deleteHandle(product.id)}
-                />
-                <button
-                  onClick={() => deleteHandle(product.id)}
-                  className={styles.Btn_Remove}
-                >
-                  Удалить
-                </button>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -77,6 +64,21 @@ export default function CartProduct({
             <b>{handleTotalPrice}р</b>
           </div>
         </div>
+        <div className={styles.TrashContainer}>
+                <img
+                  src={trashIcon}
+                  alt="trashImg"
+                  className={styles.Icon_Trash}
+                  onClick={() => deleteHandle(product.id)}
+                />
+                {/* <button
+                  onClick={() => deleteHandle(product.id)}
+                  className={styles.Btn_Remove}
+                >
+                  Удалить
+                </button> */}
+              </div>
+        
       </div>
     </>
   );
