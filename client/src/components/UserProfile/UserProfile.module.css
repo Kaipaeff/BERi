@@ -1,0 +1,51 @@
+.mainOrderInfo {
+  width: auto;
+  border: 1px solid #d6d6d6;
+}
+
+.phoneIco {
+  height: 18px;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 190px;
+  height: 40px;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  background-color: #121212;
+  border: none;
+  cursor: pointer;
+}
+
+.actionBtn:active {
+  background: #3f3f3f;
+}
+
+.actionBtn img {
+  width: 23px;
+  height: 25px;
+}
+
+.infoBlockMail {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  font-weight: 600;
+  gap: 5px;
+}
+.infoBlockPhone {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  font-weight: 600;
+  gap: 5px;
+}
