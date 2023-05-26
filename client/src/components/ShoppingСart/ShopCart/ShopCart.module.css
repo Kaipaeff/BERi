@@ -67,12 +67,14 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 400px;
+  min-height: 329px;
   padding: 10px 0;
+  margin-bottom: 50px;
   /* border-top: 1px solid #d1d1d1; */
   border-bottom: 1px solid #d1d1d1;
   overflow: auto;
   /* border: 1px solid #4df002; */
+
 }
 
 
@@ -148,10 +150,12 @@
 
 .InfoOrder {
   width: 100%;
-  margin-top: 50px;
+  height: 200px;
   margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
+  border: 1px solid #05d9ff;
+
 }
 
 .RightSide_DeliveryChoice {
@@ -204,41 +208,41 @@
   cursor: pointer;
 }
 
-.Test1 {
-  border: 1px solid black;
-}
+/* .Test1 {
+  border: 1px solid rgb(241, 1, 229);
+} */
 
-.Test2 {
+/* .Test2 {
   border: 1px solid red;
-}
+} */
 
-.styles.Test2 {
+/* .styles.Test2 {
   border: none;
-}
+} */
 
-.PromoInput {
+/* .PromoInput {
   height: 52px;
   width: 424px;
-  border: 1px solid #cbcbcb;
+  border: 1px solid #e70606;
   border-radius: 6px;
-}
+} */
 
-.BtnPromoInput {
+/* .BtnPromoInput {
   border: none;
   margin-left: -90px;
   cursor: pointer;
-}
+} */
 
 
 
 .deliveryAdress {
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   width: 600px;
-  height: 70px;
+  max-height: 200px;
   flex-direction: row;
   height: 300px;
-  border: 1px solid #0c1adb;
+  border: 1px solid #0cdb4a;
 }
 
 .adress {
