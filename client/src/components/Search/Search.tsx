@@ -72,7 +72,7 @@ export function Search() {
             )
             .map((product) => (
               <React.Fragment key={product.id}>
-                <OneCardSearch oneProduct={product} />
+                <OneCardSearch el={product} />
               </React.Fragment>
             ))}
         </div>

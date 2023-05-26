@@ -5,12 +5,6 @@
   width: 155vh;
   height: 100vh;
 }
-.searchRow {
-  /* 
-    display: flex;
-    justify-content: center;
-    align-items: center */
-}
 .inputBlockConteiner {
   display: flex;
   justify-content: center;
@@ -48,20 +42,8 @@
   top: 3px;
   
 }
-
 .searchSimbol {
   transform: scale(0.8);
-}
-
-@media (max-width: 1200px) {
-  .mainSearchPage {
-    width: 40%;
-  }
-}
-@media (max-width: 700px) {
-  .mainSearchPage {
-    width: 100%;
-  }
 }
 .content {
   display: flex;
