@@ -52,9 +52,9 @@ export function Search() {
               </button>
             </span>
             <span>
+              
             <button type="submit" className={style.closeBtn}>
-                <img className={style.searchSimbol} src={close} alt="close" onClick={() => setFindProductName('')}/>
-              </button>
+              {findProductName ? (<img className={style.searchSimbol} src={close} alt="close" onClick={() => setFindProductName('')}/>) : null}            </button>
             </span>
           </div>
         </form>
