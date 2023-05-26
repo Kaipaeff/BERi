@@ -195,12 +195,12 @@ module.exports = {
         {
           imgId: 16,
           productId: 16,
-          productPropsId: 30,
+          productPropsId: 31,
         },
         {
           imgId: 16,
           productId: 16,
-          productPropsId: 31,
+          productPropsId: 32,
         },
 
         //boys_6months_5year
@@ -209,96 +209,96 @@ module.exports = {
         {
           imgId: 17,
           productId: 17,
-          productPropsId: 32,
+          productPropsId: 33,
         },
         {
           imgId: 17,
           productId: 17,
-          productPropsId: 33,
+          productPropsId: 34,
         },
 
         //id 18
         {
           imgId: 18,
           productId: 18,
-          productPropsId: 34,
+          productPropsId: 35,
         },
         {
           imgId: 18,
           productId: 18,
-          productPropsId: 35,
+          productPropsId: 36,
         },
 
         //id 19
         {
           imgId: 19,
           productId: 19,
-          productPropsId: 36,
+          productPropsId: 37,
         },
         {
           imgId: 19,
           productId: 19,
-          productPropsId: 37,
+          productPropsId: 38,
         },
 
         //id 20
         {
           imgId: 20,
           productId: 20,
-          productPropsId: 38,
+          productPropsId: 39,
         },
         {
           imgId: 20,
           productId: 20,
-          productPropsId: 39,
+          productPropsId: 40,
         },
 
         //id 21
         {
           imgId: 21,
           productId: 21,
-          productPropsId: 40,
+          productPropsId: 41,
         },
         {
           imgId: 21,
           productId: 21,
-          productPropsId: 41,
+          productPropsId: 42,
         },
 
         //id 22
         {
           imgId: 22,
           productId: 22,
-          productPropsId: 42,
+          productPropsId: 43,
         },
         {
           imgId: 22,
           productId: 22,
-          productPropsId: 43,
+          productPropsId: 44,
         },
 
         //id 23
         {
           imgId: 23,
           productId: 23,
-          productPropsId: 44,
+          productPropsId: 45,
         },
         {
           imgId: 23,
           productId: 23,
-          productPropsId: 45,
+          productPropsId: 46,
         },
 
         //id 24
         {
           imgId: 24,
           productId: 24,
-          productPropsId: 46,
+          productPropsId: 47,
         },
         {
           imgId: 24,
           productId: 24,
-          productPropsId: 47,
+          productPropsId: 48,
         },
 
 
@@ -309,12 +309,12 @@ module.exports = {
         {
           imgId: 25,
           productId: 25,
-          productPropsId: 48,
+          productPropsId: 49,
         },
         {
           imgId: 25,
           productId: 25,
-          productPropsId: 49,
+          productPropsId: 50,
         },
 
 
@@ -322,12 +322,12 @@ module.exports = {
         {
           imgId: 26,
           productId: 26,
-          productPropsId: 50,
+          productPropsId: 51,
         },
         {
           imgId: 26,
           productId: 26,
-          productPropsId: 51,
+          productPropsId: 52,
         },
 
 
@@ -335,12 +335,12 @@ module.exports = {
         {
           imgId: 27,
           productId: 27,
-          productPropsId: 52,
+          productPropsId: 53,
         },
         {
           imgId: 27,
           productId: 27,
-          productPropsId: 53,
+          productPropsId: 54,
         },
 
         
@@ -348,48 +348,48 @@ module.exports = {
         {
           imgId: 28,
           productId: 28,
-          productPropsId: 54,
+          productPropsId: 55,
         },
         {
           imgId: 28,
           productId: 28,
-          productPropsId: 55,
+          productPropsId: 56,
         },
 
         //5//id 29
         {
           imgId: 29,
           productId: 29,
-          productPropsId: 56,
+          productPropsId: 57,
         },
         {
           imgId: 29,
           productId: 29,
-          productPropsId: 57,
+          productPropsId: 58,
         },
 
         //6//id 30
         {
           imgId: 30,
           productId: 30,
-          productPropsId: 58,
+          productPropsId: 59,
         },
         {
           imgId: 30,
           productId: 30,
-          productPropsId: 59,
+          productPropsId: 60,
         },
 
         //7//id 31
         {
           imgId: 31,
           productId: 31,
-          productPropsId: 60,
+          productPropsId: 61,
         },
         {
           imgId: 31,
           productId: 31,
-          productPropsId: 61,
+          productPropsId: 62,
         },
 
 
@@ -397,12 +397,12 @@ module.exports = {
         {
           imgId: 32,
           productId: 32,
-          productPropsId: 62,
+          productPropsId: 63,
         },
         {
           imgId: 32,
           productId: 32,
-          productPropsId: 63,
+          productPropsId: 64,
         },
 
 
@@ -413,36 +413,36 @@ module.exports = {
         {
           imgId: 33,
           productId: 33,
-          productPropsId: 64,
+          productPropsId: 65,
         },
         {
           imgId: 33,
           productId: 33,
-          productPropsId: 65,
+          productPropsId: 66,
         },
 
         //2//id 34
         {
           imgId: 34,
           productId: 34,
-          productPropsId: 66,
+          productPropsId: 67,
         },
         {
           imgId: 34,
           productId: 34,
-          productPropsId: 67,
+          productPropsId: 68,
         },
 
         //3//id 35
         {
           imgId: 35,
           productId: 35,
-          productPropsId: 68,
+          productPropsId: 69,
         },
         {
           imgId: 35,
           productId: 35,
-          productPropsId: 69,
+          productPropsId: 70,
         },
 
 
@@ -450,12 +450,12 @@ module.exports = {
         {
           imgId: 36,
           productId: 36,
-          productPropsId: 70,
+          productPropsId: 71,
         },
         {
           imgId: 36,
           productId: 36,
-          productPropsId: 71,
+          productPropsId: 72,
         },
 
 
@@ -463,12 +463,12 @@ module.exports = {
         {
           imgId: 37,
           productId: 37,
-          productPropsId: 72,
+          productPropsId: 73,
         },
         {
           imgId: 37,
           productId: 37,
-          productPropsId: 73,
+          productPropsId: 74,
         },
 
 
@@ -476,47 +476,42 @@ module.exports = {
         {
           imgId: 38,
           productId: 38,
-          productPropsId: 74,
+          productPropsId: 75,
         },
         {
           imgId: 38,
           productId: 38,
-          productPropsId: 75,
+          productPropsId: 76,
         },
 
         //7//id 39
         {
           imgId: 39,
           productId: 39,
-          productPropsId: 76,
+          productPropsId: 77,
         },
         {
           imgId: 39,
           productId: 39,
-          productPropsId: 77,
+          productPropsId: 78,
         },
 
         //8//id 40
         {
           imgId: 40,
           productId: 40,
-          productPropsId: 78,
+          productPropsId: 79,
         },
         {
           imgId: 40,
           productId: 40,
-          productPropsId: 79,
+          productPropsId: 80,
         },
 
 
         //shoes
 
         //1//id 41
-        {
-          imgId: 41,
-          productId: 41,
-          productPropsId: 80,
-        },
         {
           imgId: 41,
           productId: 41,
@@ -527,13 +522,13 @@ module.exports = {
           productId: 41,
           productPropsId: 82,
         },
-
-        //2//id 42
         {
-          imgId: 42,
-          productId: 42,
+          imgId: 41,
+          productId: 41,
           productPropsId: 83,
         },
+
+        //2//id 42
         {
           imgId: 42,
           productId: 42,
@@ -544,13 +539,13 @@ module.exports = {
           productId: 42,
           productPropsId: 85,
         },
-
-        //3//id 43
         {
-          imgId: 43,
-          productId: 43,
+          imgId: 42,
+          productId: 42,
           productPropsId: 86,
         },
+
+        //3//id 43
         {
           imgId: 43,
           productId: 43,
@@ -561,13 +556,13 @@ module.exports = {
           productId: 43,
           productPropsId: 88,
         },
-
-        //4//id 44
         {
-          imgId: 44,
-          productId: 44,
+          imgId: 43,
+          productId: 43,
           productPropsId: 89,
         },
+
+        //4//id 44
         {
           imgId: 44,
           productId: 44,
@@ -578,13 +573,13 @@ module.exports = {
           productId: 44,
           productPropsId: 91,
         },
-
-        //5//id 45
         {
-          imgId: 45,
-          productId: 45,
+          imgId: 44,
+          productId: 44,
           productPropsId: 92,
         },
+
+        //5//id 45
         {
           imgId: 45,
           productId: 45,
@@ -595,13 +590,13 @@ module.exports = {
           productId: 45,
           productPropsId: 94,
         },
-
-        //6//id 46
         {
-          imgId: 46,
-          productId: 46,
+          imgId: 45,
+          productId: 45,
           productPropsId: 95,
         },
+
+        //6//id 46
         {
           imgId: 46,
           productId: 46,
@@ -612,13 +607,13 @@ module.exports = {
           productId: 46,
           productPropsId: 97,
         },
-
-        //7//id 47
         {
-          imgId: 47,
-          productId: 47,
+          imgId: 46,
+          productId: 46,
           productPropsId: 98,
         },
+
+        //7//id 47
         {
           imgId: 47,
           productId: 47,
@@ -629,13 +624,13 @@ module.exports = {
           productId: 47,
           productPropsId: 100,
         },
-
-        //8//id 48
         {
-          imgId: 48,
-          productId: 48,
+          imgId: 47,
+          productId: 47,
           productPropsId: 101,
         },
+
+        //8//id 48
         {
           imgId: 48,
           productId: 48,
@@ -646,6 +641,11 @@ module.exports = {
           productId: 48,
           productPropsId: 103,
         },
+        {
+          imgId: 48,
+          productId: 48,
+          productPropsId: 104,
+        },
 
         //accessories
 
@@ -653,77 +653,77 @@ module.exports = {
         {
           imgId: 49,
           productId: 49,
-          productPropsId: 104,
+          productPropsId: 105,
         },
         {
           imgId: 49,
           productId: 49,
-          productPropsId: 105,
+          productPropsId: 106,
         },
 
         //2//id 50
         {
           imgId: 50,
           productId: 50,
-          productPropsId: 106,
+          productPropsId: 107,
         },
         {
           imgId: 50,
           productId: 50,
-          productPropsId: 107,
+          productPropsId: 108,
         },
 
         //3//id 51
         {
           imgId: 51,
           productId: 51,
-          productPropsId: 108,
+          productPropsId: 109,
         },
         {
           imgId: 51,
           productId: 51,
-          productPropsId: 109,
+          productPropsId: 110,
         },
 
         //4//id 52
         {
           imgId: 52,
           productId: 52,
-          productPropsId: 110,
+          productPropsId: 111,
         },
         {
           imgId: 52,
           productId: 52,
-          productPropsId: 111,
+          productPropsId: 112,
         },
 
         //5//id 53
         {
           imgId: 53,
           productId: 53,
-          productPropsId: 112,
+          productPropsId: 113,
         },
         {
           imgId: 53,
           productId: 53,
-          productPropsId: 113,
+          productPropsId: 114,
         },
 
         //6//id 54
         {
           imgId: 54,
           productId: 54,
-          productPropsId: 114,
+          productPropsId: 115,
         },
         {
           imgId: 55,
           productId: 54,
-          productPropsId: 115,
+          productPropsId: 116,
         },
         {
           imgId: 56,
           productId: 54,
-          productPropsId: 116,
+          productPropsId: 117,
         },
 
 

@@ -355,10 +355,10 @@ module.exports = {
 
 
         //id 16
-        //propsID 30 31
+        //propsID 31 32
         {
           productId: 16,
-          colorId: 10,
+          colorId: 11,
           sizeId: 16,
           salePrice: 2999,
           sale: true,
@@ -367,7 +367,7 @@ module.exports = {
         },
         {
           productId: 16,
-          colorId: 10,
+          colorId: 11,
           sizeId: 19,
           salePrice: 3100,
           sale: false,
@@ -380,7 +380,7 @@ module.exports = {
 
         //boys_6months_5year
         //id 17
-        //propsID 32 33
+        //propsID 33 34
         {
           productId: 17,
           colorId: 8,
@@ -403,7 +403,7 @@ module.exports = {
 
 
         //id 18
-        //propsID 34 35
+        //propsID 35 36
         {
           productId: 18,
           colorId: 6,
@@ -426,7 +426,7 @@ module.exports = {
 
 
         //id 19
-        //propsID 36 37
+        //propsID 37 38
         {
           productId: 19,
           colorId: 12,
@@ -449,7 +449,7 @@ module.exports = {
 
 
         //id 20
-        //propsID 38 39
+        //propsID 39 40
         {
           productId: 20,
           colorId: 5,
@@ -471,7 +471,7 @@ module.exports = {
 
 
         //id 21
-        //propsID 40 41
+        //propsID 41 42
         {
           productId: 21,
           colorId: 11,
@@ -495,7 +495,7 @@ module.exports = {
 
 
         //id 22
-        //propsID 42 43
+        //propsID 43 44
         {
           productId: 22,
           colorId: 1,
@@ -518,7 +518,7 @@ module.exports = {
 
 
         //id 23
-        //propsID 44 45
+        //propsID 45 46
         {
           productId: 23,
           colorId: 6,
@@ -542,7 +542,7 @@ module.exports = {
 
 
         //id 24
-        //propsID 46 47
+        //propsID 47 48
         {
           productId: 24,
           colorId: 7,
@@ -577,7 +577,7 @@ module.exports = {
         //girls_6month_5year
 
         //id 25
-        //propsID 48 49
+        //propsID 49 50
 
         {
           productId: 25,
@@ -600,7 +600,7 @@ module.exports = {
 
 
         //id 26
-        //propsID 50 51
+        //propsID 51 52
 
         {
           productId: 26,
@@ -623,7 +623,7 @@ module.exports = {
 
 
         //id 27
-        //propsID 52 53
+        //propsID 53 54
 
         {
           productId: 27,
@@ -647,7 +647,7 @@ module.exports = {
 
 
         //id 28
-        //propsID 54 55
+        //propsID 55 56
         {
           productId: 28,
           colorId: 10,
@@ -670,7 +670,7 @@ module.exports = {
 
 
         //id 29
-        //propsID 56 57
+        //propsID 57 58
         {
           productId: 29,
           colorId: 1,
@@ -693,7 +693,7 @@ module.exports = {
 
 
         //id 30
-        //propsID 58 59
+        //propsID 59 60
         {
           productId: 30,
           colorId: 14,
@@ -716,7 +716,7 @@ module.exports = {
 
 
         //id 31
-        //propsID 60 61
+        //propsID 61 62
         {
           productId: 31,
           colorId: 14,
@@ -739,7 +739,7 @@ module.exports = {
 
 
         //id 32
-        //propsID 62 63
+        //propsID 63 64
         {
           productId: 32,
           colorId: 12,
@@ -769,7 +769,7 @@ module.exports = {
         //newborns
 
         //id 33
-        //propsID 64 65
+        //propsID 65 66
         {
           productId: 33,
           colorId: 6,
@@ -791,7 +791,7 @@ module.exports = {
 
 
         //id 34
-        //propsID 66 67
+        //propsID 67 68
 
         {
           productId: 34,
@@ -815,7 +815,7 @@ module.exports = {
 
 
         //id 35
-        //propsID 68 69
+        //propsID 69 70
         {
           productId: 35,
           colorId: 12,
@@ -838,7 +838,7 @@ module.exports = {
 
 
         //id 36
-        //propsID 70 71
+        //propsID 71 72
         {
           productId: 36,
           colorId: 11,
@@ -861,7 +861,7 @@ module.exports = {
 
 
         //id 37
-        //propsID 72 73
+        //propsID 73 74
         {
           productId: 37,
           colorId: 7,
@@ -884,7 +884,7 @@ module.exports = {
 
 
         //id 38
-        //propsID 74 75
+        //propsID 75 76
         {
           productId: 38,
           colorId: 6,
@@ -907,7 +907,7 @@ module.exports = {
 
 
         //id 39
-        //propsID 76 77
+        //propsID 77 78
         {
           productId: 39,
           colorId: 1,
@@ -930,7 +930,7 @@ module.exports = {
 
 
         //id 40
-        //propsID 78 79
+        //propsID 79 80
         {
           productId: 40,
           colorId: 15,
@@ -961,7 +961,7 @@ module.exports = {
         //shoes
 
         //id 41
-        //propsID 80 81 82
+        //propsID 81 82 83
         {
           productId: 41,
           colorId: 14,
@@ -993,7 +993,7 @@ module.exports = {
 
 
         //id 42
-        //propsID 83 84 85
+        //propsID 84 85 86
         {
           productId: 42,
           colorId: 14,
@@ -1026,7 +1026,7 @@ module.exports = {
 
 
         //id 43
-        //propsID 86 87 88
+        //propsID 87 88 89
         {
           productId: 43,
           colorId: 7,
@@ -1059,7 +1059,7 @@ module.exports = {
 
 
         //id 44
-        //propsID 89 90 91
+        //propsID 90 91 92
         {
           productId: 44,
           colorId: 4,
@@ -1092,7 +1092,7 @@ module.exports = {
 
 
         //id 45
-        //propsID 92 93 94
+        //propsID 93 94 95
         {
           productId: 45,
           colorId: 12,
@@ -1127,7 +1127,7 @@ module.exports = {
 
 
         //id 46
-        //propsID 95 96 97
+        //propsID 96 97 98
         {
           productId: 46,
           colorId: 5,
@@ -1160,7 +1160,7 @@ module.exports = {
 
 
         //id 47
-        //propsID 98 99 100
+        //propsID 99 100 101
         {
           productId: 47,
           colorId: 2,
@@ -1194,7 +1194,7 @@ module.exports = {
 
 
         //id 48
-        //propsID 101 102 103
+        //propsID 102 103 104
         {
           productId: 48,
           colorId: 6,
@@ -1233,7 +1233,7 @@ module.exports = {
         //accessories
 
         //id 49
-        //propsID 104 105
+        //propsID 105 106
         {
           productId: 49,
           colorId: 7,
@@ -1257,7 +1257,7 @@ module.exports = {
 
 
         //id 50
-        //propsID 106 107
+        //propsID 107 108
         {
           productId: 50,
           colorId: 11,
@@ -1280,7 +1280,7 @@ module.exports = {
 
 
         //id 51
-        //propsID 108 109
+        //propsID 109 110
         {
           productId: 51,
           colorId: 6,
@@ -1304,7 +1304,7 @@ module.exports = {
 
 
         //id 52
-        //propsID 110 111
+        //propsID 111 112
         {
           productId: 52,
           colorId: 14,
@@ -1326,7 +1326,7 @@ module.exports = {
 
 
         //id 53
-        //propsID 112 113
+        //propsID 113 114
         {
           productId: 53,
           colorId: 12,
@@ -1351,7 +1351,7 @@ module.exports = {
 
 
         //id 54
-        //propsID 114 115 116
+        //propsID 115 116 117
         {
           productId: 54,
           colorId: 11,
