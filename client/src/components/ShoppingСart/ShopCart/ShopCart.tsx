@@ -129,13 +129,14 @@ export default function ShopCart({
           <img src={truckIcon} alt="truckIcon" />
         </div>
       </div>
-      <div className={styles.Content}>
-        <div className={styles.InfoGoods}>
-          <h5>Товар</h5>
-          <h5>Количество</h5>
-          <h5>Стоимость</h5>
-          <h5>Сумма</h5>
+      <div className={styles.goodsTitles}>
+          <h5 className={styles.good}>Товар</h5>
+          <h5 className={styles.quantity}>Количество</h5>
+          <h5 className={styles.price}>Стоимость</h5>
+          <h5 className={styles.summ}>Сумма</h5>
         </div>
+        <div className={styles.InfoGoods}></div>
+      <div className={styles.Content}>
         {goods?.length ? (
           goods?.map((el: productPropsType, i) => (
             <CartProduct
@@ -152,7 +153,7 @@ export default function ShopCart({
             />
           ))
         ) : (
-          <div>Ваша корзина пока что пустая</div>
+          <div>В данный момент в Вашей корзине нет товаров.</div>
         )}
       </div>
 

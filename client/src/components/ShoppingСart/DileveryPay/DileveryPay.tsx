@@ -153,29 +153,35 @@ export default function DileveryPay({
     <div className={styles.InfoOrder}>
       <div>
         <div className={styles.deliveryAdress}>
-          <h3>Выберите адрес из списка:</h3>
-          <div className={styles.adress}>
-            {addresses.length ? (
-              addresses.map((address: IDeliveryAddress, i: number) => (
-                <p
-                  className={toggleActiveAddressStyle(address.id)}
-                  onClick={(event: any) => {
-                    handlePointAdress(address);
-                    setActiveAddr(address.id);
-                  }}
-                  key={address.id}
-                >
-                  {address.address}
-                </p>
-              ))
-            ) : (
-              <></>
-            )}
-          </div>
+          {addresses.length ? (  
+          <>
+            <h3>Выберите адрес из списка:</h3>
+            <div className={styles.adress}>
+              {addresses.length ? (
+                addresses.map((address: IDeliveryAddress, i: number) => (
+                  <p
+                    className={toggleActiveAddressStyle(address.id)}
+                    onClick={(event: any) => {
+                      handlePointAdress(address);
+                      setActiveAddr(address.id);
+                    }}
+                    key={address.id}
+                  >
+                    {address.address}
+                  </p>
+                ))
+              ) : (
+                <></>
+              )}
+            </div>
+          </>) :
+
+            <h1>Добавьте адрес доставки в личном кабинете</h1>
+
+          }
+          
+
         </div>
-        {addresses.length === 0 && (
-          <h1>Добавьте адрес доставки в личном кабинете</h1>
-        )}
         {/* <span>Или введите новый</span>
         <input
           type="text"
