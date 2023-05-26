@@ -627,7 +627,7 @@ module.exports = {
 
         {
           productId: 27,
-          colorId: 11,
+          colorId: 10,
           sizeId: 9,
           salePrice: 2999,
           sale: true,
@@ -636,7 +636,7 @@ module.exports = {
         },
         {
           productId: 27,
-          colorId: 11,
+          colorId: 10,
           sizeId: 10,
           salePrice: 2780,
           sale: false,
@@ -650,8 +650,8 @@ module.exports = {
         //propsID 54 55
         {
           productId: 28,
-          colorId: 11,
-          sizeId: 11,
+          colorId: 10,
+          sizeId: 7,
           salePrice: 2699,
           sale: true,
           quantity: 20,
@@ -659,8 +659,8 @@ module.exports = {
         },
         {
           productId: 28,
-          colorId: 11,
-          sizeId: 11,
+          colorId: 10,
+          sizeId: 9,
           salePrice: 2800,
           sale: false,
           quantity: 20,
