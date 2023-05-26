@@ -9,7 +9,15 @@ import { addGoodsReducer } from '../../../redux/slices/shopCard/card.slice';
 import { Progress } from 'antd';
 import { RootState } from '../../../types/types';
 
-export default function ShopCart() {
+export interface ShopCartProps {
+  resultTotalProductCart: number;
+  setResultTotalProductCart: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export default function ShopCart({
+  resultTotalProductCart,
+  setResultTotalProductCart,
+}: ShopCartProps) {
   // парсинг товаров из localStorage
   const dispatch = useAppDispatch();
   const [goods, setGoods] = useState<productPropsType[] | null>(null);
@@ -36,7 +44,7 @@ export default function ShopCart() {
   // счетчик
   function Increment(id: number) {
     const goodsIncrementQuantity: any = goods?.map((el: productPropsType) =>
-      el.id === id ? { ...el, quantity: ((el.quantity as number) + 1) } : el
+      el.id === id ? { ...el, quantity: (el.quantity as number) + 1 } : el
     );
     localStorage.setItem(
       'GoodsForShopCart',
@@ -48,7 +56,7 @@ export default function ShopCart() {
 
   function Dicrement(id: number) {
     const goodsDicrementQuantity: any = goods?.map((el: productPropsType) =>
-      el.id === id ? { ...el, quantity: ((el.quantity as number) - 1) } : el
+      el.id === id ? { ...el, quantity: (el.quantity as number) - 1 } : el
     );
     localStorage.setItem(
       'GoodsForShopCart',
@@ -121,13 +129,14 @@ export default function ShopCart() {
           <img src={truckIcon} alt="truckIcon" />
         </div>
       </div>
-      <div className={styles.Content}>
-        <div className={styles.InfoGoods}>
-          <h5>Товар</h5>
-          <h5>Количество</h5>
-          <h5>Стоимость</h5>
-          <h5>Сумма</h5>
+      <div className={styles.goodsTitles}>
+          <h5 className={styles.good}>Товар</h5>
+          <h5 className={styles.quantity}>Количество</h5>
+          <h5 className={styles.price}>Стоимость</h5>
+          <h5 className={styles.summ}>Сумма</h5>
         </div>
+        <div className={styles.InfoGoods}></div>
+      <div className={styles.Content}>
         {goods?.length ? (
           goods?.map((el: productPropsType, i) => (
             <CartProduct
@@ -144,11 +153,13 @@ export default function ShopCart() {
             />
           ))
         ) : (
-          <div>Ваша корзина пока что пустая</div>
+          <div>В данный момент в Вашей корзине нет товаров.</div>
         )}
       </div>
 
       <DileveryPay
+        resultTotalProductCart={resultTotalProductCart}
+        setResultTotalProductCart={setResultTotalProductCart}
         totalPriceCalculate={totalPriceCalculate}
         totalPrice={totalPrice}
       />

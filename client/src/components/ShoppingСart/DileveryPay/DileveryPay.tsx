@@ -15,9 +15,19 @@ import { productPropsType } from '../../../types/product';
 import { fetchAddToCardFromFrontBulkCreate } from '../../../redux/Thunk/FullListOfUserOrderCartElements/fetchAddToCardFromFrontBulkCreate.api';
 import { INewCartElement } from '../../../types/ListOfOrders.type';
 import { setCurrentOrderId } from '../../../redux/slices/ListOfOrders/listOfOrders.slice';
+import { useNavigate } from 'react-router-dom';
+import { clearGoodsReducer } from '../../../redux/slices/shopCard/card.slice';
 
-export default function DileveryPay({ totalPriceCalculate, totalPrice }: any) {
+export default function DileveryPay({
+  totalPriceCalculate,
+  totalPrice,
+  resultTotalProductCart,
+  setResultTotalProductCart,
+}: any) {
   const dispatch = useAppDispatch();
+
+  const navigate = useNavigate();
+
   const [newAdress, setNewAdress] = useState<any>('');
   const [newOrderCreated, setNewOrderCreated] = useState<boolean>(false);
   const [pointAdress, setPointAdress] = useState<IDeliveryAddress>({
@@ -26,6 +36,7 @@ export default function DileveryPay({ totalPriceCalculate, totalPrice }: any) {
     address: '',
   });
   const [clientNumber, setClientNumber] = useState<string>('');
+  const [activeAddr, setActiveAddr] = useState<number>(0);
 
   const { storeContext } = useContext(Context);
   const userId = storeContext.user.id;
@@ -42,7 +53,7 @@ export default function DileveryPay({ totalPriceCalculate, totalPrice }: any) {
 
   //TODO СДЕЛАТЬ УДАЛЕНИЕ LOCAL STORAGE
   if (orderId) {
-    for (let i = 0; i < goodsForShopCart.length; i++) {
+    for (let i = 0; i < goodsForShopCart?.length; i++) {
       userOrderedCartElements.push({
         userId: userId,
         productPropsId: goodsForShopCart[i].id,
@@ -62,6 +73,8 @@ export default function DileveryPay({ totalPriceCalculate, totalPrice }: any) {
   );
 
   console.log('>>>>>>>>>> orderId', orderId);
+
+  console.log('>>>>>>>>>>>>>>> GOODSCART', goodsForShopCart);
 
   useEffect(() => {
     const userId: number = storeContext.user.id;
@@ -100,6 +113,19 @@ export default function DileveryPay({ totalPriceCalculate, totalPrice }: any) {
   if (newOrderCreated && userOrderedCartElements.length) {
     dispatch(fetchAddToCardFromFrontBulkCreate(userOrderedCartElements));
     setNewOrderCreated(!newOrderCreated);
+    dispatch(setCurrentOrderId(0));
+    setResultTotalProductCart(0);
+    localStorage.removeItem('GoodsForShopCart');
+    dispatch(clearGoodsReducer([]));
+    navigate('/');
+  }
+
+  function toggleActiveAddressStyle(index: number) {
+    if (index === activeAddr) {
+      return styles.addrActive;
+    } else {
+      return styles.addrInActive;
+    }
   }
 
   function addOrderHandler() {
@@ -114,38 +140,48 @@ export default function DileveryPay({ totalPriceCalculate, totalPrice }: any) {
     };
 
     dispatch(fetchAddOrderFromBack(newOrder));
+
     setNewOrderCreated(!newOrderCreated);
-    dispatch(setCurrentOrderId(0));
-    //TODO localStorage.removeItem('GoodsForShopCart');
+
     // userOrderedCartElements.length &&
     //   dispatch(fetchAddToCardFromFrontBulkCreate(userOrderedCartElements));
   }
+
+  console.log(activeAddr);
 
   return (
     <div className={styles.InfoOrder}>
       <div>
         <div className={styles.deliveryAdress}>
-          {/* <Link to="/map"> */}
-          <h3>Выберите адрес из списка:</h3>
-          <div className={styles.adress}>
-            {addresses.length ? (
-              addresses.map((address: any, i: number) => (
-                <p
-                  className={styles.adressPointer}
-                  onClick={(event: any) => handlePointAdress(address)}
-                  key={address.id}
-                >
-                  {address.address}
-                </p>
-              ))
-            ) : (
-              <></>
-            )}
-          </div>
+          {addresses.length ? (  
+          <>
+            <h3>Выберите адрес из списка:</h3>
+            <div className={styles.adress}>
+              {addresses.length ? (
+                addresses.map((address: IDeliveryAddress, i: number) => (
+                  <p
+                    className={toggleActiveAddressStyle(address.id)}
+                    onClick={(event: any) => {
+                      handlePointAdress(address);
+                      setActiveAddr(address.id);
+                    }}
+                    key={address.id}
+                  >
+                    {address.address}
+                  </p>
+                ))
+              ) : (
+                <></>
+              )}
+            </div>
+          </>) :
+
+            <h1>Добавьте адрес доставки в личном кабинете</h1>
+
+          }
+          
+
         </div>
-        {addresses.length === 0 && (
-          <h1>Добавьте адрес доставки в личном кабинете</h1>
-        )}
         {/* <span>Или введите новый</span>
         <input
           type="text"
@@ -182,11 +218,11 @@ export default function DileveryPay({ totalPriceCalculate, totalPrice }: any) {
                 <b>{totalPrice()}р</b>
               </span>
             </div>
-
             <button
               onClick={(event) => {
                 // handleOrdering(event);
                 addOrderHandler();
+                setResultTotalProductCart(0);
               }}
               className={styles.Btn_Order}
             >

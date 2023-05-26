@@ -33,12 +33,10 @@
 }
 
 .brand {
+  font-family: 'Inter';
   font-weight: 700;
 }
 
 .price {
   font-weight: 400;
 }
-
-
-
