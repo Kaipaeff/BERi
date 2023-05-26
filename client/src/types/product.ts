@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type productType = {
   id: number;
   name: string;
@@ -12,7 +14,9 @@ export type productType = {
   reviews: number;
   minPrice: number;
   Images: [{ src: string }];
-  Vendor: { premium: boolean };
+  Vendor: {
+    [x: string]: ReactNode; premium: boolean 
+};
   quantity?: number | undefined;
 };
 
