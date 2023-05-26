@@ -1,21 +1,19 @@
-.map {
+/* .map {
   width: 100vh;
   height: 100vh;
-}
-.mapContainer {
+} */
+/* .mapContainer {
   display: flex;
   justify-content: space-between;
   width: 100%;
   border: 1px solid black;
-}
-.leftBar {
-}
+} */
+/* .leftBar {
+} */
 
-.inputAdress {
+/* .inputAdress {
   width: 450px;
-  height: 50px;
+  max-height: 30px;
   padding: 12px;
-  border: 1px solid #cbcbcb;
-}
-
-
+  border: 1px solid #e41111;
+} */
