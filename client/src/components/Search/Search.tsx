@@ -6,7 +6,7 @@ import { getProducts } from '../../redux/Thunk/Products/getProducts';
 import OneCardSearch from './OneCardSearch';
 import style from './search.module.css';
 
-import search from '../../img/icons/search.svg';
+import close from '../../img/icons/close.svg';
 
 export function Search() {
   const dispatch = useAppDispatch();
@@ -48,7 +48,12 @@ export function Search() {
             />
             <span title="Найти по названию" aria-label="find">
               <button type="submit" className={style.findBtn}>
-                <img className={style.searchSimbol} src={search} alt="search" />
+                Поиск
+              </button>
+            </span>
+            <span>
+            <button type="submit" className={style.closeBtn}>
+                <img className={style.searchSimbol} src={close} alt="close" onClick={() => setFindProductName('')}/>
               </button>
             </span>
           </div>
@@ -67,7 +72,7 @@ export function Search() {
             )
             .map((product) => (
               <React.Fragment key={product.id}>
-                <OneCardSearch oneProduct={product} />
+                <OneCardSearch el={product} />
               </React.Fragment>
             ))}
         </div>

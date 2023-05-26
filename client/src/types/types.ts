@@ -9,6 +9,10 @@ export type El = {
   el: productType;
 };
 
+export type ElSearch = {
+  el: productType;
+};
+
 type HandleClickFunction = (category: number) => void;
 
 export type OnClick = {
