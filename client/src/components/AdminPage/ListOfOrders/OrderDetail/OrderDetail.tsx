@@ -68,7 +68,7 @@ export default function OrderDetail({
           <span>
             <img
               src={mailIcon}
-              alt="phone"
+              alt="mail"
               className={styleOrderDetail.mailIco}
             />{' '}
             {selectedOrder['User.email']}
