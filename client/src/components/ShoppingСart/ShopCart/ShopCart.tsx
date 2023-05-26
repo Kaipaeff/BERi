@@ -9,7 +9,15 @@ import { addGoodsReducer } from '../../../redux/slices/shopCard/card.slice';
 import { Progress } from 'antd';
 import { RootState } from '../../../types/types';
 
-export default function ShopCart() {
+export interface ShopCartProps {
+  resultTotalProductCart: number;
+  setResultTotalProductCart: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export default function ShopCart({
+  resultTotalProductCart,
+  setResultTotalProductCart,
+}: ShopCartProps) {
   // парсинг товаров из localStorage
   const dispatch = useAppDispatch();
   const [goods, setGoods] = useState<productPropsType[] | null>(null);
@@ -36,7 +44,7 @@ export default function ShopCart() {
   // счетчик
   function Increment(id: number) {
     const goodsIncrementQuantity: any = goods?.map((el: productPropsType) =>
-      el.id === id ? { ...el, quantity: ((el.quantity as number) + 1) } : el
+      el.id === id ? { ...el, quantity: (el.quantity as number) + 1 } : el
     );
     localStorage.setItem(
       'GoodsForShopCart',
@@ -48,7 +56,7 @@ export default function ShopCart() {
 
   function Dicrement(id: number) {
     const goodsDicrementQuantity: any = goods?.map((el: productPropsType) =>
-      el.id === id ? { ...el, quantity: ((el.quantity as number) - 1) } : el
+      el.id === id ? { ...el, quantity: (el.quantity as number) - 1 } : el
     );
     localStorage.setItem(
       'GoodsForShopCart',
@@ -150,6 +158,8 @@ export default function ShopCart() {
       </div>
 
       <DileveryPay
+        resultTotalProductCart={resultTotalProductCart}
+        setResultTotalProductCart={setResultTotalProductCart}
         totalPriceCalculate={totalPriceCalculate}
         totalPrice={totalPrice}
       />

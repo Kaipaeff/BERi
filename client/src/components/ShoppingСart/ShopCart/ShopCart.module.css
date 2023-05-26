@@ -279,3 +279,21 @@
 
 
 
+
+.addrActive {
+  background-color: black;
+  width: 100px;
+  height: 20px;
+  color: white;
+}
+
+.addrInActive {
+  color: black;
+  width: 100px;
+  height: 20px;
+}
+
+.addrActive:hover,
+.addrInActive:hover {
+  cursor: pointer;
+}

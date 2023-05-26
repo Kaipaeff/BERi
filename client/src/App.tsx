@@ -42,6 +42,8 @@ function App() {
 
   const { storeContext } = useContext(Context);
   const [users, setUsers] = useState<IUser[]>([]);
+  const [resultTotalProductCart, setResultTotalProductCart] =
+    useState<number>(0);
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -85,7 +87,10 @@ function App() {
           <div key={user.email}>{user.email}</div>
         ))}
 
-        <Navbar />
+        <Navbar
+          resultTotalProductCart={resultTotalProductCart}
+          setResultTotalProductCart={setResultTotalProductCart}
+        />
 
         <div className={style.container}>
           {location.pathname !== '/login' &&
@@ -99,15 +104,13 @@ function App() {
             location.pathname !== '/privacypolicy' &&
             location.pathname !== '/search' &&
             location.pathname !== '/cart' &&
-            location.pathname !== '/about' && 
-            location.pathname !== '/clothes' && 
-            location.pathname !== '/shoes' && 
-            location.pathname !== '/accessories' && 
-            location.pathname !== '/premiumbrands' && 
-            location.pathname !== '/sale' &&   
-            location.pathname !== '/product-page' &&   
-                   
-            <MainSlider />}
+            location.pathname !== '/about' &&
+            location.pathname !== '/clothes' &&
+            location.pathname !== '/shoes' &&
+            location.pathname !== '/accessories' &&
+            location.pathname !== '/premiumbrands' &&
+            location.pathname !== '/sale' &&
+            location.pathname !== '/product-page' && <MainSlider />}
 
           <Routes>
             <Route path="/" element={<Home />} />
@@ -122,7 +125,15 @@ function App() {
             <Route path="/favorites" element={<Favorites />} />
 
             <Route path="/account" element={<MyAccount />} />
-            <Route path="/cart" element={<ShopCart />} />
+            <Route
+              path="/cart"
+              element={
+                <ShopCart
+                  resultTotalProductCart={resultTotalProductCart}
+                  setResultTotalProductCart={setResultTotalProductCart}
+                />
+              }
+            />
 
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contacts" element={<ContactUs />} />

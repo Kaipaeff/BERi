@@ -32,7 +32,6 @@
   flex-wrap: wrap;
   max-height: 500px;
   overflow: auto;
-
 }
 
 .filterFirstElement {
@@ -145,7 +144,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:space-between;
+  justify-content: space-between;
   width: 100%;
   min-height: 35px;
   background-color: #d1d1d17c;
@@ -153,7 +152,6 @@
   font-size: 14px;
   font-weight: 700;
 }
-
 
 .columnId {
   width: 50px;
@@ -186,7 +184,7 @@
 }
 
 .columnPhone {
-  width: 130px;
+  width: 160px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -194,7 +192,6 @@
   padding: 0 10px 0 10px;
   font-size: 14px;
 }
-
 
 .columnAddress {
   width: 250px;
