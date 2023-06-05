@@ -5,8 +5,7 @@
 ![2](https://github.com/Kaipaeff/BERi/assets/99525626/21d17ee4-c96f-410b-bcc5-9f1b6b6208c8)
 
 ## Личный кабинет
-
-![Снимок экрана от 2023-06-01 00-48-11](https://github.com/Kaipaeff/BERi/assets/99525626/060691c4-6b3e-42b2-afca-1961bd37e068)
+![3](https://github.com/Kaipaeff/BERi/assets/99525626/69322397-b1ff-42a3-afbc-a8d14d3a20f1)
 
 ## Футер
 
