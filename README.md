@@ -2,8 +2,7 @@
 ![242419726-866d848c-86b5-4891-bed3-46f937ca9654](https://github.com/Kaipaeff/BERi/assets/99525626/5a6a4d93-e063-41db-8124-6cd15cf20f36)
 
 ## Карточка товара 
-
-![Снимок экрана от 2023-06-01 00-47-19](https://github.com/Kaipaeff/BERi/assets/99525626/73329fe2-bb6c-4e03-aa60-24999117b26e)
+![2](https://github.com/Kaipaeff/BERi/assets/99525626/21d17ee4-c96f-410b-bcc5-9f1b6b6208c8)
 
 ## Личный кабинет
 
