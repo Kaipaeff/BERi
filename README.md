@@ -1,5 +1,5 @@
 ## Каталог
-![242419726-866d848c-86b5-4891-bed3-46f937ca9654](https://github.com/Kaipaeff/BERi/assets/99525626/4523808c-eeca-43fb-ac7a-ebb47e0aca4c)
+![242419726-866d848c-86b5-4891-bed3-46f937ca9654](https://github.com/Kaipaeff/BERi/assets/99525626/5a6a4d93-e063-41db-8124-6cd15cf20f36)
 
 ## Карточка товара 
 
