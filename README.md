@@ -8,5 +8,4 @@
 ![3](https://github.com/Kaipaeff/BERi/assets/99525626/69322397-b1ff-42a3-afbc-a8d14d3a20f1)
 
 ## Футер
-
-![Снимок экрана от 2023-06-01 00-50-18](https://github.com/Kaipaeff/BERi/assets/99525626/9c680b42-7609-463f-83b9-e6118da9703b)
+![4](https://github.com/Kaipaeff/BERi/assets/99525626/7f62591d-a1b2-42ce-998e-b73e5fbf5aa0)
